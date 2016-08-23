@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>MUI的原生与网页交互研究 | 刘显安的git博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MUI的原生与网页交互研究">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MUI的原生与网页交互研究">
+<meta property="og:url" content="http://mygit.me/2016/06/27/mui-android-webview-javascript-interactive/index.html">
+<meta property="og:site_name" content="刘显安的git博客">
+<meta property="og:description" content="MUI的原生与网页交互研究">
+<meta property="og:image" content="http://image.liuxianan.com/201606/20160608_093703_184_3212.png">
+<meta property="og:image" content="http://image.liuxianan.com/201606/20160608_094436_624_3020.png">
+<meta property="og:image" content="http://image.liuxianan.com/201606/20160608_094408_760_5763.png">
+<meta property="og:updated_time" content="2016-08-23T12:55:59.410Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MUI的原生与网页交互研究">
+<meta name="twitter:description" content="MUI的原生与网页交互研究">
+<meta name="twitter:image" content="http://image.liuxianan.com/201606/20160608_093703_184_3212.png">
+  
+    <link rel="alternative" href="/atom.xml" title="刘显安的git博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog//favicon.jpg">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">小茗同学</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/blog/">主页</a></li>
+				        
+							<li><a href="/blog/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/blog/tags/adb/" style="font-size: 10px;">adb</a> <a href="/blog/tags/alert/" style="font-size: 10px;">alert</a> <a href="/blog/tags/android/" style="font-size: 18.57px;">android</a> <a href="/blog/tags/array/" style="font-size: 12.86px;">array</a> <a href="/blog/tags/bind/" style="font-size: 10px;">bind</a> <a href="/blog/tags/bug/" style="font-size: 11.43px;">bug</a> <a href="/blog/tags/cache/" style="font-size: 10px;">cache</a> <a href="/blog/tags/checkbox/" style="font-size: 10px;">checkbox</a> <a href="/blog/tags/childnodes/" style="font-size: 10px;">childnodes</a> <a href="/blog/tags/children/" style="font-size: 10px;">children</a> <a href="/blog/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/blog/tags/click/" style="font-size: 11.43px;">click</a> <a href="/blog/tags/code/" style="font-size: 11.43px;">code</a> <a href="/blog/tags/comet4j/" style="font-size: 10px;">comet4j</a> <a href="/blog/tags/console/" style="font-size: 10px;">console</a> <a href="/blog/tags/control/" style="font-size: 10px;">control</a> <a href="/blog/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/blog/tags/cordova/" style="font-size: 11.43px;">cordova</a> <a href="/blog/tags/cross/" style="font-size: 10px;">cross</a> <a href="/blog/tags/crossdomain/" style="font-size: 10px;">crossdomain</a> <a href="/blog/tags/css/" style="font-size: 11.43px;">css</a> <a href="/blog/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/blog/tags/cursor/" style="font-size: 10px;">cursor</a> <a href="/blog/tags/debug/" style="font-size: 10px;">debug</a> <a href="/blog/tags/dns/" style="font-size: 10px;">dns</a> <a href="/blog/tags/dom/" style="font-size: 10px;">dom</a> <a href="/blog/tags/domain/" style="font-size: 10px;">domain</a> <a href="/blog/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/blog/tags/el表达式/" style="font-size: 10px;">el表达式</a> <a href="/blog/tags/endswidth/" style="font-size: 10px;">endswidth</a> <a href="/blog/tags/epg/" style="font-size: 10px;">epg</a> <a href="/blog/tags/error/" style="font-size: 10px;">error</a> <a href="/blog/tags/favicon/" style="font-size: 10px;">favicon</a> <a href="/blog/tags/file/" style="font-size: 11.43px;">file</a> <a href="/blog/tags/flash/" style="font-size: 10px;">flash</a> <a href="/blog/tags/for/" style="font-size: 10px;">for</a> <a href="/blog/tags/function/" style="font-size: 10px;">function</a> <a href="/blog/tags/github/" style="font-size: 10px;">github</a> <a href="/blog/tags/hasOwnProperty/" style="font-size: 10px;">hasOwnProperty</a> <a href="/blog/tags/hasownproperty/" style="font-size: 10px;">hasownproperty</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/hoisting/" style="font-size: 10px;">hoisting</a> <a href="/blog/tags/html/" style="font-size: 17.14px;">html</a> <a href="/blog/tags/html5/" style="font-size: 11.43px;">html5</a> <a href="/blog/tags/http/" style="font-size: 10px;">http</a> <a href="/blog/tags/id/" style="font-size: 10px;">id</a> <a href="/blog/tags/in/" style="font-size: 10px;">in</a> <a href="/blog/tags/innerhtml/" style="font-size: 10px;">innerhtml</a> <a href="/blog/tags/input/" style="font-size: 12.86px;">input</a> <a href="/blog/tags/ios/" style="font-size: 10px;">ios</a> <a href="/blog/tags/ip/" style="font-size: 10px;">ip</a> <a href="/blog/tags/isprototypeof/" style="font-size: 10px;">isprototypeof</a> <a href="/blog/tags/java/" style="font-size: 12.86px;">java</a> <a href="/blog/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/blog/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/blog/tags/json/" style="font-size: 10px;">json</a> <a href="/blog/tags/lan/" style="font-size: 11.43px;">lan</a> <a href="/blog/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/blog/tags/log/" style="font-size: 10px;">log</a> <a href="/blog/tags/marquee/" style="font-size: 10px;">marquee</a> <a href="/blog/tags/mime/" style="font-size: 10px;">mime</a> <a href="/blog/tags/mui/" style="font-size: 11.43px;">mui</a> <a href="/blog/tags/mysql/" style="font-size: 11.43px;">mysql</a> <a href="/blog/tags/native/" style="font-size: 10px;">native</a> <a href="/blog/tags/node-js/" style="font-size: 11.43px;">node.js</a> <a href="/blog/tags/npm/" style="font-size: 10px;">npm</a> <a href="/blog/tags/oncreate/" style="font-size: 10px;">oncreate</a> <a href="/blog/tags/phonegap/" style="font-size: 10px;">phonegap</a> <a href="/blog/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/blog/tags/pomelo/" style="font-size: 10px;">pomelo</a> <a href="/blog/tags/prototype/" style="font-size: 12.86px;">prototype</a> <a href="/blog/tags/pullRefresh/" style="font-size: 10px;">pullRefresh</a> <a href="/blog/tags/shuffle/" style="font-size: 10px;">shuffle</a> <a href="/blog/tags/simple/" style="font-size: 10px;">simple</a> <a href="/blog/tags/socket-io/" style="font-size: 10px;">socket.io</a> <a href="/blog/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/blog/tags/startswith/" style="font-size: 10px;">startswith</a> <a href="/blog/tags/status/" style="font-size: 10px;">status</a> <a href="/blog/tags/string/" style="font-size: 10px;">string</a> <a href="/blog/tags/svn/" style="font-size: 10px;">svn</a> <a href="/blog/tags/switch/" style="font-size: 10px;">switch</a> <a href="/blog/tags/textarea/" style="font-size: 10px;">textarea</a> <a href="/blog/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/blog/tags/tomcat6/" style="font-size: 10px;">tomcat6</a> <a href="/blog/tags/tomcat7/" style="font-size: 10px;">tomcat7</a> <a href="/blog/tags/transition/" style="font-size: 10px;">transition</a> <a href="/blog/tags/trim/" style="font-size: 10px;">trim</a> <a href="/blog/tags/type/" style="font-size: 10px;">type</a> <a href="/blog/tags/typeerror/" style="font-size: 10px;">typeerror</a> <a href="/blog/tags/uiwebview/" style="font-size: 10px;">uiwebview</a> <a href="/blog/tags/undefined/" style="font-size: 10px;">undefined</a> <a href="/blog/tags/unicode/" style="font-size: 10px;">unicode</a> <a href="/blog/tags/value/" style="font-size: 10px;">value</a> <a href="/blog/tags/version/" style="font-size: 10px;">version</a> <a href="/blog/tags/video/" style="font-size: 10px;">video</a> <a href="/blog/tags/wan/" style="font-size: 10px;">wan</a> <a href="/blog/tags/web/" style="font-size: 10px;">web</a> <a href="/blog/tags/webview/" style="font-size: 15.71px;">webview</a> <a href="/blog/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/blog/tags/win10/" style="font-size: 10px;">win10</a> <a href="/blog/tags/windows/" style="font-size: 12.86px;">windows</a> <a href="/blog/tags/winscp/" style="font-size: 10px;">winscp</a> <a href="/blog/tags/wlan/" style="font-size: 10px;">wlan</a> <a href="/blog/tags/xshell/" style="font-size: 10px;">xshell</a> <a href="/blog/tags/zoom/" style="font-size: 10px;">zoom</a> <a href="/blog/tags/上下文/" style="font-size: 10px;">上下文</a> <a href="/blog/tags/下拉刷新/" style="font-size: 10px;">下拉刷新</a> <a href="/blog/tags/下载/" style="font-size: 10px;">下载</a> <a href="/blog/tags/不使用/" style="font-size: 10px;">不使用</a> <a href="/blog/tags/不兼容/" style="font-size: 10px;">不兼容</a> <a href="/blog/tags/不同/" style="font-size: 10px;">不同</a> <a href="/blog/tags/不好/" style="font-size: 10px;">不好</a> <a href="/blog/tags/个人/" style="font-size: 10px;">个人</a> <a href="/blog/tags/临时/" style="font-size: 10px;">临时</a> <a href="/blog/tags/乱序/" style="font-size: 10px;">乱序</a> <a href="/blog/tags/云服务器/" style="font-size: 10px;">云服务器</a> <a href="/blog/tags/互动/" style="font-size: 10px;">互动</a> <a href="/blog/tags/交互/" style="font-size: 14.29px;">交互</a> <a href="/blog/tags/交换/" style="font-size: 10px;">交换</a> <a href="/blog/tags/传值/" style="font-size: 11.43px;">传值</a> <a href="/blog/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/blog/tags/修改/" style="font-size: 10px;">修改</a> <a href="/blog/tags/关键字/" style="font-size: 10px;">关键字</a> <a href="/blog/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/blog/tags/内网/" style="font-size: 10px;">内网</a> <a href="/blog/tags/切换/" style="font-size: 10px;">切换</a> <a href="/blog/tags/列表/" style="font-size: 10px;">列表</a> <a href="/blog/tags/加载/" style="font-size: 10px;">加载</a> <a href="/blog/tags/匹配/" style="font-size: 10px;">匹配</a> <a href="/blog/tags/区别/" style="font-size: 12.86px;">区别</a> <a href="/blog/tags/单击/" style="font-size: 10px;">单击</a> <a href="/blog/tags/单引号/" style="font-size: 10px;">单引号</a> <a href="/blog/tags/博客/" style="font-size: 10px;">博客</a> <a href="/blog/tags/占用/" style="font-size: 10px;">占用</a> <a href="/blog/tags/原生/" style="font-size: 11.43px;">原生</a> <a href="/blog/tags/变量/" style="font-size: 11.43px;">变量</a> <a href="/blog/tags/变量声明/" style="font-size: 10px;">变量声明</a> <a href="/blog/tags/右键/" style="font-size: 10px;">右键</a> <a href="/blog/tags/后台/" style="font-size: 10px;">后台</a> <a href="/blog/tags/吐槽/" style="font-size: 10px;">吐槽</a> <a href="/blog/tags/命令/" style="font-size: 11.43px;">命令</a> <a href="/blog/tags/图标/" style="font-size: 10px;">图标</a> <a href="/blog/tags/地址/" style="font-size: 10px;">地址</a> <a href="/blog/tags/域名/" style="font-size: 10px;">域名</a> <a href="/blog/tags/基本/" style="font-size: 10px;">基本</a> <a href="/blog/tags/处理/" style="font-size: 11.43px;">处理</a> <a href="/blog/tags/复制/" style="font-size: 10px;">复制</a> <a href="/blog/tags/复选框/" style="font-size: 10px;">复选框</a> <a href="/blog/tags/失效/" style="font-size: 10px;">失效</a> <a href="/blog/tags/失败/" style="font-size: 10px;">失败</a> <a href="/blog/tags/字符/" style="font-size: 11.43px;">字符</a> <a href="/blog/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/blog/tags/安装/" style="font-size: 10px;">安装</a> <a href="/blog/tags/实时/" style="font-size: 10px;">实时</a> <a href="/blog/tags/局域网/" style="font-size: 10px;">局域网</a> <a href="/blog/tags/展示/" style="font-size: 10px;">展示</a> <a href="/blog/tags/工具/" style="font-size: 10px;">工具</a> <a href="/blog/tags/常用/" style="font-size: 10px;">常用</a> <a href="/blog/tags/常见/" style="font-size: 11.43px;">常见</a> <a href="/blog/tags/异步/" style="font-size: 10px;">异步</a> <a href="/blog/tags/总结/" style="font-size: 11.43px;">总结</a> <a href="/blog/tags/手机/" style="font-size: 10px;">手机</a> <a href="/blog/tags/打乱/" style="font-size: 10px;">打乱</a> <a href="/blog/tags/执行中/" style="font-size: 10px;">执行中</a> <a href="/blog/tags/抢注/" style="font-size: 10px;">抢注</a> <a href="/blog/tags/报错/" style="font-size: 10px;">报错</a> <a href="/blog/tags/指针/" style="font-size: 10px;">指针</a> <a href="/blog/tags/按钮/" style="font-size: 10px;">按钮</a> <a href="/blog/tags/控制/" style="font-size: 10px;">控制</a> <a href="/blog/tags/推送/" style="font-size: 10px;">推送</a> <a href="/blog/tags/提升/" style="font-size: 10px;">提升</a> <a href="/blog/tags/插入/" style="font-size: 10px;">插入</a> <a href="/blog/tags/搭建/" style="font-size: 10px;">搭建</a> <a href="/blog/tags/数组/" style="font-size: 12.86px;">数组</a> <a href="/blog/tags/文件上传/" style="font-size: 10px;">文件上传</a> <a href="/blog/tags/方法/" style="font-size: 11.43px;">方法</a> <a href="/blog/tags/最全/" style="font-size: 10px;">最全</a> <a href="/blog/tags/未运行/" style="font-size: 10px;">未运行</a> <a href="/blog/tags/本地/" style="font-size: 10px;">本地</a> <a href="/blog/tags/查看/" style="font-size: 10px;">查看</a> <a href="/blog/tags/样式/" style="font-size: 11.43px;">样式</a> <a href="/blog/tags/横屏/" style="font-size: 10px;">横屏</a> <a href="/blog/tags/正则/" style="font-size: 10px;">正则</a> <a href="/blog/tags/注解/" style="font-size: 10px;">注解</a> <a href="/blog/tags/清理/" style="font-size: 10px;">清理</a> <a href="/blog/tags/清除/" style="font-size: 10px;">清除</a> <a href="/blog/tags/版本号/" style="font-size: 10px;">版本号</a> <a href="/blog/tags/特殊/" style="font-size: 10px;">特殊</a> <a href="/blog/tags/状态码/" style="font-size: 10px;">状态码</a> <a href="/blog/tags/生成/" style="font-size: 11.43px;">生成</a> <a href="/blog/tags/目录/" style="font-size: 10px;">目录</a> <a href="/blog/tags/破解/" style="font-size: 10px;">破解</a> <a href="/blog/tags/禁止/" style="font-size: 10px;">禁止</a> <a href="/blog/tags/移动端/" style="font-size: 11.43px;">移动端</a> <a href="/blog/tags/竖屏/" style="font-size: 10px;">竖屏</a> <a href="/blog/tags/端口/" style="font-size: 10px;">端口</a> <a href="/blog/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/blog/tags/粘贴/" style="font-size: 10px;">粘贴</a> <a href="/blog/tags/缓存/" style="font-size: 11.43px;">缓存</a> <a href="/blog/tags/编码/" style="font-size: 10px;">编码</a> <a href="/blog/tags/网站/" style="font-size: 11.43px;">网站</a> <a href="/blog/tags/网页/" style="font-size: 11.43px;">网页</a> <a href="/blog/tags/脑残/" style="font-size: 10px;">脑残</a> <a href="/blog/tags/自动/" style="font-size: 11.43px;">自动</a> <a href="/blog/tags/自定义/" style="font-size: 11.43px;">自定义</a> <a href="/blog/tags/获取/" style="font-size: 11.43px;">获取</a> <a href="/blog/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/blog/tags/视频/" style="font-size: 10px;">视频</a> <a href="/blog/tags/解析/" style="font-size: 10px;">解析</a> <a href="/blog/tags/触发/" style="font-size: 10px;">触发</a> <a href="/blog/tags/计数器/" style="font-size: 10px;">计数器</a> <a href="/blog/tags/设置/" style="font-size: 11.43px;">设置</a> <a href="/blog/tags/详解/" style="font-size: 10px;">详解</a> <a href="/blog/tags/调试/" style="font-size: 10px;">调试</a> <a href="/blog/tags/购买/" style="font-size: 10px;">购买</a> <a href="/blog/tags/跨域/" style="font-size: 11.43px;">跨域</a> <a href="/blog/tags/转码/" style="font-size: 10px;">转码</a> <a href="/blog/tags/运行/" style="font-size: 10px;">运行</a> <a href="/blog/tags/运行中/" style="font-size: 10px;">运行中</a> <a href="/blog/tags/连接/" style="font-size: 10px;">连接</a> <a href="/blog/tags/遍历/" style="font-size: 10px;">遍历</a> <a href="/blog/tags/阿里云/" style="font-size: 10px;">阿里云</a> <a href="/blog/tags/非字符串/" style="font-size: 10px;">非字符串</a> <a href="/blog/tags/音频服务/" style="font-size: 10px;">音频服务</a> <a href="/blog/tags/默认/" style="font-size: 10px;">默认</a> <a href="/blog/tags/鼠标/" style="font-size: 10px;">鼠标</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://liuxianan.com">我的个人网站</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/liuxianan/">我的博客园</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">屌丝程序员一枚，个人网站：http://liuxianan.com</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">小茗同学</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="/blog/avatar.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">小茗同学</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/blog/">主页</a></li>
+		        
+					<li><a href="/blog/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-mui-android-webview-javascript-interactive" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/06/27/mui-android-webview-javascript-interactive/" class="article-date">
+  	<time datetime="2016-06-26T16:00:00.000Z" itemprop="datePublished">2016-06-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MUI的原生与网页交互研究
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mui/">mui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/webview/">webview</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/交互/">交互</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/blog/categories/hybird/">hybird</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h1><p>MUI首页：<a href="http://dev.dcloud.net.cn/mui/" target="_blank" rel="external">http://dev.dcloud.net.cn/mui/</a><br>HTML5+SDK首页：<a href="http://www.html5plus.org/doc/h5p.html" target="_blank" rel="external">http://www.html5plus.org/doc/h5p.html</a><br>DCloud首页：<a href="http://www.dcloud.io/" target="_blank" rel="external">http://www.dcloud.io/</a></p>
+<h1 id="注入"><a href="#注入" class="headerlink" title="注入"></a>注入</h1><p>一开始一直很好奇，mui的类似<code>plus.device.getVolume()</code>这样的三级方法是怎么注入的，因为安卓中注入时<code>mWebView.addJavascriptInterface(object, name)</code>中的name <a id="more"></a> 是不能有“.”的：</p>
+<pre><code>//这种写法是错误的，注入的方法会调用不了
+mWebView.addJavascriptInterface(object, &apos;plus.device&apos;);
+</code></pre><p>今天无意中在调试的时候发现，输入<code>plus.device.getVolume</code>时返回的不是<code>[native code]</code>，而是具体的代码，第一反应就是这个代码是在js里面写好的，而不是注入的，但是查看前端代码没有发现类似的js，然后就猜想这个js是不是放到安卓那边去了，于是就到HTML5+sdk中找到一个名为pdr.jar的文件，最后还真在里面发现了一个压缩过的js：</p>
+<p><img src="http://image.liuxianan.com/201606/20160608_093703_184_3212.png" alt=""></p>
+<p>打开一看，还真是，所有的plus.xxx.xxx代码都在里面，只是因为加密了，看起来比较费力。</p>
+<p>通过全局搜索找到了如下代码：</p>
+<p><img src="http://image.liuxianan.com/201606/20160608_094436_624_3020.png" alt=""></p>
+<p><img src="http://image.liuxianan.com/201606/20160608_094408_760_5763.png" alt=""></p>
+<p>具体是怎么把这个js注入进去的呢？具体完整流程我没有走通，但是整体思路应该是下面这样的。</p>
+<p>在<code>io.dcloud.feature.b.java</code>有如下方法，以下方法将all.js的内容读取到了<code>this.f</code>里面：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*  77 */</span>   <span class="function"><span class="keyword">public</span> <span class="title">b</span><span class="params">(ICore paramICore)</span> </span>&#123; <span class="keyword">super</span>(paramICore, <span class="string">"featuremgr"</span>, IMgr.MgrType.FeatureMgr);</div><div class="line"><span class="comment">/*     */</span>     <span class="keyword">try</span></div><div class="line"><span class="comment">/*     */</span>     &#123;</div><div class="line"><span class="comment">/*  80 */</span>       <span class="keyword">if</span> ((BaseInfo.ISDEBUG) &amp;&amp; (DHFile.isExist(<span class="string">"/sdcard/dcloud/all.js"</span>)))</div><div class="line"><span class="comment">/*  81 */</span>         <span class="keyword">this</span>.f = <span class="keyword">new</span> String(PlatformUtil.getFileContent(<span class="string">"/sdcard/dcloud/all.js"</span>, <span class="number">2</span>));</div><div class="line"><span class="comment">/*     */</span>       <span class="keyword">else</span></div><div class="line"><span class="comment">/*  83 */</span>         <span class="keyword">this</span>.f = <span class="keyword">new</span> String(PlatformUtil.getFileContent(BaseInfo.sRuntimeJsPath, <span class="number">1</span>));</div><div class="line"><span class="comment">/*     */</span>     &#125;</div><div class="line"><span class="comment">/*     */</span>     <span class="keyword">catch</span> (IOException localIOException)</div><div class="line"><span class="comment">/*     */</span>     &#123;</div><div class="line"><span class="comment">/*  87 */</span>       localIOException.printStackTrace();</div><div class="line"><span class="comment">/*     */</span>     &#125;</div><div class="line"><span class="comment">/*     */</span>   &#125;</div></pre></td></tr></table></figure>
+<p>然后就是这个方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*     */</span>   <span class="function"><span class="keyword">private</span> String <span class="title">a</span><span class="params">(IApp paramIApp, IFrameView paramIFrameView)</span></span></div><div class="line"><span class="comment">/*     */</span>   &#123;</div><div class="line"><span class="comment">/* 211 */</span>     IWebview localIWebview = paramIFrameView.obtainWebView();</div><div class="line"><span class="comment">/* 212 */</span>     String str1 = <span class="string">"__load__plus__"</span>;</div><div class="line"><span class="comment">/* 213 */</span>     StringBuffer localStringBuffer = <span class="keyword">new</span> StringBuffer(<span class="string">"javascript:"</span>);</div><div class="line"><span class="comment">/* 214 */</span>     localStringBuffer.append(<span class="string">"function "</span>).append(str1).append(<span class="string">"()&#123;try&#123;"</span>);</div><div class="line"><span class="comment">/* 215 */</span>     localStringBuffer.append(<span class="string">"window._____isDebug_____="</span> + BaseInfo.ISDEBUG + <span class="string">";"</span>);</div><div class="line"><span class="comment">/* 216 */</span>     localStringBuffer.append(<span class="string">"window._____platform_____=1;"</span>);</div><div class="line"><span class="comment">/* 217 */</span>     localStringBuffer.append(<span class="keyword">this</span>.f); <span class="comment">// 这里很关键的代码，将all.js的内容进行了拼接</span></div><div class="line">				<span class="comment">// 省略大部分代码</span></div><div class="line"><span class="comment">/* 268 */</span>     <span class="keyword">return</span> localStringBuffer.toString();</div><div class="line"><span class="comment">/*     */</span>   &#125;</div></pre></td></tr></table></figure>
+<p>在<code>WebLoadEvent</code>中的<code>onPageFinished</code>调用了一个名为<code>loadAllJSContent</code>的方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*     */</span>   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadAllJSContent</span><span class="params">(WebView paramWebView, String paramString1, String paramString2)</span></span></div><div class="line"><span class="comment">/*     */</span>   &#123;</div><div class="line"><span class="comment">/* 327 */</span>     onLoadPlusJSContent(paramWebView, paramString1, paramString2);</div><div class="line"><span class="comment">/*     */</span> </div><div class="line"><span class="comment">/* 329 */</span>     onPreloadJSContent(paramWebView, paramString1, paramString2);</div><div class="line"><span class="comment">/*     */</span> </div><div class="line"><span class="comment">/* 331 */</span>     onPlusreadyEvent(paramWebView, paramString1, paramString2);</div><div class="line"><span class="comment">/*     */</span> </div><div class="line"><span class="comment">/* 333 */</span>     onExecuteEvalJSStatck(paramWebView, paramString1, paramString2);</div><div class="line"><span class="comment">/*     */</span>   &#125;</div></pre></td></tr></table></figure></p>
+<p>好家伙，找了这么久终于找到mui注册事件的代码了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*     */</span>   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">onPlusreadyEvent</span><span class="params">(WebView paramWebView, String paramString1, String paramString2)</span></span></div><div class="line"><span class="comment">/*     */</span>   &#123;</div><div class="line"><span class="comment">/* 273 */</span>     StringBuffer localStringBuffer1 = <span class="keyword">new</span> StringBuffer();</div><div class="line"><span class="comment">/* 274 */</span>     localStringBuffer1.append(String.format(<span class="string">"javascript:(function()&#123;if((!window.plus) || (window.plus &amp;&amp; (!window.plus.isReady)))&#123;window.__load__plus__&amp;&amp;window.__load__plus__();&#125;var e = document.createEvent('HTMLEvents');var evt = '%s';e.initEvent(evt, false, true);/*console.log('dispatch ' + evt + ' event');*/document.dispatchEvent(e);&#125;)();"</span>, <span class="keyword">new</span> Object[] &#123; <span class="string">"plusready"</span> &#125;));</div><div class="line"><span class="comment">/* 275 */</span>     StringBuffer localStringBuffer2 = <span class="keyword">new</span> StringBuffer();</div><div class="line"><span class="comment">/* 276 */</span>     localStringBuffer2.append(String.format(<span class="string">"(function ()&#123;var b,c,d,e,a=document.getElementsByTagName('iframe');if(a &amp;&amp; a.length) for(b=0;b&lt;a.length;b++)c=a[b],d=c.contentWindow.document.createEvent('HTMLEvents'),e='%s',d.initEvent(e,!1,!0),c.contentWindow.plus=window.plus,c.contentWindow.document.dispatchEvent(d)&#125;)();"</span>, <span class="keyword">new</span> Object[] &#123; <span class="string">"plusready"</span> &#125;));</div><div class="line"><span class="comment">/* 277 */</span>     completeLoadJs(paramWebView, paramString1, paramString2, <span class="keyword">new</span> String[] &#123; localStringBuffer1.toString(), localStringBuffer2.toString() &#125;, <span class="string">"(function()&#123;/*console.log('plusready event loading href=' + location.href);*/if(location.__page__load__over__)&#123;return 2;&#125;if(location.href.indexOf('%s') &gt;= 0 || (location.href.startsWith &amp;&amp; location.href.startsWith('data:')))&#123;if(location.__plusready__)&#123;if(!location.__plusready__event__)&#123;location.__plusready__event__=true;return 1;&#125;else&#123;return 2;&#125;&#125;&#125;else if(location.__plusready__event__)&#123;return 2;&#125; return 0;&#125;)();"</span>, <span class="keyword">new</span> String[] &#123; paramString1 &#125;);</div><div class="line"><span class="comment">/*     */</span>   &#125;</div></pre></td></tr></table></figure>
+<p>这其中，最关键的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> e = <span class="built_in">document</span>.createEvent(<span class="string">'HTMLEvents'</span>);</div><div class="line">e.initEvent(<span class="string">'plusready'</span>, <span class="literal">false</span>, <span class="literal">true</span>);</div><div class="line"><span class="built_in">document</span>.dispatchEvent(e);</div></pre></td></tr></table></figure>
+<h1 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h1><p>这里简单介绍几个mui交互的方法：</p>
+<h2 id="plus-bridge-execSync"><a href="#plus-bridge-execSync" class="headerlink" title="plus.bridge.execSync"></a>plus.bridge.execSync</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">execSync: function(service, action, args, fn) &#123;</div><div class="line">    var json, sync, ret;</div><div class="line">    if (T.IOS == T.platform) &#123;</div><div class="line">        try &#123;</div><div class="line">            if (json = T.stringify([[window.__HtMl_Id__, service, action, null , args]]),</div><div class="line">            sync = B.synExecXhr,</div><div class="line">            sync.open(&quot;post&quot;, &quot;http://localhost:13131/cmds&quot;, !1),</div><div class="line">            sync.setRequestHeader(&quot;Content-Type&quot;, &quot;multipart/form-data&quot;),</div><div class="line">            sync.send(json),</div><div class="line">            fn)</div><div class="line">                return fn(sync.responseText)</div><div class="line">        &#125; catch (e) &#123;</div><div class="line">            console.log(&quot;sf:&quot; + action + &quot;-&quot; + service)</div><div class="line">        &#125;</div><div class="line">        return window.eval(sync.responseText)</div><div class="line">    &#125;</div><div class="line">    return T.ANDROID == T.platform ? (ret = window.prompt(T.stringify(args), &quot;pdr:&quot; + T.stringify([service, action, !1])),</div><div class="line">    fn ? fn(ret) : eval(ret)) : void 0</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>根据字面意思理解，这个方法是JS同步执行一个原生方法，看代码最后发现，这个竟然是用prompt来实现的：</p>
+<pre><code>prompt(JSON.stringify([]), &apos;pdr:&apos;+JSON.stringify([&apos;Device&apos;, &apos;getVolume&apos;, false]))
+// 输出：&quot;(function(){return 0.46666667;})()&quot;
+</code></pre><p>可能是因为<del>prompt这个方法是同步的原因吧。</del></p>
+<h2 id="有一些并不是all-js中的"><a href="#有一些并不是all-js中的" class="headerlink" title="有一些并不是all.js中的"></a>有一些并不是all.js中的</h2><p>比如plus.device.xxx，plus.screen.xxx，这些在all.js中并不存在，这些方法（或者属性）应该是动态生成的。</p>
+<h1 id="系统事件的实现"><a href="#系统事件的实现" class="headerlink" title="系统事件的实现"></a>系统事件的实现</h1><p><strong>说明</strong>：<br><em>本小节写在上面all.js注入机制之前，所以当时还不明白mui的事件是如何注入的，已经明白的读者可以跳过本小节。</em></p>
+<p>mui的很多事件可以像浏览器自带的事件那样，直接使用addEventListener完美监听，一直想知道它底层是如何实现的，不过到目前为止还没有搞透，主要是不但没有源码，而且源码都是混淆过的，反编译之后很难看懂。</p>
+<pre><code>document.addEventListener( &quot;netchange&quot;, netchangeCallback, capture );
+</code></pre><p>通过在prd.jar中搜索<code>netchange</code>，最后只是找到了一个注册系统事件的方法，在<code>io.dcloud.common.a.d.java</code>里面：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*      */</span>   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerSysEventListener</span><span class="params">(ISysEventListener paramISysEventListener, ISysEventListener.SysEventType paramSysEventType)</span></span></div><div class="line"><span class="comment">/*      */</span>   &#123;</div><div class="line"><span class="comment">/*  908 */</span>     <span class="keyword">if</span> (<span class="keyword">this</span>.y == <span class="keyword">null</span>) &#123;</div><div class="line"><span class="comment">/*  909 */</span>       <span class="keyword">this</span>.y = <span class="keyword">new</span> HashMap(<span class="number">1</span>);</div><div class="line"><span class="comment">/*      */</span>     &#125;</div><div class="line"><span class="comment">/*  911 */</span>     ArrayList localArrayList = (ArrayList)<span class="keyword">this</span>.y.get(paramSysEventType);</div><div class="line"><span class="comment">/*  912 */</span>     <span class="keyword">if</span> (localArrayList == <span class="keyword">null</span>) &#123;</div><div class="line"><span class="comment">/*  913 */</span>       localArrayList = <span class="keyword">new</span> ArrayList();</div><div class="line"><span class="comment">/*  914 */</span>       <span class="keyword">this</span>.y.put(paramSysEventType, localArrayList);</div><div class="line"><span class="comment">/*      */</span>     &#125;</div><div class="line"><span class="comment">/*  916 */</span>     localArrayList.add(paramISysEventListener);</div><div class="line"><span class="comment">/*      */</span>   &#125;</div></pre></td></tr></table></figure>
+<p>这些方法都在<code>io.dcloud.common.DHInterface.IApp</code>的抽象类里面，d.java实现了IApp，另外，在<code>io.dcloud.common.adapter.ui.WebLoadEvent.java</code>中找到如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 368 */</span>     <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</div><div class="line"><span class="comment">/* 369 */</span>       localObject = String.format(<span class="string">"javascript:(function()&#123;var b=document.createEvent('HTMLEvents');var a='%s';b.url='%s';b.href='%s';b.initEvent(a,false,true);console.error(a);document.dispatchEvent(b);&#125;)();"</span>, <span class="keyword">new</span> Object[] &#123; <span class="string">"error"</span>, <span class="keyword">this</span>.mAdaWebview.getOriginalUrl(), <span class="keyword">this</span>.mAdaWebview.errorPageUrl &#125;);</div><div class="line"><span class="comment">/* 370 */</span>       <span class="keyword">this</span>.mAdaWebview.executeScript((String)localObject);</div><div class="line"><span class="comment">/* 371 */</span>       <span class="keyword">this</span>.mAdaWebview.errorPageUrl = <span class="keyword">null</span>;</div><div class="line"><span class="comment">/* 372 */</span>       <span class="keyword">this</span>.mAdaWebview.hasErrorPage = <span class="keyword">false</span>;</div><div class="line"><span class="comment">/*     */</span>     &#125;</div></pre></td></tr></table></figure>
+<p>可以发现，mui可能也是使用js自定义事件然后触发的。</p>
+<p>另外有一个<code>io.dcloud.common.adapter.ui.AdaWebview.executeScript</code>方法，貌似执行js都是都过这个方法的，有一段代码是这样的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 416 */</span>   <span class="keyword">public</span> MessageHandler.IMessages executeScriptListener = <span class="keyword">new</span> MessageHandler.IMessages()</div><div class="line"><span class="comment">/*     */</span>   &#123;</div><div class="line"><span class="comment">/*     */</span>     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(Object paramAnonymousObject)</span> </span>&#123;</div><div class="line"><span class="comment">/* 419 */</span>       String str = (String)paramAnonymousObject;</div><div class="line"><span class="comment">/*     */</span> </div><div class="line"><span class="comment">/* 423 */</span>       AdaWebview.<span class="keyword">this</span>.mWebViewImpl.loadUrl(<span class="string">"javascript:"</span> + str);</div><div class="line"><span class="comment">/*     */</span>     &#125;</div><div class="line"><span class="comment">/* 416 */</span>   &#125;;</div></pre></td></tr></table></figure>
+<p>另外，在<code>pdr.jar</code>中的<code>all.js</code>中也没有搜索到像cordova中用到的<code>online</code>、<code>offline</code>的字符串，所以，mui执行js可能是采用传统的loadUrl方式来实现的。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/06/27/android-webview-alert-not-work/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          webview不能弹出alert
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/06/27/auto-generate-epg-button-move-direction/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自动生成按钮移动方向设计实现思路</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="mui-android-webview-javascript-interactive" data-title="MUI的原生与网页交互研究" data-url="http://mygit.me/blog/2016/06/27/mui-android-webview-javascript-interactive/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"lxa"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 小茗同学
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /blog/
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/blog/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

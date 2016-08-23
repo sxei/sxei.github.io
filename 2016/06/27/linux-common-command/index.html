@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>linux常见命令 | 刘显安的git博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="linux常见命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux常见命令">
+<meta property="og:url" content="http://mygit.me/2016/06/27/linux-common-command/index.html">
+<meta property="og:site_name" content="刘显安的git博客">
+<meta property="og:description" content="linux常见命令">
+<meta property="og:updated_time" content="2016-08-23T12:55:59.413Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux常见命令">
+<meta name="twitter:description" content="linux常见命令">
+  
+    <link rel="alternative" href="/atom.xml" title="刘显安的git博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog//favicon.jpg">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">小茗同学</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/blog/">主页</a></li>
+				        
+							<li><a href="/blog/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/blog/tags/adb/" style="font-size: 10px;">adb</a> <a href="/blog/tags/alert/" style="font-size: 10px;">alert</a> <a href="/blog/tags/android/" style="font-size: 18.57px;">android</a> <a href="/blog/tags/array/" style="font-size: 12.86px;">array</a> <a href="/blog/tags/bind/" style="font-size: 10px;">bind</a> <a href="/blog/tags/bug/" style="font-size: 11.43px;">bug</a> <a href="/blog/tags/cache/" style="font-size: 10px;">cache</a> <a href="/blog/tags/checkbox/" style="font-size: 10px;">checkbox</a> <a href="/blog/tags/childnodes/" style="font-size: 10px;">childnodes</a> <a href="/blog/tags/children/" style="font-size: 10px;">children</a> <a href="/blog/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/blog/tags/click/" style="font-size: 11.43px;">click</a> <a href="/blog/tags/code/" style="font-size: 11.43px;">code</a> <a href="/blog/tags/comet4j/" style="font-size: 10px;">comet4j</a> <a href="/blog/tags/console/" style="font-size: 10px;">console</a> <a href="/blog/tags/control/" style="font-size: 10px;">control</a> <a href="/blog/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/blog/tags/cordova/" style="font-size: 11.43px;">cordova</a> <a href="/blog/tags/cross/" style="font-size: 10px;">cross</a> <a href="/blog/tags/crossdomain/" style="font-size: 10px;">crossdomain</a> <a href="/blog/tags/css/" style="font-size: 11.43px;">css</a> <a href="/blog/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/blog/tags/cursor/" style="font-size: 10px;">cursor</a> <a href="/blog/tags/debug/" style="font-size: 10px;">debug</a> <a href="/blog/tags/dns/" style="font-size: 10px;">dns</a> <a href="/blog/tags/dom/" style="font-size: 10px;">dom</a> <a href="/blog/tags/domain/" style="font-size: 10px;">domain</a> <a href="/blog/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/blog/tags/el表达式/" style="font-size: 10px;">el表达式</a> <a href="/blog/tags/endswidth/" style="font-size: 10px;">endswidth</a> <a href="/blog/tags/epg/" style="font-size: 10px;">epg</a> <a href="/blog/tags/error/" style="font-size: 10px;">error</a> <a href="/blog/tags/favicon/" style="font-size: 10px;">favicon</a> <a href="/blog/tags/file/" style="font-size: 11.43px;">file</a> <a href="/blog/tags/flash/" style="font-size: 10px;">flash</a> <a href="/blog/tags/for/" style="font-size: 10px;">for</a> <a href="/blog/tags/function/" style="font-size: 10px;">function</a> <a href="/blog/tags/github/" style="font-size: 10px;">github</a> <a href="/blog/tags/hasOwnProperty/" style="font-size: 10px;">hasOwnProperty</a> <a href="/blog/tags/hasownproperty/" style="font-size: 10px;">hasownproperty</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/hoisting/" style="font-size: 10px;">hoisting</a> <a href="/blog/tags/html/" style="font-size: 17.14px;">html</a> <a href="/blog/tags/html5/" style="font-size: 11.43px;">html5</a> <a href="/blog/tags/http/" style="font-size: 10px;">http</a> <a href="/blog/tags/id/" style="font-size: 10px;">id</a> <a href="/blog/tags/in/" style="font-size: 10px;">in</a> <a href="/blog/tags/innerhtml/" style="font-size: 10px;">innerhtml</a> <a href="/blog/tags/input/" style="font-size: 12.86px;">input</a> <a href="/blog/tags/ios/" style="font-size: 10px;">ios</a> <a href="/blog/tags/ip/" style="font-size: 10px;">ip</a> <a href="/blog/tags/isprototypeof/" style="font-size: 10px;">isprototypeof</a> <a href="/blog/tags/java/" style="font-size: 12.86px;">java</a> <a href="/blog/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/blog/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/blog/tags/json/" style="font-size: 10px;">json</a> <a href="/blog/tags/lan/" style="font-size: 11.43px;">lan</a> <a href="/blog/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/blog/tags/log/" style="font-size: 10px;">log</a> <a href="/blog/tags/marquee/" style="font-size: 10px;">marquee</a> <a href="/blog/tags/mime/" style="font-size: 10px;">mime</a> <a href="/blog/tags/mui/" style="font-size: 11.43px;">mui</a> <a href="/blog/tags/mysql/" style="font-size: 11.43px;">mysql</a> <a href="/blog/tags/native/" style="font-size: 10px;">native</a> <a href="/blog/tags/node-js/" style="font-size: 11.43px;">node.js</a> <a href="/blog/tags/npm/" style="font-size: 10px;">npm</a> <a href="/blog/tags/oncreate/" style="font-size: 10px;">oncreate</a> <a href="/blog/tags/phonegap/" style="font-size: 10px;">phonegap</a> <a href="/blog/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/blog/tags/pomelo/" style="font-size: 10px;">pomelo</a> <a href="/blog/tags/prototype/" style="font-size: 12.86px;">prototype</a> <a href="/blog/tags/pullRefresh/" style="font-size: 10px;">pullRefresh</a> <a href="/blog/tags/shuffle/" style="font-size: 10px;">shuffle</a> <a href="/blog/tags/simple/" style="font-size: 10px;">simple</a> <a href="/blog/tags/socket-io/" style="font-size: 10px;">socket.io</a> <a href="/blog/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/blog/tags/startswith/" style="font-size: 10px;">startswith</a> <a href="/blog/tags/status/" style="font-size: 10px;">status</a> <a href="/blog/tags/string/" style="font-size: 10px;">string</a> <a href="/blog/tags/svn/" style="font-size: 10px;">svn</a> <a href="/blog/tags/switch/" style="font-size: 10px;">switch</a> <a href="/blog/tags/textarea/" style="font-size: 10px;">textarea</a> <a href="/blog/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/blog/tags/tomcat6/" style="font-size: 10px;">tomcat6</a> <a href="/blog/tags/tomcat7/" style="font-size: 10px;">tomcat7</a> <a href="/blog/tags/transition/" style="font-size: 10px;">transition</a> <a href="/blog/tags/trim/" style="font-size: 10px;">trim</a> <a href="/blog/tags/type/" style="font-size: 10px;">type</a> <a href="/blog/tags/typeerror/" style="font-size: 10px;">typeerror</a> <a href="/blog/tags/uiwebview/" style="font-size: 10px;">uiwebview</a> <a href="/blog/tags/undefined/" style="font-size: 10px;">undefined</a> <a href="/blog/tags/unicode/" style="font-size: 10px;">unicode</a> <a href="/blog/tags/value/" style="font-size: 10px;">value</a> <a href="/blog/tags/version/" style="font-size: 10px;">version</a> <a href="/blog/tags/video/" style="font-size: 10px;">video</a> <a href="/blog/tags/wan/" style="font-size: 10px;">wan</a> <a href="/blog/tags/web/" style="font-size: 10px;">web</a> <a href="/blog/tags/webview/" style="font-size: 15.71px;">webview</a> <a href="/blog/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/blog/tags/win10/" style="font-size: 10px;">win10</a> <a href="/blog/tags/windows/" style="font-size: 12.86px;">windows</a> <a href="/blog/tags/winscp/" style="font-size: 10px;">winscp</a> <a href="/blog/tags/wlan/" style="font-size: 10px;">wlan</a> <a href="/blog/tags/xshell/" style="font-size: 10px;">xshell</a> <a href="/blog/tags/zoom/" style="font-size: 10px;">zoom</a> <a href="/blog/tags/上下文/" style="font-size: 10px;">上下文</a> <a href="/blog/tags/下拉刷新/" style="font-size: 10px;">下拉刷新</a> <a href="/blog/tags/下载/" style="font-size: 10px;">下载</a> <a href="/blog/tags/不使用/" style="font-size: 10px;">不使用</a> <a href="/blog/tags/不兼容/" style="font-size: 10px;">不兼容</a> <a href="/blog/tags/不同/" style="font-size: 10px;">不同</a> <a href="/blog/tags/不好/" style="font-size: 10px;">不好</a> <a href="/blog/tags/个人/" style="font-size: 10px;">个人</a> <a href="/blog/tags/临时/" style="font-size: 10px;">临时</a> <a href="/blog/tags/乱序/" style="font-size: 10px;">乱序</a> <a href="/blog/tags/云服务器/" style="font-size: 10px;">云服务器</a> <a href="/blog/tags/互动/" style="font-size: 10px;">互动</a> <a href="/blog/tags/交互/" style="font-size: 14.29px;">交互</a> <a href="/blog/tags/交换/" style="font-size: 10px;">交换</a> <a href="/blog/tags/传值/" style="font-size: 11.43px;">传值</a> <a href="/blog/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/blog/tags/修改/" style="font-size: 10px;">修改</a> <a href="/blog/tags/关键字/" style="font-size: 10px;">关键字</a> <a href="/blog/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/blog/tags/内网/" style="font-size: 10px;">内网</a> <a href="/blog/tags/切换/" style="font-size: 10px;">切换</a> <a href="/blog/tags/列表/" style="font-size: 10px;">列表</a> <a href="/blog/tags/加载/" style="font-size: 10px;">加载</a> <a href="/blog/tags/匹配/" style="font-size: 10px;">匹配</a> <a href="/blog/tags/区别/" style="font-size: 12.86px;">区别</a> <a href="/blog/tags/单击/" style="font-size: 10px;">单击</a> <a href="/blog/tags/单引号/" style="font-size: 10px;">单引号</a> <a href="/blog/tags/博客/" style="font-size: 10px;">博客</a> <a href="/blog/tags/占用/" style="font-size: 10px;">占用</a> <a href="/blog/tags/原生/" style="font-size: 11.43px;">原生</a> <a href="/blog/tags/变量/" style="font-size: 11.43px;">变量</a> <a href="/blog/tags/变量声明/" style="font-size: 10px;">变量声明</a> <a href="/blog/tags/右键/" style="font-size: 10px;">右键</a> <a href="/blog/tags/后台/" style="font-size: 10px;">后台</a> <a href="/blog/tags/吐槽/" style="font-size: 10px;">吐槽</a> <a href="/blog/tags/命令/" style="font-size: 11.43px;">命令</a> <a href="/blog/tags/图标/" style="font-size: 10px;">图标</a> <a href="/blog/tags/地址/" style="font-size: 10px;">地址</a> <a href="/blog/tags/域名/" style="font-size: 10px;">域名</a> <a href="/blog/tags/基本/" style="font-size: 10px;">基本</a> <a href="/blog/tags/处理/" style="font-size: 11.43px;">处理</a> <a href="/blog/tags/复制/" style="font-size: 10px;">复制</a> <a href="/blog/tags/复选框/" style="font-size: 10px;">复选框</a> <a href="/blog/tags/失效/" style="font-size: 10px;">失效</a> <a href="/blog/tags/失败/" style="font-size: 10px;">失败</a> <a href="/blog/tags/字符/" style="font-size: 11.43px;">字符</a> <a href="/blog/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/blog/tags/安装/" style="font-size: 10px;">安装</a> <a href="/blog/tags/实时/" style="font-size: 10px;">实时</a> <a href="/blog/tags/局域网/" style="font-size: 10px;">局域网</a> <a href="/blog/tags/展示/" style="font-size: 10px;">展示</a> <a href="/blog/tags/工具/" style="font-size: 10px;">工具</a> <a href="/blog/tags/常用/" style="font-size: 10px;">常用</a> <a href="/blog/tags/常见/" style="font-size: 11.43px;">常见</a> <a href="/blog/tags/异步/" style="font-size: 10px;">异步</a> <a href="/blog/tags/总结/" style="font-size: 11.43px;">总结</a> <a href="/blog/tags/手机/" style="font-size: 10px;">手机</a> <a href="/blog/tags/打乱/" style="font-size: 10px;">打乱</a> <a href="/blog/tags/执行中/" style="font-size: 10px;">执行中</a> <a href="/blog/tags/抢注/" style="font-size: 10px;">抢注</a> <a href="/blog/tags/报错/" style="font-size: 10px;">报错</a> <a href="/blog/tags/指针/" style="font-size: 10px;">指针</a> <a href="/blog/tags/按钮/" style="font-size: 10px;">按钮</a> <a href="/blog/tags/控制/" style="font-size: 10px;">控制</a> <a href="/blog/tags/推送/" style="font-size: 10px;">推送</a> <a href="/blog/tags/提升/" style="font-size: 10px;">提升</a> <a href="/blog/tags/插入/" style="font-size: 10px;">插入</a> <a href="/blog/tags/搭建/" style="font-size: 10px;">搭建</a> <a href="/blog/tags/数组/" style="font-size: 12.86px;">数组</a> <a href="/blog/tags/文件上传/" style="font-size: 10px;">文件上传</a> <a href="/blog/tags/方法/" style="font-size: 11.43px;">方法</a> <a href="/blog/tags/最全/" style="font-size: 10px;">最全</a> <a href="/blog/tags/未运行/" style="font-size: 10px;">未运行</a> <a href="/blog/tags/本地/" style="font-size: 10px;">本地</a> <a href="/blog/tags/查看/" style="font-size: 10px;">查看</a> <a href="/blog/tags/样式/" style="font-size: 11.43px;">样式</a> <a href="/blog/tags/横屏/" style="font-size: 10px;">横屏</a> <a href="/blog/tags/正则/" style="font-size: 10px;">正则</a> <a href="/blog/tags/注解/" style="font-size: 10px;">注解</a> <a href="/blog/tags/清理/" style="font-size: 10px;">清理</a> <a href="/blog/tags/清除/" style="font-size: 10px;">清除</a> <a href="/blog/tags/版本号/" style="font-size: 10px;">版本号</a> <a href="/blog/tags/特殊/" style="font-size: 10px;">特殊</a> <a href="/blog/tags/状态码/" style="font-size: 10px;">状态码</a> <a href="/blog/tags/生成/" style="font-size: 11.43px;">生成</a> <a href="/blog/tags/目录/" style="font-size: 10px;">目录</a> <a href="/blog/tags/破解/" style="font-size: 10px;">破解</a> <a href="/blog/tags/禁止/" style="font-size: 10px;">禁止</a> <a href="/blog/tags/移动端/" style="font-size: 11.43px;">移动端</a> <a href="/blog/tags/竖屏/" style="font-size: 10px;">竖屏</a> <a href="/blog/tags/端口/" style="font-size: 10px;">端口</a> <a href="/blog/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/blog/tags/粘贴/" style="font-size: 10px;">粘贴</a> <a href="/blog/tags/缓存/" style="font-size: 11.43px;">缓存</a> <a href="/blog/tags/编码/" style="font-size: 10px;">编码</a> <a href="/blog/tags/网站/" style="font-size: 11.43px;">网站</a> <a href="/blog/tags/网页/" style="font-size: 11.43px;">网页</a> <a href="/blog/tags/脑残/" style="font-size: 10px;">脑残</a> <a href="/blog/tags/自动/" style="font-size: 11.43px;">自动</a> <a href="/blog/tags/自定义/" style="font-size: 11.43px;">自定义</a> <a href="/blog/tags/获取/" style="font-size: 11.43px;">获取</a> <a href="/blog/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/blog/tags/视频/" style="font-size: 10px;">视频</a> <a href="/blog/tags/解析/" style="font-size: 10px;">解析</a> <a href="/blog/tags/触发/" style="font-size: 10px;">触发</a> <a href="/blog/tags/计数器/" style="font-size: 10px;">计数器</a> <a href="/blog/tags/设置/" style="font-size: 11.43px;">设置</a> <a href="/blog/tags/详解/" style="font-size: 10px;">详解</a> <a href="/blog/tags/调试/" style="font-size: 10px;">调试</a> <a href="/blog/tags/购买/" style="font-size: 10px;">购买</a> <a href="/blog/tags/跨域/" style="font-size: 11.43px;">跨域</a> <a href="/blog/tags/转码/" style="font-size: 10px;">转码</a> <a href="/blog/tags/运行/" style="font-size: 10px;">运行</a> <a href="/blog/tags/运行中/" style="font-size: 10px;">运行中</a> <a href="/blog/tags/连接/" style="font-size: 10px;">连接</a> <a href="/blog/tags/遍历/" style="font-size: 10px;">遍历</a> <a href="/blog/tags/阿里云/" style="font-size: 10px;">阿里云</a> <a href="/blog/tags/非字符串/" style="font-size: 10px;">非字符串</a> <a href="/blog/tags/音频服务/" style="font-size: 10px;">音频服务</a> <a href="/blog/tags/默认/" style="font-size: 10px;">默认</a> <a href="/blog/tags/鼠标/" style="font-size: 10px;">鼠标</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://liuxianan.com">我的个人网站</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/liuxianan/">我的博客园</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">屌丝程序员一枚，个人网站：http://liuxianan.com</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">小茗同学</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="/blog/avatar.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">小茗同学</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/blog/">主页</a></li>
+		        
+					<li><a href="/blog/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-linux-common-command" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/06/27/linux-common-command/" class="article-date">
+  	<time datetime="2016-06-26T16:00:00.000Z" itemprop="datePublished">2016-06-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux常见命令
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/命令/">命令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/常见/">常见</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/blog/categories/linux-base/">linux_base</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="常见操作命令"><a href="#常见操作命令" class="headerlink" title="常见操作命令"></a>常见操作命令</h3><p>定位目录：cd opt ,cd opt/tomcat<br>上一层目录：cd ../<br>显示文件：ls<br>自动完成：tab键<br>新建文件夹：mkdir 文件夹名<br>重命名：mv 旧名称 新名称<br>删除文件夹：rm -rf 文件夹名<br>复制文件夹：cp -R 旧文件夹名 新文件夹名<br>启动tomcat：./startup.sh（终于/和startup之间没有空格）<br>关闭tomcat：./shutdown.sh<br>实时查看tomcat日志：<br>1、先切换到：cd usr/local/to <a id="more"></a> mcat5/logs<br>2、tail -f catalina.out<br>3、这样运行时就可以实时查看运行日志了<br>Ctrl+c 是退出tail命令。<br>给sh文件添加执行权限：<br>chmod 777 startup.sh</p>
+<h3 id="查看磁盘空间、文件大小"><a href="#查看磁盘空间、文件大小" class="headerlink" title="查看磁盘空间、文件大小"></a>查看磁盘空间、文件大小</h3><pre><code>// 查看所有磁盘剩余空间
+df -h
+// 查看当前目录所有文件夹大小（包括子文件夹），-h 是转换成友好格式显示
+du -h
+// 查看某个文件夹大小（包括子文件夹）
+du -h 文件夹名称
+// 查看某个文件夹大小（不包括子文件夹）
+du -sh 文件夹名称
+</code></pre><p>注意，在没有分区和格式化数据盘之前，使用 “df –h”命令，是无法看到数据盘的，可以使用“fdisk -l”命令查看<br>Linux 系统挂载数据盘:<br><a href="https://help.aliyun.com/knowledge_detail/5974154.html" target="_blank" rel="external">https://help.aliyun.com/knowledge_detail/5974154.html</a></p>
+<h3 id="查看Tomcat是否已关闭："><a href="#查看Tomcat是否已关闭：" class="headerlink" title="查看Tomcat是否已关闭："></a>查看Tomcat是否已关闭：</h3><p>ps -ef|grep java<br>如果你想直接干掉Tomcat，你可以使用kill命令，直接杀死Tomcat进程<br>kill -9 7010（其中7010是上面显示出来的tomcat进程号）</p>
+<h2 id="vi-清空文件"><a href="#vi-清空文件" class="headerlink" title="vi 清空文件"></a>vi 清空文件</h2><pre><code>G // G表示跳转到文件最后一行
+:1,.d // .表示当前行，1,.表示从第一行到当前行，d表示删除
+</code></pre><h2 id="修改防火墙："><a href="#修改防火墙：" class="headerlink" title="修改防火墙："></a>修改防火墙：</h2><pre><code>/etc/sysconfig/iptables：
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 9200 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 9300 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 9400 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 9500 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+</code></pre><p>修改后必须重启防火墙才能生效。<br>停止/启动防火墙服务的命令：<br>用root登录后，执行</p>
+<pre><code>service iptables restart --停止
+</code></pre><p>(service命令位于/sbin)</p>
+<p>service iptables status可以查看到iptables服务的当前状态</p>
+<h2 id="linux下解压命令大全"><a href="#linux下解压命令大全" class="headerlink" title="linux下解压命令大全"></a>linux下解压命令大全</h2><h3 id="tar"><a href="#tar" class="headerlink" title=".tar"></a>.tar</h3><p>解包：tar xvf FileName.tar<br>打包：tar cvf FileName.tar DirName<br>（注：tar是打包，不是压缩！）<br>———————————————</p>
+<h3 id="gz"><a href="#gz" class="headerlink" title=".gz"></a>.gz</h3><p>解压1：gunzip FileName.gz（貌似是错误的）<br>解压2：gzip -d FileName.gz<br>压缩：gzip FileName</p>
+<h3 id="tar-gz-和-tgz"><a href="#tar-gz-和-tgz" class="headerlink" title=".tar.gz 和 .tgz"></a>.tar.gz 和 .tgz</h3><p>解压：tar zxvf FileName.tar.gz<br>压缩：tar zcvf FileName.tar.gz DirName</p>
+<h2 id="安装jdk："><a href="#安装jdk：" class="headerlink" title="安装jdk："></a>安装jdk：</h2><p>从SUN下载jdk-1_5_0_14-linux-i586-rpm.bin或jdk-1_5_0_14-linux-i586.bin<br>在/usr下新建java文件夹，将安装包放在/usr/java目录下<br><code># mkdir /usr/java</code></p>
+<p>安装JDK</p>
+<pre><code># cd /usr/java（mkdir java –此目录需要创建）
+①jdk-1_5_0_16-linux-i586-rpm.bin文件安装
+# chmod 777 jdk-1_5_0_16-linux-i586-rpm.bin    ← 修改为可执行
+# ./jdk-1_5_0_16-linux-i586-rpm.bin        ← 选择yes同意上面的协议
+# rpm -ivh jdk-1_5_0_16-linux-i586.rpm       ← 选择yes直到安装完毕
+②jdk-1_5_0_16-linux-i586.bin文件安装
+# chmod a+x jdk-1_5_0_16-linux-i586.bin      ← 使当前用户拥有执行权限
+# ./jdk-1_5_0_16-linux-i586.bin            ← 选择yes直到安装完毕
+</code></pre><p>安装完毕后配置环境变量即可</p>
+<h2 id="linux环境变量："><a href="#linux环境变量：" class="headerlink" title="linux环境变量："></a>linux环境变量：</h2><p>按生存周期分2种：一种永久的，一种临时的，临时的使用export命令声明即可，关闭shell后立即失效，这里只介绍永久的。<br>设置环境变量有2种方法，修改<code>/etc/profile</code>文件是针对所有用户，修改用户目录<code>~</code>下的<code>.bash_profile</code>文件是针对当前用户，这里只介绍前者。<br>这里以Java环境变量设置为例来说明如何设置环境变量：<br>打开/etc/profile文件<code>vi /etc/profile</code>，追加如下内容：</p>
+<pre><code>#set java environment
+export JAVA_HOME=/opt/java/jdk1.6.0_38
+export CLASSPATH=.:$JAVA_HOME/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
+</code></pre><p>关于以上代码注释：<br>1、与Windows不同，linux下多个环境变量用冒号“:”分隔而不是用分号“;”<br>2、export 是导入的意思，新增加的变量都要这个命令；<br>3、修改完后要想立即生效还要运行<code>source /etc/profile</code>，但是有时候不知为何运行了还是不生效，此时只要重新连接登录即可，无需重启系统；<br>4、注意等号“=”两边千万<strong>不能加空格</strong>！</p>
+<p>查看环境变量：</p>
+<pre><code>$ echo $JAVA_HOME
+</code></pre><p>如果没有设置，那么不会有任何结果输出。<br>查看当前系统所有环境变量：</p>
+<pre><code>$ env
+</code></pre><p>##linux下tomcat安装与配置：<br>如果你已经安装好了jdk，那么很简单，只需要解压就可以用了：<br>1、解压：tar zxvf apache-tomcat-7.0.39.tar.gz<br>2、复制改名：cp -R apache-tomcat-7.0.39 /usr/local/tomcat/tomcat-ggly-9300(名字自定义)<br>2、修改端口：根据实际需要修改tomcat/conf/server.xml里面的端口；<br>3、启动：定位到bin，然后./startup.sh，正常情况下已经没什么问题了，输出如下信息：</p>
+<pre><code>/opt/tomcat7/tomcat-ggly-9300/bin$ ./startup.sh
+Using CATALINA_BASE:   /opt/tomcat7/tomcat-ggly-9300
+Using CATALINA_HOME:   /opt/tomcat7/tomcat-ggly-9300
+Using CATALINA_TMPDIR: /opt/tomcat7/tomcat-ggly-9300/temp
+Using JRE_HOME:        /usr/java/jdk1.6.0_45
+Using CLASSPATH:       /opt/tomcat7/tomcat-ggly-9300/bin/bootstrap.jar:/opt/tomcat7/tomcat-ggly-9300/bin/tomcat-juli.jar
+</code></pre><p>注意默认情况下这样没任何问题，而且可以多个tomcat并存，但是今天在一台linux上碰到问题，启动tomcat时CATALINA_HOME和CATALINA_BASE等值总是另外一个tomcat的路径，后来发现是全局环境变量增加了如下代码：</p>
+<pre><code>export TOMCAT_HOME=/opt/tomcat7/tomcat-health-8080
+export CATALINA_HOME=/opt/tomcat7/tomcat-health-8080
+export CATALINA_BASE=/opt/tomcat7/tomcat-health-8080
+</code></pre><p>此时只需要注释掉上面3个环境变量即可。</p>
+<p>另外还是不知为何，今天新复制的一个tomcat总是无法启动，启动了虽然不报错，但就是看不到tomcat首页，最后在catalina.sh里面增加临时环境变量就OK了。</p>
+<pre><code>#!/bin/sh
+JAVA_OPTS=&quot;$JAVA_OPTS -server -Xms1024m -Xmx1024m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=512m&quot;
+# 关键是下面2行，上面一行是配置内存等情况
+export CATALINA_HOME=/opt/tomcat7/tomcat-ggly-9300
+export CATALINA_BASE=/opt/tomcat7/tomcat-ggly-9300
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+</code></pre><p>另外如果还是无法正常启动，看看是不是防火墙引起的，关于防火墙的修改配置这里就不提了。</p>
+<h2 id="linux下端口映射远程桌面"><a href="#linux下端口映射远程桌面" class="headerlink" title="linux下端口映射远程桌面"></a>linux下端口映射远程桌面</h2><p>本来可以直接使用iptables来配置端口映射，但是我嫌麻烦，自己写了个JSP版端口映射工具，碰到了几个问题记录一下。 </p>
+<p>假设具有公网的linux服务器公网IP为113.108.110.61，局域网IP为172.16.4.247，需要映射的私人电脑局域网IP为172.16.4.97，映射时只能用服务器的局域网IP来映射，否则会一直报错，现假设映射如下：172.16.4.247:728–&gt;172.16.4.97:3389，远程桌面时直接访问：113.108.110.61:728，需要注意，如果开启了防火墙一定要<strong>保证目标端口（这里是728）已经开放</strong>，可以通过telnet命令来测试，如果通了，说明映射基本上OK了，剩下的就是远程桌面设置问题了，首先你私人电脑的3389端口也要保证是通的，一般为了省事直接关闭防火墙，然后<strong>保证远程桌面设置已经打开</strong>，计算机<strong>睡眠已经关闭</strong>，今天碰到一个问题，就是远程桌面已经设置为允许了，但是连接时总是提示“出现了内部错误”，后来发现映射到别的电脑就可以，所以就怀疑是自己电脑设置问题，然后把远程桌面设置<strong>下面的“仅允许运行使用网络级别身份验证”去掉勾选</strong>，再试就可以了，但是发现再次把它勾选上依然能够成功，所以具体原因就不得而知了，可能是Windows犯贱吧，估计重启一下也可能会好。</p>
+<h2 id="linux下node-js安装"><a href="#linux下node-js安装" class="headerlink" title="linux下node.js安装"></a>linux下node.js安装</h2><p>其实很简单，下载了tar.gz压缩包后解压，然后定位到bin目录，执行<code>./node -v</code>如果输出版本号就说明成功了，然后配置一下环境变量就行：<br>在/etc/profile尾部追加：</p>
+<pre><code># node.js
+PATH=/opt/node.js/node-v4.2.2/bin:$PATH
+</code></pre><p>然后运行<code>source /etc/profile</code>使之生效。</p>
+<h2 id="vim-简单使用"><a href="#vim-简单使用" class="headerlink" title="vim 简单使用"></a>vim 简单使用</h2><p>我不需要知道很复杂命令，只需要会简单使用即可。</p>
+<p>进入vim：</p>
+<pre><code>vi fileName
+</code></pre><p>共有3种模式：</p>
+<ul>
+<li>普通模式：光标移动</li>
+<li>插入模式：就是可以随意打字修改内容的模式</li>
+<li>命令模式：敲一些命令</li>
+</ul>
+<p>默认进入是<code>普通模式</code>，输入<code>i</code>切换成<code>插入模式</code>，且编辑位置在光标前（输入其它一些普通字符也会变成插入模式），按<code>ESC</code>再次回到<code>普通模式</code>，输入<code>:</code>切换到<code>命令模式</code>。</p>
+<p>普通模式：</p>
+<pre><code>gg 文件首行
+G 文件尾行
+end 当前行尾（好像是）
+</code></pre><p>命令模式：</p>
+<pre><code>:q 退出 当文件有修改时会警告
+:q! 强制退出
+:wq 保存并退出
+</code></pre><h2 id="Centos-下安装shellinabox"><a href="#Centos-下安装shellinabox" class="headerlink" title="Centos 下安装shellinabox"></a>Centos 下安装shellinabox</h2><p>安装</p>
+<pre><code># wget http://shellinabox.googlecode.com/files/shellinabox-2.10.tar.gz
+# tar -zxvf shellinabox-2.10.tar.gz
+# cd shellinabox-2.10
+# ./configure --prefix=/usr/local/shellinabox
+# make &amp;&amp; make install
+</code></pre><p>启动</p>
+<pre><code># cd /usr/local/shellinabox/bin
+# ./shellinaboxd
+或者
+#./shellinaboxd -b -t
+-b选项代表在后台启动，-t选项表示不使用https方式启动，默认以nobody用户身份，监听TCP4200端口
+</code></pre><p>然后访问：<code>http://服务器IP:4200</code>就出现了熟悉的ssh登录界面了，默认无法使用root登录，可以先创建一个用户，用这个用户登录后再<code>su root</code>即可。</p>
+<p>由于这个页面很危险，被不法分子知道了就麻烦了，所以最好更改默认的端口，更改端口需要改配置文件，关于配置文件在哪里，网上说：</p>
+<blockquote>
+<p>在Debian/Ubuntu系统上shellinabox配置文件的默认位置是/etc/default/shellinabox。在RHEL/CentOS/Fedora上，默认位置在/etc/sysconfig/shellinaboxd</p>
+</blockquote>
+<p>但是我的centos2个地方都没找到，所以暂时先放这。</p>
+<h2 id="linux安装后的大小"><a href="#linux安装后的大小" class="headerlink" title="linux安装后的大小"></a>linux安装后的大小</h2><p>我在虚拟机下面安装了centos6.5 64位min版<code>CentOS-6.5-x86_64-minimal.iso</code>，安装完后执行df -h时发现整个系统只用了754M，iso镜像文件也才398M。</p>
+<p>阿里云centos7.0的64位安装后如下：</p>
+<pre><code>[root@iZ94i7kwlagZ ~]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/xvda1       40G  1.5G   36G   5% /
+devtmpfs        489M     0  489M   0% /dev
+tmpfs           497M     0  497M   0% /dev/shm
+tmpfs           497M  6.5M  490M   2% /run
+tmpfs           497M     0  497M   0% /sys/fs/cgroup
+</code></pre><p>阿里云centos6.5的64位安装后如下：</p>
+<pre><code>[root@iZ94i7kwlagZ ~]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/xvda1       40G  1.4G   36G   4% /
+tmpfs           498M     0  498M   0% /dev/shm
+</code></pre><p>刚刚挂载完40G的磁盘后：</p>
+<pre><code>[root@iZ94i7kwlagZ ~]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/xvda1       40G  1.5G   36G   4% /
+tmpfs           498M     0  498M   0% /dev/shm
+/dev/xvdb1       40G  176M   38G   1% /home
+</code></pre><h1 id="curl-wget"><a href="#curl-wget" class="headerlink" title="curl wget"></a>curl wget</h1><h1 id="linux-端口转发"><a href="#linux-端口转发" class="headerlink" title="linux 端口转发"></a>linux 端口转发</h1><h2 id="开启IP转发"><a href="#开启IP转发" class="headerlink" title="开启IP转发"></a>开启IP转发</h2><p>首先开启IP转发功能，默认是关闭的。</p>
+<p>临时修改：</p>
+<pre><code># echo 1 &gt;/proc/sys/net/ipv4/ip_forward
+</code></pre><p>修改过后就马上生效，但如果系统重启后则又恢复为默认值0。</p>
+<p>永久修改：</p>
+<pre><code>vi /etc/sysctl.conf
+# 找到下面的值并将0改成1
+net.ipv4.ip_forward = 1
+# sysctl –p（使之立即生效） 
+</code></pre><p>默认值0是禁止ip转发，修改为1即开启ip转发功能。</p>
+<h2 id="配置端口转发"><a href="#配置端口转发" class="headerlink" title="配置端口转发"></a>配置端口转发</h2><p>假设用户访问172.16.4.247:728时我想让它转发到172.16.4.97:80：</p>
+<pre><code># iptables -t nat -A PREROUTING  -p tcp -d 113.108.110.61 --dport 728 -j DNAT --to-destination 172.16.4.97:80
+# iptables -t nat -A POSTROUTING -p tcp -s 172.16.4.97 --sport 80 -j SNAT --to-source 172.16.4.247
+# service iptables save（将当前规则保存到 /etc/sysconfig/iptables）
+</code></pre><p>或者，你也可以直接修改<code>/etc/sysconfig/iptables</code>文件：</p>
+<pre><code>-A PREROUTING -d 172.16.4.247/32 -p tcp -m tcp --dport 728 -j DNAT --to-destination 172.16.4.97:80
+-A POSTROUTING -s 172.16.4.97/32 -p tcp -m tcp --sport 80 -j SNAT --to-source 172.16.4.247
+</code></pre><p>最后不要忘了开放728端口</p>
+<pre><code>-A INPUT -p tcp -m state --state NEW -m tcp --dport 728 -j ACCEPT
+</code></pre><p>配置完成后，记得重启防火墙：</p>
+<pre><code># service iptables restart
+</code></pre><h2 id="本机端口转发"><a href="#本机端口转发" class="headerlink" title="本机端口转发"></a>本机端口转发</h2><p>如果只需要在本机间不同的端口转发就比较容易了，比如 访问<a href="http://ip:729我想返回http://ip:80的内容，配置如下：" target="_blank" rel="external">http://ip:729我想返回http://ip:80的内容，配置如下：</a></p>
+<pre><code>[root@localhost sbin]# iptables -t nat -A PREROUTING -p tcp --dport 729 -j REDIRECT --to-ports 80
+[root@localhost sbin]# service iptables save
+[root@localhost sbin]# service iptables restart
+</code></pre><p>由于外网访问需要经过PREROUTING链，但是localhost不经过该链，所以如果还希望服务器本机能够访问，还要配置OUTPUT，当然一般没这个需求：</p>
+<pre><code>iptables -t nat -A OUTPUT -d localhost -p tcp --dport 729 -j REDIRECT --to-ports 80
+</code></pre><p>iptables -A FORWARD -s 172.16.0.1 -j ACCEPT</p>
+<p>iptables -t nat -vnL</p>
+<h2 id="强制杀掉进程"><a href="#强制杀掉进程" class="headerlink" title="强制杀掉进程"></a>强制杀掉进程</h2><p>比如 pkill node，pkill nginx</p>
+<p>当nginx不能正常stop时可以用上述命令来强制停止。</p>
+<h2 id="查看端口占用"><a href="#查看端口占用" class="headerlink" title="查看端口占用"></a>查看端口占用</h2><p>ps -aux | grep tomcat</p>
+<p>或者</p>
+<p>netstat –apn | grep 8080</p>
+<h2 id="修改hosts"><a href="#修改hosts" class="headerlink" title="修改hosts"></a>修改hosts</h2><p>直接vi /etc/hosts 修改完后跟windows一样会立即生效</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/06/27/comet4j-and-web-push/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          comet4j与web推送
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/06/25/jquery-simple-switch-plugin/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自己实现简单的switch开关插件</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="linux-common-command" data-title="linux常见命令" data-url="http://mygit.me/blog/2016/06/27/linux-common-command/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"lxa"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 小茗同学
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /blog/
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/blog/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

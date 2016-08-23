@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>刘显安的git博客</title>
+  
+  <link href="/blog/atom.xml" rel="self"/>
+  
+  <link href="http://mygit.me/"/>
+  <updated>2016-08-23T12:55:59.461Z</updated>
+  <id>http://mygit.me/</id>
+  
+  <author>
+    <name>小茗同学</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript中实现最高效的数组乱序</title>
+    <link href="http://mygit.me/2016/08/22/js-array-shuffle/"/>
+    <id>http://mygit.me/2016/08/22/js-array-shuffle/</id>
+    <published>2016-08-21T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.461Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文内容参考自网络。</p>
+<h1 id="常规做法"><a href="#常规做法" class="headerlink" title="常规做法"></a>常规做法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</div><div class="line">array.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123; <span class="keyword">return</span> <span class="built_in">Math</span>.random() &gt; <span class="number">0.5</span> ? <span class="number">-1</span> : <span class="number">1</span>;&#125;);</div></pre></td></tr></table></figure>
+<p>此方法虽直观，但效率并不高，经某网友测试，打乱10000个元素的数组，大概花了35ms左右。</p>
+<h1 id="高效做法"><a href="#高效做法" class="headerlink" title="高效做法"></a>高效做法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.prototype.shu &lt;!-- more --&gt; ffle)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">Array</span>.prototype.shuffle = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j, x, i = <span class="keyword">this</span>.length; i; j = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * i), x = <span class="keyword">this</span>[--i], <span class="keyword">this</span>[i] = <span class="keyword">this</span>[j], <span class="keyword">this</span>[j] = x);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</div><div class="line">array.shuffle();</div></pre></td></tr></table></figure>
+<p>此方法打乱一个10000个元素的数组时大约耗时7，8毫秒，把数组元素增加10倍到100000来测试，第一种方法费时500+ms左右，第二个方法耗时40ms左右，差别还是挺大的。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      JavaScript中实现最高效的数组乱序
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="数组" scheme="http://mygit.me/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="array" scheme="http://mygit.me/tags/array/"/>
+    
+      <category term="乱序" scheme="http://mygit.me/tags/%E4%B9%B1%E5%BA%8F/"/>
+    
+      <category term="打乱" scheme="http://mygit.me/tags/%E6%89%93%E4%B9%B1/"/>
+    
+      <category term="shuffle" scheme="http://mygit.me/tags/shuffle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript的hasOwnProperty和isPrototypeOf详解</title>
+    <link href="http://mygit.me/2016/08/22/hasownproperty-and-isprototypeof/"/>
+    <id>http://mygit.me/2016/08/22/hasownproperty-and-isprototypeof/</id>
+    <published>2016-08-21T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.460Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p><code>hasOwnProperty</code>的作用是用来判断一个对象本身是否具有某个属性或对象，对象本身的意思是指不包括它的原型链，个人觉得这个方法应该叫<code>isOwnProperty</code>更合适。</p>
+<p><code>isPrototypeOf</code>是用来判断对象是否存在于另一个对象的原型链中，如：</p>
+<pre><code>Array.prototype.isPrototypeOf([1, 2, 3]);
+</code></pre><h1 id="几个例子"><a href="#几个例子" class="headerlink" title="几个例子"></a>几个例子</h1><p>下面几个例子应该很好理解：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.hasO &lt;!-- more --&gt; wnProperty(<span class="string">'split'</span>); <span class="comment">// 输出 true</span></div><div class="line"><span class="string">'http://liuxianan.com'</span>.hasOwnProperty(<span class="string">'split'</span>); <span class="comment">// 输出 false</span></div><div class="line">(&#123;testFn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;&#125;).hasOwnProperty(<span class="string">'testFn'</span>); <span class="comment">// 输出 true</span></div></pre></td></tr></table></figure>
+<h1 id="更复杂一点的例子"><a href="#更复杂一点的例子" class="headerlink" title="更复杂一点的例子"></a>更复杂一点的例子</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span>(<span class="params">name</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'showName：'</span>+<span class="keyword">this</span>.name);</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line">People.prototype.setGender = <span class="function"><span class="keyword">function</span>(<span class="params">gender</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">this</span>.gender = gender;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'setGender：'</span>+<span class="keyword">this</span>.gender);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> lxa = <span class="keyword">new</span> People(<span class="string">'刘显安'</span>);</div><div class="line">lxa.age = <span class="number">24</span>;</div><div class="line">lxa.setGender(<span class="string">'man'</span>);</div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'name'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'age'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'showName'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'gender'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'setGender'</span>)); <span class="comment">// false</span></div><div class="line"><span class="built_in">console</span>.log(People.prototype.hasOwnProperty(<span class="string">'setGender'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(People.prototype.hasOwnProperty(<span class="string">'gender'</span>)); <span class="comment">// false</span></div><div class="line"><span class="built_in">console</span>.log(People.prototype.isPrototypeOf(lxa)); <span class="comment">// true</span></div><div class="line"><span class="comment">//isPrototypeOf错误写法：lxa.isPrototypeOf(People)</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      JavaScript的hasOwnProperty和isPrototypeOf详解
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="hasownproperty" scheme="http://mygit.me/tags/hasownproperty/"/>
+    
+      <category term="isprototypeof" scheme="http://mygit.me/tags/isprototypeof/"/>
+    
+      <category term="prototype" scheme="http://mygit.me/tags/prototype/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>element.children和element.childNodes的区别</title>
+    <link href="http://mygit.me/2016/08/19/element-children-and-childnodes/"/>
+    <id>http://mygit.me/2016/08/19/element-children-and-childnodes/</id>
+    <published>2016-08-18T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.459Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h1><p>假设有这样的代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 注意中间有空格 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hot_game"</span>&gt;</span>热门游戏<span class="tag">&lt;<span class="name">div</span>&gt;</span>我是子节点<span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>生成如下结构DOM：</p>
+<p><img src="http://image.liuxianan.com/201608/20160819_112053_680_9129.png" alt=""></p>
+<p>测试：</p>
+<p><img src="http://image.liuxianan.com/201608/20160819_112110_202_2490 &lt;!-- more --&gt; .png" alt=""></p>
+<p>最后一个#test是由于上面的空格引起的，一个空格也算是一个#text。</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ul>
+<li>element.children只输出普通的DOM元素；</li>
+<li>element.childNodes会输出所有的子元素，包括文本节点、文字；</li>
+<li>大多数情况下我们应该使用element.children；</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      element.children和element.childNodes的区别
+    
+    </summary>
+    
+      <category term="html" scheme="http://mygit.me/categories/html/"/>
+    
+    
+      <category term="html" scheme="http://mygit.me/tags/html/"/>
+    
+      <category term="children" scheme="http://mygit.me/tags/children/"/>
+    
+      <category term="childnodes" scheme="http://mygit.me/tags/childnodes/"/>
+    
+      <category term="区别" scheme="http://mygit.me/tags/%E5%8C%BA%E5%88%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里云服务器SSH无法连接：Connection closed by foreign host</title>
+    <link href="http://mygit.me/2016/08/18/aliyun-ssh-connection-closed-by-foreign-host/"/>
+    <id>http://mygit.me/2016/08/18/aliyun-ssh-connection-closed-by-foreign-host/</id>
+    <published>2016-08-17T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.459Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>之前一直好好的，今天突然连接不上了，报一个什么<code>Connection closed by foreign host</code>的错：</p>
+<p><img src="http://image.liuxianan.com/201608/20160818_132141_787_1258.png" alt=""></p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>登录阿里云后台，进入实例详情，连接管理终端，执行如下命令：</p>
+<p><img src="http://image.liuxianan.com/201608/20160818_132051_319_4178.png" alt=""><br> <a id="more"></a> </p>
+<p>以上方法是网上找到的，我试了之后发现依然连不上，但是过了一天之后再试发现没问题了，所以到底是这个问题过一段时间会自己会自动变好呢，还是执行上述代码之后需要过一段时间才生效呢？不得而知。</p>
+<p>具体多久生效也不太清楚，反正我是过了一天再看发现可以了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      阿里云服务器SSH无法连接：Connection closed by foreign host
+    
+    </summary>
+    
+      <category term="website" scheme="http://mygit.me/categories/website/"/>
+    
+    
+      <category term="阿里云" scheme="http://mygit.me/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
+    
+      <category term="ssh" scheme="http://mygit.me/tags/ssh/"/>
+    
+      <category term="连接" scheme="http://mygit.me/tags/%E8%BF%9E%E6%8E%A5/"/>
+    
+      <category term="失败" scheme="http://mygit.me/tags/%E5%A4%B1%E8%B4%A5/"/>
+    
+      <category term="云服务器" scheme="http://mygit.me/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用hexo+github搭建免费个人博客详细教程</title>
+    <link href="http://mygit.me/2016/08/18/build-blog-website-by-hexo-github/"/>
+    <id>http://mygit.me/2016/08/18/build-blog-website-by-hexo-github/</id>
+    <published>2016-08-17T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.458Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用github pages服务搭建博客的好处有：</p>
+<ol>
+<li>全是静态文件，访问速度快；</li>
+<li>免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；</li>
+<li>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；</li>
+<li>数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；</li>
+<li>博客内容可以轻松打包、转移、发布到其它平台；</li>
+<li>等等；</li>
+</ol>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>在开始一切之前，你必须已经：</p>
+ <a id="more"></a> 
+<ul>
+<li>有一个github账号，没有的话去注册一个；</li>
+<li>安装了node.js、npm，并了解相关基础知识；</li>
+<li>安装了git for windows（或者其它git客户端）</li>
+</ul>
+<p>本文所使用的环境：</p>
+<ul>
+<li>Windows8.1</li>
+<li>node.js@5.5.0</li>
+<li>git@1.9.2</li>
+<li>hexo@3.2.2</li>
+</ul>
+<h1 id="搭建github博客"><a href="#搭建github博客" class="headerlink" title="搭建github博客"></a>搭建github博客</h1><h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>新建一个名为<code>你的用户名.github.io</code>的仓库，比如说，如果你的github用户名是test，那么你就新建<code>test.github.io</code>的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是 <a href="http://test.github.io" target="_blank" rel="external">http://test.github.io</a> 了，是不是很方便？</p>
+<p>由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。</p>
+<p>几个注意的地方：</p>
+<ol>
+<li>注册的邮箱一定要验证，否则不会成功；</li>
+<li>仓库名字必须是：<code>username.github.io</code>，其中<code>username</code>是你的用户名；</li>
+<li>仓库创建成功不会立即生效，需要过一段时间，大概10-30分钟，或者更久，我的等了半个小时才生效；</li>
+</ol>
+<p>创建成功后，默认会在你这个仓库里生成一些示例页面，以后你的网站所有代码都是放在这个仓库里啦。</p>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>当然，你不绑定域名肯定也是可以的，就用默认的 <code>xxx.github.io</code> 来访问，如果你想更个性一点，想拥有一个属于自己的域名，那也是OK的。</p>
+<p>首先你要注册一个域名，域名注册以前总是推荐去<code>godaddy</code>，现在觉得其实国内的阿里云也挺不错的，价格也不贵，毕竟是大公司，放心！</p>
+<p>绑定域名分2种情况：带www和不带www的。</p>
+<p>域名配置最常见有2种方式，CNAME和A记录，CNAME填写域名，A记录填写IP，由于不带www方式只能采用A记录，所以必须先ping一下<code>你的用户名.github.io</code>的IP，然后到你的域名DNS设置页，将A记录指向你ping出来的IP，将CNAME指向<code>你的用户名.github.io</code>，这样可以保证无论是否添加www都可以访问，如下：</p>
+<p><img src="http://image.liuxianan.com/201608/20160823_191336_238_8683.png" alt=""></p>
+<p>然后到你的github项目根目录新建一个名为CNAME的文件（无后缀），里面填写你的域名，加不加www看你自己喜好，因为经测试：</p>
+<ul>
+<li>如果你填写的是没有www的，比如 mygit.me，那么无论是访问 <a href="http://www.mygit.me" target="_blank" rel="external">http://www.mygit.me</a> 还是 <a href="http://mygit.me">http://mygit.me</a> ，都会自动跳转到 <a href="http://mygit.me">http://mygit.me</a></li>
+<li>如果你填写的是带www的，比如 www.mygit.me ，那么无论是访问 <a href="http://www.mygit.me" target="_blank" rel="external">http://www.mygit.me</a> 还是 <a href="http://mygit.me">http://mygit.me</a> ，都会自动跳转到 <a href="http://www.mygit.me" target="_blank" rel="external">http://www.mygit.me</a></li>
+<li>如果你填写的是其它子域名，比如 abc.mygit.me，那么访问 <a href="http://abc.mygit.me" target="_blank" rel="external">http://abc.mygit.me</a> 没问题，但是访问 <a href="http://mygit.me">http://mygit.me</a> ，不会自动跳转到 <a href="http://abc.mygit.me" target="_blank" rel="external">http://abc.mygit.me</a></li>
+</ul>
+<p>另外说一句，在你绑定了新域名之后，原来的<code>你的用户名.github.io</code>并没有失效，而是会自动跳转到你的新域名。</p>
+<h1 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h1><p>为什么要配置这个呢？因为你提交代码肯定要拥有你的github权限才可以，但是直接使用用户名和密码太不安全了，所以我们使用ssh key来解决本地和服务器的连接问题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/. ssh <span class="comment">#检查本机已存在的ssh密钥</span></div></pre></td></tr></table></figure>
+<p>如果提示：No such file or directory 说明你是第一次使用git。</p>
+<pre><code>ssh-keygen -t rsa -C &quot;邮件地址&quot;
+</code></pre><p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到<code>.ssh\id_rsa.pub</code>文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：</p>
+<p><img src="http://image.liuxianan.com/201608/20160818_143914_495_9084.png" alt=""></p>
+<p>将刚复制的内容粘贴到key那里，title随便填，保存。</p>
+<h2 id="测试是否成功"><a href="#测试是否成功" class="headerlink" title="测试是否成功"></a>测试是否成功</h2><pre><code>$ ssh -T git@github.com # 注意邮箱地址不用改
+</code></pre><p>如果提示<code>Are you sure you want to continue connecting (yes/no)?</code>，输入yes，然后会看到：</p>
+<blockquote>
+<p>Hi liuxianan! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+</blockquote>
+<p>看到这个信息说明SSH已配置成功！</p>
+<p>此时你还需要配置：</p>
+<pre><code>$ git config --global user.name &quot;liuxianan&quot;// 你的github用户名，非昵称
+$ git config --global user.email  &quot;xxx@qq.com&quot;// 填写你的github注册邮箱
+</code></pre><p>具体这个配置是干嘛的我没仔细深究。</p>
+<h1 id="使用hexo写博客"><a href="#使用hexo写博客" class="headerlink" title="使用hexo写博客"></a>使用hexo写博客</h1><h2 id="hexo简介"><a href="#hexo简介" class="headerlink" title="hexo简介"></a>hexo简介</h2><p>Hexo是一个简单、快速、强大的基于 Github Pages 的博客发布工具，支持Markdown格式，有众多优秀插件和主题。</p>
+<p>官网： <a href="http://hexo.io" target="_blank" rel="external">http://hexo.io</a><br>github: <a href="https://github.com/hexojs/hexo" target="_blank" rel="external">https://github.com/hexojs/hexo</a></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>由于github pages存放的都是静态文件，博客存放的不只是文章内容，还有文章列表、分类、标签、翻页等动态内容，假如每次写完一篇文章都要手动更新博文目录和相关链接信息，相信谁都会疯掉，所以hexo所做的就是将这些md文件都放在本地，每次写完文章后调用写好的命令来批量完成相关页面的生成，然后再将有改动的页面提交到github。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>安装之前先来说几个注意事项：</p>
+<ol>
+<li>很多命令既可以用Windows的cmd来完成，也可以使用git bash来完成，但是部分命令会有一些问题，为避免不必要的问题，建议全部使用git bash来执行；</li>
+<li>hexo不同版本差别比较大，网上很多文章的配置信息都是基于2.x的，所以注意不要被误导；</li>
+<li>hexo有2种<code>_config.yml</code>文件，一个是根目录下的全局的<code>_config.yml</code>，一个是各个<code>theme</code>下的；</li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>在电脑的某个地方新建一个名为hexo的文件夹（名字可以随便取），比如我的是<code>F:\Workspaces\hexo</code>，由于这个文件夹将来就作为你存放代码的地方，所以最好不要随便放。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /f/Workspaces/hexo/</div><div class="line">$ hexo init</div></pre></td></tr></table></figure>
+<p>hexo会自动下载一些文件到这个目录，包括node_modules，目录结构如下图：</p>
+<p><img src="http://image.liuxianan.com/201608/20160818_115922_773_1148.png" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g <span class="comment"># 生成</span></div><div class="line">$ hexo s <span class="comment"># 启动服务</span></div></pre></td></tr></table></figure>
+<p>执行以上命令之后，hexo就会在public文件夹生成相关html文件，这些文件将来都是要提交到github去的：</p>
+<p><img src="http://image.liuxianan.com/201608/20160818_120700_028_2426.png" alt=""></p>
+<p><code>hexo s</code>是开启本地预览服务，打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 即可看到内容，很多人会碰到浏览器一直在转圈但是就是加载不出来的问题，一般情况下是因为端口占用的缘故，因为4000这个端口太常见了，解决端口冲突问题请参考这篇文章：</p>
+<p><a href="http://blog.liuxianan.com/windows-port-bind.html" target="_blank" rel="external">http://blog.liuxianan.com/windows-port-bind.html</a></p>
+<p>第一次初始化的时候hexo已经帮我们写了一篇名为 Hello World 的文章，默认的主题比较丑，打开时就是这个样子：</p>
+<p><img src="http://image.liuxianan.com/201608/20160818_132443_202_6848.png" alt=""></p>
+<h2 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h2><p>既然默认主题很丑，那我们别的不做，首先来替换一个好看点的主题。这是 <a href="https://hexo.io/themes/" target="_blank" rel="external">官方主题</a>。</p>
+<p>个人比较喜欢的2个主题：<a href="https://github.com/pinggod/hexo-theme-jekyll" target="_blank" rel="external">hexo-theme-jekyll</a> 和 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">hexo-theme-yilia</a>。</p>
+<p>首先下载这个主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /f/Workspaces/hexo/</div><div class="line">$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</div></pre></td></tr></table></figure>
+<p>下载后的主题都在这里：</p>
+<p><img src="http://image.liuxianan.com/201608/20160818_134500_245_0912.png" alt=""></p>
+<p>修改<code>_config.yml</code>中的<code>theme: landscape</code>改为<code>theme: yilia</code>，然后重新执行<code>hexo g</code>来重新生成。</p>
+<p>如果出现一些莫名其妙的问题，可以先执行<code>hexo clean</code>来清理一下public的内容，然后再来重新生成和发布。</p>
+<h2 id="上传之前"><a href="#上传之前" class="headerlink" title="上传之前"></a>上传之前</h2><p>在上传代码到github之前，一定要记得先把你以前所有代码下载下来（虽然github有版本管理，但备份一下总是好的），因为从hexo提交代码时会把你以前的所有代码都删掉。</p>
+<h2 id="上传到github"><a href="#上传到github" class="headerlink" title="上传到github"></a>上传到github</h2><p>如果你一切都配置好了，发布上传很容易，一句<code>hexo d</code>就搞定，当然关键还是你要把所有东西配置好。</p>
+<p>首先，<code>ssh key</code>肯定要配置好。</p>
+<p>其次，配置<code>_config.yml</code>中有关deploy的部分：</p>
+<p>正确写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: git@github.com:liuxianan/liuxianan.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<p>错误写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: github</div><div class="line">  repository: https://github.com/liuxianan/liuxianan.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<p>后面一种写法是hexo2.x的写法，现在已经不行了，无论是哪种写法，此时直接执行<code>hexo d</code>的话一般会报如下错误：</p>
+<pre><code>Deployer not found: github 或者 Deployer not found: git
+</code></pre><p>原因是还需要安装一个插件：</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre><p>其它命令不确定，部署这个命令一定要用git bash，否则会提示<code>Permission denied (publickey).</code></p>
+<p>打开你的git bash，输入<code>hexo d</code>就会将本次有改动的代码全部提交，没有改动的不会：</p>
+<p><img src="http://image.liuxianan.com/201608/20160818_140441_769_5024.png" alt=""></p>
+<h2 id="保留CNAME、README-md等文件"><a href="#保留CNAME、README-md等文件" class="headerlink" title="保留CNAME、README.md等文件"></a>保留CNAME、README.md等文件</h2><p>提交之后网页上一看，发现以前其它代码都没了，此时不要慌，一些非md文件可以把他们放到source文件夹下，这里的所有文件都会原样复制（除了md文件）到public目录的：</p>
+<p><img src="http://image.liuxianan.com/201608/20160818_141037_580_8035.png" alt=""></p>
+<p>由于hexo默认会把所有md文件都转换成html，包括README.md，所有需要每次生成之后、上传之前，手动将README.md复制到public目录，并删除README.html。</p>
+<h2 id="常用hexo命令"><a href="#常用hexo命令" class="headerlink" title="常用hexo命令"></a>常用hexo命令</h2><p>常见命令</p>
+<pre><code>hexo new &quot;postName&quot; #新建文章
+hexo new page &quot;pageName&quot; #新建页面
+hexo generate #生成静态页面至public目录
+hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）
+hexo deploy #部署到GitHub
+hexo help  # 查看帮助
+hexo version  #查看Hexo的版本
+</code></pre><p>缩写：</p>
+<pre><code>hexo n == hexo new
+hexo g == hexo generate
+hexo s == hexo server
+hexo d == hexo deploy
+</code></pre><p>组合命令：</p>
+<pre><code>hexo s -g #生成并本地预览
+hexo d -g #生成并上传
+</code></pre><h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h2><p>这里面都是一些全局配置，每个参数的意思都比较简单明了，所以就不作详细介绍了。</p>
+<p>需要特别注意的地方是，冒号后面必须有一个空格，否则可能会出问题。</p>
+<h2 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h2><p>定位到我们的hexo根目录，执行命令：</p>
+<pre><code>hexo new &apos;my-first-blog&apos;
+</code></pre><p>hexo会帮我们在<code>_posts</code>下生成相关md文件：</p>
+<p><img src="http://image.liuxianan.com/201608/20160823_183047_352_1475.png" alt=""></p>
+<p>我们只需要打开这个文件就可以开始写博客了，默认生成如下内容：</p>
+<p><img src="http://image.liuxianan.com/201608/20160823_183325_470_9306.png" alt=""></p>
+<p>当然你也可以直接自己新建md文件，用这个命令的好处是帮我们自动生成了时间。</p>
+<p>一般完整格式如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: postName #文章页面上的显示名称，一般是中文</div><div class="line">date: 2013-12-02 15:30:16 #文章生成时间，一般不改，当然也可以任意修改</div><div class="line">categories: 默认分类 #分类</div><div class="line">tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:后面有个空格</div><div class="line"><span class="section">description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面</span></div><div class="line">---</div><div class="line"></div><div class="line">以下是正文</div></pre></td></tr></table></figure>
+<p>那么<code>hexo new page &#39;postName&#39;</code>命令和<code>hexo new &#39;postName&#39;</code>有什么区别呢？</p>
+<pre><code>hexo new page &quot;my-second-blog&quot;
+</code></pre><p>生成如下：</p>
+<p><img src="http://image.liuxianan.com/201608/20160823_184852_854_6502.png" alt=""></p>
+<p>最终部署时生成：<code>hexo\public\my-second-blog\index.html</code>，但是它不会作为文章出现在博文目录。</p>
+<h3 id="写博客工具"><a href="#写博客工具" class="headerlink" title="写博客工具"></a>写博客工具</h3><p>那么用什么工具写博客呢？这个我还没去找，以前自己使用editor.md简单弄了个，大家有好用的hexo写博客工具可以推荐个。</p>
+<h3 id="如何让博文列表不显示全部内容"><a href="#如何让博文列表不显示全部内容" class="headerlink" title="如何让博文列表不显示全部内容"></a>如何让博文列表不显示全部内容</h3><p>默认情况下，生成的博文目录会显示全部的文章内容，如何设置文章摘要的长度呢？</p>
+<p>答案是在合适的位置加上<code>&lt;!--more--&gt;</code>即可，例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="section"># 前言</span></div><div class="line"></div><div class="line">使用github pages服务搭建博客的好处有：</div><div class="line"></div><div class="line"><span class="bullet">1. </span>全是静态文件，访问速度快；</div><div class="line"><span class="bullet">2. </span>免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；</div><div class="line"><span class="bullet">3. </span>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；</div><div class="line"></div><div class="line">&lt;!--more--&gt;</div><div class="line"></div><div class="line"><span class="bullet">4. </span>数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；</div><div class="line"><span class="bullet">5. </span>博客内容可以轻松打包、转移、发布到其它平台；</div><div class="line"><span class="bullet">6. </span>等等；</div></pre></td></tr></table></figure>
+<p>最终效果：</p>
+<p><img src="http://image.liuxianan.com/201608/20160823_184633_653_1893.png" alt=""></p>
+<h1 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h1><p>可以访问我的git博客来查看效果： <a href="http://mygit.me">http://mygit.me</a></p>
+<p>不过呢，其实这个博客我只是拿来玩一玩的，没打算真的把它当博客，因为我已经有一个自己的博客了，哈哈！正因如此，本文仅限入门学习，关于hexo搭建个人博客的更高级玩法大家可以另找教程。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">http://www.cnblogs.com/zhcncn/p/4097881.html</a></p>
+<p><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">http://www.jianshu.com/p/05289a4bc8b2</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      使用hexo+github搭建免费个人博客详细教程
+    
+    </summary>
+    
+      <category term="website" scheme="http://mygit.me/categories/website/"/>
+    
+    
+      <category term="hexo" scheme="http://mygit.me/tags/hexo/"/>
+    
+      <category term="github" scheme="http://mygit.me/tags/github/"/>
+    
+      <category term="网站" scheme="http://mygit.me/tags/%E7%BD%91%E7%AB%99/"/>
+    
+      <category term="搭建" scheme="http://mygit.me/tags/%E6%90%AD%E5%BB%BA/"/>
+    
+      <category term="个人" scheme="http://mygit.me/tags/%E4%B8%AA%E4%BA%BA/"/>
+    
+      <category term="博客" scheme="http://mygit.me/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript数组常用方法详解</title>
+    <link href="http://mygit.me/2016/08/17/javascript-array-method/"/>
+    <id>http://mygit.me/2016/08/17/javascript-array-method/</id>
+    <published>2016-08-16T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.456Z</updated>
+    
+    <content type="html"><![CDATA[<p>为方便理解，这里统一假设有一个名为a的数组：<code>var a=[4,6,1,7,2,9,3,6]</code>，以下所有方法都是基于这个数组。</p>
+<h1 id="push-value"><a href="#push-value" class="headerlink" title="push(value)"></a>push(value)</h1><p>进栈，亦即从最后面追加元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">6</span>];</div><div class="line"><span class="built_in">console</span>.log(a.push(<span class="number">8</span>));<span class="comment">//返回数组的最新长度：9</span></div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//输出：[4, 6, 1, 7, 2, 9, 3, 6, 8]</span></div></pre></td></tr></table></figure>
+<h1 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h1> <a id="more"></a> 
+<p>出栈，亦即删除最后一个元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">6</span>];</div><div class="line"><span class="built_in">console</span>.log(a.pop());<span class="comment">//返回出栈的内容：6</span></div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//输出：[4, 6, 1, 7, 2, 9, 3]</span></div></pre></td></tr></table></figure>
+<h1 id="shift"><a href="#shift" class="headerlink" title="shift()"></a>shift()</h1><p>删除第一个元素，如果没有了返回undefined，刚好与pop方向相反：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">6</span>];</div><div class="line"><span class="built_in">console</span>.log(a.shift());<span class="comment">//返回第一个元素：4</span></div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//输出：[6, 1, 7, 2, 9, 3]</span></div></pre></td></tr></table></figure>
+<h1 id="unshift-value"><a href="#unshift-value" class="headerlink" title="unshift(value)"></a>unshift(value)</h1><p>从第一个元素开始插入元素（可以是多个），刚好与push方向相反：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">6</span>];</div><div class="line"><span class="built_in">console</span>.log(a.unshift(<span class="number">8</span>));<span class="comment">//返回数组的最新长度：9</span></div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//输出：[8, 6, 1, 7, 2, 9, 3]</span></div></pre></td></tr></table></figure>
+<h1 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h1><p>反转数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">6</span>];</div><div class="line"><span class="built_in">console</span>.log(a.reverse());<span class="comment">//返回最新数组</span></div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//输出：[6, 3, 9, 2, 7, 1, 6, 4]</span></div></pre></td></tr></table></figure>
+<h1 id="sort-orderfunction"><a href="#sort-orderfunction" class="headerlink" title="sort(orderfunction)"></a>sort(orderfunction)</h1><p>数组排序（默认升序）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">6</span>];</div><div class="line"><span class="built_in">console</span>.log(a.sort());<span class="comment">//返回最新数组</span></div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//输出：[1, 2, 3, 4, 6, 6, 7, 9]</span></div></pre></td></tr></table></figure>
+<h1 id="join-separator"><a href="#join-separator" class="headerlink" title="join(separator)"></a>join(separator)</h1><p>将数组用某个字符拼接成字符串，默认英文逗号“,”：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">6</span>];</div><div class="line"><span class="built_in">console</span>.log(a.join(<span class="string">'_'</span>));<span class="comment">//返回:4_6_1_7_2_9_3_6</span></div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//输出：[4, 6, 1, 7, 2, 9, 3, 6]</span></div></pre></td></tr></table></figure>
+<h1 id="slice-start-end"><a href="#slice-start-end" class="headerlink" title="slice(start, end)"></a>slice(start, end)</h1><p>返回从原数组中指定开始下标到结束下标之间的项组成的新数组，注意<strong>原始数组不会变</strong>，同时注意下标：<code>start &lt;= i &lt; end</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">6</span>];</div><div class="line"><span class="built_in">console</span>.log(a.slice(<span class="number">2</span>, <span class="number">5</span>));<span class="comment">//返回2-4位:[1, 7, 2]</span></div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//a保持不变，输出：[4, 6, 1, 7, 2, 9, 3, 6]</span></div></pre></td></tr></table></figure>
+<h1 id="splice-start-deleteCount-val1-val2-…"><a href="#splice-start-deleteCount-val1-val2-…" class="headerlink" title="splice(start, deleteCount, val1, val2, …)"></a>splice(start, deleteCount, val1, val2, …)</h1><p>这个方法功能有点强大，也有点复杂。从start位置开始删除deleteCount项，并从该位置起插入val1,val2,… ，返回删除的项</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="comment">//从索引为2开始删除2个元素（这里是3和4），然后再插入7,8,9</span></div><div class="line"><span class="keyword">var</span> b = a.splice(<span class="number">2</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>); <span class="comment">//a：[1,2,7,8,9,5], b：[3,4]</span></div><div class="line"><span class="keyword">var</span> b = a.splice(<span class="number">0</span>,<span class="number">1</span>); <span class="comment">//同shift</span></div><div class="line">a.splice(<span class="number">0</span>,<span class="number">0</span>,<span class="number">-2</span>,<span class="number">-1</span>); <span class="keyword">var</span> b = a.length; <span class="comment">//同unshift</span></div><div class="line"><span class="keyword">var</span> b = a.splice(a.length<span class="number">-1</span>,<span class="number">1</span>); <span class="comment">//同pop</span></div><div class="line">a.splice(a.length,<span class="number">0</span>,<span class="number">6</span>,<span class="number">7</span>); <span class="comment">//同push</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      JavaScript数组常用方法详解
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="方法" scheme="http://mygit.me/tags/%E6%96%B9%E6%B3%95/"/>
+    
+      <category term="数组" scheme="http://mygit.me/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="常用" scheme="http://mygit.me/tags/%E5%B8%B8%E7%94%A8/"/>
+    
+      <category term="详解" scheme="http://mygit.me/tags/%E8%AF%A6%E8%A7%A3/"/>
+    
+      <category term="array" scheme="http://mygit.me/tags/array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML、CSS、JS中unicode字符的处理</title>
+    <link href="http://mygit.me/2016/08/17/display-unicode-character-in-html-css-and-js/"/>
+    <id>http://mygit.me/2016/08/17/display-unicode-character-in-html-css-and-js/</id>
+    <published>2016-08-16T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.456Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="unicode字符的不同表示法"><a href="#unicode字符的不同表示法" class="headerlink" title="unicode字符的不同表示法"></a>unicode字符的不同表示法</h1><h2 id="css表示法"><a href="#css表示法" class="headerlink" title="css表示法"></a>css表示法</h2><p>首先来一段很常见的bootstrap的字体图标代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.glyphicon-home</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">	<span class="attribute">content</span>: <span class="string">"\e021"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面代码中的<code>e021</code>就是这个字符的unicode码，是16进制，css表示方法：</p>
+<pre><code>&apos;\ + 16进制的unicode编码&apos;
+</code></pre><p>如：’\5b89’表示汉字“安”：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"> <span class="comment">&lt;!-- more --&gt;</span> <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line"><span class="selector-class">.test</span>: <span class="selector-tag">before</span> &#123;<span class="attribute">content</span>: <span class="string">"\e021"</span>;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="js表示方法"><a href="#js表示方法" class="headerlink" title="js表示方法"></a>js表示方法</h2><p>语法：</p>
+<pre><code>&apos;\u + 16进制的unicode编码&apos;
+</code></pre><p>示例：</p>
+<pre><code>// 如：&apos;\u5b89&apos;表示汉字“安”
+console.log(&apos;\u5b89&apos;); // 输出我的名字“安”
+</code></pre><h2 id="html表示方法"><a href="#html表示方法" class="headerlink" title="html表示方法"></a>html表示方法</h2><p>html特殊一点，使用的是<strong>10进制</strong>，一开始没注意这个搞的半天出不来郁闷很久。</p>
+<p>语法：</p>
+<pre><code>&apos;&amp;# + 10进制的unicode编码 + 英文分号;&apos;
+</code></pre><p>如<code>&#39;&amp;#23433;&#39;</code>表示汉字<code>安</code>，结尾的分号经测试不加也没问题，但是最好还是加一下。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">	这是unicode表示的字符：&amp;#23433;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>另外，一些特殊字符还有其它表示，也就是常说的<code>html转义字符</code>，如：</p>
+<pre><code>&amp;nbsp; == &amp;#160； == 空格
+</code></pre><h1 id="获取汉字的unicode编码"><a href="#获取汉字的unicode编码" class="headerlink" title="获取汉字的unicode编码"></a>获取汉字的unicode编码</h1><p>那么，如何知道一个汉字的unicode的编码呢？很简单：</p>
+<pre><code>&apos;安&apos;.charCodeAt()； // 输出的 23433 就是汉字 安 的unicode编码，不过注意是10进制的
+String.fromCharCode(23433); // 输出 &apos;安&apos;
+</code></pre><p>得到了10进制的unicode编码，再如果想在js和css里面用的话，就需要用<code>toString(16)</code>转16进制再做进一步处理了。</p>
+<pre><code>var unicode = &apos;\\u&apos;+&apos;茗&apos;.charCodeAt().toString(16); // 输出字符串：&quot;\u8317&quot;
+JSON.parse(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 输出汉字：&quot;茗&quot;
+eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析也可以
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      HTML、CSS、JS中unicode字符的处理
+    
+    </summary>
+    
+      <category term="webmix" scheme="http://mygit.me/categories/webmix/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="字符" scheme="http://mygit.me/tags/%E5%AD%97%E7%AC%A6/"/>
+    
+      <category term="css" scheme="http://mygit.me/tags/css/"/>
+    
+      <category term="html" scheme="http://mygit.me/tags/html/"/>
+    
+      <category term="unicode" scheme="http://mygit.me/tags/unicode/"/>
+    
+      <category term="展示" scheme="http://mygit.me/tags/%E5%B1%95%E7%A4%BA/"/>
+    
+      <category term="处理" scheme="http://mygit.me/tags/%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网页上如何实现禁止复制粘贴以及如何破解</title>
+    <link href="http://mygit.me/2016/08/17/disable-html-copy-and-paste/"/>
+    <id>http://mygit.me/2016/08/17/disable-html-copy-and-paste/</id>
+    <published>2016-08-16T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.455Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们首先来介绍如何实现禁止复制，知道了禁止的方式，再破解就容易了。</p>
+<h1 id="实现禁止复制粘贴"><a href="#实现禁止复制粘贴" class="headerlink" title="实现禁止复制粘贴"></a>实现禁止复制粘贴</h1><p>比较简单，直接上代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">/* 最简单的实现禁止复制的方法，采用css方式禁止文字选择，当然这只兼容webkit内核浏览器 */</div><div class="line">* &#123; -webkit-user-select: none; &#125;</div><div class="line">p &#123;font-family: &apos;Microsoft Yahei&apos;;font-size: 28px;&#125;</div><div class="line">input &#123;width: &lt;!-- more --&gt;  80%; padding: 10px 20px;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;h1&gt;本代码在UC手机浏览器上不生效，其它手机浏览器暂未发现问题、PC全部没问题。&lt;/h1&gt;</div><div class="line">&lt;p&gt;这是一段示例文字，我无法被选中，也无法按下鼠标右键，即使被选中你也无法复制！&lt;/p&gt;</div><div class="line">&lt;input type=&quot;text&quot; value=&quot;文本框中的文字可以选中，但是无法复制粘贴&quot;/&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">// 禁止右键菜单</div><div class="line">document.oncontextmenu = function()&#123; return false; &#125;;</div><div class="line">// 禁止文字选择</div><div class="line">document.onselectstart = function()&#123; return false; &#125;;</div><div class="line">// 禁止复制</div><div class="line">document.oncopy = function()&#123; return false; &#125;;</div><div class="line">// 禁止剪切</div><div class="line">document.oncut = function()&#123; return false; &#125;;</div><div class="line">// 禁止粘贴</div><div class="line">document.onpaste = function()&#123; return false; &#125;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h1 id="破解禁止复制粘贴"><a href="#破解禁止复制粘贴" class="headerlink" title="破解禁止复制粘贴"></a>破解禁止复制粘贴</h1><p>知道如何禁止了，那破解这个限制就容易多了。</p>
+<p>首先，绝大部分限制都是采用js实现的，那我禁用js不久OK了么？突然发现我太聪明了！假如你使用的是<code>Chrome</code>或者其它国产webkit内核浏览器，按下<code>F12</code>弹出开发者工具，再按下<code>F1</code>弹出设置，勾选<code>Disable JavaScript</code>，再按下<code>ESC</code>键关闭设置（其它浏览器如何禁止JavaScript请自行研究），然后试试是不是可以复制了？</p>
+<p><img src="http://image.liuxianan.com/201608/20160817_085956_673_5222.png" alt=""></p>
+<p>如果此时仍无法选择文字，找到你要复制文字的地方，看看是不是添加了<code>-webkit-user-select: none</code>的样式，如果有，将其去掉即可：</p>
+<p><img src="http://image.liuxianan.com/201608/20160817_090202_264_2841.png" alt=""></p>
+<p>到了这里应该就可以自由复制粘贴了，复制完了记得把禁用JavaScript的地方还原回来哦。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      网页上如何实现禁止复制粘贴以及如何破解
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="禁止" scheme="http://mygit.me/tags/%E7%A6%81%E6%AD%A2/"/>
+    
+      <category term="复制" scheme="http://mygit.me/tags/%E5%A4%8D%E5%88%B6/"/>
+    
+      <category term="粘贴" scheme="http://mygit.me/tags/%E7%B2%98%E8%B4%B4/"/>
+    
+      <category term="右键" scheme="http://mygit.me/tags/%E5%8F%B3%E9%94%AE/"/>
+    
+      <category term="破解" scheme="http://mygit.me/tags/%E7%A0%B4%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>marquee标签</title>
+    <link href="http://mygit.me/2016/08/17/marquee/"/>
+    <id>http://mygit.me/2016/08/17/marquee/</id>
+    <published>2016-08-16T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.457Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="marquee"><a href="#marquee" class="headerlink" title="marquee"></a>marquee</h1><p>marquee是<strong>已经废弃、过时的标签</strong>，不推荐使用！在Chrome不同版本中有很多bug，如，Chrome45.0中动画执行完总是需要点一下页面才能继续，最新版的Chrome52.0则没有这个问题。</p>
+<p>虽然已经过时，有时候还是不得已用到，这里简单对几个属性做一下介绍。</p>
+<h2 id="behavior"><a href="#behavior" class="headerlink" title="behavior"></a>behavior</h2><p>可用的值为scroll(滚动)、slide(滑动)、alternate(改变，类似于光学的反射路径)，如果没有指定值，默认是scroll</p>
+<h2 id="direction"><a href="#direction" class="headerlink" title="direction "></a>direction <a id="more"></a></h2><p>设置方向，可用的值为left、right、up、down，如果没有指定值，默认是left</p>
+<h2 id="scrollamount"><a href="#scrollamount" class="headerlink" title="scrollamount"></a>scrollamount</h2><p>控制速度</p>
+<h2 id="scrolldelay"><a href="#scrolldelay" class="headerlink" title="scrolldelay"></a>scrolldelay</h2><p>延时</p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>完整测试代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>兼容性说明：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>marquee是已经废弃的标签，不推荐使用！在Chrome不同版本中有很多bug，如，Chrome45.0中动画执行完总是需要点一下页面才能继续，最新版的Chrome52.0则没有这个问题。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>默认：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>来回滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">direction</span>=<span class="string">"left"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>循环滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"scroll"</span> <span class="attr">direction</span>=<span class="string">"right"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>右下往上滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"scroll"</span> <span class="attr">direction</span>=<span class="string">"up"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span> <span class="attr">style</span>=<span class="string">"height:200px;background:#ccc;"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>会反弹的文字：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">direction</span>=<span class="string">"down"</span> <span class="attr">width</span>=<span class="string">"250"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">style</span>=<span class="string">"border:solid 2px black;"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">width</span>=<span class="string">"250"</span> &gt;</span>这个文本会反弹哦<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      marquee标签
+    
+    </summary>
+    
+      <category term="webmix" scheme="http://mygit.me/categories/webmix/"/>
+    
+    
+      <category term="html" scheme="http://mygit.me/tags/html/"/>
+    
+      <category term="marquee" scheme="http://mygit.me/tags/marquee/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML缓存设置</title>
+    <link href="http://mygit.me/2016/08/11/html-cache-control/"/>
+    <id>http://mygit.me/2016/08/11/html-cache-control/</id>
+    <published>2016-08-10T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.454Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="通过meta标签设置"><a href="#通过meta标签设置" class="headerlink" title="通过meta标签设置"></a>通过meta标签设置</h1><p>设置缓存有2种方法：</p>
+<pre><code>&lt;!-- 设置缓存2小时，max-age指最大缓存的秒数 --&gt;
+&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;max-age=7200&quot; /&gt;
+&lt;!-- 或者这样设置永远不缓存 --&gt;
+&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-cache&quot; /&gt;
+</code></pre><p>还可以通过Expires来设置：</p>
+<pre><code>&lt;!-- 表示过期时间，必须是GMT格式 --&gt; &lt;!-- more --&gt; 
+&lt;meta http-equiv=&quot;Expires&quot; content=&quot;Tue, 31 May 2016 11:09:29 GMT&quot; /&gt;
+</code></pre><p>这2种方法效果是一样的，推荐使用前者，因为后者还要计算时间，麻烦！</p>
+<p>附上Java计算GMT格式时间的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取当前时间+2小时之后的GMT标准时间，如：Tue, 31 May 2016 11:09:29 GMT</span></div><div class="line">Calendar gmtCalendar = Calendar.getInstance();</div><div class="line">gmtCalendar.add(Calendar.HOUR, <span class="number">2</span>);</div><div class="line">DateFormat gmtFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"EEE, dd MMM yyyy HH:mm:ss z"</span>, Locale.US);</div><div class="line">gmtFormat.setTimeZone(TimeZone.getTimeZone(<span class="string">"GMT"</span>));</div><div class="line">String gmtTime = gmtFormat.format(gmtCalendar.getTime());</div><div class="line">System.out.println(<span class="string">"2小时候的gmtTime:"</span>+gmtTime);</div></pre></td></tr></table></figure>
+<p>需要特别说明的是，这些只是控制HTML本身的缓存，网页使用到的css、js等不在这个控制范围内。</p>
+<h1 id="万能的清除缓存方法"><a href="#万能的清除缓存方法" class="headerlink" title="万能的清除缓存方法"></a>万能的清除缓存方法</h1><p>“给资源地址增加无用的参数”这是唯一百分百能保证客户端一定会重新从服务器加载资源的方法（而且没有任何兼容性问题），其原理就是因为参数属于地址的一部分，你更改了资源地址的参数，浏览器认为你指向的是另外一个新地址，此时无论如何它都不会缓存，一般的做法就是给资源链接添加时间戳或者随机字符串，比如这样：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/common.js?t=1470900999327&quot;&gt;&lt;/script&gt;
+</code></pre><p>如果采用的是jsp等服务端语言那很好办，如果采用的是纯html，一般需要找个工具或者自己写个工具来批量更新资源链接的时间戳。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      HTML缓存设置
+    
+    </summary>
+    
+      <category term="html" scheme="http://mygit.me/categories/html/"/>
+    
+    
+      <category term="缓存" scheme="http://mygit.me/tags/%E7%BC%93%E5%AD%98/"/>
+    
+      <category term="html" scheme="http://mygit.me/tags/html/"/>
+    
+      <category term="控制" scheme="http://mygit.me/tags/%E6%8E%A7%E5%88%B6/"/>
+    
+      <category term="cache" scheme="http://mygit.me/tags/cache/"/>
+    
+      <category term="control" scheme="http://mygit.me/tags/control/"/>
+    
+      <category term="清除" scheme="http://mygit.me/tags/%E6%B8%85%E9%99%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows下如何查看某个端口被谁占用</title>
+    <link href="http://mygit.me/2016/08/09/windows-port-bind/"/>
+    <id>http://mygit.me/2016/08/09/windows-port-bind/</id>
+    <published>2016-08-08T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.452Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="命令行法"><a href="#命令行法" class="headerlink" title="命令行法"></a>命令行法</h1><p>原文发表于：2014-10-09</p>
+<p>这里我们以8081端口为例讲解。</p>
+<ol>
+<li>按下<code>Win+R</code>调出命令行窗口，输入<code>netstat -aon|findstr &quot;8081&quot;</code>，找到指定行最后一列的数字（PID），我们这里是9548.</li>
+<li>输入<code>tasklist|findstr &quot;9548&quot;</code>，发现是<code>javaw.exe</code>占用了8081端口。</li>
+<li>再次输入<code>taskkill /f /t /im javaw.exe</code>结束该进程。</li>
+</ol>
+<p><img src="http://image.li &lt;!-- more --&gt; uxianan.com/201608/20160809_093921_341_0541.png" alt=""></p>
+<p>后面2步推荐使用任务管理器来完成。</p>
+<p>按下Ctrl+Shift+Esc弹出任务管理器，切换到详细信息面板，根据PID找到指定进程并结束：</p>
+<p><img src="http://image.liuxianan.com/201608/20160809_094453_792_9046.png" alt=""></p>
+<p>如果发现没有PID这一列，右键单击列头，勾选PID这一列：</p>
+<p><img src="http://image.liuxianan.com/201608/20160809_094718_178_8914.png" alt=""></p>
+<p><img src="http://image.liuxianan.com/201608/20160809_094803_952_2660.png" alt=""></p>
+<h1 id="第三方软件法"><a href="#第三方软件法" class="headerlink" title="第三方软件法"></a>第三方软件法</h1><p>可以借助360安全卫士或者腾讯电脑管家等第三方软件很容易的实现相关功能，不用担心记不住命令，这里就不详细介绍了。</p>
+<p><img src="http://image.liuxianan.com/201608/20160809_095159_296_8464.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      Windows下如何查看某个端口被谁占用
+    
+    </summary>
+    
+      <category term="it" scheme="http://mygit.me/categories/it/"/>
+    
+    
+      <category term="windows" scheme="http://mygit.me/tags/windows/"/>
+    
+      <category term="查看" scheme="http://mygit.me/tags/%E6%9F%A5%E7%9C%8B/"/>
+    
+      <category term="端口" scheme="http://mygit.me/tags/%E7%AB%AF%E5%8F%A3/"/>
+    
+      <category term="占用" scheme="http://mygit.me/tags/%E5%8D%A0%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat6与tomcat7几个不同的地方</title>
+    <link href="http://mygit.me/2016/08/09/difference-between-tomcat6-and-tomcat7/"/>
+    <id>http://mygit.me/2016/08/09/difference-between-tomcat6-and-tomcat7/</id>
+    <published>2016-08-08T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.453Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="标签库的2个不同地方"><a href="#标签库的2个不同地方" class="headerlink" title="标签库的2个不同地方"></a>标签库的2个不同地方</h1><p>原文发表于：2014-09-25</p>
+<h2 id="标签库属性间的空格"><a href="#标签库属性间的空格" class="headerlink" title="标签库属性间的空格"></a>标签库属性间的空格</h2><p>如果标签库的属性之间没有空格，tomcat6没问题，tomcat7报错。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%&gt;</div><div class="line">&lt;%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %&gt;</div><div class="line">&lt; &lt;!-- more --&gt; !DOCTYPE html&gt;</div><div class="line">&lt;html lang="zh"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset="utf-8"/&gt;</div><div class="line">	&lt;title&gt;测试标签库&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;h1&gt;标签库的属性之间不写空格，tomcat6没问题，tomcat7下会报错：&lt;/h1&gt;</div><div class="line">	&lt;!-- 注意下面的end和var属性之间没有空格 --&gt;</div><div class="line">	&lt;c:forEach begin="1" end="5"var="p"&gt;</div><div class="line">	$&#123;p&#125;,</div><div class="line">	&lt;/c:forEach&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="EL表达式获取属性"><a href="#EL表达式获取属性" class="headerlink" title="EL表达式获取属性"></a>EL表达式获取属性</h2><p>EL表达式使用<code>${xxx.getXXX()}</code>时，Tomcat6报错，Tomcat7不报错，总之不推荐这样使用，这也是无意间从别人的错误中发现的。</p>
+<h1 id="servlet可以使用注解"><a href="#servlet可以使用注解" class="headerlink" title="servlet可以使用注解"></a>servlet可以使用注解</h1><p>从tomcat7开始，servlet可以使用注解。</p>
+<p>//TODO 更多不同有待补充。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      tomcat6与tomcat7几个不同的地方
+    
+    </summary>
+    
+      <category term="javaee" scheme="http://mygit.me/categories/javaee/"/>
+    
+    
+      <category term="tomcat" scheme="http://mygit.me/tags/tomcat/"/>
+    
+      <category term="tomcat6" scheme="http://mygit.me/tags/tomcat6/"/>
+    
+      <category term="tomcat7" scheme="http://mygit.me/tags/tomcat7/"/>
+    
+      <category term="不同" scheme="http://mygit.me/tags/%E4%B8%8D%E5%90%8C/"/>
+    
+      <category term="注解" scheme="http://mygit.me/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+      <category term="el表达式" scheme="http://mygit.me/tags/el%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安卓横竖屏切换时不触发onCreate方法</title>
+    <link href="http://mygit.me/2016/08/04/do-not-trigger-oncreate-when-android-orientation-changed/"/>
+    <id>http://mygit.me/2016/08/04/do-not-trigger-oncreate-when-android-orientation-changed/</id>
+    <published>2016-08-03T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.451Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h1><p>默认情况下，当安卓应用横竖屏之间切换时，每次切换都会触发onCreate，如果你的应用是一个hybird应用，那体验惨爆了，刚刚还在一个二级页面，横屏一下立马又回到首页，所以我们必须想办法禁止这种行为。</p>
+<p>方法很简单，针对AndroidManifest.xml中对应Activity增加设置<code>android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;</code>：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:n &lt;!-- more --&gt; ame=".activity.WelcomeActivity"</div><div class="line">    android:label="@string/app_name"</div><div class="line">    android:configChanges="orientation|keyboardHidden|screenSize" &gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name="android.intent.action.MAIN" /&gt;</div><div class="line">        &lt;category android:name="android.intent.category.LAUNCHER" /&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure>
+<p>有一点需要知道，Android4.0之前只需设置<code>keyboardHidden|orientation</code>即可，但是4.0以后需要设置<code>keyboardHidden|orientation|screenSize</code>，这一点切记，网上很多老的文章没有提到！</p>
+<p>另外，如果你需要针对方向切换后做一些自定义处理，可以这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onConfigurationChanged</span><span class="params">(Configuration newConfig)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">super</span>.onConfigurationChanged(newConfig);</div><div class="line">	<span class="keyword">int</span> currentOrientation = <span class="keyword">this</span>.getResources().getConfiguration().orientation;</div><div class="line">	<span class="keyword">if</span>(currentOrientation == Configuration.ORIENTATION_LANDSCAPE)</div><div class="line">	&#123;</div><div class="line">		<span class="comment">// 如果是横屏，做相关处理</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(currentOrientation == Configuration.ORIENTATION_PORTRAIT)</div><div class="line">	&#123;</div><div class="line">		<span class="comment">// 如果是竖屏，做相关处理</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/savagemorgan/archive/2013/01/24/2875586.html" target="_blank" rel="external">http://www.cnblogs.com/savagemorgan/archive/2013/01/24/2875586.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      安卓横竖屏切换时不触发onCreate方法
+    
+    </summary>
+    
+      <category term="android_base" scheme="http://mygit.me/categories/android-base/"/>
+    
+    
+      <category term="android" scheme="http://mygit.me/tags/android/"/>
+    
+      <category term="横屏" scheme="http://mygit.me/tags/%E6%A8%AA%E5%B1%8F/"/>
+    
+      <category term="竖屏" scheme="http://mygit.me/tags/%E7%AB%96%E5%B1%8F/"/>
+    
+      <category term="切换" scheme="http://mygit.me/tags/%E5%88%87%E6%8D%A2/"/>
+    
+      <category term="触发" scheme="http://mygit.me/tags/%E8%A7%A6%E5%8F%91/"/>
+    
+      <category term="oncreate" scheme="http://mygit.me/tags/oncreate/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浏览器会自动给页面所有取了ID的元素生成一个对应的变量</title>
+    <link href="http://mygit.me/2016/08/02/id_91/"/>
+    <id>http://mygit.me/2016/08/02/id_91/</id>
+    <published>2016-08-01T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.447Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h1><p>原文发表于：2014-07-14</p>
+<p>浏览器会给页面所有取了id的元素生成一个名字就叫这个id的对象，对象的内容就是它的DOM对象，相当于是<code>document.getElementById(id)</code>返回的内容。</p>
+<p>我们来看一个测试例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;test1&quot;&gt;第一段内容&lt;/div&gt;</div><div class="line">&lt;div id=&quot;test2&quot;&gt;第二段内容&lt;/div&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">console.log(test1==u &lt;!-- more --&gt; ndefined, test1); // 输出：false， div#test1</div><div class="line"></div><div class="line">// 测试一</div><div class="line">(function()</div><div class="line">&#123;</div><div class="line">	var test1 = test1 || &apos;你好啊&apos;;</div><div class="line">	console.log(test1); // 输出 &apos;你好啊&apos;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">// 测试二</div><div class="line">(function()</div><div class="line">&#123;</div><div class="line">	test2 = test2 || &apos;你好啊&apos;;</div><div class="line">	console.log(test2); // 输出 div#test2</div><div class="line">&#125;)();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>上面的例子中，测试一由于使用了var，并且由于js存在变量声明提升，所以会输出后面的内容，测试二其实等同于下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> test1; <span class="comment">// 由于重新定义了test1，这里相当于给它赋值了undefined</span></div><div class="line">	test1 = test1 || <span class="string">'你好啊'</span>;</div><div class="line">	<span class="built_in">console</span>.log(test1); <span class="comment">// 输出 '你好啊'</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>以上代码在Chrome、Firefox和IE上测试都存在类似问题。</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>所以，类似下面这样的代码就尽量不要写了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>); <span class="comment">// 此代码多此一举</span></div></pre></td></tr></table></figure>
+<p>另外，js在定义变量的时候也要尽量不要和已存在的DOM的id重复了，避免带来不必要的麻烦。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      浏览器会自动给页面所有取了ID的元素生成一个对应的变量
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="自动" scheme="http://mygit.me/tags/%E8%87%AA%E5%8A%A8/"/>
+    
+      <category term="生成" scheme="http://mygit.me/tags/%E7%94%9F%E6%88%90/"/>
+    
+      <category term="dom" scheme="http://mygit.me/tags/dom/"/>
+    
+      <category term="id" scheme="http://mygit.me/tags/id/"/>
+    
+      <category term="变量" scheme="http://mygit.me/tags/%E5%8F%98%E9%87%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义网页鼠标样式</title>
+    <link href="http://mygit.me/2016/08/02/custom-cursor-style/"/>
+    <id>http://mygit.me/2016/08/02/custom-cursor-style/</id>
+    <published>2016-08-01T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.448Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文发表于2014-07-17</p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">element</span> &#123;<span class="attribute">cursor</span>: <span class="built_in">url</span>(<span class="string">'cur图片的绝对路径'</span>), 图片不存在时的默认鼠标样式;&#125;</div></pre></td></tr></table></figure>
+<p>说明：</p>
+<ol>
+<li>必须是绝对路径；</li>
+<li>默认样式必须写，如<code>auto</code>、<code>default</code>，中间分隔的是逗号不是空格，否则不会生效；</li>
+<li>图片最好是.cur后缀的，其它格式不敢保证多浏览器支持；</li>
+<li>cur图片制作：百度<code>cur 制作</code>会出来一个在线制作工具；</li>
+</ol>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;s &lt;!-- more --&gt; tyle type=&quot;text/css&quot;&gt;</div><div class="line">#content_wrapper&#123;</div><div class="line">	position: absolute;</div><div class="line">	background: #ddd;</div><div class="line">	left: 0px;</div><div class="line">	top: 0px;</div><div class="line">	width: 400px;</div><div class="line">	height: 400px;</div><div class="line">	border: solid 1px #bbb;</div><div class="line">&#125;</div><div class="line">#cursor_wrapper &#123;</div><div class="line">	position: absolute;</div><div class="line">	left: 100px;</div><div class="line">	top: 100px;</div><div class="line">	width: 200px;</div><div class="line">	height: 200px;</div><div class="line">	background: #999;</div><div class="line">	color: white;</div><div class="line">	text-align: center;</div><div class="line">	cursor: url(&apos;http://test.liuxianan.com/sample.cur&apos;), auto;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div id=&quot;content_wrapper&quot;&gt;</div><div class="line">	&lt;div id=&quot;cursor_wrapper&quot;&gt;</div><div class="line">		鼠标经过这里将出现自定义指针样式</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><img src="http://image.liuxianan.com/201608/20160802_153617_844_9611.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      自定义网页鼠标样式
+    
+    </summary>
+    
+      <category term="webmix" scheme="http://mygit.me/categories/webmix/"/>
+    
+    
+      <category term="自定义" scheme="http://mygit.me/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/"/>
+    
+      <category term="鼠标" scheme="http://mygit.me/tags/%E9%BC%A0%E6%A0%87/"/>
+    
+      <category term="指针" scheme="http://mygit.me/tags/%E6%8C%87%E9%92%88/"/>
+    
+      <category term="样式" scheme="http://mygit.me/tags/%E6%A0%B7%E5%BC%8F/"/>
+    
+      <category term="cursor" scheme="http://mygit.me/tags/cursor/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript作用域与变量声明提升</title>
+    <link href="http://mygit.me/2016/08/02/javascript-hoisting/"/>
+    <id>http://mygit.me/2016/08/02/javascript-hoisting/</id>
+    <published>2016-08-01T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.450Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文发表于：2014-08-21</p>
+<h1 id="js作用域"><a href="#js作用域" class="headerlink" title="js作用域"></a>js作用域</h1><p>为了更好的描述本文的核心：<code>变量声明提升</code>，我们先来复习一下js的作用域。</p>
+<p>js没有块级作用域，函数是js唯一拥有自身作用域的结构。</p>
+<h1 id="变量声明提升"><a href="#变量声明提升" class="headerlink" title="变量声明提升"></a>变量声明提升</h1><h2 id="什么是变量声明提升"><a href="#什么是变量声明提升" class="headerlink" title="什么是变量声明提升"></a>什么是变量声明提升</h2><p>这是一个比较老的话题，所谓变量声明提升（hoisting），是指JavaScript引擎在执行的时候，会把所有变量的声明都提升到当前作用域的最前面，包括普通变量和函数。</p>
+<h2 id="先看个经典例子"><a href="#先看个经典例子" class="headerlink" title="先看个经典例子"></a>先看个经典例子</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> st &lt;!-- more --&gt; r = <span class="string">'Hello Liuxianan!'</span>;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">console</span>.log(str); <span class="comment">// 输出 undefined</span></div><div class="line">	<span class="keyword">var</span> str = <span class="string">'Hello xmy!'</span>;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>运行结果是：<code>undefined</code></p>
+<p>为什么这样呢？前面说了，js引擎会把变量声明放到当前作用域的最前面，又由于函数是js唯一拥有自身作用域的结构，所以，提升的代码其实是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Hello Liuxianan!'</span>;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> str;</div><div class="line">	<span class="built_in">console</span>.log(str);</div><div class="line">	str = <span class="string">'Hello xmy!'</span>;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>假如换成这样呢？不用说，这种情况下变量声明不会提升：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Hello Liuxianan!'</span>;</div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">console</span>.log(str); <span class="comment">// 输出 'Hello Liuxianan!'</span></div><div class="line">	str = <span class="string">'Hello xmy!'</span>;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h2 id="函数的提升"><a href="#函数的提升" class="headerlink" title="函数的提升"></a>函数的提升</h2><p>还是看段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	f1(); <span class="comment">// 输出 我是f1</span></div><div class="line">	f2(); <span class="comment">// 提示：f2 is not a function</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'我是f1'</span>);&#125;</div><div class="line">	<span class="keyword">var</span> f2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>结论：<br>无论是普通变量，还是函数，声明都会被提升，但是，<code>函数声明式</code>（比如这里的f1）会把函数内容也一起提升，而<code>函数表达式</code>（比如这里的f2）只提升声明，不提升函数内容，这就是函数声明式和函数表达式的最大区别。</p>
+<p>以上代码相当于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'我是f1'</span>);&#125;</div><div class="line">	<span class="keyword">var</span> f2;</div><div class="line">	f1(); <span class="comment">// 输出 我是f1</span></div><div class="line">	f2(); <span class="comment">// 提示：f2 is not a function</span></div><div class="line">	f2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h2 id="函数声明表达式的提升"><a href="#函数声明表达式的提升" class="headerlink" title="函数声明表达式的提升"></a>函数声明表达式的提升</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	f(); <span class="comment">// TypeError: f is not a function</span></div><div class="line">	foo(); <span class="comment">// ReferenceError: foo is not defined</span></div><div class="line">	<span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="keyword">typeof</span> foo);&#125;;</div><div class="line">	f(); <span class="comment">// function</span></div><div class="line">	foo(); <span class="comment">// ReferenceError: foo is not defined</span></div><div class="line">&#125;)()；</div></pre></td></tr></table></figure>
+<p>以上代码相当于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> f;</div><div class="line">	f(); <span class="comment">// TypeError: f is not a function</span></div><div class="line">	foo(); <span class="comment">// ReferenceError: foo is not defined</span></div><div class="line">	f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">var</span> foo = f; <span class="built_in">console</span>.log(<span class="keyword">typeof</span> foo);&#125;;</div><div class="line">	f(); <span class="comment">// function</span></div><div class="line">	foo(); <span class="comment">// ReferenceError: foo is not defined</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h1 id="附：函数声明式和函数表达式"><a href="#附：函数声明式和函数表达式" class="headerlink" title="附：函数声明式和函数表达式"></a>附：函数声明式和函数表达式</h1><p>所谓函数声明式，就是类似这样的定义：</p>
+<pre><code>function foo(){}
+</code></pre><p>所谓函数表达式，就是类似这样的定义：</p>
+<pre><code>var foo = function(){}
+</code></pre><p>那如果一个function是这样定义的呢？</p>
+<pre><code>var f = function foo(){};
+</code></pre><p>这样的function好像有一个名字叫<code>函数声明表达式</code>，具体是不是专业名词俺没调查过，其实上面的代码相当于：</p>
+<pre><code>var f = function(){var foo = f;}
+</code></pre><p>另外，突发奇想一个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">foo</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">	<span class="built_in">console</span>.log(<span class="built_in">arguments</span>); <span class="comment">// 输出 [function()&#123;&#125;]</span></div><div class="line">&#125;)(<span class="string">'ss'</span>);</div></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://openwares.net/js/javascript_declaration_hoisting.html" target="_blank" rel="external">http://openwares.net/js/javascript_declaration_hoisting.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      javascript作用域与变量声明提升
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="hoisting" scheme="http://mygit.me/tags/hoisting/"/>
+    
+      <category term="作用域" scheme="http://mygit.me/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    
+      <category term="变量声明" scheme="http://mygit.me/tags/%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/"/>
+    
+      <category term="提升" scheme="http://mygit.me/tags/%E6%8F%90%E5%8D%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义网站图标</title>
+    <link href="http://mygit.me/2016/08/02/favicon/"/>
+    <id>http://mygit.me/2016/08/02/favicon/</id>
+    <published>2016-08-01T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.450Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文发表于：2014-08-06</p>
+<h1 id="如何自定义网站图标"><a href="#如何自定义网站图标" class="headerlink" title="如何自定义网站图标"></a>如何自定义网站图标</h1><p>所谓网站图标，就是每个标签上方网页的小图标，一般比较小，只有16*16像素左右。</p>
+<p>默认情况下浏览器会加载网页所在域名的根目录下的favicon.ico，举个例子，假如你访问的网页是：<a href="http://blog.liuxianan.com/test1/test2/index.html" target="_blank" rel="external">http://blog.liuxianan.com/test1/test2/index.html</a> ，在你不做特殊设置的前提下，浏览器会自动把如下图片当成网站的图标：<a href="http://blog.liuxianan.com/favicon.ico" target="_blank" rel="external">http://blog.liuxianan.com/favicon.ico</a> 。</p>
+<p>所 <a id="more"></a> 以，最简单的自定义图标的方式就是替换这张图片，用于网页图标的ico图标分辨率一般不需要太大，个人觉得32*32足够了。</p>
+<p>如果我想换个路径呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;shortcut icon&quot; href=&quot;images/lxa.ico&quot; type=&quot;image/x-icon&quot;&gt;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      自定义网站图标
+    
+    </summary>
+    
+      <category term="html" scheme="http://mygit.me/categories/html/"/>
+    
+    
+      <category term="网站" scheme="http://mygit.me/tags/%E7%BD%91%E7%AB%99/"/>
+    
+      <category term="自定义" scheme="http://mygit.me/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/"/>
+    
+      <category term="html" scheme="http://mygit.me/tags/html/"/>
+    
+      <category term="图标" scheme="http://mygit.me/tags/%E5%9B%BE%E6%A0%87/"/>
+    
+      <category term="favicon" scheme="http://mygit.me/tags/favicon/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>console.log报错：uncaught typeerror illegal invocation</title>
+    <link href="http://mygit.me/2016/08/02/console-log-typeerror-illegal-invocation/"/>
+    <id>http://mygit.me/2016/08/02/console-log-typeerror-illegal-invocation/</id>
+    <published>2016-08-01T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.449Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文发表于：2014-08-01</p>
+<h1 id="console-log的运行上下文"><a href="#console-log的运行上下文" class="headerlink" title="console.log的运行上下文"></a>console.log的运行上下文</h1><p>原因是<code>console.log</code>的运行上下文要求是console不能是其它任何别对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log.call(<span class="keyword">this</span>, <span class="string">'Hello Liuianan!'</span>); <span class="comment">// 报错：Uncaught TypeError: Illegal invocation</span></div><div class="line"><span class="built_in">console</span>.log.call(<span class="built_in">console</span>, <span class="string">'Hello Liuianan!'</span>); <span class="comment">// 正常输出</span></div></pre></td></tr></table></figure>
+<p>结 <a id="more"></a> 果：<br><img src="http://image.liuxianan.com/201608/20160802_155625_498_8752.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      console.log报错：uncaught typeerror illegal invocation
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="console" scheme="http://mygit.me/tags/console/"/>
+    
+      <category term="log" scheme="http://mygit.me/tags/log/"/>
+    
+      <category term="typeerror" scheme="http://mygit.me/tags/typeerror/"/>
+    
+      <category term="运行" scheme="http://mygit.me/tags/%E8%BF%90%E8%A1%8C/"/>
+    
+      <category term="上下文" scheme="http://mygit.me/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript中和String相关的一些兼容性不太好的方法</title>
+    <link href="http://mygit.me/2016/08/02/js-string-some-special-method/"/>
+    <id>http://mygit.me/2016/08/02/js-string-some-special-method/</id>
+    <published>2016-08-01T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.448Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="String-prototype-trim"><a href="#String-prototype-trim" class="headerlink" title="String.prototype.trim"></a>String.prototype.trim</h1><p>低版本浏览器不支持字符串的trim相关方法，实际使用中考虑兼容性的话可以使用jQuery提供的$.trim()方法，如果项目中没有采用jQuery，可以自己简单写一个，参考jQuery中的实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!<span class="built_in">String</span>.prototype.trim)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\uFEFF\xA0]+| &lt;!-- more --&gt; [\s\uFEFF\xA0]+$/g</span>, <span class="string">''</span>);</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim</a></p>
+<h1 id="String-prototype-startsWith和endsWith"><a href="#String-prototype-startsWith和endsWith" class="headerlink" title="String.prototype.startsWith和endsWith"></a>String.prototype.startsWith和endsWith</h1><p>切记！这2个方法是直到ECMAScript6才开始支持的！如果不支持可以自己写一个：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="built_in">String</span>.prototype.startsWith)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.startsWith = <span class="function"><span class="keyword">function</span>(<span class="params">searchString, position</span>)</span></div><div class="line">	&#123;</div><div class="line">		position = position || <span class="number">0</span>;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.substr(position, searchString.length) === searchString;</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> (!<span class="built_in">String</span>.prototype.endsWith)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.endsWith = <span class="function"><span class="keyword">function</span>(<span class="params">searchString, position</span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">var</span> subjectString = <span class="keyword">this</span>.toString();</div><div class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> position !== <span class="string">'number'</span> || !<span class="built_in">isFinite</span>(position) || <span class="built_in">Math</span>.floor(position) !== position || position &gt; subjectString.length)</div><div class="line">		&#123;</div><div class="line">			position = subjectString.length;</div><div class="line">		&#125;</div><div class="line">		position -= searchString.length;</div><div class="line">		<span class="keyword">var</span> lastIndex = subjectString.indexOf(searchString, position);</div><div class="line">		<span class="keyword">return</span> lastIndex !== <span class="number">-1</span> &amp;&amp; lastIndex === position;</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>本代码参考自：</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      JavaScript中和String相关的一些兼容性不太好的方法
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="prototype" scheme="http://mygit.me/tags/prototype/"/>
+    
+      <category term="string" scheme="http://mygit.me/tags/string/"/>
+    
+      <category term="trim" scheme="http://mygit.me/tags/trim/"/>
+    
+      <category term="startswith" scheme="http://mygit.me/tags/startswith/"/>
+    
+      <category term="endswidth" scheme="http://mygit.me/tags/endswidth/"/>
+    
+      <category term="兼容性" scheme="http://mygit.me/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/"/>
+    
+      <category term="不好" scheme="http://mygit.me/tags/%E4%B8%8D%E5%A5%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flash跨域设置</title>
+    <link href="http://mygit.me/2016/08/01/flash-crossdomain/"/>
+    <id>http://mygit.me/2016/08/01/flash-crossdomain/</id>
+    <published>2016-07-31T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.446Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="flash跨域设置"><a href="#flash跨域设置" class="headerlink" title="flash跨域设置"></a>flash跨域设置</h1><p>默认情况下不允许跨域，需要跨域的话，必须在域名根目录下放置一个名为<code>crossdomain.xml</code>的文件，作用是定义该域名下面的xml文件、json文件、m3u8文件是否允许其它网站的flashplayer来访问。这个文件是格式是由adobe公司制定的：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;cross-domain-policy&gt;</div><div class="line">	&lt;allow-access-from domain="*"/&gt;</div><div class="line">	&lt;a &lt;!-- more --&gt; llow-http-request-headers-from domain="*" headers="*"/&gt;</div><div class="line">&lt;/cross-domain-policy&gt;</div></pre></td></tr></table></figure>
+<p>只允许<code>liuxianan.com</code>和<code>liuxianan.cn</code>访问：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">cross-domain-policy</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">allow-access-from</span> <span class="attr">domain</span>=<span class="string">"*.liuxianan.com"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">allow-access-from</span> <span class="attr">domain</span>=<span class="string">"*.liuxianan.cn"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">cross-domain-policy</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      flash跨域设置
+    
+    </summary>
+    
+      <category term="webmix" scheme="http://mygit.me/categories/webmix/"/>
+    
+    
+      <category term="跨域" scheme="http://mygit.me/tags/%E8%B7%A8%E5%9F%9F/"/>
+    
+      <category term="设置" scheme="http://mygit.me/tags/%E8%AE%BE%E7%BD%AE/"/>
+    
+      <category term="flash" scheme="http://mygit.me/tags/flash/"/>
+    
+      <category term="crossdomain" scheme="http://mygit.me/tags/crossdomain/"/>
+    
+  </entry>
+  
+</feed>

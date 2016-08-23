@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>pomelo使用笔记 | 刘显安的git博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="pomelo使用笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pomelo使用笔记">
+<meta property="og:url" content="http://mygit.me/2016/07/15/pomelo/index.html">
+<meta property="og:site_name" content="刘显安的git博客">
+<meta property="og:description" content="pomelo使用笔记">
+<meta property="og:image" content="http://image.liuxianan.com/201602/20160226_112146_622_8410.png">
+<meta property="og:image" content="http://image.liuxianan.com/201602/20160226_103723_320_1622.png">
+<meta property="og:image" content="http://image.liuxianan.com/201602/201602151618407486983.png">
+<meta property="og:image" content="http://image.liuxianan.com/201602/201602151623562558568.png">
+<meta property="og:image" content="http://image.liuxianan.com/201602/201602151628194463646.png">
+<meta property="og:image" content="http://image.liuxianan.com/201602/201602151629191901722.png">
+<meta property="og:image" content="http://image.liuxianan.com/201602/201602151630323361288.png">
+<meta property="og:image" content="http://image.liuxianan.com/201602/20160226_104549_296_5261.png">
+<meta property="og:image" content="http://image.liuxianan.com/201602/20160226_124907_606_3016.png">
+<meta property="og:image" content="http://image.liuxianan.com/201602/201602171011232734835.png">
+<meta property="og:image" content="http://image.liuxianan.com/201602/201602162100045081357.png">
+<meta property="og:updated_time" content="2016-08-23T12:55:59.433Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pomelo使用笔记">
+<meta name="twitter:description" content="pomelo使用笔记">
+<meta name="twitter:image" content="http://image.liuxianan.com/201602/20160226_112146_622_8410.png">
+  
+    <link rel="alternative" href="/atom.xml" title="刘显安的git博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog//favicon.jpg">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">小茗同学</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/blog/">主页</a></li>
+				        
+							<li><a href="/blog/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/blog/tags/adb/" style="font-size: 10px;">adb</a> <a href="/blog/tags/alert/" style="font-size: 10px;">alert</a> <a href="/blog/tags/android/" style="font-size: 18.57px;">android</a> <a href="/blog/tags/array/" style="font-size: 12.86px;">array</a> <a href="/blog/tags/bind/" style="font-size: 10px;">bind</a> <a href="/blog/tags/bug/" style="font-size: 11.43px;">bug</a> <a href="/blog/tags/cache/" style="font-size: 10px;">cache</a> <a href="/blog/tags/checkbox/" style="font-size: 10px;">checkbox</a> <a href="/blog/tags/childnodes/" style="font-size: 10px;">childnodes</a> <a href="/blog/tags/children/" style="font-size: 10px;">children</a> <a href="/blog/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/blog/tags/click/" style="font-size: 11.43px;">click</a> <a href="/blog/tags/code/" style="font-size: 11.43px;">code</a> <a href="/blog/tags/comet4j/" style="font-size: 10px;">comet4j</a> <a href="/blog/tags/console/" style="font-size: 10px;">console</a> <a href="/blog/tags/control/" style="font-size: 10px;">control</a> <a href="/blog/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/blog/tags/cordova/" style="font-size: 11.43px;">cordova</a> <a href="/blog/tags/cross/" style="font-size: 10px;">cross</a> <a href="/blog/tags/crossdomain/" style="font-size: 10px;">crossdomain</a> <a href="/blog/tags/css/" style="font-size: 11.43px;">css</a> <a href="/blog/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/blog/tags/cursor/" style="font-size: 10px;">cursor</a> <a href="/blog/tags/debug/" style="font-size: 10px;">debug</a> <a href="/blog/tags/dns/" style="font-size: 10px;">dns</a> <a href="/blog/tags/dom/" style="font-size: 10px;">dom</a> <a href="/blog/tags/domain/" style="font-size: 10px;">domain</a> <a href="/blog/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/blog/tags/el表达式/" style="font-size: 10px;">el表达式</a> <a href="/blog/tags/endswidth/" style="font-size: 10px;">endswidth</a> <a href="/blog/tags/epg/" style="font-size: 10px;">epg</a> <a href="/blog/tags/error/" style="font-size: 10px;">error</a> <a href="/blog/tags/favicon/" style="font-size: 10px;">favicon</a> <a href="/blog/tags/file/" style="font-size: 11.43px;">file</a> <a href="/blog/tags/flash/" style="font-size: 10px;">flash</a> <a href="/blog/tags/for/" style="font-size: 10px;">for</a> <a href="/blog/tags/function/" style="font-size: 10px;">function</a> <a href="/blog/tags/github/" style="font-size: 10px;">github</a> <a href="/blog/tags/hasOwnProperty/" style="font-size: 10px;">hasOwnProperty</a> <a href="/blog/tags/hasownproperty/" style="font-size: 10px;">hasownproperty</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/hoisting/" style="font-size: 10px;">hoisting</a> <a href="/blog/tags/html/" style="font-size: 17.14px;">html</a> <a href="/blog/tags/html5/" style="font-size: 11.43px;">html5</a> <a href="/blog/tags/http/" style="font-size: 10px;">http</a> <a href="/blog/tags/id/" style="font-size: 10px;">id</a> <a href="/blog/tags/in/" style="font-size: 10px;">in</a> <a href="/blog/tags/innerhtml/" style="font-size: 10px;">innerhtml</a> <a href="/blog/tags/input/" style="font-size: 12.86px;">input</a> <a href="/blog/tags/ios/" style="font-size: 10px;">ios</a> <a href="/blog/tags/ip/" style="font-size: 10px;">ip</a> <a href="/blog/tags/isprototypeof/" style="font-size: 10px;">isprototypeof</a> <a href="/blog/tags/java/" style="font-size: 12.86px;">java</a> <a href="/blog/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/blog/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/blog/tags/json/" style="font-size: 10px;">json</a> <a href="/blog/tags/lan/" style="font-size: 11.43px;">lan</a> <a href="/blog/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/blog/tags/log/" style="font-size: 10px;">log</a> <a href="/blog/tags/marquee/" style="font-size: 10px;">marquee</a> <a href="/blog/tags/mime/" style="font-size: 10px;">mime</a> <a href="/blog/tags/mui/" style="font-size: 11.43px;">mui</a> <a href="/blog/tags/mysql/" style="font-size: 11.43px;">mysql</a> <a href="/blog/tags/native/" style="font-size: 10px;">native</a> <a href="/blog/tags/node-js/" style="font-size: 11.43px;">node.js</a> <a href="/blog/tags/npm/" style="font-size: 10px;">npm</a> <a href="/blog/tags/oncreate/" style="font-size: 10px;">oncreate</a> <a href="/blog/tags/phonegap/" style="font-size: 10px;">phonegap</a> <a href="/blog/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/blog/tags/pomelo/" style="font-size: 10px;">pomelo</a> <a href="/blog/tags/prototype/" style="font-size: 12.86px;">prototype</a> <a href="/blog/tags/pullRefresh/" style="font-size: 10px;">pullRefresh</a> <a href="/blog/tags/shuffle/" style="font-size: 10px;">shuffle</a> <a href="/blog/tags/simple/" style="font-size: 10px;">simple</a> <a href="/blog/tags/socket-io/" style="font-size: 10px;">socket.io</a> <a href="/blog/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/blog/tags/startswith/" style="font-size: 10px;">startswith</a> <a href="/blog/tags/status/" style="font-size: 10px;">status</a> <a href="/blog/tags/string/" style="font-size: 10px;">string</a> <a href="/blog/tags/svn/" style="font-size: 10px;">svn</a> <a href="/blog/tags/switch/" style="font-size: 10px;">switch</a> <a href="/blog/tags/textarea/" style="font-size: 10px;">textarea</a> <a href="/blog/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/blog/tags/tomcat6/" style="font-size: 10px;">tomcat6</a> <a href="/blog/tags/tomcat7/" style="font-size: 10px;">tomcat7</a> <a href="/blog/tags/transition/" style="font-size: 10px;">transition</a> <a href="/blog/tags/trim/" style="font-size: 10px;">trim</a> <a href="/blog/tags/type/" style="font-size: 10px;">type</a> <a href="/blog/tags/typeerror/" style="font-size: 10px;">typeerror</a> <a href="/blog/tags/uiwebview/" style="font-size: 10px;">uiwebview</a> <a href="/blog/tags/undefined/" style="font-size: 10px;">undefined</a> <a href="/blog/tags/unicode/" style="font-size: 10px;">unicode</a> <a href="/blog/tags/value/" style="font-size: 10px;">value</a> <a href="/blog/tags/version/" style="font-size: 10px;">version</a> <a href="/blog/tags/video/" style="font-size: 10px;">video</a> <a href="/blog/tags/wan/" style="font-size: 10px;">wan</a> <a href="/blog/tags/web/" style="font-size: 10px;">web</a> <a href="/blog/tags/webview/" style="font-size: 15.71px;">webview</a> <a href="/blog/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/blog/tags/win10/" style="font-size: 10px;">win10</a> <a href="/blog/tags/windows/" style="font-size: 12.86px;">windows</a> <a href="/blog/tags/winscp/" style="font-size: 10px;">winscp</a> <a href="/blog/tags/wlan/" style="font-size: 10px;">wlan</a> <a href="/blog/tags/xshell/" style="font-size: 10px;">xshell</a> <a href="/blog/tags/zoom/" style="font-size: 10px;">zoom</a> <a href="/blog/tags/上下文/" style="font-size: 10px;">上下文</a> <a href="/blog/tags/下拉刷新/" style="font-size: 10px;">下拉刷新</a> <a href="/blog/tags/下载/" style="font-size: 10px;">下载</a> <a href="/blog/tags/不使用/" style="font-size: 10px;">不使用</a> <a href="/blog/tags/不兼容/" style="font-size: 10px;">不兼容</a> <a href="/blog/tags/不同/" style="font-size: 10px;">不同</a> <a href="/blog/tags/不好/" style="font-size: 10px;">不好</a> <a href="/blog/tags/个人/" style="font-size: 10px;">个人</a> <a href="/blog/tags/临时/" style="font-size: 10px;">临时</a> <a href="/blog/tags/乱序/" style="font-size: 10px;">乱序</a> <a href="/blog/tags/云服务器/" style="font-size: 10px;">云服务器</a> <a href="/blog/tags/互动/" style="font-size: 10px;">互动</a> <a href="/blog/tags/交互/" style="font-size: 14.29px;">交互</a> <a href="/blog/tags/交换/" style="font-size: 10px;">交换</a> <a href="/blog/tags/传值/" style="font-size: 11.43px;">传值</a> <a href="/blog/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/blog/tags/修改/" style="font-size: 10px;">修改</a> <a href="/blog/tags/关键字/" style="font-size: 10px;">关键字</a> <a href="/blog/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/blog/tags/内网/" style="font-size: 10px;">内网</a> <a href="/blog/tags/切换/" style="font-size: 10px;">切换</a> <a href="/blog/tags/列表/" style="font-size: 10px;">列表</a> <a href="/blog/tags/加载/" style="font-size: 10px;">加载</a> <a href="/blog/tags/匹配/" style="font-size: 10px;">匹配</a> <a href="/blog/tags/区别/" style="font-size: 12.86px;">区别</a> <a href="/blog/tags/单击/" style="font-size: 10px;">单击</a> <a href="/blog/tags/单引号/" style="font-size: 10px;">单引号</a> <a href="/blog/tags/博客/" style="font-size: 10px;">博客</a> <a href="/blog/tags/占用/" style="font-size: 10px;">占用</a> <a href="/blog/tags/原生/" style="font-size: 11.43px;">原生</a> <a href="/blog/tags/变量/" style="font-size: 11.43px;">变量</a> <a href="/blog/tags/变量声明/" style="font-size: 10px;">变量声明</a> <a href="/blog/tags/右键/" style="font-size: 10px;">右键</a> <a href="/blog/tags/后台/" style="font-size: 10px;">后台</a> <a href="/blog/tags/吐槽/" style="font-size: 10px;">吐槽</a> <a href="/blog/tags/命令/" style="font-size: 11.43px;">命令</a> <a href="/blog/tags/图标/" style="font-size: 10px;">图标</a> <a href="/blog/tags/地址/" style="font-size: 10px;">地址</a> <a href="/blog/tags/域名/" style="font-size: 10px;">域名</a> <a href="/blog/tags/基本/" style="font-size: 10px;">基本</a> <a href="/blog/tags/处理/" style="font-size: 11.43px;">处理</a> <a href="/blog/tags/复制/" style="font-size: 10px;">复制</a> <a href="/blog/tags/复选框/" style="font-size: 10px;">复选框</a> <a href="/blog/tags/失效/" style="font-size: 10px;">失效</a> <a href="/blog/tags/失败/" style="font-size: 10px;">失败</a> <a href="/blog/tags/字符/" style="font-size: 11.43px;">字符</a> <a href="/blog/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/blog/tags/安装/" style="font-size: 10px;">安装</a> <a href="/blog/tags/实时/" style="font-size: 10px;">实时</a> <a href="/blog/tags/局域网/" style="font-size: 10px;">局域网</a> <a href="/blog/tags/展示/" style="font-size: 10px;">展示</a> <a href="/blog/tags/工具/" style="font-size: 10px;">工具</a> <a href="/blog/tags/常用/" style="font-size: 10px;">常用</a> <a href="/blog/tags/常见/" style="font-size: 11.43px;">常见</a> <a href="/blog/tags/异步/" style="font-size: 10px;">异步</a> <a href="/blog/tags/总结/" style="font-size: 11.43px;">总结</a> <a href="/blog/tags/手机/" style="font-size: 10px;">手机</a> <a href="/blog/tags/打乱/" style="font-size: 10px;">打乱</a> <a href="/blog/tags/执行中/" style="font-size: 10px;">执行中</a> <a href="/blog/tags/抢注/" style="font-size: 10px;">抢注</a> <a href="/blog/tags/报错/" style="font-size: 10px;">报错</a> <a href="/blog/tags/指针/" style="font-size: 10px;">指针</a> <a href="/blog/tags/按钮/" style="font-size: 10px;">按钮</a> <a href="/blog/tags/控制/" style="font-size: 10px;">控制</a> <a href="/blog/tags/推送/" style="font-size: 10px;">推送</a> <a href="/blog/tags/提升/" style="font-size: 10px;">提升</a> <a href="/blog/tags/插入/" style="font-size: 10px;">插入</a> <a href="/blog/tags/搭建/" style="font-size: 10px;">搭建</a> <a href="/blog/tags/数组/" style="font-size: 12.86px;">数组</a> <a href="/blog/tags/文件上传/" style="font-size: 10px;">文件上传</a> <a href="/blog/tags/方法/" style="font-size: 11.43px;">方法</a> <a href="/blog/tags/最全/" style="font-size: 10px;">最全</a> <a href="/blog/tags/未运行/" style="font-size: 10px;">未运行</a> <a href="/blog/tags/本地/" style="font-size: 10px;">本地</a> <a href="/blog/tags/查看/" style="font-size: 10px;">查看</a> <a href="/blog/tags/样式/" style="font-size: 11.43px;">样式</a> <a href="/blog/tags/横屏/" style="font-size: 10px;">横屏</a> <a href="/blog/tags/正则/" style="font-size: 10px;">正则</a> <a href="/blog/tags/注解/" style="font-size: 10px;">注解</a> <a href="/blog/tags/清理/" style="font-size: 10px;">清理</a> <a href="/blog/tags/清除/" style="font-size: 10px;">清除</a> <a href="/blog/tags/版本号/" style="font-size: 10px;">版本号</a> <a href="/blog/tags/特殊/" style="font-size: 10px;">特殊</a> <a href="/blog/tags/状态码/" style="font-size: 10px;">状态码</a> <a href="/blog/tags/生成/" style="font-size: 11.43px;">生成</a> <a href="/blog/tags/目录/" style="font-size: 10px;">目录</a> <a href="/blog/tags/破解/" style="font-size: 10px;">破解</a> <a href="/blog/tags/禁止/" style="font-size: 10px;">禁止</a> <a href="/blog/tags/移动端/" style="font-size: 11.43px;">移动端</a> <a href="/blog/tags/竖屏/" style="font-size: 10px;">竖屏</a> <a href="/blog/tags/端口/" style="font-size: 10px;">端口</a> <a href="/blog/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/blog/tags/粘贴/" style="font-size: 10px;">粘贴</a> <a href="/blog/tags/缓存/" style="font-size: 11.43px;">缓存</a> <a href="/blog/tags/编码/" style="font-size: 10px;">编码</a> <a href="/blog/tags/网站/" style="font-size: 11.43px;">网站</a> <a href="/blog/tags/网页/" style="font-size: 11.43px;">网页</a> <a href="/blog/tags/脑残/" style="font-size: 10px;">脑残</a> <a href="/blog/tags/自动/" style="font-size: 11.43px;">自动</a> <a href="/blog/tags/自定义/" style="font-size: 11.43px;">自定义</a> <a href="/blog/tags/获取/" style="font-size: 11.43px;">获取</a> <a href="/blog/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/blog/tags/视频/" style="font-size: 10px;">视频</a> <a href="/blog/tags/解析/" style="font-size: 10px;">解析</a> <a href="/blog/tags/触发/" style="font-size: 10px;">触发</a> <a href="/blog/tags/计数器/" style="font-size: 10px;">计数器</a> <a href="/blog/tags/设置/" style="font-size: 11.43px;">设置</a> <a href="/blog/tags/详解/" style="font-size: 10px;">详解</a> <a href="/blog/tags/调试/" style="font-size: 10px;">调试</a> <a href="/blog/tags/购买/" style="font-size: 10px;">购买</a> <a href="/blog/tags/跨域/" style="font-size: 11.43px;">跨域</a> <a href="/blog/tags/转码/" style="font-size: 10px;">转码</a> <a href="/blog/tags/运行/" style="font-size: 10px;">运行</a> <a href="/blog/tags/运行中/" style="font-size: 10px;">运行中</a> <a href="/blog/tags/连接/" style="font-size: 10px;">连接</a> <a href="/blog/tags/遍历/" style="font-size: 10px;">遍历</a> <a href="/blog/tags/阿里云/" style="font-size: 10px;">阿里云</a> <a href="/blog/tags/非字符串/" style="font-size: 10px;">非字符串</a> <a href="/blog/tags/音频服务/" style="font-size: 10px;">音频服务</a> <a href="/blog/tags/默认/" style="font-size: 10px;">默认</a> <a href="/blog/tags/鼠标/" style="font-size: 10px;">鼠标</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://liuxianan.com">我的个人网站</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/liuxianan/">我的博客园</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">屌丝程序员一枚，个人网站：http://liuxianan.com</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">小茗同学</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img lazy-src="/blog/avatar.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">小茗同学</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/blog/">主页</a></li>
+		        
+					<li><a href="/blog/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-pomelo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2016/07/15/pomelo/" class="article-date">
+  	<time datetime="2016-07-14T16:00:00.000Z" itemprop="datePublished">2016-07-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      pomelo使用笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/pomelo/">pomelo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/socket-io/">socket.io</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/互动/">互动</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/实时/">实时</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/blog/categories/nodejs/">nodejs</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<p>本文最初写于：2016-02-26</p>
+<h1 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h1><p>pomelo是网易12年底出品的一个基于node.js的游戏服务器框架，其设计初衷是游戏服务器， 不过在设计、开发完成后发现pomelo是个通用的分布式实时应用开发框架。</p>
+<h2 id="一些资源地址"><a href="#一些资源地址" class="headerlink" title="一些资源地址"></a>一些资源地址</h2><p>github：<a href="https://github.com/NetEase/pomelo" target="_blank" rel="external">https://github.com/NetEase/pomelo</a><br>官网：<a href="http://pomelo.netease.com/" target="_blank" rel="external">http://pomelo.netease.com/</a><br>api：<a href="http://pomelo.netease.com/api.html" target="_blank" rel="external">http://pomelo.netease.com/api.html</a><br> <a id="more"></a> 中文wiki主页：<a href="https://github.com/NetEase/pomelo/wiki/Home-in-Chinese" target="_blank" rel="external">https://github.com/NetEase/pomelo/wiki/Home-in-Chinese</a><br>官方论坛（Pomelo Club）：<a href="http://nodejs.netease.com/" target="_blank" rel="external">http://nodejs.netease.com/</a><br>IDE调试：<a href="https://github.com/NetEase/pomelo/wiki/%E4%BD%BF%E7%94%A8-WebStorm-IDE-%E8%B0%83%E8%AF%95-Pomelo-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">使用 WebStorm IDE 调试 Pomelo 应用程序</a></p>
+<h2 id="关于socket-io和websocket"><a href="#关于socket-io和websocket" class="headerlink" title="关于socket.io和websocket"></a>关于socket.io和websocket</h2><p>websocket是HTML5提供的一种新协议，PC上兼容性还好，安卓上要求4.4以上：</p>
+<p><img src="http://image.liuxianan.com/201602/20160226_112146_622_8410.png" alt=""></p>
+<p>socket.io则是为了解决websocket兼容性诞生的，它在不支持websocket的浏览器上通过使用xhr-polling, jsonp-polling, flashsocket，htmlfile等形式来替代，当然这种替代会有各种各样的缺点。</p>
+<p>socket.io有自己的协议，前后端都必须使用socket.io自己提供的方法。</p>
+<h2 id="web通信的几种实现方式"><a href="#web通信的几种实现方式" class="headerlink" title="web通信的几种实现方式"></a>web通信的几种实现方式</h2><p>这里再简单介绍一下web通信的几种实现方式，按照浏览器的发展历程或者兼容性从前到后介绍。</p>
+<h3 id="短轮询"><a href="#短轮询" class="headerlink" title="短轮询"></a>短轮询</h3><p>这几乎是所有人最容易想到的实现服务器推送的方法，就是浏览器定时主动ajax请求服务器，服务器如果有新消息就拿过来。这种方法缺点显而易见，既大量占用前后端资源，消息的推送又不及时，优点是实现简单，几乎没有兼容性可担心的。</p>
+<h3 id="长轮询"><a href="#长轮询" class="headerlink" title="长轮询"></a>长轮询</h3><p>长轮询与短轮询的区别在于，如果服务器没有新消息需要推送，那么并不立即响应，而是来一个循环一直在等待，等到有新消息了再response，浏览器接收到消息后作出相应处理，然后再次发出相同请求，如此反复。相比短轮询，这种方式跟服务器的连接大大减少了，但是也还是需要频繁的连接。</p>
+<h3 id="长连接"><a href="#长连接" class="headerlink" title="长连接"></a>长连接</h3><p>一个ajax请求发出去，一直不断开，服务器在不间断的response，浏览器也在不停的接收，优点是实时、连接次数少，但是占用服务器资源，有一定的兼容性风险，但是目前移动设备上一般都支持，也就是安卓webview支持的方式。</p>
+<h3 id="websocket"><a href="#websocket" class="headerlink" title="websocket"></a>websocket</h3><p>全新的全双工通讯协议，完全没有http的请求响应概念，连接一旦建立就一直保持，浏览器与服务器完全平等可以互相发送数据，服务端也不需要长时间hold住那个连接，所以对服务器的资源占用也很小。</p>
+<h2 id="pomelo支持的底层协议"><a href="#pomelo支持的底层协议" class="headerlink" title="pomelo支持的底层协议"></a>pomelo支持的底层协议</h2><p>官网介绍说，基本上每种平台都提供了基于socket.io和使用socket/websocket的开发库版本，为了更好的兼容性，我们统一使用基于socket.io版本的。</p>
+<p>所以需要在app.js中指定connector为<code>pomelo.connectors.sioconnector</code>，如果要使用websocket，则使用<code>pomelo.connectors.hybridconnector</code>。</p>
+<p>另外顺道介绍一下<code>transports</code>，指的是通过何种方式实现前后端通信，默认不指定的话会根据浏览器的兼容性自动选择，比如支持websocket就用websocket，不支持再尝试用<code>xhr轮询</code>，再不支持的话再尝试其它。一般不需要指定，如果需要特别测试某种方式则可以特别指定。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">app.set(<span class="string">'connectorConfig'</span>,</div><div class="line">&#123;</div><div class="line">	<span class="comment">/* socket.io 连接模式 */</span></div><div class="line">	connector: pomelo.connectors.sioconnector,</div><div class="line">	<span class="comment">/* websocket 连接模式 */</span></div><div class="line">	<span class="comment">// connector: pomelo.connectors.hybridconnector,</span></div><div class="line">	<span class="comment">// websocket, htmlfile, xhr-polling, jsonp-polling, flashsocket</span></div><div class="line">	<span class="comment">// transports : ['xhr-polling'],</span></div><div class="line">	heartbeat : <span class="number">3</span>,</div><div class="line">	useDict : <span class="literal">true</span>,</div><div class="line">	useProtobuf : <span class="literal">true</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="pomelo安装"><a href="#pomelo安装" class="headerlink" title="pomelo安装"></a>pomelo安装</h1><h2 id="写在安装之前"><a href="#写在安装之前" class="headerlink" title="写在安装之前"></a>写在安装之前</h2><p>无论是Windows还是Linux，安装都需要<code>C++</code>和<code>Python</code>环境，<code>Windows</code>下可能需要安装<code>Visual Studio</code>，如果准备工作不做充分的话，安装失败的几率还是蛮高的，如果偷懒不愿意安装，可以直接拿我这边准备好的windows和Linux的<code>node_modules</code>：</p>
+<p><img src="http://image.liuxianan.com/201602/20160226_103723_320_1622.png" alt=""></p>
+<p>安装完后可以直接丢到npm的全局node_modules下，也可以放在项目的node_modules下。</p>
+<p>这里以Linux系统为例介绍一下安装过程，这里安装的是v1.2.2版。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>node</li>
+<li>python(2.5 &lt; version &lt; 3.0)</li>
+<li>c++编译器（如gcc）</li>
+</ul>
+<p>以上3个条件，除了node之外，Linux系统上一般都会预装。</p>
+<p>先来检查各个软件的版本：</p>
+<pre><code># node -v （4.2.4）
+# python （2.6.6）
+# gcc -v （4.4.7）
+</code></pre><h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><p>安装执行命令（我这里懒得全局安装）：</p>
+<pre><code>npm install pomelo
+</code></pre><p>发现报错如下：</p>
+<pre><code>#error This version of node/NAN/v8 requires a C++11 compiler
+</code></pre><p>搜索一下发现：由于node4.0升级了v8引擎，编译时需要gcc4.8以上版本，Centos6自带的gcc为gcc-4.4.7, 不支持编译所需的c++11标准，所以只好升级gcc。</p>
+<h2 id="centos6-5-安装-gcc4-8"><a href="#centos6-5-安装-gcc4-8" class="headerlink" title="centos6.5 安装 gcc4.8"></a>centos6.5 安装 gcc4.8</h2><h3 id="安装devtoolset"><a href="#安装devtoolset" class="headerlink" title="安装devtoolset"></a>安装devtoolset</h3><p>自己安装编译很麻烦，直接使用yum安装更简单。这里使用devtoolset来安装gcc，相关版本对应如下：</p>
+<ul>
+<li>devtoolset-1是gcc 4.7</li>
+<li>devtoolset-2是gcc 4.8</li>
+<li>devtoolset-3是gcc 4.9</li>
+</ul>
+<p>命令：</p>
+<pre><code># cd /etc/yum.repos.d（定位到yum目录）
+# wget http://people.centos.org/tru/devtools-2/devtools-2.repo（下载repository）
+# yum --enablerepo=testing-devtools-2-centos-6 install devtoolset-2-gcc devtoolset-2-gcc-c++（安装gcc）
+</code></pre><p><img src="http://image.liuxianan.com/201602/201602151618407486983.png" alt="img"></p>
+<p>如果执行完报错，提示找不到相关的 GPG key，只要根据提示安装相应的 GPG key 即可（这里注意，网上找的key有的可能已经失效了，可能等到你看到我这篇文章的时候下面这个key也失效了，到时候自己再去找一个可用的即可）：</p>
+<pre><code>rpm --import http://ftp.mirrorservice.org/sites/ftp.scientificlinux.org/linux/scientific/51/i386/RPM-GPG-KEYs/RPM-GPG-KEY-cern
+</code></pre><p><img src="http://image.liuxianan.com/201602/201602151623562558568.png" alt="img"></p>
+<p>如果没报错，再重复上面的<code>yum --enablerepo...</code>命令再次安装即可，一般到这里就没啥问题了：</p>
+<p><img src="http://image.liuxianan.com/201602/201602151628194463646.png" alt="img"></p>
+<p>中间会提示你是否下载，输入<code>y</code>即可：</p>
+<p><img src="http://image.liuxianan.com/201602/201602151629191901722.png" alt="img"></p>
+<p>下载成功后bin目录在<code>/opt/rh/devtoolset-2/root/usr/bin</code>：</p>
+<p><img src="http://image.liuxianan.com/201602/201602151630323361288.png" alt="img"></p>
+<h3 id="配置环境变量："><a href="#配置环境变量：" class="headerlink" title="配置环境变量："></a>配置环境变量：</h3><pre><code>#set gcc environment by lxa 20160215
+export GCC_HOME=/opt/rh/devtoolset-2/root/usr/bin
+export CC=$GCC_HOME/gcc
+export CPP=$GCC_HOME/cpp
+export CXX=$GCC_HOME/c++
+PATH=$PATH:$GCC_HOME
+</code></pre><p>这时运行gcc -v仍旧显示 4.4.7，应该是旧的path优先级更高，但这样也不影响node-gyp编译，所以没理会它。</p>
+<h3 id="补充：yum的临时目录"><a href="#补充：yum的临时目录" class="headerlink" title="补充：yum的临时目录"></a>补充：yum的临时目录</h3><p>临时目录放在<code>/var/cache/yum/</code>下，如果磁盘紧张，安装成功后即可把整个文件夹都删掉。</p>
+<h2 id="回头再次安装"><a href="#回头再次安装" class="headerlink" title="回头再次安装"></a>回头再次安装</h2><p>安装完gcc后再执行<code>npm install pomelo</code>一般就没问题了（如果需要全局安装的话加上<code>-g</code>参数），测试是否安装成功可以下载官方的聊天例子来试试。</p>
+<p>另外最好再为pomelo配置环境变量，方便后续以后可以随意使用<code>pomelo</code>命令行工具：</p>
+<p>假设pomelo放在：/home/node/node-v4.2.4/lib/node_modules/pomelo</p>
+<pre><code>PATH=$PATH:/home/node/node-v4.2.4/lib/node_modules/pomelo/bin
+</code></pre><h1 id="后台介绍"><a href="#后台介绍" class="headerlink" title="后台介绍"></a>后台介绍</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>一个完整的后台项目目录结构如下：</p>
+<p><img src="http://image.liuxianan.com/201602/20160226_104549_296_5261.png" alt=""></p>
+<p>其中app.js是入口，app/server下的gate、connector、chat分别代表3中类型的服务器，这些服务器都必须和config/servers.js里面的配置一一对应</p>
+<h2 id="术语解释"><a href="#术语解释" class="headerlink" title="术语解释"></a>术语解释</h2><p>有一些专门的术语，官方的wiki已经介绍的很详细，这里不赘述，请戳这里：</p>
+<p><a href="https://github.com/NetEase/pomelo/wiki/%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A" target="_blank" rel="external">术语解释</a></p>
+<h2 id="最重要的2个配置文件"><a href="#最重要的2个配置文件" class="headerlink" title="最重要的2个配置文件"></a>最重要的2个配置文件</h2><p>这些文件全都位于config目录下。</p>
+<h3 id="servers-js"><a href="#servers-js" class="headerlink" title="servers.js"></a>servers.js</h3><p>每一种类型的服务器至少要有一个。development和production分别表示开发环境下和现网环境下使用的配置。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"development"</span>:</div><div class="line">	&#123;</div><div class="line">		<span class="attr">"connector"</span>:</div><div class="line">		[</div><div class="line">			&#123;<span class="attr">"id"</span>:<span class="string">"connector-server-1"</span>, <span class="attr">"host"</span>:<span class="string">"172.16.4.97"</span>, <span class="attr">"port"</span>:<span class="number">4050</span>, <span class="attr">"clientPort"</span>: <span class="number">3050</span>, <span class="attr">"frontend"</span>: <span class="literal">true</span>&#125;,</div><div class="line">			&#123;<span class="attr">"id"</span>:<span class="string">"connector-server-2"</span>, <span class="attr">"host"</span>:<span class="string">"172.16.4.97"</span>, <span class="attr">"port"</span>:<span class="number">4051</span>, <span class="attr">"clientPort"</span>: <span class="number">3051</span>, <span class="attr">"frontend"</span>: <span class="literal">true</span>&#125;,</div><div class="line">			&#123;<span class="attr">"id"</span>:<span class="string">"connector-server-3"</span>, <span class="attr">"host"</span>:<span class="string">"172.16.4.97"</span>, <span class="attr">"port"</span>:<span class="number">4052</span>, <span class="attr">"clientPort"</span>: <span class="number">3052</span>, <span class="attr">"frontend"</span>: <span class="literal">true</span>&#125;</div><div class="line">		],</div><div class="line">		<span class="attr">"chat"</span>:</div><div class="line">		[</div><div class="line">			&#123;<span class="attr">"id"</span>:<span class="string">"chat-server-1"</span>, <span class="attr">"host"</span>:<span class="string">"172.16.4.97"</span>, <span class="attr">"port"</span>:<span class="number">6050</span>&#125;,</div><div class="line">			&#123;<span class="attr">"id"</span>:<span class="string">"chat-server-2"</span>, <span class="attr">"host"</span>:<span class="string">"172.16.4.97"</span>, <span class="attr">"port"</span>:<span class="number">6051</span>&#125;,</div><div class="line">			&#123;<span class="attr">"id"</span>:<span class="string">"chat-server-3"</span>, <span class="attr">"host"</span>:<span class="string">"172.16.4.97"</span>, <span class="attr">"port"</span>:<span class="number">6052</span>&#125;</div><div class="line">		],</div><div class="line">		<span class="attr">"gate"</span>:</div><div class="line">		[</div><div class="line">			&#123;<span class="attr">"id"</span>: <span class="string">"gate-server-1"</span>, <span class="attr">"host"</span>: <span class="string">"172.16.4.97"</span>, <span class="attr">"clientPort"</span>: <span class="number">3014</span>, <span class="attr">"frontend"</span>: <span class="literal">true</span>&#125;</div><div class="line">		]</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">"production"</span>:</div><div class="line">	&#123;</div><div class="line">		<span class="attr">"connector"</span>:</div><div class="line">		[</div><div class="line">			&#123;<span class="attr">"id"</span>:<span class="string">"connector-server-1"</span>, <span class="attr">"host"</span>:<span class="string">"11.liuxianan.cn"</span>, <span class="attr">"port"</span>:<span class="number">4050</span>, <span class="attr">"clientPort"</span>: <span class="number">3050</span>, <span class="attr">"frontend"</span>: <span class="literal">true</span>&#125;,</div><div class="line">			&#123;<span class="attr">"id"</span>:<span class="string">"connector-server-2"</span>, <span class="attr">"host"</span>:<span class="string">"61.liuxianan.cn"</span>, <span class="attr">"port"</span>:<span class="number">4051</span>, <span class="attr">"clientPort"</span>: <span class="number">3051</span>, <span class="attr">"frontend"</span>: <span class="literal">true</span>&#125;</div><div class="line">		],</div><div class="line">		<span class="attr">"chat"</span>:</div><div class="line">		[</div><div class="line">			&#123;<span class="attr">"id"</span>:<span class="string">"chat-server-1"</span>, <span class="attr">"host"</span>:<span class="string">"11.liuxianan.cn"</span>, <span class="attr">"port"</span>:<span class="number">6050</span>&#125;,</div><div class="line">			&#123;<span class="attr">"id"</span>:<span class="string">"chat-server-2"</span>, <span class="attr">"host"</span>:<span class="string">"61.liuxianan.cn"</span>, <span class="attr">"port"</span>:<span class="number">6051</span>&#125;</div><div class="line">		],</div><div class="line">		<span class="attr">"gate"</span>:</div><div class="line">		[</div><div class="line">			&#123;<span class="attr">"id"</span>: <span class="string">"gate-server-1"</span>, <span class="attr">"host"</span>: <span class="string">"11.liuxianan.cn"</span>, <span class="attr">"clientPort"</span>: <span class="number">3014</span>, <span class="attr">"frontend"</span>: <span class="literal">true</span>&#125;</div><div class="line">		]</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="master-js"><a href="#master-js" class="headerlink" title="master.js"></a>master.js</h3><p>master指的是你要在哪台服务器来启动所有其他集群服务器，也就是主服务器。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"development"</span>:</div><div class="line">	&#123;</div><div class="line">		<span class="attr">"id"</span>: <span class="string">"master-server-1"</span>,</div><div class="line">		<span class="attr">"host"</span>: <span class="string">"172.16.4.97"</span>,</div><div class="line">		<span class="attr">"port"</span>: <span class="number">3005</span></div><div class="line">	&#125;,</div><div class="line">	<span class="attr">"production"</span>:</div><div class="line">	&#123;</div><div class="line">		<span class="attr">"id"</span>: <span class="string">"master-server-1"</span>,</div><div class="line">		<span class="attr">"host"</span>: <span class="string">"11.liuxianan.cn"</span>,</div><div class="line">		<span class="attr">"port"</span>: <span class="number">3005</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="启动与停止"><a href="#启动与停止" class="headerlink" title="启动与停止"></a>启动与停止</h2><p>最简单的，开发的时候直接<code>node app.js</code>就可以启动测试了，一般开发时不会配置很多个服务器，顶多就是在localhost多配置几个端口来模拟server，分布式部署时需要使用<code>pomelo start</code>来启动。</p>
+<p>完整语法如下：</p>
+<pre><code>pomelo start [-e development | -e production] [--daemon]
+</code></pre><p>默认启动的是<code>development</code>模式，如果要启动正式环境，需要额外加一个<code>production</code>参数，<code>--daemon</code>指的是后台运行，如果没有这个参数，断开SSH连接时项目也会自动停止，如果想要它持久的在后台运行，必须加这个参数，正式环境下一般启动命令如下：</p>
+<pre><code>pomelo start -e production --daemon
+</code></pre><p>停止使用<code>pomelo stop</code>命令，如果是使用<code>node app.js</code>来启动的，直接Ctrl+C或者关闭窗口即可。</p>
+<h2 id="简单介绍几个东西"><a href="#简单介绍几个东西" class="headerlink" title="简单介绍几个东西"></a>简单介绍几个东西</h2><h3 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h3><p>后台只提供gate的host和port给前端，前端通过<code>gate.gateHandler.queryEntry</code>来从所有的connectors中获取合适的connector（比如说根据权重，或者随机），然后再主动断开gate去连接connector，后面所有通信都是和connector打交道，connector收到数据后再发给chat服务器来处理。</p>
+<h3 id="自己定义的几个变量解释"><a href="#自己定义的几个变量解释" class="headerlink" title="自己定义的几个变量解释"></a>自己定义的几个变量解释</h3><ul>
+<li>uuid 每一个连接都会随机产生一个唯一的uuid，以此保证连接的唯一性，pomelo中是叫uid，由于uid我这里是把它当成userid，所以要注意区分。</li>
+<li>uid 就是userid，这个由客户端主动传给后台，类似QQ号和微信号，正常情况下一个uid对应一个uuid，当然如果你的业务逻辑允许同一个账号多地登录，那么一个uid可能对应多个uuid</li>
+<li>rid 就是房间号，类似QQ的群号</li>
+<li>rname 房间名称</li>
+<li>sid 就是serverID，表示当前用户连接的是哪个connector服务器，私聊时必须知道用户的sid</li>
+</ul>
+<h3 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h3><p>一个channel就是类似一个房间的概念，channel通过如下获取：</p>
+<pre><code>var channel = app.get(&apos;channelService&apos;).getChannel(&apos;channelName&apos;, true);
+</code></pre><p>channelName可以当成是房间号（类似QQ的群号），全局唯一，后面的true表示不存在时创建这个房间。</p>
+<h3 id="推送消息"><a href="#推送消息" class="headerlink" title="推送消息"></a>推送消息</h3><pre><code>channel.pushMessage(route, message); // 向某个群广播消息
+app.channelService.pushMessageByUids(route, message, [{uid: uuid, sid: sid}]); // 私聊
+</code></pre><h3 id="监听消息"><a href="#监听消息" class="headerlink" title="监听消息"></a>监听消息</h3><p>客户端所有消息发送到<code>chat.chatHandler.request</code>（route），代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">handler.request = <span class="function"><span class="keyword">function</span>(<span class="params">request, session, next</span>)</span></div><div class="line">&#123;</div><div class="line">	Main.getInstance().handleRequest(request, session, next);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><code>handleRequest</code>代码如下，所以要监听某个消息，比如客户端emit过来的<code>sendMessage</code>，只需要定义<code>main.onSendMessage(data, session, next)</code>即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 所有的客户端请求都会发送到这里</div><div class="line"> * @param request &#123;cmd, data&#125;</div><div class="line"> * @param session</div><div class="line"> * @param next</div><div class="line"> */</div><div class="line">main.handleRequest = <span class="function"><span class="keyword">function</span>(<span class="params">request, session, next</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'enter main.handleRequest method!'</span>);</div><div class="line">    <span class="comment">// 把类似“sendMessage”转换成“onSendMessage”</span></div><div class="line">    <span class="keyword">var</span> cmd = (request.cmd || <span class="string">''</span>).replace(<span class="regexp">/^(\w)/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">m, $1</span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'on'</span> + $<span class="number">1.</span>toUpperCase();</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">var</span> fn = <span class="keyword">this</span>[cmd];</div><div class="line">    <span class="keyword">if</span>(fn) fn.call(<span class="keyword">this</span>, request.data, session, next);</div><div class="line">    <span class="keyword">else</span> <span class="built_in">console</span>.error(<span class="string">'未定义方法：'</span>+cmd);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>有了这些基本上就满足所有情况了，以后有什么新的需求只需要在这个基础上增加监听方法即可。</p>
+<h2 id="常见错误处理"><a href="#常见错误处理" class="headerlink" title="常见错误处理"></a>常见错误处理</h2><h3 id="端口绑定失败"><a href="#端口绑定失败" class="headerlink" title="端口绑定失败"></a>端口绑定失败</h3><p>在线网上面，一般习惯先普通启动，因为这样可以直接查看日志，感觉没问题了，再直接Ctrl+C停止，再来加上<code>--daemon</code>参数来后台启动，但是发现启动不了，查看日志提示如下<code>Error: listen EADDRINUSE</code>错误，这是因为Ctrl+C只是杀死了主进程，其它还有好几个进程没有结束，这才导致启动时端口冲突，此时先<code>pomelo stop</code>正常停止，然后<code>pkill node</code>来杀死所有node进程（需要确保服务器上node没有开启其它服务），再然后后台启动应该就没问题了。</p>
+<h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><p>这里只介绍socket.io版的。</p>
+<h2 id="从最简单聊天例子开始"><a href="#从最简单聊天例子开始" class="headerlink" title="从最简单聊天例子开始"></a>从最简单聊天例子开始</h2><p>所有引用的JS如下：</p>
+<p><img src="http://image.liuxianan.com/201602/20160226_124907_606_3016.png" alt=""></p>
+<p>引用顺序如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/socket.io-v0.9.6.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/pomelo-client.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"connector-pomelo.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>其中：</p>
+<ul>
+<li>jquery.min.js 就不说了</li>
+<li>socket.io最好就用这个版本，因为pomelo的socket.io客户端项目已经2年没有更新了，用最新版的socket.io.js会有一大堆报错，既然作者懒得更新，我们也懒得去管其中细节了</li>
+<li>pomelo-client.js 是pomelo在socket.io基础上简单封装的一些方法</li>
+<li>connector-pomelo.js 是我这边在pomelo-client.js基础上再次简单封装，封装的目的是统一pomelo和socket.io，规避二者的差异性，所以如果后台用socket.io的话，还有另外一个js：connector-socketio.js</li>
+</ul>
+<p>使用封装之后的代码最简单的连接服务器代码示例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> connector = <span class="keyword">new</span> Connector(<span class="string">'localhost'</span>, <span class="number">3014</span>);</div><div class="line">connector.on(<span class="string">'connect'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	connector.login(<span class="string">'你的userid'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'登录成功！'</span>);</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>一些事件监听：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">connector.on(<span class="string">'disconnect'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;);</div><div class="line">connector.on(<span class="string">'onUserSendMessage'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(data.from === connector.uid) <span class="keyword">return</span>; <span class="comment">// 屏蔽自己发来的消息</span></div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'收到消息：'</span>, data.message);</div><div class="line">&#125;);</div><div class="line">connector.on(<span class="string">'onUserLogin'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;); <span class="comment">// 用户登录时触发</span></div><div class="line">connector.on(<span class="string">'onUserLogout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;); <span class="comment">// 用户退出时触发</span></div><div class="line">connector.on(<span class="string">'onUserJoinRoom'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;); <span class="comment">// 用户进入房间时触发</span></div><div class="line">connector.on(<span class="string">'onUserLeaveRoom'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;); <span class="comment">// 用户离开房间时触发</span></div></pre></td></tr></table></figure>
+<p>其它一些封装好可以直接调用的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">connector.login(uid, callback); // 登录</div><div class="line">connector.sendMessage(target, type, content, callback); // 发送消息</div><div class="line">connector.createRoom(rname, callback); // 创建房间</div><div class="line">connector.joinRoom(rid, callback); // 加入房间</div><div class="line">connector.leaveRoom(rid, callback); // 退出房间</div></pre></td></tr></table></figure>
+<p>以上所有方法都是建立在connector-pomelo.js基础上，一般情况下都可以直接使用这些，当然也非强制，下面就来简单介绍一下封装的部分。</p>
+<h2 id="客户端细节简单介绍"><a href="#客户端细节简单介绍" class="headerlink" title="客户端细节简单介绍"></a>客户端细节简单介绍</h2><h3 id="pomelo提供的一些方法"><a href="#pomelo提供的一些方法" class="headerlink" title="pomelo提供的一些方法"></a>pomelo提供的一些方法</h3><p>无论是socket.io的还是websocket的，都提供了统一的API。</p>
+<h4 id="pomelo-init-params-cb"><a href="#pomelo-init-params-cb" class="headerlink" title="pomelo.init(params, cb)"></a>pomelo.init(params, cb)</h4><p>这是往往是客户端的第一次调用，params中应该指出要连接的服务器的ip和端口号，cb会在连接成功后进行回调;</p>
+<h4 id="pomelo-request-route-msg-cb"><a href="#pomelo-request-route-msg-cb" class="headerlink" title="pomelo.request(route, msg, cb)"></a>pomelo.request(route, msg, cb)</h4><p>请求服务，route为服务端的路由，类似<code>connector.connectorHandler.enter</code>, msg为请求的内容，cb会响应回来后的回调;</p>
+<h4 id="pomelo-notify-route-msg"><a href="#pomelo-notify-route-msg" class="headerlink" title="pomelo.notify(route, msg)"></a>pomelo.notify(route, msg)</h4><p>发送notify，不需要服务器回响应的，因此没有对响应的回调，其他参数含义同request;</p>
+<h4 id="pomelo-on-route-cb"><a href="#pomelo-on-route-cb" class="headerlink" title="pomelo.on(route, cb)"></a>pomelo.on(route, cb)</h4><p>这个是从EventEmmiter继承过来的方法，用来对服务端的推送作出响应的。route会用户自定义的，格式一般为”onXXX”;</p>
+<h4 id="pomelo-disconnect"><a href="#pomelo-disconnect" class="headerlink" title="pomelo.disconnect()"></a>pomelo.disconnect()</h4><p>这个是pomelo主动断开连接的方法。</p>
+<h3 id="连接服务器"><a href="#连接服务器" class="headerlink" title="连接服务器"></a>连接服务器</h3><p>大致代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">queryEntry(uuid, <span class="function"><span class="keyword">function</span>(<span class="params">host, port</span>)</span></div><div class="line">&#123;</div><div class="line">    pomelo.init(&#123;host: host, port: port&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'第二次初始化pomelo成功！'</span>);</div><div class="line">        pomelo.request(<span class="string">'connector.connectorHandler.enter'</span>, &#123;uuid: uuid&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'enter success'</span>, <span class="built_in">arguments</span>);</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandomUuid</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'</span>.replace(<span class="regexp">/[xy]/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">c</span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">var</span> r = <span class="built_in">Math</span>.random()*<span class="number">16</span>|<span class="number">0</span>, v = c == <span class="string">'x'</span> ? r : (r&amp;<span class="number">0x3</span>|<span class="number">0x8</span>);</div><div class="line">        <span class="keyword">return</span> v.toString(<span class="number">16</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">queryEntry</span>(<span class="params">uuid, callback</span>)</span></div><div class="line">&#123;</div><div class="line">    pomelo.init(&#123;host: data.host, port: data.port&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'第一次初始化pomelo成功！'</span>);</div><div class="line">        <span class="comment">// 查询连接实例</span></div><div class="line">        pomelo.request(<span class="string">'gate.gateHandler.queryEntry'</span>, &#123;uuid: uuid&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">resp</span>)</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'获取连接实例：'</span>+resp.host+<span class="string">':'</span>+resp.port);</div><div class="line">            pomelo.disconnect(); <span class="comment">// 主动断开连接</span></div><div class="line">            <span class="keyword">if</span>(resp.error)</div><div class="line">            &#123;</div><div class="line">                <span class="built_in">console</span>.log(resp.text);</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line">            callback(resp.host, resp.port);</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2个最重要的方法"><a href="#2个最重要的方法" class="headerlink" title="2个最重要的方法"></a>2个最重要的方法</h3><p>所有的发送消息都是通过<code>connector.emit()</code>，所有的监听消息都是通过<code>connector.on()</code>，内部实现如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 发送数据，所有客户端发送数据都是使用本方法</div><div class="line"> * @param event 事件名称</div><div class="line"> * @param data 数据内容</div><div class="line"> * @param callback 回调函数</div><div class="line"> */</div><div class="line">connector.emit = <span class="function"><span class="keyword">function</span>(<span class="params">event, data, callback</span>)</span></div><div class="line">&#123;</div><div class="line">    pomelo.request(<span class="string">'chat.chatHandler.request'</span>, &#123;cmd: event, data: data&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">console</span>.log(event+<span class="string">'Response'</span>, data);</div><div class="line">        <span class="keyword">if</span>(callback) callback(data);</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 绑定事件</div><div class="line"> * @param event 事件名称</div><div class="line"> * @param fn 事件方法</div><div class="line"> */</div><div class="line">connector.on = <span class="function"><span class="keyword">function</span>(<span class="params">event, fn</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// pomelo的connector事件比较特殊，需要特殊处理</span></div><div class="line">    <span class="keyword">if</span>(event === <span class="string">'connect'</span>)</div><div class="line">    &#123;</div><div class="line">        connector.onPomeloConnect = fn;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    pomelo.on(event, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">console</span>.log(event, data);</div><div class="line">        <span class="keyword">if</span>(fn) fn(data);</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>有了这2个方法，基本上什么都能做了。</p>
+<h1 id="chat例子中标准定义"><a href="#chat例子中标准定义" class="headerlink" title="chat例子中标准定义"></a>chat例子中标准定义</h1><p>这只是一个内部规范，早早的定义好避免后期前后台频繁改动，这只是我这边暂时用到的，可以随意扩展和修改。</p>
+<h2 id="全局错误"><a href="#全局错误" class="headerlink" title="全局错误"></a>全局错误</h2><pre><code>{error: true, code: 500(或者其它，一般不定义), text: &apos;错误描述&apos;}
+</code></pre><h2 id="user对象"><a href="#user对象" class="headerlink" title="user对象"></a>user对象</h2><pre><code>{uid,uuid,sid,nickname,avatar,sex,等等}
+</code></pre><h2 id="room对象"><a href="#room对象" class="headerlink" title="room对象"></a>room对象</h2><pre><code>{rid,rname,creator,creatTime,等}
+</code></pre><p>所有的群发消息理论上本人不应该收到，但是pomelo不好处理，所以如果收到了，只好前端自己做处理排除掉</p>
+<h2 id="所有emit"><a href="#所有emit" class="headerlink" title="所有emit"></a>所有emit</h2><pre><code>login:
+    request: {uid, pwd, avatar}, callback: {uid, onlineUsers}，登录失败返回error信息
+sendMessage:
+    request: {target, message:{type, content}}, callback: {error, code, text}，如果没错就code=200, target=*表示所有用户，@uid表示私聊，否则表示rid
+createRoom:
+    request:{rname}, callback: {uid, room: room}
+joinRoom:
+    request:{rid, source:&apos;比如扫描二维码还是直接输入ID查找等&apos;}, callback: {uid, room}，如果错误返回error信息
+leaveRoom:
+    request:{rid}， callback:{uid, room: room}
+</code></pre><h2 id="所有事件"><a href="#所有事件" class="headerlink" title="所有事件"></a>所有事件</h2><pre><code>onConnect({})
+onDisconnect({})
+onUserLogin({uid, onlineUsers})
+onUserLogout({uid, onlineUsers})
+onUserSendMessage({from: uid, message: message, time: time, rid: rid})，如果rid未定义表示私聊，否则就是群聊
+onSystemMessage{type, message, time}
+onUserJoinRoom({uid, room})
+onUserLeaveRoom({uid, room})
+</code></pre><h1 id="其它一些补充"><a href="#其它一些补充" class="headerlink" title="其它一些补充"></a>其它一些补充</h1><h2 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h2><p>查看当前pomolo版本：</p>
+<pre><code>#pomelo -V
+1.2.2
+</code></pre><h2 id="还没完成或者有问题的"><a href="#还没完成或者有问题的" class="headerlink" title="还没完成或者有问题的"></a>还没完成或者有问题的</h2><ul>
+<li>性能测试</li>
+<li>日志</li>
+<li>简单的后台，能够实时监控当前用户和各种消息</li>
+<li>部分消息推送时携带数据过多，需要精简</li>
+</ul>
+<h1 id="pomelo分布式部署"><a href="#pomelo分布式部署" class="headerlink" title="pomelo分布式部署"></a>pomelo分布式部署</h1><p>参考：<a href="https://github.com/NetEase/pomelo/wiki/Pomelo的分布式部署方法" target="_blank" rel="external">https://github.com/NetEase/pomelo/wiki/Pomelo的分布式部署方法</a></p>
+<p>分布式部署的关键主要就是master服务器到其它服务器的密码验证干掉，另外就是master.json和servers.json里面服务器的配置。</p>
+<h2 id="准备条件："><a href="#准备条件：" class="headerlink" title="准备条件："></a>准备条件：</h2><ul>
+<li>必须为同类操作系统（建议版本也相同，我用的是centos6.3）</li>
+<li>用户名必须完全相同（我用的是root）</li>
+<li>node安装路径和版本必须完全相同（我的是v4.2.4，安装在/home/node/node-v4.2.4）</li>
+<li>项目目录必须完全相同（我的放在/home/pomelo/pomelo-server）</li>
+<li><p>在所有参与分布式部署的机器上配置ssh登录选项. 方法为: 在”~/.ssh”目录（也就是当前登录用户名下的那个.ssh目录）下创建一个名为”config”的文件(本文所示例的目录为”/root/.ssh”)，目的是使得各个机器之间可以进行顺畅的ssh登录，文件内容如下:</p>
+<pre><code>Host *
+HashKnownHosts no
+CheckHostIP no
+StrictHostKeyChecking no
+</code></pre></li>
+</ul>
+<p>另外还要记得配置主服务器到其它服务器之间能够ssh免登录，当然你不配置也行，不配置的后果就是每次启动时都要一个个的输入其它服务器的密码，关于ssh免登录的配置后面单独介绍。</p>
+<p>本例中只简单的用了2个服务器做测试，172.16.4.247做主，172.16.1.116做从。</p>
+<p>首先，修改master.json，将其中的host的地址修改为master所在机器的IP地址（即将要在哪台机器上使用<code>pomelo start</code>来启动服务器集群）， 注意不要填写”127.0.0.1”或者”localhost”， 具体的配置如下所示：</p>
+<pre><code>{
+    &quot;development&quot;:{
+        &quot;id&quot;:&quot;master-server-1&quot;,
+        &quot;host&quot;:&quot;172.16.4.247&quot;,
+        &quot;port&quot;:3005
+    },
+    &quot;production&quot;:{
+        &quot;id&quot;:&quot;master-server-1&quot;,
+        &quot;host&quot;:&quot;172.16.4.247&quot;,
+        &quot;port&quot;:3005
+    }
+}
+</code></pre><p>然后修改servers.json，我这里由于服务器不够就只好用多个端口来模拟了：</p>
+<pre><code>{
+    &quot;development&quot;:{
+        &quot;connector&quot;:[
+             {&quot;id&quot;:&quot;connector-server-1&quot;, &quot;host&quot;:&quot;172.16.4.247&quot;, &quot;port&quot;:4050, &quot;clientPort&quot;: 3050, &quot;frontend&quot;: true},
+             {&quot;id&quot;:&quot;connector-server-2&quot;, &quot;host&quot;:&quot;172.16.1.116&quot;, &quot;port&quot;:4051, &quot;clientPort&quot;: 3051, &quot;frontend&quot;: true}
+         ],
+        &quot;chat&quot;:[
+             {&quot;id&quot;:&quot;chat-server-1&quot;, &quot;host&quot;:&quot;172.16.4.247&quot;, &quot;port&quot;:6050},
+             {&quot;id&quot;:&quot;chat-server-2&quot;, &quot;host&quot;:&quot;172.16.1.116&quot;, &quot;port&quot;:6051}
+        ],
+        &quot;gate&quot;:[
+           {&quot;id&quot;: &quot;gate-server-1&quot;, &quot;host&quot;: &quot;172.16.4.247&quot;, &quot;clientPort&quot;: 3014, &quot;frontend&quot;: true}
+        ]
+    },
+    &quot;production&quot;:{
+           &quot;connector&quot;:[
+             {&quot;id&quot;:&quot;connector-server-1&quot;, &quot;host&quot;:&quot;172.16.4.247&quot;, &quot;port&quot;:4050, &quot;clientPort&quot;: 3050, &quot;frontend&quot;: true},
+             {&quot;id&quot;:&quot;connector-server-2&quot;, &quot;host&quot;:&quot;172.16.1.116&quot;, &quot;port&quot;:4051, &quot;clientPort&quot;: 3051, &quot;frontend&quot;: true}
+         ],
+        &quot;chat&quot;:[
+             {&quot;id&quot;:&quot;chat-server-1&quot;, &quot;host&quot;:&quot;172.16.4.247&quot;, &quot;port&quot;:6050},
+             {&quot;id&quot;:&quot;chat-server-2&quot;, &quot;host&quot;:&quot;172.16.1.116&quot;, &quot;port&quot;:6051}
+        ],
+        &quot;gate&quot;:[
+           {&quot;id&quot;: &quot;gate-server-1&quot;, &quot;host&quot;: &quot;172.16.4.247&quot;, &quot;clientPort&quot;: 3014, &quot;frontend&quot;: true}
+        ]
+  }
+}
+</code></pre><p>以上文件的修改最好在本地修改好后再全部同步到所有服务器，注意无论是哪个服务器都把完整的servers配置复制上去，启动时只需要在master所在服务器的<code>/home/pomelo/pomelo-server</code>执行<code>pomelo start</code>即可（前提是你已经为pomelo配置了环境变量），无需单独到没一个服务器去单独启动，如果你的ssh免登录没有正确配置，那么启动的过程中会一次次的要求你输入其它服务器的密码。</p>
+<p>另外，我在部署的时候，pomelo没有全局安装，然后又嫌把这个放项目下太大，所以最后又把它复制到/home/node/node-v4.2.4/lib/node_modules下，单机启动时没问题，分布式部署时就提示<code>Cannot find module &quot;pomelo&quot;</code>，所以此时的解决办法就是，要么全局安装pomelo，要么把它复制到项目下的node_modules文件夹下。</p>
+<p>今天部署时还碰到一个问题，启动成功后还是一直访问不了，后来发现是防火墙的问题，把用到的端口加入白名单即可，或者偷懒直接临时关闭防火墙做测试。</p>
+<p>另外，停止时不能要单机那样直接<code>Ctrl+C</code>取消了，必须<code>pomelo stop</code>来停止。</p>
+<h2 id="ssh-免登录配置"><a href="#ssh-免登录配置" class="headerlink" title="ssh 免登录配置"></a>ssh 免登录配置</h2><p>假设现有2台linux服务器A(172.16.4.247)和B(172.16.1.116)，要求能够在A上登录到B（也就是pomelo的主服务器登录其他集群服务器）.</p>
+<p>服务器A上面执行如下命令：</p>
+<pre><code>[root@localhost ~]# ssh-keygen -t rsa -P &apos;&apos;（-P表示密码，-P &apos;&apos; 就表示空密码，不用-P参数需要三次回车，用-P只需一次回车）
+[root@localhost ~]# scp .ssh/id_rsa.pub root@172.16.1.116:/root/id_rsa.pub（使用scp复制）
+</code></pre><p>第一个命令会在<code>/root</code>下生成一个<code>.ssh</code>文件夹（注意当前登录用户名是什么就生成在哪里），<code>.ssh</code>下有<code>id_rsa</code>（私钥）和<code>id_rsa.pub</code>（公钥） 这2个文件，中间需要回车一次，第二个命令是使用scp复制公钥到服务器B上面，中间会要求输入B的密码。</p>
+<p><img src="http://image.liuxianan.com/201602/201602171011232734835.png" alt="img"></p>
+<p>然后登录B服务器执行如下命令：</p>
+<pre><code>[root@localhost ~]# mkdir .ssh（在用户目录下新建.ssh文件夹）
+[root@localhost ~]# cat id_rsa.pub &gt;&gt; .ssh/authorized_keys（将公钥文件内容写入authorized_keys中）
+[root@localhost ~]# chmod 755 /root（修改用户目录权限，这个很重要）
+[root@localhost ~]# chmod 700 .ssh（修改.ssh文件夹权限，这个很重要）
+[root@localhost ~]# chmod 600 .ssh/authorized_keys（修改key文件权限，这个很重要）
+[root@localhost ~]# rm -rf id_rsa.pub（删除没用的临时文件）
+</code></pre><p>然后再次切换到服务器A执行：</p>
+<pre><code>[root@localhost ~]# ssh 172.16.1.116
+Last login: Wed Feb 17 09:42:18 2016 from 172.16.4.97
+</code></pre><p>不出意外的话就设置成功了。</p>
+<p>几个关键点：</p>
+<ul>
+<li>几个目录和文件的权限不能太高，太高反而失败</li>
+<li>用户目录权限一定要记得改成755（也就是rwxr-xr-x），之前默认是777导致一直不成功（本例中是/root文件夹）</li>
+<li>.ssh文件夹权限必须是700（也就是rwx——）</li>
+<li>.ssh/authorized_keys权限必须是600（也就是rw——-）</li>
+</ul>
+<p>补充：</p>
+<ul>
+<li>若有多个主机要访问，都是使用&gt;&gt;添加到authorized_keys同一个文件中</li>
+<li>本例中使用的是root账户，如果是其它账户，请根据实际用户目录做相应变动</li>
+<li>A将公钥发给B，不是说让B来访问A，而是A就可以随意访问B了</li>
+<li>如果ssh登录不需要输入密码就表示配置成功了，否则就是配置失败</li>
+<li>以后如果发现哪天突然登录需要密码了，可能是目录权限被修改了，再次修改回去即可</li>
+</ul>
+<p>如果还不成功，确认本机sshd的配置文件：</p>
+<pre><code>[root@localhost ~]# vi /etc/ssh/sshd_config
+（找到以下内容，并去掉注释符”#“）
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile      .ssh/authorized_keys
+[root@localhost ~]# service sshd restart（重启sshd服务）
+</code></pre><p><img src="http://image.liuxianan.com/201602/201602162100045081357.png" alt="img"></p>
+<p>完了之后再次尝试登录看成功否。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/07/18/get-transition-style-value/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          transition动画正在执行时获取的样式值
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/07/14/clear-dns-cache/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">清理DNS缓存</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="pomelo" data-title="pomelo使用笔记" data-url="http://mygit.me/blog/2016/07/15/pomelo/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"lxa"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 小茗同学
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: /blog/
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/blog/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
