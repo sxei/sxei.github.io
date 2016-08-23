@@ -19,7 +19,7 @@
     <link rel="alternative" href="/atom.xml" title="刘显安的git博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="//favicon.jpg">
+    <link rel="icon" href="/favicon.jpg">
   
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -32,7 +32,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="nullavatar.jpg" class="js-avatar">
+			<img lazy-src="/avatar.jpg" class="js-avatar">
 			
 		</a>
 
@@ -99,14 +99,6 @@
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="#" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="#" title="rss">rss</a>
-					        
-								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-					        
 						</div>
 					</nav>
 				</section>
@@ -154,7 +146,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img lazy-src="nullavatar.jpg" class="js-avatar">
+					<img lazy-src="/avatar.jpg" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -174,14 +166,6 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss">rss</a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-			        
 				</div>
 			</nav>
 		</header>				
@@ -729,71 +713,6 @@ JSON.stringify(obj); // 输出：&apos;{&quot;cbid&quot;:1}&apos;
 
 
   
-    <article id="post-js-match-not-string" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/22/js-match-not-string/" class="article-date">
-  	<time datetime="2016-07-21T16:00:00.000Z" itemprop="datePublished">2016-07-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/22/js-match-not-string/">js正则匹配“非字符串”</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JS匹配非字符串"><a href="#JS匹配非字符串" class="headerlink" title="JS匹配非字符串"></a>JS匹配非字符串</h1><p>众所周知，<code>[^div]</code>匹配的是“非字符”而不是“非字符串”，前者的意思是一个字符串里只要没有<code>d</code>、<code>i</code>、<code>v</code>这3个字符就算符合条件，但是很多时候我们需要匹配没有<code>div</code>这一个字符串，这时该怎么办呢？</p>
-<p>匹配不以<code>abc</code>开头的字符串：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^([^a]|a[^b]|ab[^c]).*<span class="regexp">/g.exec('abcfdsf');</span></div></pre></td></tr></table></figure>
-<p>匹配不以<code>abc</code>或者<code>qwe</code>开头的字符串：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 正 &lt;!-- more --&gt; 确写法：</div><div class="line">/^([^aq]|a[^b]|ab[^c]|q[^w]|qw[^e]).*/g.exec('abcfdsf');</div><div class="line"></div><div class="line">// 错误写法：因为`[^a]|[^q]`已经相当于匹配任意字符了，所以必须写在一起。</div><div class="line">/^([^a]|[^q]|a[^b]|ab[^c]|q[^w]|qw[^e]).*/g.exec('abcfdsf')；</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/匹配/">匹配</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则/">正则</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/表达式/">表达式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/非字符串/">非字符串</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/javascript/">javascript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-async-function-transport-value" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -859,6 +778,71 @@ JSON.stringify(obj); // 输出：&apos;{&quot;cbid&quot;:1}&apos;
 
 
   
+    <article id="post-js-match-not-string" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/22/js-match-not-string/" class="article-date">
+  	<time datetime="2016-07-21T16:00:00.000Z" itemprop="datePublished">2016-07-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/22/js-match-not-string/">js正则匹配“非字符串”</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JS匹配非字符串"><a href="#JS匹配非字符串" class="headerlink" title="JS匹配非字符串"></a>JS匹配非字符串</h1><p>众所周知，<code>[^div]</code>匹配的是“非字符”而不是“非字符串”，前者的意思是一个字符串里只要没有<code>d</code>、<code>i</code>、<code>v</code>这3个字符就算符合条件，但是很多时候我们需要匹配没有<code>div</code>这一个字符串，这时该怎么办呢？</p>
+<p>匹配不以<code>abc</code>开头的字符串：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^([^a]|a[^b]|ab[^c]).*<span class="regexp">/g.exec('abcfdsf');</span></div></pre></td></tr></table></figure>
+<p>匹配不以<code>abc</code>或者<code>qwe</code>开头的字符串：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 正 &lt;!-- more --&gt; 确写法：</div><div class="line">/^([^aq]|a[^b]|ab[^c]|q[^w]|qw[^e]).*/g.exec('abcfdsf');</div><div class="line"></div><div class="line">// 错误写法：因为`[^a]|[^q]`已经相当于匹配任意字符了，所以必须写在一起。</div><div class="line">/^([^a]|[^q]|a[^b]|ab[^c]|q[^w]|qw[^e]).*/g.exec('abcfdsf')；</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/匹配/">匹配</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则/">正则</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/表达式/">表达式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/非字符串/">非字符串</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/javascript/">javascript</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -893,7 +877,7 @@ JSON.stringify(obj); // 输出：&apos;{&quot;cbid&quot;:1}&apos;
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		root: /
+		root: 'http://mygit.me'
 	}
 </script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>

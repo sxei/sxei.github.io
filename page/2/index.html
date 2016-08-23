@@ -19,7 +19,7 @@
     <link rel="alternative" href="/atom.xml" title="刘显安的git博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="//favicon.jpg">
+    <link rel="icon" href="/favicon.jpg">
   
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -32,7 +32,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="nullavatar.jpg" class="js-avatar">
+			<img lazy-src="/avatar.jpg" class="js-avatar">
 			
 		</a>
 
@@ -99,14 +99,6 @@
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="#" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="#" title="rss">rss</a>
-					        
-								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-					        
 						</div>
 					</nav>
 				</section>
@@ -154,7 +146,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img lazy-src="nullavatar.jpg" class="js-avatar">
+					<img lazy-src="/avatar.jpg" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -174,14 +166,6 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss">rss</a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-			        
 				</div>
 			</nav>
 		</header>				
@@ -474,10 +458,10 @@
 
 
   
-    <article id="post-id_91" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-js-string-some-special-method" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/02/id_91/" class="article-date">
+      <a href="/2016/08/02/js-string-some-special-method/" class="article-date">
   	<time datetime="2016-08-01T16:00:00.000Z" itemprop="datePublished">2016-08-02</time>
 </a>
     </div>
@@ -491,7 +475,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/id_91/">浏览器会自动给页面所有取了ID的元素生成一个对应的变量</a>
+      <a class="article-title" href="/2016/08/02/js-string-some-special-method/">JavaScript中和String相关的一些兼容性不太好的方法</a>
     </h1>
   
 
@@ -500,16 +484,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h1><p>原文发表于：2014-07-14</p>
-<p>浏览器会给页面所有取了id的元素生成一个名字就叫这个id的对象，对象的内容就是它的DOM对象，相当于是<code>document.getElementById(id)</code>返回的内容。</p>
-<p>我们来看一个测试例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;test1&quot;&gt;第一段内容&lt;/div&gt;</div><div class="line">&lt;div id=&quot;test2&quot;&gt;第二段内容&lt;/div&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">console.log(test1==u &lt;!-- more --&gt; ndefined, test1); // 输出：false， div#test1</div><div class="line"></div><div class="line">// 测试一</div><div class="line">(function()</div><div class="line">&#123;</div><div class="line">	var test1 = test1 || &apos;你好啊&apos;;</div><div class="line">	console.log(test1); // 输出 &apos;你好啊&apos;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">// 测试二</div><div class="line">(function()</div><div class="line">&#123;</div><div class="line">	test2 = test2 || &apos;你好啊&apos;;</div><div class="line">	console.log(test2); // 输出 div#test2</div><div class="line">&#125;)();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>上面的例子中，测试一由于使用了var，并且由于js存在变量声明提升，所以会输出后面的内容，测试二其实等同于下面的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> test1; <span class="comment">// 由于重新定义了test1，这里相当于给它赋值了undefined</span></div><div class="line">	test1 = test1 || <span class="string">'你好啊'</span>;</div><div class="line">	<span class="built_in">console</span>.log(test1); <span class="comment">// 输出 '你好啊'</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<p>以上代码在Chrome、Firefox和IE上测试都存在类似问题。</p>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>所以，类似下面这样的代码就尽量不要写了：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>); <span class="comment">// 此代码多此一举</span></div></pre></td></tr></table></figure>
-<p>另外，js在定义变量的时候也要尽量不要和已存在的DOM的id重复了，避免带来不必要的麻烦。</p>
+        <h1 id="String-prototype-trim"><a href="#String-prototype-trim" class="headerlink" title="String.prototype.trim"></a>String.prototype.trim</h1><p>低版本浏览器不支持字符串的trim相关方法，实际使用中考虑兼容性的话可以使用jQuery提供的$.trim()方法，如果项目中没有采用jQuery，可以自己简单写一个，参考jQuery中的实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!<span class="built_in">String</span>.prototype.trim)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\uFEFF\xA0]+| &lt;!-- more --&gt; [\s\uFEFF\xA0]+$/g</span>, <span class="string">''</span>);</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim</a></p>
+<h1 id="String-prototype-startsWith和endsWith"><a href="#String-prototype-startsWith和endsWith" class="headerlink" title="String.prototype.startsWith和endsWith"></a>String.prototype.startsWith和endsWith</h1><p>切记！这2个方法是直到ECMAScript6才开始支持的！如果不支持可以自己写一个：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="built_in">String</span>.prototype.startsWith)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.startsWith = <span class="function"><span class="keyword">function</span>(<span class="params">searchString, position</span>)</span></div><div class="line">	&#123;</div><div class="line">		position = position || <span class="number">0</span>;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.substr(position, searchString.length) === searchString;</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> (!<span class="built_in">String</span>.prototype.endsWith)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.endsWith = <span class="function"><span class="keyword">function</span>(<span class="params">searchString, position</span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">var</span> subjectString = <span class="keyword">this</span>.toString();</div><div class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> position !== <span class="string">'number'</span> || !<span class="built_in">isFinite</span>(position) || <span class="built_in">Math</span>.floor(position) !== position || position &gt; subjectString.length)</div><div class="line">		&#123;</div><div class="line">			position = subjectString.length;</div><div class="line">		&#125;</div><div class="line">		position -= searchString.length;</div><div class="line">		<span class="keyword">var</span> lastIndex = subjectString.indexOf(searchString, position);</div><div class="line">		<span class="keyword">return</span> lastIndex !== <span class="number">-1</span> &amp;&amp; lastIndex === position;</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>本代码参考自：</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith</a></p>
 
       
     </div>
@@ -518,7 +500,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dom/">dom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/id/">id</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/变量/">变量</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/生成/">生成</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自动/">自动</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/endswidth/">endswidth</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototype/">prototype</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/startswith/">startswith</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/trim/">trim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/不好/">不好</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容性/">兼容性</a></li></ul>
 	</div>
 
       
@@ -616,10 +598,10 @@
 
 
   
-    <article id="post-console-log-typeerror-illegal-invocation" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-id_91" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/02/console-log-typeerror-illegal-invocation/" class="article-date">
+      <a href="/2016/08/02/id_91/" class="article-date">
   	<time datetime="2016-08-01T16:00:00.000Z" itemprop="datePublished">2016-08-02</time>
 </a>
     </div>
@@ -633,7 +615,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/console-log-typeerror-illegal-invocation/">console.log报错：uncaught typeerror illegal invocation</a>
+      <a class="article-title" href="/2016/08/02/id_91/">浏览器会自动给页面所有取了ID的元素生成一个对应的变量</a>
     </h1>
   
 
@@ -642,10 +624,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文发表于：2014-08-01</p>
-<h1 id="console-log的运行上下文"><a href="#console-log的运行上下文" class="headerlink" title="console.log的运行上下文"></a>console.log的运行上下文</h1><p>原因是<code>console.log</code>的运行上下文要求是console不能是其它任何别对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log.call(<span class="keyword">this</span>, <span class="string">'Hello Liuianan!'</span>); <span class="comment">// 报错：Uncaught TypeError: Illegal invocation</span></div><div class="line"><span class="built_in">console</span>.log.call(<span class="built_in">console</span>, <span class="string">'Hello Liuianan!'</span>); <span class="comment">// 正常输出</span></div></pre></td></tr></table></figure>
-<p>结
+        <h1 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h1><p>原文发表于：2014-07-14</p>
+<p>浏览器会给页面所有取了id的元素生成一个名字就叫这个id的对象，对象的内容就是它的DOM对象，相当于是<code>document.getElementById(id)</code>返回的内容。</p>
+<p>我们来看一个测试例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;test1&quot;&gt;第一段内容&lt;/div&gt;</div><div class="line">&lt;div id=&quot;test2&quot;&gt;第二段内容&lt;/div&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">console.log(test1==u &lt;!-- more --&gt; ndefined, test1); // 输出：false， div#test1</div><div class="line"></div><div class="line">// 测试一</div><div class="line">(function()</div><div class="line">&#123;</div><div class="line">	var test1 = test1 || &apos;你好啊&apos;;</div><div class="line">	console.log(test1); // 输出 &apos;你好啊&apos;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">// 测试二</div><div class="line">(function()</div><div class="line">&#123;</div><div class="line">	test2 = test2 || &apos;你好啊&apos;;</div><div class="line">	console.log(test2); // 输出 div#test2</div><div class="line">&#125;)();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>上面的例子中，测试一由于使用了var，并且由于js存在变量声明提升，所以会输出后面的内容，测试二其实等同于下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> test1; <span class="comment">// 由于重新定义了test1，这里相当于给它赋值了undefined</span></div><div class="line">	test1 = test1 || <span class="string">'你好啊'</span>;</div><div class="line">	<span class="built_in">console</span>.log(test1); <span class="comment">// 输出 '你好啊'</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>以上代码在Chrome、Firefox和IE上测试都存在类似问题。</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>所以，类似下面这样的代码就尽量不要写了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>); <span class="comment">// 此代码多此一举</span></div></pre></td></tr></table></figure>
+<p>另外，js在定义变量的时候也要尽量不要和已存在的DOM的id重复了，避免带来不必要的麻烦。</p>
+
       
     </div>
     
@@ -653,7 +642,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/console/">console</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/">log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typeerror/">typeerror</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/上下文/">上下文</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/运行/">运行</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dom/">dom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/id/">id</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/变量/">变量</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/生成/">生成</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自动/">自动</a></li></ul>
 	</div>
 
       
@@ -662,145 +651,6 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/02/console-log-typeerror-illegal-invocation/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js-string-some-special-method" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/02/js-string-some-special-method/" class="article-date">
-  	<time datetime="2016-08-01T16:00:00.000Z" itemprop="datePublished">2016-08-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/js-string-some-special-method/">JavaScript中和String相关的一些兼容性不太好的方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="String-prototype-trim"><a href="#String-prototype-trim" class="headerlink" title="String.prototype.trim"></a>String.prototype.trim</h1><p>低版本浏览器不支持字符串的trim相关方法，实际使用中考虑兼容性的话可以使用jQuery提供的$.trim()方法，如果项目中没有采用jQuery，可以自己简单写一个，参考jQuery中的实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!<span class="built_in">String</span>.prototype.trim)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\uFEFF\xA0]+| &lt;!-- more --&gt; [\s\uFEFF\xA0]+$/g</span>, <span class="string">''</span>);</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>参考：</p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim</a></p>
-<h1 id="String-prototype-startsWith和endsWith"><a href="#String-prototype-startsWith和endsWith" class="headerlink" title="String.prototype.startsWith和endsWith"></a>String.prototype.startsWith和endsWith</h1><p>切记！这2个方法是直到ECMAScript6才开始支持的！如果不支持可以自己写一个：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="built_in">String</span>.prototype.startsWith)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.startsWith = <span class="function"><span class="keyword">function</span>(<span class="params">searchString, position</span>)</span></div><div class="line">	&#123;</div><div class="line">		position = position || <span class="number">0</span>;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.substr(position, searchString.length) === searchString;</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> (!<span class="built_in">String</span>.prototype.endsWith)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.endsWith = <span class="function"><span class="keyword">function</span>(<span class="params">searchString, position</span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">var</span> subjectString = <span class="keyword">this</span>.toString();</div><div class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> position !== <span class="string">'number'</span> || !<span class="built_in">isFinite</span>(position) || <span class="built_in">Math</span>.floor(position) !== position || position &gt; subjectString.length)</div><div class="line">		&#123;</div><div class="line">			position = subjectString.length;</div><div class="line">		&#125;</div><div class="line">		position -= searchString.length;</div><div class="line">		<span class="keyword">var</span> lastIndex = subjectString.indexOf(searchString, position);</div><div class="line">		<span class="keyword">return</span> lastIndex !== <span class="number">-1</span> &amp;&amp; lastIndex === position;</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>本代码参考自：</p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/endswidth/">endswidth</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototype/">prototype</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/startswith/">startswith</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/trim/">trim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/不好/">不好</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容性/">兼容性</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/javascript/">javascript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-favicon" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/02/favicon/" class="article-date">
-  	<time datetime="2016-08-01T16:00:00.000Z" itemprop="datePublished">2016-08-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/favicon/">自定义网站图标</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原文发表于：2014-08-06</p>
-<h1 id="如何自定义网站图标"><a href="#如何自定义网站图标" class="headerlink" title="如何自定义网站图标"></a>如何自定义网站图标</h1><p>所谓网站图标，就是每个标签上方网页的小图标，一般比较小，只有16*16像素左右。</p>
-<p>默认情况下浏览器会加载网页所在域名的根目录下的favicon.ico，举个例子，假如你访问的网页是：<a href="http://blog.liuxianan.com/test1/test2/index.html">http://blog.liuxianan.com/test1/test2/index.html</a> ，在你不做特殊设置的前提下，浏览器会自动把如下图片当成网站的图标：<a href="http://blog.liuxianan.com/favicon.ico">http://blog.liuxianan.com/favicon.ico</a> 。</p>
-<p>所
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/favicon/">favicon</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图标/">图标</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站/">网站</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义/">自定义</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/html/">html</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/02/favicon/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -907,6 +757,140 @@
 
 
   
+    <article id="post-console-log-typeerror-illegal-invocation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/02/console-log-typeerror-illegal-invocation/" class="article-date">
+  	<time datetime="2016-08-01T16:00:00.000Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/02/console-log-typeerror-illegal-invocation/">console.log报错：uncaught typeerror illegal invocation</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文发表于：2014-08-01</p>
+<h1 id="console-log的运行上下文"><a href="#console-log的运行上下文" class="headerlink" title="console.log的运行上下文"></a>console.log的运行上下文</h1><p>原因是<code>console.log</code>的运行上下文要求是console不能是其它任何别对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log.call(<span class="keyword">this</span>, <span class="string">'Hello Liuianan!'</span>); <span class="comment">// 报错：Uncaught TypeError: Illegal invocation</span></div><div class="line"><span class="built_in">console</span>.log.call(<span class="built_in">console</span>, <span class="string">'Hello Liuianan!'</span>); <span class="comment">// 正常输出</span></div></pre></td></tr></table></figure>
+<p>结
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/console/">console</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/">log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typeerror/">typeerror</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/上下文/">上下文</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/运行/">运行</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/javascript/">javascript</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/02/console-log-typeerror-illegal-invocation/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-favicon" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/02/favicon/" class="article-date">
+  	<time datetime="2016-08-01T16:00:00.000Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/02/favicon/">自定义网站图标</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文发表于：2014-08-06</p>
+<h1 id="如何自定义网站图标"><a href="#如何自定义网站图标" class="headerlink" title="如何自定义网站图标"></a>如何自定义网站图标</h1><p>所谓网站图标，就是每个标签上方网页的小图标，一般比较小，只有16*16像素左右。</p>
+<p>默认情况下浏览器会加载网页所在域名的根目录下的favicon.ico，举个例子，假如你访问的网页是：<a href="http://blog.liuxianan.com/test1/test2/index.html">http://blog.liuxianan.com/test1/test2/index.html</a> ，在你不做特殊设置的前提下，浏览器会自动把如下图片当成网站的图标：<a href="http://blog.liuxianan.com/favicon.ico">http://blog.liuxianan.com/favicon.ico</a> 。</p>
+<p>所
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/favicon/">favicon</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图标/">图标</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站/">网站</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义/">自定义</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/html/">html</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/02/favicon/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -941,7 +925,7 @@
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		root: /
+		root: 'http://mygit.me'
 	}
 </script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>

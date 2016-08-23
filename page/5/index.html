@@ -19,7 +19,7 @@
     <link rel="alternative" href="/atom.xml" title="刘显安的git博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="//favicon.jpg">
+    <link rel="icon" href="/favicon.jpg">
   
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -32,7 +32,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="nullavatar.jpg" class="js-avatar">
+			<img lazy-src="/avatar.jpg" class="js-avatar">
 			
 		</a>
 
@@ -99,14 +99,6 @@
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="#" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="#" title="rss">rss</a>
-					        
-								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-					        
 						</div>
 					</nav>
 				</section>
@@ -154,7 +146,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img lazy-src="nullavatar.jpg" class="js-avatar">
+					<img lazy-src="/avatar.jpg" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -174,14 +166,6 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss">rss</a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-			        
 				</div>
 			</nav>
 		</header>				
@@ -303,6 +287,70 @@
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/software/">software</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-fire-js-input-file-click" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/07/fire-js-input-file-click/" class="article-date">
+  	<time datetime="2016-07-06T16:00:00.000Z" itemprop="datePublished">2016-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/07/fire-js-input-file-click/">js触发input[file]的单击事件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>原文写于：2014-06-18</p>
+<p>以下代码可以打开浏览窗口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;test&quot; type=&quot;file&quot;/&gt;</div><div class="line">&lt;a href=&quot;javascript:browse();&quot;&gt;浏览&lt;/a&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">function browse()</div><div class="line">&#123;</div><div class="line">	document.getElementById(&apos;test&apos;).click();</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>触发某个<code>input &lt;!-- more --&gt; [file]</code>的click事件<strong>直接执行不会有效果</strong>（包括直接在控制台执行代码或者计时器延时调用均不生效），但是放到某个a标签或者按钮的单击事件上却有效！切记！也就是说必须用户主动去单击某个东西才能触发文本框的单击。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/click/">click</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/file/">file</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/input/">input</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单击/">单击</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/javascript/">javascript</a>
 	</div>
 
 
@@ -571,70 +619,6 @@ s &lt;!-- more --&gt; c start Audiosrv
 
 
   
-    <article id="post-fire-js-input-file-click" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/07/fire-js-input-file-click/" class="article-date">
-  	<time datetime="2016-07-06T16:00:00.000Z" itemprop="datePublished">2016-07-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/07/fire-js-input-file-click/">js触发input[file]的单击事件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>原文写于：2014-06-18</p>
-<p>以下代码可以打开浏览窗口：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;test&quot; type=&quot;file&quot;/&gt;</div><div class="line">&lt;a href=&quot;javascript:browse();&quot;&gt;浏览&lt;/a&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">function browse()</div><div class="line">&#123;</div><div class="line">	document.getElementById(&apos;test&apos;).click();</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>触发某个<code>input &lt;!-- more --&gt; [file]</code>的click事件<strong>直接执行不会有效果</strong>（包括直接在控制台执行代码或者计时器延时调用均不生效），但是放到某个a标签或者按钮的单击事件上却有效！切记！也就是说必须用户主动去单击某个东西才能触发文本框的单击。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/click/">click</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/file/">file</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/input/">input</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单击/">单击</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/javascript/">javascript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-ios-uiwebview-native-js-interactive" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -684,6 +668,73 @@ s &lt;!-- more --&gt; c start Audiosrv
       
         <p class="article-more-link">
           <a  href="/2016/07/05/ios-uiwebview-native-js-interactive/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-webview-load-local-html" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/05/webview-load-local-html/" class="article-date">
+  	<time datetime="2016-07-04T16:00:00.000Z" itemprop="datePublished">2016-07-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/05/webview-load-local-html/">Android WebView加载本地网页问题总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="代码存放位置"><a href="#代码存放位置" class="headerlink" title="代码存放位置"></a>代码存放位置</h1><p>如果代码直接放在服务器上，更新代码将非常方便，无需任何特殊处理，修改代码用户无需更新apk、无需更新html（采用这种方式时一定要控制好缓存，否则经常会出现服务器代码更新但是本地不更新的问题），缺点是严重依赖网络，网速较慢时用户体验极差，且存在apk版本与html版本冲突问题。</p>
+<p>如果放在assets下面：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mWebView.loadUrl(<span class="string">"file:///android_asset/www/index.html"</span>);</div></pre></td></tr></table></figure>
+<p>放在assets最大
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webview/">webview</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加载/">加载</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/本地/">本地</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网页/">网页</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/hybird/">hybird</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/05/webview-load-local-html/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -807,73 +858,6 @@ test.testBoolean(false); // 输出&quot;boolean:null&quot;
 	</div>
 
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-webview-load-local-html" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/05/webview-load-local-html/" class="article-date">
-  	<time datetime="2016-07-04T16:00:00.000Z" itemprop="datePublished">2016-07-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/05/webview-load-local-html/">Android WebView加载本地网页问题总结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="代码存放位置"><a href="#代码存放位置" class="headerlink" title="代码存放位置"></a>代码存放位置</h1><p>如果代码直接放在服务器上，更新代码将非常方便，无需任何特殊处理，修改代码用户无需更新apk、无需更新html（采用这种方式时一定要控制好缓存，否则经常会出现服务器代码更新但是本地不更新的问题），缺点是严重依赖网络，网速较慢时用户体验极差，且存在apk版本与html版本冲突问题。</p>
-<p>如果放在assets下面：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mWebView.loadUrl(<span class="string">"file:///android_asset/www/index.html"</span>);</div></pre></td></tr></table></figure>
-<p>放在assets最大
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webview/">webview</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加载/">加载</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/本地/">本地</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网页/">网页</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/hybird/">hybird</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/07/05/webview-load-local-html/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1061,7 +1045,7 @@ test.testBoolean(false); // 输出&quot;boolean:null&quot;
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		root: /
+		root: 'http://mygit.me'
 	}
 </script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>

@@ -150,42 +150,6 @@
   </entry>
   
   <entry>
-    <title>阿里云服务器SSH无法连接：Connection closed by foreign host</title>
-    <link href="http://mygit.me/2016/08/18/aliyun-ssh-connection-closed-by-foreign-host/"/>
-    <id>http://mygit.me/2016/08/18/aliyun-ssh-connection-closed-by-foreign-host/</id>
-    <published>2016-08-17T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.459Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>之前一直好好的，今天突然连接不上了，报一个什么<code>Connection closed by foreign host</code>的错：</p>
-<p><img src="http://image.liuxianan.com/201608/20160818_132141_787_1258.png" alt=""></p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>登录阿里云后台，进入实例详情，连接管理终端，执行如下命令：</p>
-<p><img src="http://image.liuxianan.com/201608/20160818_132051_319_4178.png" alt=""><br> <a id="more"></a> </p>
-<p>以上方法是网上找到的，我试了之后发现依然连不上，但是过了一天之后再试发现没问题了，所以到底是这个问题过一段时间会自己会自动变好呢，还是执行上述代码之后需要过一段时间才生效呢？不得而知。</p>
-<p>具体多久生效也不太清楚，反正我是过了一天再看发现可以了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      阿里云服务器SSH无法连接：Connection closed by foreign host
-    
-    </summary>
-    
-      <category term="website" scheme="http://mygit.me/categories/website/"/>
-    
-    
-      <category term="阿里云" scheme="http://mygit.me/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
-    
-      <category term="ssh" scheme="http://mygit.me/tags/ssh/"/>
-    
-      <category term="连接" scheme="http://mygit.me/tags/%E8%BF%9E%E6%8E%A5/"/>
-    
-      <category term="失败" scheme="http://mygit.me/tags/%E5%A4%B1%E8%B4%A5/"/>
-    
-      <category term="云服务器" scheme="http://mygit.me/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
     <title>使用hexo+github搭建免费个人博客详细教程</title>
     <link href="http://mygit.me/2016/08/18/build-blog-website-by-hexo-github/"/>
     <id>http://mygit.me/2016/08/18/build-blog-website-by-hexo-github/</id>
@@ -367,6 +331,114 @@ hexo d -g #生成并上传
   </entry>
   
   <entry>
+    <title>阿里云服务器SSH无法连接：Connection closed by foreign host</title>
+    <link href="http://mygit.me/2016/08/18/aliyun-ssh-connection-closed-by-foreign-host/"/>
+    <id>http://mygit.me/2016/08/18/aliyun-ssh-connection-closed-by-foreign-host/</id>
+    <published>2016-08-17T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.459Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>之前一直好好的，今天突然连接不上了，报一个什么<code>Connection closed by foreign host</code>的错：</p>
+<p><img src="http://image.liuxianan.com/201608/20160818_132141_787_1258.png" alt=""></p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>登录阿里云后台，进入实例详情，连接管理终端，执行如下命令：</p>
+<p><img src="http://image.liuxianan.com/201608/20160818_132051_319_4178.png" alt=""><br> <a id="more"></a> </p>
+<p>以上方法是网上找到的，我试了之后发现依然连不上，但是过了一天之后再试发现没问题了，所以到底是这个问题过一段时间会自己会自动变好呢，还是执行上述代码之后需要过一段时间才生效呢？不得而知。</p>
+<p>具体多久生效也不太清楚，反正我是过了一天再看发现可以了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      阿里云服务器SSH无法连接：Connection closed by foreign host
+    
+    </summary>
+    
+      <category term="website" scheme="http://mygit.me/categories/website/"/>
+    
+    
+      <category term="阿里云" scheme="http://mygit.me/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
+    
+      <category term="ssh" scheme="http://mygit.me/tags/ssh/"/>
+    
+      <category term="连接" scheme="http://mygit.me/tags/%E8%BF%9E%E6%8E%A5/"/>
+    
+      <category term="失败" scheme="http://mygit.me/tags/%E5%A4%B1%E8%B4%A5/"/>
+    
+      <category term="云服务器" scheme="http://mygit.me/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网页上如何实现禁止复制粘贴以及如何破解</title>
+    <link href="http://mygit.me/2016/08/17/disable-html-copy-and-paste/"/>
+    <id>http://mygit.me/2016/08/17/disable-html-copy-and-paste/</id>
+    <published>2016-08-16T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.455Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们首先来介绍如何实现禁止复制，知道了禁止的方式，再破解就容易了。</p>
+<h1 id="实现禁止复制粘贴"><a href="#实现禁止复制粘贴" class="headerlink" title="实现禁止复制粘贴"></a>实现禁止复制粘贴</h1><p>比较简单，直接上代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">/* 最简单的实现禁止复制的方法，采用css方式禁止文字选择，当然这只兼容webkit内核浏览器 */</div><div class="line">* &#123; -webkit-user-select: none; &#125;</div><div class="line">p &#123;font-family: &apos;Microsoft Yahei&apos;;font-size: 28px;&#125;</div><div class="line">input &#123;width: &lt;!-- more --&gt;  80%; padding: 10px 20px;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;h1&gt;本代码在UC手机浏览器上不生效，其它手机浏览器暂未发现问题、PC全部没问题。&lt;/h1&gt;</div><div class="line">&lt;p&gt;这是一段示例文字，我无法被选中，也无法按下鼠标右键，即使被选中你也无法复制！&lt;/p&gt;</div><div class="line">&lt;input type=&quot;text&quot; value=&quot;文本框中的文字可以选中，但是无法复制粘贴&quot;/&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">// 禁止右键菜单</div><div class="line">document.oncontextmenu = function()&#123; return false; &#125;;</div><div class="line">// 禁止文字选择</div><div class="line">document.onselectstart = function()&#123; return false; &#125;;</div><div class="line">// 禁止复制</div><div class="line">document.oncopy = function()&#123; return false; &#125;;</div><div class="line">// 禁止剪切</div><div class="line">document.oncut = function()&#123; return false; &#125;;</div><div class="line">// 禁止粘贴</div><div class="line">document.onpaste = function()&#123; return false; &#125;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h1 id="破解禁止复制粘贴"><a href="#破解禁止复制粘贴" class="headerlink" title="破解禁止复制粘贴"></a>破解禁止复制粘贴</h1><p>知道如何禁止了，那破解这个限制就容易多了。</p>
+<p>首先，绝大部分限制都是采用js实现的，那我禁用js不久OK了么？突然发现我太聪明了！假如你使用的是<code>Chrome</code>或者其它国产webkit内核浏览器，按下<code>F12</code>弹出开发者工具，再按下<code>F1</code>弹出设置，勾选<code>Disable JavaScript</code>，再按下<code>ESC</code>键关闭设置（其它浏览器如何禁止JavaScript请自行研究），然后试试是不是可以复制了？</p>
+<p><img src="http://image.liuxianan.com/201608/20160817_085956_673_5222.png" alt=""></p>
+<p>如果此时仍无法选择文字，找到你要复制文字的地方，看看是不是添加了<code>-webkit-user-select: none</code>的样式，如果有，将其去掉即可：</p>
+<p><img src="http://image.liuxianan.com/201608/20160817_090202_264_2841.png" alt=""></p>
+<p>到了这里应该就可以自由复制粘贴了，复制完了记得把禁用JavaScript的地方还原回来哦。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      网页上如何实现禁止复制粘贴以及如何破解
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="禁止" scheme="http://mygit.me/tags/%E7%A6%81%E6%AD%A2/"/>
+    
+      <category term="复制" scheme="http://mygit.me/tags/%E5%A4%8D%E5%88%B6/"/>
+    
+      <category term="粘贴" scheme="http://mygit.me/tags/%E7%B2%98%E8%B4%B4/"/>
+    
+      <category term="右键" scheme="http://mygit.me/tags/%E5%8F%B3%E9%94%AE/"/>
+    
+      <category term="破解" scheme="http://mygit.me/tags/%E7%A0%B4%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>marquee标签</title>
+    <link href="http://mygit.me/2016/08/17/marquee/"/>
+    <id>http://mygit.me/2016/08/17/marquee/</id>
+    <published>2016-08-16T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.457Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="marquee"><a href="#marquee" class="headerlink" title="marquee"></a>marquee</h1><p>marquee是<strong>已经废弃、过时的标签</strong>，不推荐使用！在Chrome不同版本中有很多bug，如，Chrome45.0中动画执行完总是需要点一下页面才能继续，最新版的Chrome52.0则没有这个问题。</p>
+<p>虽然已经过时，有时候还是不得已用到，这里简单对几个属性做一下介绍。</p>
+<h2 id="behavior"><a href="#behavior" class="headerlink" title="behavior"></a>behavior</h2><p>可用的值为scroll(滚动)、slide(滑动)、alternate(改变，类似于光学的反射路径)，如果没有指定值，默认是scroll</p>
+<h2 id="direction"><a href="#direction" class="headerlink" title="direction "></a>direction <a id="more"></a></h2><p>设置方向，可用的值为left、right、up、down，如果没有指定值，默认是left</p>
+<h2 id="scrollamount"><a href="#scrollamount" class="headerlink" title="scrollamount"></a>scrollamount</h2><p>控制速度</p>
+<h2 id="scrolldelay"><a href="#scrolldelay" class="headerlink" title="scrolldelay"></a>scrolldelay</h2><p>延时</p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>完整测试代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>兼容性说明：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>marquee是已经废弃的标签，不推荐使用！在Chrome不同版本中有很多bug，如，Chrome45.0中动画执行完总是需要点一下页面才能继续，最新版的Chrome52.0则没有这个问题。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>默认：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>来回滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">direction</span>=<span class="string">"left"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>循环滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"scroll"</span> <span class="attr">direction</span>=<span class="string">"right"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>右下往上滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"scroll"</span> <span class="attr">direction</span>=<span class="string">"up"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span> <span class="attr">style</span>=<span class="string">"height:200px;background:#ccc;"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>会反弹的文字：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">direction</span>=<span class="string">"down"</span> <span class="attr">width</span>=<span class="string">"250"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">style</span>=<span class="string">"border:solid 2px black;"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">width</span>=<span class="string">"250"</span> &gt;</span>这个文本会反弹哦<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      marquee标签
+    
+    </summary>
+    
+      <category term="webmix" scheme="http://mygit.me/categories/webmix/"/>
+    
+    
+      <category term="html" scheme="http://mygit.me/tags/html/"/>
+    
+      <category term="marquee" scheme="http://mygit.me/tags/marquee/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript数组常用方法详解</title>
     <link href="http://mygit.me/2016/08/17/javascript-array-method/"/>
     <id>http://mygit.me/2016/08/17/javascript-array-method/</id>
@@ -473,78 +545,6 @@ eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析�
       <category term="展示" scheme="http://mygit.me/tags/%E5%B1%95%E7%A4%BA/"/>
     
       <category term="处理" scheme="http://mygit.me/tags/%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>marquee标签</title>
-    <link href="http://mygit.me/2016/08/17/marquee/"/>
-    <id>http://mygit.me/2016/08/17/marquee/</id>
-    <published>2016-08-16T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.457Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="marquee"><a href="#marquee" class="headerlink" title="marquee"></a>marquee</h1><p>marquee是<strong>已经废弃、过时的标签</strong>，不推荐使用！在Chrome不同版本中有很多bug，如，Chrome45.0中动画执行完总是需要点一下页面才能继续，最新版的Chrome52.0则没有这个问题。</p>
-<p>虽然已经过时，有时候还是不得已用到，这里简单对几个属性做一下介绍。</p>
-<h2 id="behavior"><a href="#behavior" class="headerlink" title="behavior"></a>behavior</h2><p>可用的值为scroll(滚动)、slide(滑动)、alternate(改变，类似于光学的反射路径)，如果没有指定值，默认是scroll</p>
-<h2 id="direction"><a href="#direction" class="headerlink" title="direction "></a>direction <a id="more"></a></h2><p>设置方向，可用的值为left、right、up、down，如果没有指定值，默认是left</p>
-<h2 id="scrollamount"><a href="#scrollamount" class="headerlink" title="scrollamount"></a>scrollamount</h2><p>控制速度</p>
-<h2 id="scrolldelay"><a href="#scrolldelay" class="headerlink" title="scrolldelay"></a>scrolldelay</h2><p>延时</p>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>完整测试代码如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>兼容性说明：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>marquee是已经废弃的标签，不推荐使用！在Chrome不同版本中有很多bug，如，Chrome45.0中动画执行完总是需要点一下页面才能继续，最新版的Chrome52.0则没有这个问题。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>默认：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>来回滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">direction</span>=<span class="string">"left"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>循环滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"scroll"</span> <span class="attr">direction</span>=<span class="string">"right"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>右下往上滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"scroll"</span> <span class="attr">direction</span>=<span class="string">"up"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span> <span class="attr">style</span>=<span class="string">"height:200px;background:#ccc;"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>会反弹的文字：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">direction</span>=<span class="string">"down"</span> <span class="attr">width</span>=<span class="string">"250"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">style</span>=<span class="string">"border:solid 2px black;"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">width</span>=<span class="string">"250"</span> &gt;</span>这个文本会反弹哦<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      marquee标签
-    
-    </summary>
-    
-      <category term="webmix" scheme="http://mygit.me/categories/webmix/"/>
-    
-    
-      <category term="html" scheme="http://mygit.me/tags/html/"/>
-    
-      <category term="marquee" scheme="http://mygit.me/tags/marquee/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网页上如何实现禁止复制粘贴以及如何破解</title>
-    <link href="http://mygit.me/2016/08/17/disable-html-copy-and-paste/"/>
-    <id>http://mygit.me/2016/08/17/disable-html-copy-and-paste/</id>
-    <published>2016-08-16T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.455Z</updated>
-    
-    <content type="html"><![CDATA[<p>我们首先来介绍如何实现禁止复制，知道了禁止的方式，再破解就容易了。</p>
-<h1 id="实现禁止复制粘贴"><a href="#实现禁止复制粘贴" class="headerlink" title="实现禁止复制粘贴"></a>实现禁止复制粘贴</h1><p>比较简单，直接上代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">/* 最简单的实现禁止复制的方法，采用css方式禁止文字选择，当然这只兼容webkit内核浏览器 */</div><div class="line">* &#123; -webkit-user-select: none; &#125;</div><div class="line">p &#123;font-family: &apos;Microsoft Yahei&apos;;font-size: 28px;&#125;</div><div class="line">input &#123;width: &lt;!-- more --&gt;  80%; padding: 10px 20px;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;h1&gt;本代码在UC手机浏览器上不生效，其它手机浏览器暂未发现问题、PC全部没问题。&lt;/h1&gt;</div><div class="line">&lt;p&gt;这是一段示例文字，我无法被选中，也无法按下鼠标右键，即使被选中你也无法复制！&lt;/p&gt;</div><div class="line">&lt;input type=&quot;text&quot; value=&quot;文本框中的文字可以选中，但是无法复制粘贴&quot;/&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">// 禁止右键菜单</div><div class="line">document.oncontextmenu = function()&#123; return false; &#125;;</div><div class="line">// 禁止文字选择</div><div class="line">document.onselectstart = function()&#123; return false; &#125;;</div><div class="line">// 禁止复制</div><div class="line">document.oncopy = function()&#123; return false; &#125;;</div><div class="line">// 禁止剪切</div><div class="line">document.oncut = function()&#123; return false; &#125;;</div><div class="line">// 禁止粘贴</div><div class="line">document.onpaste = function()&#123; return false; &#125;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h1 id="破解禁止复制粘贴"><a href="#破解禁止复制粘贴" class="headerlink" title="破解禁止复制粘贴"></a>破解禁止复制粘贴</h1><p>知道如何禁止了，那破解这个限制就容易多了。</p>
-<p>首先，绝大部分限制都是采用js实现的，那我禁用js不久OK了么？突然发现我太聪明了！假如你使用的是<code>Chrome</code>或者其它国产webkit内核浏览器，按下<code>F12</code>弹出开发者工具，再按下<code>F1</code>弹出设置，勾选<code>Disable JavaScript</code>，再按下<code>ESC</code>键关闭设置（其它浏览器如何禁止JavaScript请自行研究），然后试试是不是可以复制了？</p>
-<p><img src="http://image.liuxianan.com/201608/20160817_085956_673_5222.png" alt=""></p>
-<p>如果此时仍无法选择文字，找到你要复制文字的地方，看看是不是添加了<code>-webkit-user-select: none</code>的样式，如果有，将其去掉即可：</p>
-<p><img src="http://image.liuxianan.com/201608/20160817_090202_264_2841.png" alt=""></p>
-<p>到了这里应该就可以自由复制粘贴了，复制完了记得把禁用JavaScript的地方还原回来哦。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      网页上如何实现禁止复制粘贴以及如何破解
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
-    
-    
-      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
-    
-      <category term="禁止" scheme="http://mygit.me/tags/%E7%A6%81%E6%AD%A2/"/>
-    
-      <category term="复制" scheme="http://mygit.me/tags/%E5%A4%8D%E5%88%B6/"/>
-    
-      <category term="粘贴" scheme="http://mygit.me/tags/%E7%B2%98%E8%B4%B4/"/>
-    
-      <category term="右键" scheme="http://mygit.me/tags/%E5%8F%B3%E9%94%AE/"/>
-    
-      <category term="破解" scheme="http://mygit.me/tags/%E7%A0%B4%E8%A7%A3/"/>
     
   </entry>
   
@@ -717,27 +717,25 @@ eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析�
   </entry>
   
   <entry>
-    <title>浏览器会自动给页面所有取了ID的元素生成一个对应的变量</title>
-    <link href="http://mygit.me/2016/08/02/id_91/"/>
-    <id>http://mygit.me/2016/08/02/id_91/</id>
+    <title>JavaScript中和String相关的一些兼容性不太好的方法</title>
+    <link href="http://mygit.me/2016/08/02/js-string-some-special-method/"/>
+    <id>http://mygit.me/2016/08/02/js-string-some-special-method/</id>
     <published>2016-08-01T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.447Z</updated>
+    <updated>2016-08-23T12:55:59.448Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h1><p>原文发表于：2014-07-14</p>
-<p>浏览器会给页面所有取了id的元素生成一个名字就叫这个id的对象，对象的内容就是它的DOM对象，相当于是<code>document.getElementById(id)</code>返回的内容。</p>
-<p>我们来看一个测试例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;test1&quot;&gt;第一段内容&lt;/div&gt;</div><div class="line">&lt;div id=&quot;test2&quot;&gt;第二段内容&lt;/div&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">console.log(test1==u &lt;!-- more --&gt; ndefined, test1); // 输出：false， div#test1</div><div class="line"></div><div class="line">// 测试一</div><div class="line">(function()</div><div class="line">&#123;</div><div class="line">	var test1 = test1 || &apos;你好啊&apos;;</div><div class="line">	console.log(test1); // 输出 &apos;你好啊&apos;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">// 测试二</div><div class="line">(function()</div><div class="line">&#123;</div><div class="line">	test2 = test2 || &apos;你好啊&apos;;</div><div class="line">	console.log(test2); // 输出 div#test2</div><div class="line">&#125;)();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>上面的例子中，测试一由于使用了var，并且由于js存在变量声明提升，所以会输出后面的内容，测试二其实等同于下面的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> test1; <span class="comment">// 由于重新定义了test1，这里相当于给它赋值了undefined</span></div><div class="line">	test1 = test1 || <span class="string">'你好啊'</span>;</div><div class="line">	<span class="built_in">console</span>.log(test1); <span class="comment">// 输出 '你好啊'</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<p>以上代码在Chrome、Firefox和IE上测试都存在类似问题。</p>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>所以，类似下面这样的代码就尽量不要写了：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>); <span class="comment">// 此代码多此一举</span></div></pre></td></tr></table></figure>
-<p>另外，js在定义变量的时候也要尽量不要和已存在的DOM的id重复了，避免带来不必要的麻烦。</p>
+    <content type="html"><![CDATA[<h1 id="String-prototype-trim"><a href="#String-prototype-trim" class="headerlink" title="String.prototype.trim"></a>String.prototype.trim</h1><p>低版本浏览器不支持字符串的trim相关方法，实际使用中考虑兼容性的话可以使用jQuery提供的$.trim()方法，如果项目中没有采用jQuery，可以自己简单写一个，参考jQuery中的实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!<span class="built_in">String</span>.prototype.trim)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\uFEFF\xA0]+| &lt;!-- more --&gt; [\s\uFEFF\xA0]+$/g</span>, <span class="string">''</span>);</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>参考：</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim</a></p>
+<h1 id="String-prototype-startsWith和endsWith"><a href="#String-prototype-startsWith和endsWith" class="headerlink" title="String.prototype.startsWith和endsWith"></a>String.prototype.startsWith和endsWith</h1><p>切记！这2个方法是直到ECMAScript6才开始支持的！如果不支持可以自己写一个：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="built_in">String</span>.prototype.startsWith)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.startsWith = <span class="function"><span class="keyword">function</span>(<span class="params">searchString, position</span>)</span></div><div class="line">	&#123;</div><div class="line">		position = position || <span class="number">0</span>;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.substr(position, searchString.length) === searchString;</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> (!<span class="built_in">String</span>.prototype.endsWith)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.endsWith = <span class="function"><span class="keyword">function</span>(<span class="params">searchString, position</span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">var</span> subjectString = <span class="keyword">this</span>.toString();</div><div class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> position !== <span class="string">'number'</span> || !<span class="built_in">isFinite</span>(position) || <span class="built_in">Math</span>.floor(position) !== position || position &gt; subjectString.length)</div><div class="line">		&#123;</div><div class="line">			position = subjectString.length;</div><div class="line">		&#125;</div><div class="line">		position -= searchString.length;</div><div class="line">		<span class="keyword">var</span> lastIndex = subjectString.indexOf(searchString, position);</div><div class="line">		<span class="keyword">return</span> lastIndex !== <span class="number">-1</span> &amp;&amp; lastIndex === position;</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>本代码参考自：</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith</a></p>
 ]]></content>
     
     <summary type="html">
     
-      浏览器会自动给页面所有取了ID的元素生成一个对应的变量
+      JavaScript中和String相关的一些兼容性不太好的方法
     
     </summary>
     
@@ -746,15 +744,19 @@ eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析�
     
       <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
     
-      <category term="自动" scheme="http://mygit.me/tags/%E8%87%AA%E5%8A%A8/"/>
+      <category term="prototype" scheme="http://mygit.me/tags/prototype/"/>
     
-      <category term="生成" scheme="http://mygit.me/tags/%E7%94%9F%E6%88%90/"/>
+      <category term="string" scheme="http://mygit.me/tags/string/"/>
     
-      <category term="dom" scheme="http://mygit.me/tags/dom/"/>
+      <category term="trim" scheme="http://mygit.me/tags/trim/"/>
     
-      <category term="id" scheme="http://mygit.me/tags/id/"/>
+      <category term="startswith" scheme="http://mygit.me/tags/startswith/"/>
     
-      <category term="变量" scheme="http://mygit.me/tags/%E5%8F%98%E9%87%8F/"/>
+      <category term="endswidth" scheme="http://mygit.me/tags/endswidth/"/>
+    
+      <category term="兼容性" scheme="http://mygit.me/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/"/>
+    
+      <category term="不好" scheme="http://mygit.me/tags/%E4%B8%8D%E5%A5%BD/"/>
     
   </entry>
   
@@ -801,21 +803,27 @@ eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析�
   </entry>
   
   <entry>
-    <title>console.log报错：uncaught typeerror illegal invocation</title>
-    <link href="http://mygit.me/2016/08/02/console-log-typeerror-illegal-invocation/"/>
-    <id>http://mygit.me/2016/08/02/console-log-typeerror-illegal-invocation/</id>
+    <title>浏览器会自动给页面所有取了ID的元素生成一个对应的变量</title>
+    <link href="http://mygit.me/2016/08/02/id_91/"/>
+    <id>http://mygit.me/2016/08/02/id_91/</id>
     <published>2016-08-01T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.449Z</updated>
+    <updated>2016-08-23T12:55:59.447Z</updated>
     
-    <content type="html"><![CDATA[<p>原文发表于：2014-08-01</p>
-<h1 id="console-log的运行上下文"><a href="#console-log的运行上下文" class="headerlink" title="console.log的运行上下文"></a>console.log的运行上下文</h1><p>原因是<code>console.log</code>的运行上下文要求是console不能是其它任何别对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log.call(<span class="keyword">this</span>, <span class="string">'Hello Liuianan!'</span>); <span class="comment">// 报错：Uncaught TypeError: Illegal invocation</span></div><div class="line"><span class="built_in">console</span>.log.call(<span class="built_in">console</span>, <span class="string">'Hello Liuianan!'</span>); <span class="comment">// 正常输出</span></div></pre></td></tr></table></figure>
-<p>结 <a id="more"></a> 果：<br><img src="http://image.liuxianan.com/201608/20160802_155625_498_8752.png" alt=""></p>
+    <content type="html"><![CDATA[<h1 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h1><p>原文发表于：2014-07-14</p>
+<p>浏览器会给页面所有取了id的元素生成一个名字就叫这个id的对象，对象的内容就是它的DOM对象，相当于是<code>document.getElementById(id)</code>返回的内容。</p>
+<p>我们来看一个测试例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;test1&quot;&gt;第一段内容&lt;/div&gt;</div><div class="line">&lt;div id=&quot;test2&quot;&gt;第二段内容&lt;/div&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">console.log(test1==u &lt;!-- more --&gt; ndefined, test1); // 输出：false， div#test1</div><div class="line"></div><div class="line">// 测试一</div><div class="line">(function()</div><div class="line">&#123;</div><div class="line">	var test1 = test1 || &apos;你好啊&apos;;</div><div class="line">	console.log(test1); // 输出 &apos;你好啊&apos;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">// 测试二</div><div class="line">(function()</div><div class="line">&#123;</div><div class="line">	test2 = test2 || &apos;你好啊&apos;;</div><div class="line">	console.log(test2); // 输出 div#test2</div><div class="line">&#125;)();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>上面的例子中，测试一由于使用了var，并且由于js存在变量声明提升，所以会输出后面的内容，测试二其实等同于下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> test1; <span class="comment">// 由于重新定义了test1，这里相当于给它赋值了undefined</span></div><div class="line">	test1 = test1 || <span class="string">'你好啊'</span>;</div><div class="line">	<span class="built_in">console</span>.log(test1); <span class="comment">// 输出 '你好啊'</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>以上代码在Chrome、Firefox和IE上测试都存在类似问题。</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>所以，类似下面这样的代码就尽量不要写了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>); <span class="comment">// 此代码多此一举</span></div></pre></td></tr></table></figure>
+<p>另外，js在定义变量的时候也要尽量不要和已存在的DOM的id重复了，避免带来不必要的麻烦。</p>
 ]]></content>
     
     <summary type="html">
     
-      console.log报错：uncaught typeerror illegal invocation
+      浏览器会自动给页面所有取了ID的元素生成一个对应的变量
     
     </summary>
     
@@ -824,95 +832,15 @@ eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析�
     
       <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
     
-      <category term="console" scheme="http://mygit.me/tags/console/"/>
+      <category term="自动" scheme="http://mygit.me/tags/%E8%87%AA%E5%8A%A8/"/>
     
-      <category term="log" scheme="http://mygit.me/tags/log/"/>
+      <category term="生成" scheme="http://mygit.me/tags/%E7%94%9F%E6%88%90/"/>
     
-      <category term="typeerror" scheme="http://mygit.me/tags/typeerror/"/>
+      <category term="dom" scheme="http://mygit.me/tags/dom/"/>
     
-      <category term="运行" scheme="http://mygit.me/tags/%E8%BF%90%E8%A1%8C/"/>
+      <category term="id" scheme="http://mygit.me/tags/id/"/>
     
-      <category term="上下文" scheme="http://mygit.me/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript中和String相关的一些兼容性不太好的方法</title>
-    <link href="http://mygit.me/2016/08/02/js-string-some-special-method/"/>
-    <id>http://mygit.me/2016/08/02/js-string-some-special-method/</id>
-    <published>2016-08-01T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.448Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="String-prototype-trim"><a href="#String-prototype-trim" class="headerlink" title="String.prototype.trim"></a>String.prototype.trim</h1><p>低版本浏览器不支持字符串的trim相关方法，实际使用中考虑兼容性的话可以使用jQuery提供的$.trim()方法，如果项目中没有采用jQuery，可以自己简单写一个，参考jQuery中的实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!<span class="built_in">String</span>.prototype.trim)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^[\s\uFEFF\xA0]+| &lt;!-- more --&gt; [\s\uFEFF\xA0]+$/g</span>, <span class="string">''</span>);</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>参考：</p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim</a></p>
-<h1 id="String-prototype-startsWith和endsWith"><a href="#String-prototype-startsWith和endsWith" class="headerlink" title="String.prototype.startsWith和endsWith"></a>String.prototype.startsWith和endsWith</h1><p>切记！这2个方法是直到ECMAScript6才开始支持的！如果不支持可以自己写一个：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="built_in">String</span>.prototype.startsWith)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.startsWith = <span class="function"><span class="keyword">function</span>(<span class="params">searchString, position</span>)</span></div><div class="line">	&#123;</div><div class="line">		position = position || <span class="number">0</span>;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.substr(position, searchString.length) === searchString;</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> (!<span class="built_in">String</span>.prototype.endsWith)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">String</span>.prototype.endsWith = <span class="function"><span class="keyword">function</span>(<span class="params">searchString, position</span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">var</span> subjectString = <span class="keyword">this</span>.toString();</div><div class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> position !== <span class="string">'number'</span> || !<span class="built_in">isFinite</span>(position) || <span class="built_in">Math</span>.floor(position) !== position || position &gt; subjectString.length)</div><div class="line">		&#123;</div><div class="line">			position = subjectString.length;</div><div class="line">		&#125;</div><div class="line">		position -= searchString.length;</div><div class="line">		<span class="keyword">var</span> lastIndex = subjectString.indexOf(searchString, position);</div><div class="line">		<span class="keyword">return</span> lastIndex !== <span class="number">-1</span> &amp;&amp; lastIndex === position;</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>本代码参考自：</p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      JavaScript中和String相关的一些兼容性不太好的方法
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
-    
-    
-      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
-    
-      <category term="prototype" scheme="http://mygit.me/tags/prototype/"/>
-    
-      <category term="string" scheme="http://mygit.me/tags/string/"/>
-    
-      <category term="trim" scheme="http://mygit.me/tags/trim/"/>
-    
-      <category term="startswith" scheme="http://mygit.me/tags/startswith/"/>
-    
-      <category term="endswidth" scheme="http://mygit.me/tags/endswidth/"/>
-    
-      <category term="兼容性" scheme="http://mygit.me/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/"/>
-    
-      <category term="不好" scheme="http://mygit.me/tags/%E4%B8%8D%E5%A5%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义网站图标</title>
-    <link href="http://mygit.me/2016/08/02/favicon/"/>
-    <id>http://mygit.me/2016/08/02/favicon/</id>
-    <published>2016-08-01T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.450Z</updated>
-    
-    <content type="html"><![CDATA[<p>原文发表于：2014-08-06</p>
-<h1 id="如何自定义网站图标"><a href="#如何自定义网站图标" class="headerlink" title="如何自定义网站图标"></a>如何自定义网站图标</h1><p>所谓网站图标，就是每个标签上方网页的小图标，一般比较小，只有16*16像素左右。</p>
-<p>默认情况下浏览器会加载网页所在域名的根目录下的favicon.ico，举个例子，假如你访问的网页是：<a href="http://blog.liuxianan.com/test1/test2/index.html" target="_blank" rel="external">http://blog.liuxianan.com/test1/test2/index.html</a> ，在你不做特殊设置的前提下，浏览器会自动把如下图片当成网站的图标：<a href="http://blog.liuxianan.com/favicon.ico" target="_blank" rel="external">http://blog.liuxianan.com/favicon.ico</a> 。</p>
-<p>所 <a id="more"></a> 以，最简单的自定义图标的方式就是替换这张图片，用于网页图标的ico图标分辨率一般不需要太大，个人觉得32*32足够了。</p>
-<p>如果我想换个路径呢？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;shortcut icon&quot; href=&quot;images/lxa.ico&quot; type=&quot;image/x-icon&quot;&gt;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      自定义网站图标
-    
-    </summary>
-    
-      <category term="html" scheme="http://mygit.me/categories/html/"/>
-    
-    
-      <category term="网站" scheme="http://mygit.me/tags/%E7%BD%91%E7%AB%99/"/>
-    
-      <category term="自定义" scheme="http://mygit.me/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/"/>
-    
-      <category term="html" scheme="http://mygit.me/tags/html/"/>
-    
-      <category term="图标" scheme="http://mygit.me/tags/%E5%9B%BE%E6%A0%87/"/>
-    
-      <category term="favicon" scheme="http://mygit.me/tags/favicon/"/>
+      <category term="变量" scheme="http://mygit.me/tags/%E5%8F%98%E9%87%8F/"/>
     
   </entry>
   
@@ -972,6 +900,78 @@ eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析�
       <category term="变量声明" scheme="http://mygit.me/tags/%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/"/>
     
       <category term="提升" scheme="http://mygit.me/tags/%E6%8F%90%E5%8D%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>console.log报错：uncaught typeerror illegal invocation</title>
+    <link href="http://mygit.me/2016/08/02/console-log-typeerror-illegal-invocation/"/>
+    <id>http://mygit.me/2016/08/02/console-log-typeerror-illegal-invocation/</id>
+    <published>2016-08-01T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.449Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文发表于：2014-08-01</p>
+<h1 id="console-log的运行上下文"><a href="#console-log的运行上下文" class="headerlink" title="console.log的运行上下文"></a>console.log的运行上下文</h1><p>原因是<code>console.log</code>的运行上下文要求是console不能是其它任何别对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log.call(<span class="keyword">this</span>, <span class="string">'Hello Liuianan!'</span>); <span class="comment">// 报错：Uncaught TypeError: Illegal invocation</span></div><div class="line"><span class="built_in">console</span>.log.call(<span class="built_in">console</span>, <span class="string">'Hello Liuianan!'</span>); <span class="comment">// 正常输出</span></div></pre></td></tr></table></figure>
+<p>结 <a id="more"></a> 果：<br><img src="http://image.liuxianan.com/201608/20160802_155625_498_8752.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      console.log报错：uncaught typeerror illegal invocation
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="console" scheme="http://mygit.me/tags/console/"/>
+    
+      <category term="log" scheme="http://mygit.me/tags/log/"/>
+    
+      <category term="typeerror" scheme="http://mygit.me/tags/typeerror/"/>
+    
+      <category term="运行" scheme="http://mygit.me/tags/%E8%BF%90%E8%A1%8C/"/>
+    
+      <category term="上下文" scheme="http://mygit.me/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义网站图标</title>
+    <link href="http://mygit.me/2016/08/02/favicon/"/>
+    <id>http://mygit.me/2016/08/02/favicon/</id>
+    <published>2016-08-01T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.450Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文发表于：2014-08-06</p>
+<h1 id="如何自定义网站图标"><a href="#如何自定义网站图标" class="headerlink" title="如何自定义网站图标"></a>如何自定义网站图标</h1><p>所谓网站图标，就是每个标签上方网页的小图标，一般比较小，只有16*16像素左右。</p>
+<p>默认情况下浏览器会加载网页所在域名的根目录下的favicon.ico，举个例子，假如你访问的网页是：<a href="http://blog.liuxianan.com/test1/test2/index.html" target="_blank" rel="external">http://blog.liuxianan.com/test1/test2/index.html</a> ，在你不做特殊设置的前提下，浏览器会自动把如下图片当成网站的图标：<a href="http://blog.liuxianan.com/favicon.ico" target="_blank" rel="external">http://blog.liuxianan.com/favicon.ico</a> 。</p>
+<p>所 <a id="more"></a> 以，最简单的自定义图标的方式就是替换这张图片，用于网页图标的ico图标分辨率一般不需要太大，个人觉得32*32足够了。</p>
+<p>如果我想换个路径呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;shortcut icon&quot; href=&quot;images/lxa.ico&quot; type=&quot;image/x-icon&quot;&gt;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      自定义网站图标
+    
+    </summary>
+    
+      <category term="html" scheme="http://mygit.me/categories/html/"/>
+    
+    
+      <category term="网站" scheme="http://mygit.me/tags/%E7%BD%91%E7%AB%99/"/>
+    
+      <category term="自定义" scheme="http://mygit.me/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/"/>
+    
+      <category term="html" scheme="http://mygit.me/tags/html/"/>
+    
+      <category term="图标" scheme="http://mygit.me/tags/%E5%9B%BE%E6%A0%87/"/>
+    
+      <category term="favicon" scheme="http://mygit.me/tags/favicon/"/>
     
   </entry>
   

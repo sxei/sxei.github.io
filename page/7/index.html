@@ -19,7 +19,7 @@
     <link rel="alternative" href="/atom.xml" title="刘显安的git博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="//favicon.jpg">
+    <link rel="icon" href="/favicon.jpg">
   
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -32,7 +32,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="nullavatar.jpg" class="js-avatar">
+			<img lazy-src="/avatar.jpg" class="js-avatar">
 			
 		</a>
 
@@ -99,14 +99,6 @@
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="#" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="#" title="rss">rss</a>
-					        
-								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-					        
 						</div>
 					</nav>
 				</section>
@@ -154,7 +146,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img lazy-src="nullavatar.jpg" class="js-avatar">
+					<img lazy-src="/avatar.jpg" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -174,14 +166,6 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss">rss</a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-			        
 				</div>
 			</nav>
 		</header>				
@@ -190,10 +174,10 @@
 
       <div class="body-wrap">
   
-    <article id="post-jquery-simple-switch-plugin" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-nodejs-parse-html" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/25/jquery-simple-switch-plugin/" class="article-date">
+      <a href="/2016/06/25/nodejs-parse-html/" class="article-date">
   	<time datetime="2016-06-24T16:00:00.000Z" itemprop="datePublished">2016-06-25</time>
 </a>
     </div>
@@ -207,7 +191,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/25/jquery-simple-switch-plugin/">自己实现简单的switch开关插件</a>
+      <a class="article-title" href="/2016/06/25/nodejs-parse-html/">node.js解析HTML抓取网站数据</a>
     </h1>
   
 
@@ -216,21 +200,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>最终效果就是这个样子：</p>
-<p><img src="http://image.liuxianan.com/201606/20160625_153549_479_4925.gif" alt=""></p>
-<h1 id="HTML代码"><a href="#HTML代码" class="headerlink" title="HTML代码"></a>HTML代码</h1><p>HTML代码结构如下：</p>
-<pre><code>&lt;div class=&quot;simple-switch&quot;&gt;
-    &lt;span class=&quot;switch-handler&quot;&gt;&lt;/span&gt;
-&lt;/div&gt;
-</code></pre><p><img src="http://image.liuxianan.com/201606/20160625_154222 &lt;!-- more --&gt; _239_9684.png" alt=""></p>
-<p>其中，文字采用:before来实现，switch-handler就是那个圆圈，通过active样式来区分是否选中，还是来看完整代码吧。</p>
-<h1 id="CSS代码"><a href="#CSS代码" class="headerlink" title="CSS代码"></a>CSS代码</h1><p>以下代码放在名为jquery.simpleSwitch.css的文件中：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 简单的开关插件</div><div class="line"> * @date 2016-06-25</div><div class="line"> */</div><div class="line"><span class="selector-class">.simple-switch</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">70px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">border</span>: solid <span class="number">2px</span> <span class="number">#ddd</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">30px</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#FFF</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">padding-left</span>: <span class="number">28px</span>;</div><div class="line">    <span class="attribute">-webkit-transition</span>: background-color <span class="number">0.3s</span>;</div><div class="line">    <span class="attribute">transition</span>: background-color <span class="number">0.3s</span>;</div><div class="line">    <span class="attribute">-webkit-user-select</span>: none;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.simple-switch</span> &gt; <span class="selector-tag">input</span><span class="selector-attr">[type="checkbox"]</span> &#123;</div><div class="line">	<span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.simple-switch</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'关'</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">28px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#999</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.simple-switch</span> &gt; <span class="selector-class">.switch-handler</span> &#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">2px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">28px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">28px</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#FFF</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">-webkit-box-shadow</span>: <span class="number">1px</span> <span class="number">2px</span> <span class="number">5px</span> <span class="built_in">rgba</span>(0, 0, 0, 0.52);</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">1px</span> <span class="number">2px</span> <span class="number">5px</span> <span class="built_in">rgba</span>(0, 0, 0, 0.52);</div><div class="line">    <span class="attribute">-webkit-transition</span>: all <span class="number">0.3s</span>;</div><div class="line">    <span class="attribute">transition</span>: all <span class="number">0.3s</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.simple-switch</span><span class="selector-class">.active</span> &#123;</div><div class="line">    <span class="attribute">border-color</span>: <span class="number">#4cd964</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#4cd964</span>;</div><div class="line">    <span class="attribute">padding-left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">padding-right</span>: <span class="number">28px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.simple-switch</span><span class="selector-class">.active</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'开'</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#FFF</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.simple-switch</span><span class="selector-class">.active</span> &gt; <span class="selector-class">.switch-handler</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">38px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="JS代码"><a href="#JS代码" class="headerlink" title="JS代码"></a>JS代码</h1><p>有了CSS，再写个简单的JS插件配合它（jquery.simpleSwitch.js）：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 简单的开关插件&lt;br&gt;</div><div class="line"> * 切换开关状态：$('#switchId').simpleSwitch('toggle');</div><div class="line"> * 打开开关：$('#switchId').simpleSwitch('toggle', true);</div><div class="line"> * 关闭开关：$('#switchId').simpleSwitch('toggle', false);</div><div class="line"> * 获取开关状态：$('#switchId').simpleSwitch('state');</div><div class="line"> * 事件监听：$('#switchId').on('switch-change', function(e)&#123;console.log(e.detail);&#125;);</div><div class="line"> * @date 2016-06-25</div><div class="line"> * @author lxa</div><div class="line"> */</div><div class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span></div><div class="line">&#123;</div><div class="line">	$.fn.extend(</div><div class="line">	&#123;</div><div class="line">		simpleSwitch: <span class="function"><span class="keyword">function</span>(<span class="params">method, value</span>)</span></div><div class="line">		&#123;</div><div class="line">			<span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">			method = method || <span class="string">'init'</span>;</div><div class="line">			<span class="function"><span class="keyword">function</span> <span class="title">toggle</span>(<span class="params">flag</span>)</span></div><div class="line">			&#123;</div><div class="line">				that.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">				&#123;</div><div class="line">					<span class="keyword">var</span> isActive = $(<span class="keyword">this</span>).hasClass(<span class="string">'active'</span>);</div><div class="line">					<span class="keyword">if</span>(flag != <span class="literal">undefined</span> &amp;&amp; flag == isActive) <span class="keyword">return</span>;</div><div class="line">					<span class="keyword">var</span> value = flag == <span class="literal">undefined</span> ? !isActive : flag;</div><div class="line">					$(<span class="keyword">this</span>).toggleClass(<span class="string">'active'</span>, value);</div><div class="line">					$(<span class="keyword">this</span>).children(<span class="string">'input[type="checkbox"]'</span>).prop(<span class="string">'checked'</span>, value);</div><div class="line">					<span class="keyword">var</span> event = <span class="built_in">document</span>.createEvent(<span class="string">"CustomEvent"</span>);</div><div class="line">					event.initCustomEvent(<span class="string">"switch-change"</span>, <span class="literal">true</span>, <span class="literal">true</span>, value);</div><div class="line">					<span class="keyword">this</span>.dispatchEvent(event);</div><div class="line">				&#125;);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span>(method == <span class="string">'state'</span>) <span class="keyword">return</span> <span class="keyword">this</span>.children(<span class="string">'input[type="checkbox"]'</span>).prop(<span class="string">'checked'</span>);</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(method == <span class="string">'toggle'</span>) toggle(value);</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(method == <span class="string">'init'</span>) <span class="comment">// 初始化</span></div><div class="line">			&#123;</div><div class="line">				<span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">				&#123;</div><div class="line">					<span class="keyword">var</span> checked = $(<span class="keyword">this</span>).children(<span class="string">'input[type="checkbox"]'</span>).prop(<span class="string">'checked'</span>);</div><div class="line">					$(<span class="keyword">this</span>).toggleClass(<span class="string">'active'</span>, checked)</div><div class="line">						.append(<span class="string">'&lt;span class="switch-handler"&gt;&lt;/span&gt;'</span>);</div><div class="line">				&#125;)</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(method == <span class="string">'bindEvent'</span>) <span class="comment">// 绑定事件</span></div><div class="line">			&#123;</div><div class="line">				<span class="keyword">this</span>.on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">				&#123;</div><div class="line">					$(<span class="keyword">this</span>).simpleSwitch(<span class="string">'toggle'</span>);</div><div class="line">				&#125;);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">	$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="comment">// 由于初始化效果不太好，暂时屏蔽</span></div><div class="line">		<span class="comment">//$('.simple-switch').simpleSwitch('init');</span></div><div class="line">		$(<span class="string">'.simple-switch'</span>).simpleSwitch(<span class="string">'bindEvent'</span>);</div><div class="line">	&#125;);</div><div class="line">&#125;)(jQuery);</div></pre></td></tr></table></figure>
-<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><p>由于比较简单，就不作过多介绍，直接上完整代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;zh-cn&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;utf-8&quot;/&gt;</div><div class="line">	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;/&gt;</div><div class="line">	&lt;title&gt;simpleSwitch演示&lt;/title&gt;</div><div class="line">	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;jquery.simpleSwitch.css&quot;&gt;</div><div class="line">	&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	/*设置盒模型*/</div><div class="line">	*</div><div class="line">	&#123;</div><div class="line">		-webkit-box-sizing: border-box;</div><div class="line">		-moz-box-sizing: border-box;</div><div class="line">		box-sizing: border-box</div><div class="line">	&#125;</div><div class="line">	:before,:after</div><div class="line">	&#123;</div><div class="line">		-webkit-box-sizing: border-box;</div><div class="line">		-moz-box-sizing: border-box;</div><div class="line">		box-sizing: border-box</div><div class="line">	&#125;</div><div class="line">	body&#123;font-family: &apos;Microsoft Yahei&apos;; font-size: 16px; background: white; margin: 10px; padding: 0;&#125;</div><div class="line">	input[type=&quot;button&quot;] &#123;</div><div class="line">		background-color: #FFF;</div><div class="line">		border: solid 1px #8E8E8E;</div><div class="line">		padding: 10px 15px;</div><div class="line">		border-radius: 5px;</div><div class="line">		margin: 5px;</div><div class="line">		font-size: 14px;</div><div class="line">	&#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;h1&gt;simpleSwitch示例：&lt;/h1&gt;</div><div class="line">	&lt;h2&gt;开关1：&lt;/h2&gt;</div><div class="line"></div><div class="line">	&lt;div id=&quot;switch1&quot; class=&quot;simple-switch&quot;&gt;</div><div class="line">		&lt;input type=&quot;checkbox&quot; /&gt;</div><div class="line">		&lt;span class=&quot;switch-handler&quot;&gt;&lt;/span&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line"></div><div class="line">	</div><div class="line">	&lt;h2&gt;开关2：&lt;/h2&gt;</div><div class="line"></div><div class="line">	&lt;div id=&quot;switch2&quot; class=&quot;simple-switch active&quot;&gt;</div><div class="line">		&lt;input type=&quot;checkbox&quot; checked/&gt;</div><div class="line">		&lt;span class=&quot;switch-handler&quot;&gt;&lt;/span&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line"></div><div class="line">	&lt;input type=&quot;button&quot; value=&quot;切换所有开关状态&quot; onclick=&quot;$(&apos;.simple-switch&apos;).simpleSwitch(&apos;toggle&apos;);&quot;/&gt;</div><div class="line">	&lt;input type=&quot;button&quot; value=&quot;打开开关一&quot; onclick=&quot;$(&apos;#switch1&apos;).simpleSwitch(&apos;toggle&apos;, true);&quot;/&gt;</div><div class="line">	&lt;input type=&quot;button&quot; value=&quot;关闭开关一&quot; onclick=&quot;$(&apos;#switch1&apos;).simpleSwitch(&apos;toggle&apos;, false);&quot;/&gt;</div><div class="line">	&lt;input type=&quot;button&quot; value=&quot;获取开关一状态&quot; onclick=&quot;alert(&apos;是否打开：&apos;+$(&apos;#switch1&apos;).simpleSwitch(&apos;state&apos;));&quot;/&gt;</div><div class="line"></div><div class="line">	&lt;script src=&quot;http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.simpleSwitch.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line"></div><div class="line">	// 监听开关2的状态</div><div class="line">	$(&apos;#switch2&apos;).on(&apos;switch-change&apos;, function(e)</div><div class="line">	&#123;</div><div class="line">		console.log(&apos;开关2的状态：&apos;+e.detail);</div><div class="line">	&#125;);</div><div class="line">	&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h1 id="演示地址"><a href="#演示地址" class="headerlink" title="演示地址"></a>演示地址</h1><p>//TODO 待补充</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>解析HTML这事儿本来就是js的强项，以前一直用Java来做，感觉老苦逼了，虽然也有一些插件来辅助，但是用的很蛋疼，node.js的出现简直是一大福音。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>首先准备环境：</p>
+<pre><code>npm install -g jquery（这个不用说了）
+npm install -g jsdom（这个是辅助获取window对象的）
+npm install -g http（这个是下载用的）
+</code></pre><p>我装的版本全部是最新的，如下：</p>
+<pre><code>jquery@3.0.0
+jsdom@9 &lt;!-- more --&gt; .2.1
+</code></pre><p>下面以抓取百度首页为例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jsdom = <span class="built_in">require</span>(<span class="string">'jsdom'</span>);</div><div class="line"><span class="keyword">var</span> <span class="built_in">window</span> = jsdom.jsdom().defaultView;</div><div class="line"><span class="keyword">var</span> $ = <span class="built_in">require</span>(<span class="string">'jquery'</span>)(<span class="built_in">window</span>);</div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> options =</div><div class="line">&#123;</div><div class="line">	host: <span class="string">'www.baidu.com'</span>,</div><div class="line">	port: <span class="number">80</span>,</div><div class="line">	path: <span class="string">'/'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> html = <span class="string">''</span>;</div><div class="line">http.get(options, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span></div><div class="line">&#123;</div><div class="line">	res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span></div><div class="line">	&#123;</div><div class="line">		html += data;</div><div class="line">	&#125;).on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'html:'</span>+html);</div><div class="line">		$(<span class="string">'body'</span>).append(html); <span class="comment">// 将下载的html数据append到body里面去</span></div><div class="line">		<span class="keyword">var</span> result = $(<span class="string">'body'</span>).find(<span class="string">'#ftCon'</span>).html(); <span class="comment">// 这里随便抓取一点东西</span></div><div class="line">		fs.writeFile(<span class="string">'result.txt'</span>, result, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">		&#123;</div><div class="line">			<span class="built_in">console</span>.log(<span class="string">'写入完毕！'</span>);</div><div class="line">		&#125;);</div><div class="line">	 &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>如果直接使用jQuery会报如下错误：</p>
+<pre><code>“jQuery requires a window with a document”
+</code></pre><p>原因是node.js不是浏览器环境，没有window对象，需要jsdom这个插件来模拟。</p>
+<p>网上一大推错误或者过时的文章误导人，这里总结并纠正一下：</p>
+<blockquote>
+<p>默认安装jquery时，版本是最新版2.1.0，这个版本没有包括jsdom，需要额外安装一个jsdom，然后这么使用：<br>var jsdom = require(“jsdom”);<br>$ = require(“jquery”)(jsdom.jsdom().createWindow());<br>也可以简单地将jquery卸载掉，安装一个低版本的，如下：<br>$npm install -g jquery@1.6.3</p>
+</blockquote>
+<p>错误一：新版本的jsdom方法名字改了，不是<code>jsdom.jsdom().createWindow()</code>，而是<code>jsdom.jsdom().defaultView</code>；<br>错误二：仅仅是下载低版本jQuery没用，也不推荐；</p>
+<p>还有一种说法是jquery有2个插件，一个是小写的<code>jquery</code>，一个是大写的<code>jQuery</code>，然后我试了下：</p>
+<pre><code>&gt; npm install jQuery
+npm WARN deprecated jQuery@1.7.4: This is deprecated. Please use &apos;jquery&apos;
+</code></pre><p><img src="http://image.liuxianan.com/201606/20160625_183717_961_1412.png" alt=""></p>
+<p>提示jQuery已经过时了，请使用jquery，这里还是要感谢万能的stackoverflow.com，国内的网站搜到的东西经常是互相转载错误又过时的。</p>
 
       
     </div>
@@ -239,82 +231,12 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/plugin/">plugin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/simple/">simple</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/switch/">switch</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网页/">网页</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/解析/">解析</a></li></ul>
 	</div>
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/javascript/">javascript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-cookie-special-character" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/24/cookie-special-character/" class="article-date">
-  	<time datetime="2016-06-23T16:00:00.000Z" itemprop="datePublished">2016-06-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/24/cookie-special-character/">cookie特殊字符</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="事件描述"><a href="#事件描述" class="headerlink" title="事件描述"></a>事件描述</h1><p>今天项目中碰到一个问题，存在cookie中的mac地址（形如<code>AC:4A:FE:6F:2B:04</code>）在前端能够正常获取到，但是到了Java后台过去到的只有<code>AC</code>，也就是冒号后面的都被截取掉了。</p>
-<h1 id="Cookie中不允许的特殊字符"><a href="#Cookie中不允许的特殊字符" class="headerlink" title="Cookie中不允许的特殊字符"></a>Cookie中不允许的特殊字符</h1><p>查阅了相关文章，先自己总结一下。</p>
-<p>cookie有2个版本，不同版本以及不同浏览器对于限制字符有所不同，一般而言越新的浏览器限制字符越少，但是为了以防万一，以下字符都不建议出现在cookie内容中：</p>
-<pre><code>空格，方括号，圆括号，等于号（=） &lt;!-- more --&gt; ，逗号，双引号，斜杠，问号，@符号，冒号，分号
-</code></pre><p>HTTP 1.1规范中规定的特殊字符：</p>
-<pre><code>separators    =   &quot;(&quot; | &quot;)&quot; | &quot;&lt;&quot; | &quot;&gt;&quot; | &quot;@&quot;
-    | &quot;,&quot; | &quot;;&quot; | &quot;:&quot; | &quot;\&quot; | &lt;&quot;&gt;
-    | &quot;/&quot; | &quot;[&quot; | &quot;]&quot; | &quot;?&quot; | &quot;=&quot;
-    | &quot;{&quot; | &quot;}&quot; | SP | HT
-</code></pre><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>存入是先进行URL编码，取出时再解码，另一种思路就是干脆不用cookie，改用localStorage.</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cookie/">cookie</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符/">字符</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/特殊/">特殊</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/javascript/">javascript</a>
+	<a class="article-category-link" href="/categories/nodejs/">nodejs</a>
 	</div>
 
 
@@ -404,11 +326,11 @@
 
 
   
-    <article id="post-android-webview-input-file" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-cookie-special-character" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/23/android-webview-input-file/" class="article-date">
-  	<time datetime="2016-06-22T16:00:00.000Z" itemprop="datePublished">2016-06-23</time>
+      <a href="/2016/06/24/cookie-special-character/" class="article-date">
+  	<time datetime="2016-06-23T16:00:00.000Z" itemprop="datePublished">2016-06-24</time>
 </a>
     </div>
   
@@ -421,7 +343,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/23/android-webview-input-file/">Android WebView使用input[file]浏览本地图片以及拍照上传</a>
+      <a class="article-title" href="/2016/06/24/cookie-special-character/">cookie特殊字符</a>
     </h1>
   
 
@@ -430,27 +352,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前在外部浏览器（如UC、Chrome等）测试过，<code>input[type=&quot;file&quot;]</code>就可以轻松实现文件选择和拍照，但是后台放到webview下面来就一大堆问题了。</p>
-<p>虽然webview默认不支持<code>input[file]</code>，但是可以通过添加一些代码来实现，下面这段代码网上非常常见：</p>
-<p>//TODO</p>
-<p>可以发现，几乎所有版本都没问题，唯独安卓4.4.1和4.4.2有问题，貌似是Android自己的bug，暂时没找到非常好的方法替代。</p>
-<p>Android 5.0+ 重写 <code>o &lt;!-- more --&gt; nShowFileChooser</code> 生效；<br>Android 4.4- 重写 <code>openFileChooser</code> 生效。<br>Android 4.4 重写 <code>openFileChooser</code> 没有生效；</p>
-<h1 id="其次"><a href="#其次" class="headerlink" title="其次"></a>其次</h1><p>如果不是用<code>input[file]</code>标签、自己去写方法来实现文件浏览和拍照，这还是比较容易的，它和前者的区别是，只能返回图片路径或者图片的base64数据，不能返回浏览器原始的file对象，这就没法实现网页版的上传（虽然base64可以上传，但是对于大文件来说，base64是很消耗性能的），只能用原生来实现上传，另外，关于图片的本地预览，必须网页也放在本地才可以，也就是说http:// 开头的网页无法直接加载本地图片，只有 file:/// 开头的网页才可以加载，而且加载本地图片时的格式也是类似这样的：</p>
-<pre><code>&lt;img src=&quot;file:///storage/emulated/0/www/test.jpg&quot;/&gt;
-</code></pre><p>否则会提示<code>not allowed to load local resource</code>.</p>
-<p><img src="http://image.liuxianan.com/201606/20160623_182311_963_3628.png" alt=""></p>
-<h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><pre><code>&lt;input type=&quot;file&quot; accept=&quot;image/*&quot; capture=&quot;camera&quot;&gt;
-&lt;input type=&quot;file&quot; accept=&quot;video/*&quot; capture=&quot;camcorder&quot;&gt;
-&lt;input type=&quot;file&quot; accept=&quot;audio/*&quot; capture=&quot;microphone&quot;&gt;
-</code></pre><p>capture表示，可以捕获到系统默认的设备，比如：camera–照相机；camcorder–摄像机；microphone–录音。</p>
-<p>以上只是标准写法，具体否调用成功还得看浏览器具体实现，如果是webapp的话，那就看你的webview是否实现了。</p>
-<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>网上有几篇写的不错的文章：</p>
-<ul>
-<li><a href="http://www.tuicool.com/articles/aqa67j" target="_blank" rel="external">Android WebView 上传文件支持全解析</a></li>
-<li><a href="http://blog.csdn.net/zhtsuc/article/details/49154099" target="_blank" rel="external">Webview打开本地图片文件选择解决方案</a></li>
-<li><a href="https://code.google.com/p/android/issues/detail?id=62220" target="_blank" rel="external">openFileChooser not called when input[“file”] is clicked on android 4.4 webview</a></li>
-<li><a href="http://stackoverflow.com/questions/19882331/html-file-input-in-android-webview-android-4-4-kitkat" target="_blank" rel="external">HTML file input in android webview (android 4.4, kitkat)</a></li>
-</ul>
+        <h1 id="事件描述"><a href="#事件描述" class="headerlink" title="事件描述"></a>事件描述</h1><p>今天项目中碰到一个问题，存在cookie中的mac地址（形如<code>AC:4A:FE:6F:2B:04</code>）在前端能够正常获取到，但是到了Java后台过去到的只有<code>AC</code>，也就是冒号后面的都被截取掉了。</p>
+<h1 id="Cookie中不允许的特殊字符"><a href="#Cookie中不允许的特殊字符" class="headerlink" title="Cookie中不允许的特殊字符"></a>Cookie中不允许的特殊字符</h1><p>查阅了相关文章，先自己总结一下。</p>
+<p>cookie有2个版本，不同版本以及不同浏览器对于限制字符有所不同，一般而言越新的浏览器限制字符越少，但是为了以防万一，以下字符都不建议出现在cookie内容中：</p>
+<pre><code>空格，方括号，圆括号，等于号（=） &lt;!-- more --&gt; ，逗号，双引号，斜杠，问号，@符号，冒号，分号
+</code></pre><p>HTTP 1.1规范中规定的特殊字符：</p>
+<pre><code>separators    =   &quot;(&quot; | &quot;)&quot; | &quot;&lt;&quot; | &quot;&gt;&quot; | &quot;@&quot;
+    | &quot;,&quot; | &quot;;&quot; | &quot;:&quot; | &quot;\&quot; | &lt;&quot;&gt;
+    | &quot;/&quot; | &quot;[&quot; | &quot;]&quot; | &quot;?&quot; | &quot;=&quot;
+    | &quot;{&quot; | &quot;}&quot; | SP | HT
+</code></pre><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>存入是先进行URL编码，取出时再解码，另一种思路就是干脆不用cookie，改用localStorage.</p>
 
       
     </div>
@@ -459,12 +370,12 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/file/">file</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/input/">input</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webview/">webview</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cookie/">cookie</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符/">字符</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/特殊/">特殊</a></li></ul>
 	</div>
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/hybird/">hybird</a>
+	<a class="article-category-link" href="/categories/javascript/">javascript</a>
 	</div>
 
 
@@ -538,6 +449,87 @@
         <p class="article-more-link">
           <a  href="/2016/06/23/mysql-insert-packet-for-query-is-too-large/#more">more >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-android-webview-input-file" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/23/android-webview-input-file/" class="article-date">
+  	<time datetime="2016-06-22T16:00:00.000Z" itemprop="datePublished">2016-06-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/23/android-webview-input-file/">Android WebView使用input[file]浏览本地图片以及拍照上传</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前在外部浏览器（如UC、Chrome等）测试过，<code>input[type=&quot;file&quot;]</code>就可以轻松实现文件选择和拍照，但是后台放到webview下面来就一大堆问题了。</p>
+<p>虽然webview默认不支持<code>input[file]</code>，但是可以通过添加一些代码来实现，下面这段代码网上非常常见：</p>
+<p>//TODO</p>
+<p>可以发现，几乎所有版本都没问题，唯独安卓4.4.1和4.4.2有问题，貌似是Android自己的bug，暂时没找到非常好的方法替代。</p>
+<p>Android 5.0+ 重写 <code>o &lt;!-- more --&gt; nShowFileChooser</code> 生效；<br>Android 4.4- 重写 <code>openFileChooser</code> 生效。<br>Android 4.4 重写 <code>openFileChooser</code> 没有生效；</p>
+<h1 id="其次"><a href="#其次" class="headerlink" title="其次"></a>其次</h1><p>如果不是用<code>input[file]</code>标签、自己去写方法来实现文件浏览和拍照，这还是比较容易的，它和前者的区别是，只能返回图片路径或者图片的base64数据，不能返回浏览器原始的file对象，这就没法实现网页版的上传（虽然base64可以上传，但是对于大文件来说，base64是很消耗性能的），只能用原生来实现上传，另外，关于图片的本地预览，必须网页也放在本地才可以，也就是说http:// 开头的网页无法直接加载本地图片，只有 file:/// 开头的网页才可以加载，而且加载本地图片时的格式也是类似这样的：</p>
+<pre><code>&lt;img src=&quot;file:///storage/emulated/0/www/test.jpg&quot;/&gt;
+</code></pre><p>否则会提示<code>not allowed to load local resource</code>.</p>
+<p><img src="http://image.liuxianan.com/201606/20160623_182311_963_3628.png" alt=""></p>
+<h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><pre><code>&lt;input type=&quot;file&quot; accept=&quot;image/*&quot; capture=&quot;camera&quot;&gt;
+&lt;input type=&quot;file&quot; accept=&quot;video/*&quot; capture=&quot;camcorder&quot;&gt;
+&lt;input type=&quot;file&quot; accept=&quot;audio/*&quot; capture=&quot;microphone&quot;&gt;
+</code></pre><p>capture表示，可以捕获到系统默认的设备，比如：camera–照相机；camcorder–摄像机；microphone–录音。</p>
+<p>以上只是标准写法，具体否调用成功还得看浏览器具体实现，如果是webapp的话，那就看你的webview是否实现了。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>网上有几篇写的不错的文章：</p>
+<ul>
+<li><a href="http://www.tuicool.com/articles/aqa67j" target="_blank" rel="external">Android WebView 上传文件支持全解析</a></li>
+<li><a href="http://blog.csdn.net/zhtsuc/article/details/49154099" target="_blank" rel="external">Webview打开本地图片文件选择解决方案</a></li>
+<li><a href="https://code.google.com/p/android/issues/detail?id=62220" target="_blank" rel="external">openFileChooser not called when input[“file”] is clicked on android 4.4 webview</a></li>
+<li><a href="http://stackoverflow.com/questions/19882331/html-file-input-in-android-webview-android-4-4-kitkat" target="_blank" rel="external">HTML file input in android webview (android 4.4, kitkat)</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/file/">file</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/input/">input</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webview/">webview</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/hybird/">hybird</a>
+	</div>
+
+
       
       <div class="clearfix"></div>
     </div>
@@ -930,7 +922,7 @@ log-error=/var/log/mysqld_err.log
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		root: /
+		root: 'http://mygit.me'
 	}
 </script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>

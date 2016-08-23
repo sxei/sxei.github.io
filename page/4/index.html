@@ -19,7 +19,7 @@
     <link rel="alternative" href="/atom.xml" title="刘显安的git博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="//favicon.jpg">
+    <link rel="icon" href="/favicon.jpg">
   
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -32,7 +32,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="nullavatar.jpg" class="js-avatar">
+			<img lazy-src="/avatar.jpg" class="js-avatar">
 			
 		</a>
 
@@ -99,14 +99,6 @@
 					<nav class="header-nav">
 						<div class="social">
 							
-								<a class="github" target="_blank" href="#" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="#" title="rss">rss</a>
-					        
-								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-					        
 						</div>
 					</nav>
 				</section>
@@ -154,7 +146,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img lazy-src="nullavatar.jpg" class="js-avatar">
+					<img lazy-src="/avatar.jpg" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -174,14 +166,6 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss">rss</a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-			        
 				</div>
 			</nav>
 		</header>				
@@ -189,73 +173,6 @@
 </nav>
 
       <div class="body-wrap">
-  
-    <article id="post-mui-pull-down-refresh-bug" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/20/mui-pull-down-refresh-bug/" class="article-date">
-  	<time datetime="2016-07-19T16:00:00.000Z" itemprop="datePublished">2016-07-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/20/mui-pull-down-refresh-bug/">mui下拉刷新页面click和a标签失效问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>使用了mui的下拉刷新（<code>pullRefresh</code>）的页面会出现A标签的href失效，且其它注册了click的元素也会失效，点击没反应。</p>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>官方的解释是：2.1版本为了修复safari下下拉刷新时偶尔触发整个页面拖动的问题，使用了preventDefault。这样会阻止默认click的触发。</p>
-<p>详见：<a href="http://ask.dcloud.net.cn/question/8894">http://ask.dcloud.net.cn/question/8894</a></p>
-<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>解决办法有2种，一种是所有的click改用mui自带的tap
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/click/">click</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mui/">mui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pullRefresh/">pullRefresh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/下拉刷新/">下拉刷新</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/失效/">失效</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/手机/">手机</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/mobile-web/">mobile_web</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/07/20/mui-pull-down-refresh-bug/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
   
     <article id="post-eclipse-debug-bug-when-class-same" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -306,6 +223,73 @@
       
         <p class="article-more-link">
           <a  href="/2016/07/20/eclipse-debug-bug-when-class-same/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mui-pull-down-refresh-bug" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/20/mui-pull-down-refresh-bug/" class="article-date">
+  	<time datetime="2016-07-19T16:00:00.000Z" itemprop="datePublished">2016-07-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/20/mui-pull-down-refresh-bug/">mui下拉刷新页面click和a标签失效问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>使用了mui的下拉刷新（<code>pullRefresh</code>）的页面会出现A标签的href失效，且其它注册了click的元素也会失效，点击没反应。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>官方的解释是：2.1版本为了修复safari下下拉刷新时偶尔触发整个页面拖动的问题，使用了preventDefault。这样会阻止默认click的触发。</p>
+<p>详见：<a href="http://ask.dcloud.net.cn/question/8894">http://ask.dcloud.net.cn/question/8894</a></p>
+<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>解决办法有2种，一种是所有的click改用mui自带的tap
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/click/">click</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mui/">mui</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pullRefresh/">pullRefresh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/下拉刷新/">下拉刷新</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/失效/">失效</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/手机/">手机</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/mobile-web/">mobile_web</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/20/mui-pull-down-refresh-bug/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -630,6 +614,93 @@
 
 
   
+    <article id="post-adb" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/13/adb/" class="article-date">
+  	<time datetime="2016-07-12T16:00:00.000Z" itemprop="datePublished">2016-07-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/13/adb/">adb小结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="adb介绍"><a href="#adb介绍" class="headerlink" title="adb介绍"></a>adb介绍</h1><p><code>adb</code>全称为<code>Android Debug Bridge</code>，是谷歌官网提供的调试Android应用的必备工具，一般内置在<code>Android SDK</code>中。</p>
+<h1 id="adb安装"><a href="#adb安装" class="headerlink" title="adb安装"></a>adb安装</h1><p>安装了<code>Android SDK</code>之后就会默认安装了adb（在<code>platform-tools</code>目录下），没有安装<code>Android SDK</code>也没关系，从别人电脑复制以下3个文件即可，或者从网上下载adb工具包。</p>
+<p><img src="http://image.liuxianan.com/201607 &lt;!-- more --&gt; /20160713_104812_676_2904.png" alt=""></p>
+<h1 id="adb常见命令"><a href="#adb常见命令" class="headerlink" title="adb常见命令"></a>adb常见命令</h1><h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>命令：<code>adb connect IP地址</code></p>
+<p>连接失败有很多原因，比如没有打开<code>USB调试模式</code>，比如机器本身没有开放adb权限，这个要细讲又是一大篇文章了，所以这里不细述。</p>
+<p>还有，每一个设备同时只能被一台电脑adb连接，否则，即使你连接上了，也会有各种各样的限制，最好是前面一个人断开连接，下面的人再去连接。</p>
+<h2 id="断开连接"><a href="#断开连接" class="headerlink" title="断开连接"></a>断开连接</h2><p>断开指定IP的连接：<code>adb disconnect IP地址</code><br>断开所有连接：<code>adb disconnect</code></p>
+<h2 id="安装应用"><a href="#安装应用" class="headerlink" title="安装应用"></a>安装应用</h2><p><code>adb install apk路径</code>，apk的名称最好不要包含中文，否则可能会出错。</p>
+<h2 id="卸载应用"><a href="#卸载应用" class="headerlink" title="卸载应用"></a>卸载应用</h2><p><code>adb uninstall 包名</code></p>
+<h2 id="启动应用"><a href="#启动应用" class="headerlink" title="启动应用"></a>启动应用</h2><p><code>adb shell am start -n 包名/启动完整类名</code></p>
+<p>例如：</p>
+<pre><code>adb shell am start -n com.lutongnet.ott.base/com.lutongnet.ott.base.activity.WelcomeActivity
+</code></pre><h2 id="停止应用"><a href="#停止应用" class="headerlink" title="停止应用"></a>停止应用</h2><p>命令：<code>adb shell am force-stop 包名</code></p>
+<h2 id="列举所有连接的设备"><a href="#列举所有连接的设备" class="headerlink" title="列举所有连接的设备"></a>列举所有连接的设备</h2><p>命令：<code>adb devices</code></p>
+<h2 id="列举已安装应用"><a href="#列举已安装应用" class="headerlink" title="列举已安装应用"></a>列举已安装应用</h2><p>命令：<code>adb shell pm list packages</code></p>
+<h1 id="adb常见问题"><a href="#adb常见问题" class="headerlink" title="adb常见问题"></a>adb常见问题</h1><h2 id="手机无法连接adb问题"><a href="#手机无法连接adb问题" class="headerlink" title="手机无法连接adb问题"></a>手机无法连接adb问题</h2><ul>
+<li>首先检查驱动程序是否安装好，不同牌子手机驱动不一样；</li>
+<li>再次检查USB调试模式是否打开；</li>
+<li>如果还不行，任务管理器结束adb.exe，然后再试试；</li>
+<li>上次碰到的，换了一个USB线竟然好了，而且另外一根线虽然无法连接adb但是可以充电可以访问手机文件，真是怪了；</li>
+<li>还是不行，换一个USB接口试试</li>
+<li>拔掉USB线多试几次</li>
+<li>还是不行，试着将USB PC连接模式改成发送图像PTP（默认是媒体设备MTP），这个是我在网上看到的，今天自己试了下还真成功了，我的是LG-G3手机</li>
+<li>如果试了这么多步还是连不上，我可以很明确的告诉你，你手机可以丢厕所喂蛆了！</li>
+</ul>
+<h2 id="adb版本导致的问题"><a href="#adb版本导致的问题" class="headerlink" title="adb版本导致的问题"></a>adb版本导致的问题</h2><p>有时候碰到很奇怪的问题，某一个OTT盒子怎么连接都连不上，换一个网上下载的adb就可以，呵呵，还真是怪了，可能是adb版本不同引起的吧，姑且这么认为。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/">adb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常见/">常见</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/android-base/">android_base</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-javascript-traverse-array" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -773,93 +844,6 @@
 
 
   
-    <article id="post-adb" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/13/adb/" class="article-date">
-  	<time datetime="2016-07-12T16:00:00.000Z" itemprop="datePublished">2016-07-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/13/adb/">adb小结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<h1 id="adb介绍"><a href="#adb介绍" class="headerlink" title="adb介绍"></a>adb介绍</h1><p><code>adb</code>全称为<code>Android Debug Bridge</code>，是谷歌官网提供的调试Android应用的必备工具，一般内置在<code>Android SDK</code>中。</p>
-<h1 id="adb安装"><a href="#adb安装" class="headerlink" title="adb安装"></a>adb安装</h1><p>安装了<code>Android SDK</code>之后就会默认安装了adb（在<code>platform-tools</code>目录下），没有安装<code>Android SDK</code>也没关系，从别人电脑复制以下3个文件即可，或者从网上下载adb工具包。</p>
-<p><img src="http://image.liuxianan.com/201607 &lt;!-- more --&gt; /20160713_104812_676_2904.png" alt=""></p>
-<h1 id="adb常见命令"><a href="#adb常见命令" class="headerlink" title="adb常见命令"></a>adb常见命令</h1><h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>命令：<code>adb connect IP地址</code></p>
-<p>连接失败有很多原因，比如没有打开<code>USB调试模式</code>，比如机器本身没有开放adb权限，这个要细讲又是一大篇文章了，所以这里不细述。</p>
-<p>还有，每一个设备同时只能被一台电脑adb连接，否则，即使你连接上了，也会有各种各样的限制，最好是前面一个人断开连接，下面的人再去连接。</p>
-<h2 id="断开连接"><a href="#断开连接" class="headerlink" title="断开连接"></a>断开连接</h2><p>断开指定IP的连接：<code>adb disconnect IP地址</code><br>断开所有连接：<code>adb disconnect</code></p>
-<h2 id="安装应用"><a href="#安装应用" class="headerlink" title="安装应用"></a>安装应用</h2><p><code>adb install apk路径</code>，apk的名称最好不要包含中文，否则可能会出错。</p>
-<h2 id="卸载应用"><a href="#卸载应用" class="headerlink" title="卸载应用"></a>卸载应用</h2><p><code>adb uninstall 包名</code></p>
-<h2 id="启动应用"><a href="#启动应用" class="headerlink" title="启动应用"></a>启动应用</h2><p><code>adb shell am start -n 包名/启动完整类名</code></p>
-<p>例如：</p>
-<pre><code>adb shell am start -n com.lutongnet.ott.base/com.lutongnet.ott.base.activity.WelcomeActivity
-</code></pre><h2 id="停止应用"><a href="#停止应用" class="headerlink" title="停止应用"></a>停止应用</h2><p>命令：<code>adb shell am force-stop 包名</code></p>
-<h2 id="列举所有连接的设备"><a href="#列举所有连接的设备" class="headerlink" title="列举所有连接的设备"></a>列举所有连接的设备</h2><p>命令：<code>adb devices</code></p>
-<h2 id="列举已安装应用"><a href="#列举已安装应用" class="headerlink" title="列举已安装应用"></a>列举已安装应用</h2><p>命令：<code>adb shell pm list packages</code></p>
-<h1 id="adb常见问题"><a href="#adb常见问题" class="headerlink" title="adb常见问题"></a>adb常见问题</h1><h2 id="手机无法连接adb问题"><a href="#手机无法连接adb问题" class="headerlink" title="手机无法连接adb问题"></a>手机无法连接adb问题</h2><ul>
-<li>首先检查驱动程序是否安装好，不同牌子手机驱动不一样；</li>
-<li>再次检查USB调试模式是否打开；</li>
-<li>如果还不行，任务管理器结束adb.exe，然后再试试；</li>
-<li>上次碰到的，换了一个USB线竟然好了，而且另外一根线虽然无法连接adb但是可以充电可以访问手机文件，真是怪了；</li>
-<li>还是不行，换一个USB接口试试</li>
-<li>拔掉USB线多试几次</li>
-<li>还是不行，试着将USB PC连接模式改成发送图像PTP（默认是媒体设备MTP），这个是我在网上看到的，今天自己试了下还真成功了，我的是LG-G3手机</li>
-<li>如果试了这么多步还是连不上，我可以很明确的告诉你，你手机可以丢厕所喂蛆了！</li>
-</ul>
-<h2 id="adb版本导致的问题"><a href="#adb版本导致的问题" class="headerlink" title="adb版本导致的问题"></a>adb版本导致的问题</h2><p>有时候碰到很奇怪的问题，某一个OTT盒子怎么连接都连不上，换一个网上下载的adb就可以，呵呵，还真是怪了，可能是adb版本不同引起的吧，姑且这么认为。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/">adb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常见/">常见</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/android-base/">android_base</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-id_60" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -958,7 +942,7 @@
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		root: /
+		root: 'http://mygit.me'
 	}
 </script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
