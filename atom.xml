@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>刘显安的git博客</title>
   
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
   <link href="http://mygit.me/"/>
-  <updated>2016-08-23T12:55:59.461Z</updated>
+  <updated>2016-08-23T12:58:42.797Z</updated>
   <id>http://mygit.me/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>本博客仅作测试用</title>
+    <link href="http://mygit.me/2066/07/29/zhiding/"/>
+    <id>http://mygit.me/2066/07/29/zhiding/</id>
+    <published>2066-07-28T16:00:00.000Z</published>
+    <updated>2016-08-23T12:58:42.797Z</updated>
+    
+    <content type="html"><![CDATA[<p>本博客仅作测试用，正式博客：<a href="http://liuxianan.com" target="_blank" rel="external">http://liuxianan.com</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本博客仅作测试用，正式博客：&lt;a href=&quot;http://liuxianan.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://liuxianan.com&lt;/a&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="公告" scheme="http://mygit.me/tags/%E5%85%AC%E5%91%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript的hasOwnProperty和isPrototypeOf详解</title>
+    <link href="http://mygit.me/2016/08/22/hasownproperty-and-isprototypeof/"/>
+    <id>http://mygit.me/2016/08/22/hasownproperty-and-isprototypeof/</id>
+    <published>2016-08-21T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.460Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p><code>hasOwnProperty</code>的作用是用来判断一个对象本身是否具有某个属性或对象，对象本身的意思是指不包括它的原型链，个人觉得这个方法应该叫<code>isOwnProperty</code>更合适。</p>
+<p><code>isPrototypeOf</code>是用来判断对象是否存在于另一个对象的原型链中，如：</p>
+<pre><code>Array.prototype.isPrototypeOf([1, 2, 3]);
+</code></pre><h1 id="几个例子"><a href="#几个例子" class="headerlink" title="几个例子"></a>几个例子</h1><p>下面几个例子应该很好理解：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.hasO &lt;!-- more --&gt; wnProperty(<span class="string">'split'</span>); <span class="comment">// 输出 true</span></div><div class="line"><span class="string">'http://liuxianan.com'</span>.hasOwnProperty(<span class="string">'split'</span>); <span class="comment">// 输出 false</span></div><div class="line">(&#123;testFn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;&#125;).hasOwnProperty(<span class="string">'testFn'</span>); <span class="comment">// 输出 true</span></div></pre></td></tr></table></figure>
+<h1 id="更复杂一点的例子"><a href="#更复杂一点的例子" class="headerlink" title="更复杂一点的例子"></a>更复杂一点的例子</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span>(<span class="params">name</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'showName：'</span>+<span class="keyword">this</span>.name);</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line">People.prototype.setGender = <span class="function"><span class="keyword">function</span>(<span class="params">gender</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">this</span>.gender = gender;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'setGender：'</span>+<span class="keyword">this</span>.gender);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> lxa = <span class="keyword">new</span> People(<span class="string">'刘显安'</span>);</div><div class="line">lxa.age = <span class="number">24</span>;</div><div class="line">lxa.setGender(<span class="string">'man'</span>);</div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'name'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'age'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'showName'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'gender'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'setGender'</span>)); <span class="comment">// false</span></div><div class="line"><span class="built_in">console</span>.log(People.prototype.hasOwnProperty(<span class="string">'setGender'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(People.prototype.hasOwnProperty(<span class="string">'gender'</span>)); <span class="comment">// false</span></div><div class="line"><span class="built_in">console</span>.log(People.prototype.isPrototypeOf(lxa)); <span class="comment">// true</span></div><div class="line"><span class="comment">//isPrototypeOf错误写法：lxa.isPrototypeOf(People)</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      JavaScript的hasOwnProperty和isPrototypeOf详解
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="hasownproperty" scheme="http://mygit.me/tags/hasownproperty/"/>
+    
+      <category term="isprototypeof" scheme="http://mygit.me/tags/isprototypeof/"/>
+    
+      <category term="prototype" scheme="http://mygit.me/tags/prototype/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript中实现最高效的数组乱序</title>
@@ -49,39 +106,6 @@
       <category term="打乱" scheme="http://mygit.me/tags/%E6%89%93%E4%B9%B1/"/>
     
       <category term="shuffle" scheme="http://mygit.me/tags/shuffle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript的hasOwnProperty和isPrototypeOf详解</title>
-    <link href="http://mygit.me/2016/08/22/hasownproperty-and-isprototypeof/"/>
-    <id>http://mygit.me/2016/08/22/hasownproperty-and-isprototypeof/</id>
-    <published>2016-08-21T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.460Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p><code>hasOwnProperty</code>的作用是用来判断一个对象本身是否具有某个属性或对象，对象本身的意思是指不包括它的原型链，个人觉得这个方法应该叫<code>isOwnProperty</code>更合适。</p>
-<p><code>isPrototypeOf</code>是用来判断对象是否存在于另一个对象的原型链中，如：</p>
-<pre><code>Array.prototype.isPrototypeOf([1, 2, 3]);
-</code></pre><h1 id="几个例子"><a href="#几个例子" class="headerlink" title="几个例子"></a>几个例子</h1><p>下面几个例子应该很好理解：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.hasO &lt;!-- more --&gt; wnProperty(<span class="string">'split'</span>); <span class="comment">// 输出 true</span></div><div class="line"><span class="string">'http://liuxianan.com'</span>.hasOwnProperty(<span class="string">'split'</span>); <span class="comment">// 输出 false</span></div><div class="line">(&#123;testFn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;&#125;).hasOwnProperty(<span class="string">'testFn'</span>); <span class="comment">// 输出 true</span></div></pre></td></tr></table></figure>
-<h1 id="更复杂一点的例子"><a href="#更复杂一点的例子" class="headerlink" title="更复杂一点的例子"></a>更复杂一点的例子</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span>(<span class="params">name</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'showName：'</span>+<span class="keyword">this</span>.name);</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line">People.prototype.setGender = <span class="function"><span class="keyword">function</span>(<span class="params">gender</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">this</span>.gender = gender;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'setGender：'</span>+<span class="keyword">this</span>.gender);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> lxa = <span class="keyword">new</span> People(<span class="string">'刘显安'</span>);</div><div class="line">lxa.age = <span class="number">24</span>;</div><div class="line">lxa.setGender(<span class="string">'man'</span>);</div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'name'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'age'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'showName'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'gender'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'setGender'</span>)); <span class="comment">// false</span></div><div class="line"><span class="built_in">console</span>.log(People.prototype.hasOwnProperty(<span class="string">'setGender'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(People.prototype.hasOwnProperty(<span class="string">'gender'</span>)); <span class="comment">// false</span></div><div class="line"><span class="built_in">console</span>.log(People.prototype.isPrototypeOf(lxa)); <span class="comment">// true</span></div><div class="line"><span class="comment">//isPrototypeOf错误写法：lxa.isPrototypeOf(People)</span></div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      JavaScript的hasOwnProperty和isPrototypeOf详解
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
-    
-    
-      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
-    
-      <category term="hasownproperty" scheme="http://mygit.me/tags/hasownproperty/"/>
-    
-      <category term="isprototypeof" scheme="http://mygit.me/tags/isprototypeof/"/>
-    
-      <category term="prototype" scheme="http://mygit.me/tags/prototype/"/>
     
   </entry>
   
@@ -453,6 +477,37 @@ eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析�
   </entry>
   
   <entry>
+    <title>marquee标签</title>
+    <link href="http://mygit.me/2016/08/17/marquee/"/>
+    <id>http://mygit.me/2016/08/17/marquee/</id>
+    <published>2016-08-16T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.457Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="marquee"><a href="#marquee" class="headerlink" title="marquee"></a>marquee</h1><p>marquee是<strong>已经废弃、过时的标签</strong>，不推荐使用！在Chrome不同版本中有很多bug，如，Chrome45.0中动画执行完总是需要点一下页面才能继续，最新版的Chrome52.0则没有这个问题。</p>
+<p>虽然已经过时，有时候还是不得已用到，这里简单对几个属性做一下介绍。</p>
+<h2 id="behavior"><a href="#behavior" class="headerlink" title="behavior"></a>behavior</h2><p>可用的值为scroll(滚动)、slide(滑动)、alternate(改变，类似于光学的反射路径)，如果没有指定值，默认是scroll</p>
+<h2 id="direction"><a href="#direction" class="headerlink" title="direction "></a>direction <a id="more"></a></h2><p>设置方向，可用的值为left、right、up、down，如果没有指定值，默认是left</p>
+<h2 id="scrollamount"><a href="#scrollamount" class="headerlink" title="scrollamount"></a>scrollamount</h2><p>控制速度</p>
+<h2 id="scrolldelay"><a href="#scrolldelay" class="headerlink" title="scrolldelay"></a>scrolldelay</h2><p>延时</p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>完整测试代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>兼容性说明：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>marquee是已经废弃的标签，不推荐使用！在Chrome不同版本中有很多bug，如，Chrome45.0中动画执行完总是需要点一下页面才能继续，最新版的Chrome52.0则没有这个问题。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>默认：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>来回滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">direction</span>=<span class="string">"left"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>循环滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"scroll"</span> <span class="attr">direction</span>=<span class="string">"right"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>右下往上滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"scroll"</span> <span class="attr">direction</span>=<span class="string">"up"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span> <span class="attr">style</span>=<span class="string">"height:200px;background:#ccc;"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>会反弹的文字：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">direction</span>=<span class="string">"down"</span> <span class="attr">width</span>=<span class="string">"250"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">style</span>=<span class="string">"border:solid 2px black;"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">width</span>=<span class="string">"250"</span> &gt;</span>这个文本会反弹哦<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      marquee标签
+    
+    </summary>
+    
+      <category term="webmix" scheme="http://mygit.me/categories/webmix/"/>
+    
+    
+      <category term="html" scheme="http://mygit.me/tags/html/"/>
+    
+      <category term="marquee" scheme="http://mygit.me/tags/marquee/"/>
+    
+  </entry>
+  
+  <entry>
     <title>网页上如何实现禁止复制粘贴以及如何破解</title>
     <link href="http://mygit.me/2016/08/17/disable-html-copy-and-paste/"/>
     <id>http://mygit.me/2016/08/17/disable-html-copy-and-paste/</id>
@@ -490,37 +545,6 @@ eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析�
       <category term="右键" scheme="http://mygit.me/tags/%E5%8F%B3%E9%94%AE/"/>
     
       <category term="破解" scheme="http://mygit.me/tags/%E7%A0%B4%E8%A7%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>marquee标签</title>
-    <link href="http://mygit.me/2016/08/17/marquee/"/>
-    <id>http://mygit.me/2016/08/17/marquee/</id>
-    <published>2016-08-16T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.457Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="marquee"><a href="#marquee" class="headerlink" title="marquee"></a>marquee</h1><p>marquee是<strong>已经废弃、过时的标签</strong>，不推荐使用！在Chrome不同版本中有很多bug，如，Chrome45.0中动画执行完总是需要点一下页面才能继续，最新版的Chrome52.0则没有这个问题。</p>
-<p>虽然已经过时，有时候还是不得已用到，这里简单对几个属性做一下介绍。</p>
-<h2 id="behavior"><a href="#behavior" class="headerlink" title="behavior"></a>behavior</h2><p>可用的值为scroll(滚动)、slide(滑动)、alternate(改变，类似于光学的反射路径)，如果没有指定值，默认是scroll</p>
-<h2 id="direction"><a href="#direction" class="headerlink" title="direction "></a>direction <a id="more"></a></h2><p>设置方向，可用的值为left、right、up、down，如果没有指定值，默认是left</p>
-<h2 id="scrollamount"><a href="#scrollamount" class="headerlink" title="scrollamount"></a>scrollamount</h2><p>控制速度</p>
-<h2 id="scrolldelay"><a href="#scrolldelay" class="headerlink" title="scrolldelay"></a>scrolldelay</h2><p>延时</p>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>完整测试代码如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>兼容性说明：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>marquee是已经废弃的标签，不推荐使用！在Chrome不同版本中有很多bug，如，Chrome45.0中动画执行完总是需要点一下页面才能继续，最新版的Chrome52.0则没有这个问题。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>默认：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>来回滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">direction</span>=<span class="string">"left"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>循环滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"scroll"</span> <span class="attr">direction</span>=<span class="string">"right"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>右下往上滚动：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"scroll"</span> <span class="attr">direction</span>=<span class="string">"up"</span> <span class="attr">scrollamount</span>=<span class="string">"10"</span> <span class="attr">scrolldelay</span>=<span class="string">"50"</span> <span class="attr">style</span>=<span class="string">"height:200px;background:#ccc;"</span>&gt;</span>人类同处一个地球，“地球村”的每个成员，如何携手共进？<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>会反弹的文字：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">marquee</span> <span class="attr">direction</span>=<span class="string">"down"</span> <span class="attr">width</span>=<span class="string">"250"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">style</span>=<span class="string">"border:solid 2px black;"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">marquee</span> <span class="attr">behavior</span>=<span class="string">"alternate"</span> <span class="attr">width</span>=<span class="string">"250"</span> &gt;</span>这个文本会反弹哦<span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">marquee</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      marquee标签
-    
-    </summary>
-    
-      <category term="webmix" scheme="http://mygit.me/categories/webmix/"/>
-    
-    
-      <category term="html" scheme="http://mygit.me/tags/html/"/>
-    
-      <category term="marquee" scheme="http://mygit.me/tags/marquee/"/>
     
   </entry>
   
@@ -572,6 +596,44 @@ eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析�
   </entry>
   
   <entry>
+    <title>tomcat6与tomcat7几个不同的地方</title>
+    <link href="http://mygit.me/2016/08/09/difference-between-tomcat6-and-tomcat7/"/>
+    <id>http://mygit.me/2016/08/09/difference-between-tomcat6-and-tomcat7/</id>
+    <published>2016-08-08T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.453Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="标签库的2个不同地方"><a href="#标签库的2个不同地方" class="headerlink" title="标签库的2个不同地方"></a>标签库的2个不同地方</h1><p>原文发表于：2014-09-25</p>
+<h2 id="标签库属性间的空格"><a href="#标签库属性间的空格" class="headerlink" title="标签库属性间的空格"></a>标签库属性间的空格</h2><p>如果标签库的属性之间没有空格，tomcat6没问题，tomcat7报错。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%&gt;</div><div class="line">&lt;%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %&gt;</div><div class="line">&lt; &lt;!-- more --&gt; !DOCTYPE html&gt;</div><div class="line">&lt;html lang="zh"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset="utf-8"/&gt;</div><div class="line">	&lt;title&gt;测试标签库&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;h1&gt;标签库的属性之间不写空格，tomcat6没问题，tomcat7下会报错：&lt;/h1&gt;</div><div class="line">	&lt;!-- 注意下面的end和var属性之间没有空格 --&gt;</div><div class="line">	&lt;c:forEach begin="1" end="5"var="p"&gt;</div><div class="line">	$&#123;p&#125;,</div><div class="line">	&lt;/c:forEach&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="EL表达式获取属性"><a href="#EL表达式获取属性" class="headerlink" title="EL表达式获取属性"></a>EL表达式获取属性</h2><p>EL表达式使用<code>${xxx.getXXX()}</code>时，Tomcat6报错，Tomcat7不报错，总之不推荐这样使用，这也是无意间从别人的错误中发现的。</p>
+<h1 id="servlet可以使用注解"><a href="#servlet可以使用注解" class="headerlink" title="servlet可以使用注解"></a>servlet可以使用注解</h1><p>从tomcat7开始，servlet可以使用注解。</p>
+<p>//TODO 更多不同有待补充。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      tomcat6与tomcat7几个不同的地方
+    
+    </summary>
+    
+      <category term="javaee" scheme="http://mygit.me/categories/javaee/"/>
+    
+    
+      <category term="tomcat" scheme="http://mygit.me/tags/tomcat/"/>
+    
+      <category term="tomcat6" scheme="http://mygit.me/tags/tomcat6/"/>
+    
+      <category term="tomcat7" scheme="http://mygit.me/tags/tomcat7/"/>
+    
+      <category term="不同" scheme="http://mygit.me/tags/%E4%B8%8D%E5%90%8C/"/>
+    
+      <category term="注解" scheme="http://mygit.me/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+      <category term="el表达式" scheme="http://mygit.me/tags/el%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Windows下如何查看某个端口被谁占用</title>
     <link href="http://mygit.me/2016/08/09/windows-port-bind/"/>
     <id>http://mygit.me/2016/08/09/windows-port-bind/</id>
@@ -612,44 +674,6 @@ eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析�
       <category term="端口" scheme="http://mygit.me/tags/%E7%AB%AF%E5%8F%A3/"/>
     
       <category term="占用" scheme="http://mygit.me/tags/%E5%8D%A0%E7%94%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tomcat6与tomcat7几个不同的地方</title>
-    <link href="http://mygit.me/2016/08/09/difference-between-tomcat6-and-tomcat7/"/>
-    <id>http://mygit.me/2016/08/09/difference-between-tomcat6-and-tomcat7/</id>
-    <published>2016-08-08T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.453Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="标签库的2个不同地方"><a href="#标签库的2个不同地方" class="headerlink" title="标签库的2个不同地方"></a>标签库的2个不同地方</h1><p>原文发表于：2014-09-25</p>
-<h2 id="标签库属性间的空格"><a href="#标签库属性间的空格" class="headerlink" title="标签库属性间的空格"></a>标签库属性间的空格</h2><p>如果标签库的属性之间没有空格，tomcat6没问题，tomcat7报错。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%&gt;</div><div class="line">&lt;%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %&gt;</div><div class="line">&lt; &lt;!-- more --&gt; !DOCTYPE html&gt;</div><div class="line">&lt;html lang="zh"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset="utf-8"/&gt;</div><div class="line">	&lt;title&gt;测试标签库&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;h1&gt;标签库的属性之间不写空格，tomcat6没问题，tomcat7下会报错：&lt;/h1&gt;</div><div class="line">	&lt;!-- 注意下面的end和var属性之间没有空格 --&gt;</div><div class="line">	&lt;c:forEach begin="1" end="5"var="p"&gt;</div><div class="line">	$&#123;p&#125;,</div><div class="line">	&lt;/c:forEach&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="EL表达式获取属性"><a href="#EL表达式获取属性" class="headerlink" title="EL表达式获取属性"></a>EL表达式获取属性</h2><p>EL表达式使用<code>${xxx.getXXX()}</code>时，Tomcat6报错，Tomcat7不报错，总之不推荐这样使用，这也是无意间从别人的错误中发现的。</p>
-<h1 id="servlet可以使用注解"><a href="#servlet可以使用注解" class="headerlink" title="servlet可以使用注解"></a>servlet可以使用注解</h1><p>从tomcat7开始，servlet可以使用注解。</p>
-<p>//TODO 更多不同有待补充。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      tomcat6与tomcat7几个不同的地方
-    
-    </summary>
-    
-      <category term="javaee" scheme="http://mygit.me/categories/javaee/"/>
-    
-    
-      <category term="tomcat" scheme="http://mygit.me/tags/tomcat/"/>
-    
-      <category term="tomcat6" scheme="http://mygit.me/tags/tomcat6/"/>
-    
-      <category term="tomcat7" scheme="http://mygit.me/tags/tomcat7/"/>
-    
-      <category term="不同" scheme="http://mygit.me/tags/%E4%B8%8D%E5%90%8C/"/>
-    
-      <category term="注解" scheme="http://mygit.me/tags/%E6%B3%A8%E8%A7%A3/"/>
-    
-      <category term="el表达式" scheme="http://mygit.me/tags/el%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   
@@ -777,101 +801,6 @@ eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析�
   </entry>
   
   <entry>
-    <title>javascript作用域与变量声明提升</title>
-    <link href="http://mygit.me/2016/08/02/javascript-hoisting/"/>
-    <id>http://mygit.me/2016/08/02/javascript-hoisting/</id>
-    <published>2016-08-01T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.450Z</updated>
-    
-    <content type="html"><![CDATA[<p>原文发表于：2014-08-21</p>
-<h1 id="js作用域"><a href="#js作用域" class="headerlink" title="js作用域"></a>js作用域</h1><p>为了更好的描述本文的核心：<code>变量声明提升</code>，我们先来复习一下js的作用域。</p>
-<p>js没有块级作用域，函数是js唯一拥有自身作用域的结构。</p>
-<h1 id="变量声明提升"><a href="#变量声明提升" class="headerlink" title="变量声明提升"></a>变量声明提升</h1><h2 id="什么是变量声明提升"><a href="#什么是变量声明提升" class="headerlink" title="什么是变量声明提升"></a>什么是变量声明提升</h2><p>这是一个比较老的话题，所谓变量声明提升（hoisting），是指JavaScript引擎在执行的时候，会把所有变量的声明都提升到当前作用域的最前面，包括普通变量和函数。</p>
-<h2 id="先看个经典例子"><a href="#先看个经典例子" class="headerlink" title="先看个经典例子"></a>先看个经典例子</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> st &lt;!-- more --&gt; r = <span class="string">'Hello Liuxianan!'</span>;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">console</span>.log(str); <span class="comment">// 输出 undefined</span></div><div class="line">	<span class="keyword">var</span> str = <span class="string">'Hello xmy!'</span>;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<p>运行结果是：<code>undefined</code></p>
-<p>为什么这样呢？前面说了，js引擎会把变量声明放到当前作用域的最前面，又由于函数是js唯一拥有自身作用域的结构，所以，提升的代码其实是这样的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Hello Liuxianan!'</span>;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> str;</div><div class="line">	<span class="built_in">console</span>.log(str);</div><div class="line">	str = <span class="string">'Hello xmy!'</span>;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<p>假如换成这样呢？不用说，这种情况下变量声明不会提升：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Hello Liuxianan!'</span>;</div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">console</span>.log(str); <span class="comment">// 输出 'Hello Liuxianan!'</span></div><div class="line">	str = <span class="string">'Hello xmy!'</span>;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<h2 id="函数的提升"><a href="#函数的提升" class="headerlink" title="函数的提升"></a>函数的提升</h2><p>还是看段代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	f1(); <span class="comment">// 输出 我是f1</span></div><div class="line">	f2(); <span class="comment">// 提示：f2 is not a function</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'我是f1'</span>);&#125;</div><div class="line">	<span class="keyword">var</span> f2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<p>结论：<br>无论是普通变量，还是函数，声明都会被提升，但是，<code>函数声明式</code>（比如这里的f1）会把函数内容也一起提升，而<code>函数表达式</code>（比如这里的f2）只提升声明，不提升函数内容，这就是函数声明式和函数表达式的最大区别。</p>
-<p>以上代码相当于：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'我是f1'</span>);&#125;</div><div class="line">	<span class="keyword">var</span> f2;</div><div class="line">	f1(); <span class="comment">// 输出 我是f1</span></div><div class="line">	f2(); <span class="comment">// 提示：f2 is not a function</span></div><div class="line">	f2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<h2 id="函数声明表达式的提升"><a href="#函数声明表达式的提升" class="headerlink" title="函数声明表达式的提升"></a>函数声明表达式的提升</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	f(); <span class="comment">// TypeError: f is not a function</span></div><div class="line">	foo(); <span class="comment">// ReferenceError: foo is not defined</span></div><div class="line">	<span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="keyword">typeof</span> foo);&#125;;</div><div class="line">	f(); <span class="comment">// function</span></div><div class="line">	foo(); <span class="comment">// ReferenceError: foo is not defined</span></div><div class="line">&#125;)()；</div></pre></td></tr></table></figure>
-<p>以上代码相当于：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> f;</div><div class="line">	f(); <span class="comment">// TypeError: f is not a function</span></div><div class="line">	foo(); <span class="comment">// ReferenceError: foo is not defined</span></div><div class="line">	f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">var</span> foo = f; <span class="built_in">console</span>.log(<span class="keyword">typeof</span> foo);&#125;;</div><div class="line">	f(); <span class="comment">// function</span></div><div class="line">	foo(); <span class="comment">// ReferenceError: foo is not defined</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<h1 id="附：函数声明式和函数表达式"><a href="#附：函数声明式和函数表达式" class="headerlink" title="附：函数声明式和函数表达式"></a>附：函数声明式和函数表达式</h1><p>所谓函数声明式，就是类似这样的定义：</p>
-<pre><code>function foo(){}
-</code></pre><p>所谓函数表达式，就是类似这样的定义：</p>
-<pre><code>var foo = function(){}
-</code></pre><p>那如果一个function是这样定义的呢？</p>
-<pre><code>var f = function foo(){};
-</code></pre><p>这样的function好像有一个名字叫<code>函数声明表达式</code>，具体是不是专业名词俺没调查过，其实上面的代码相当于：</p>
-<pre><code>var f = function(){var foo = f;}
-</code></pre><p>另外，突发奇想一个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">foo</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">	<span class="built_in">console</span>.log(<span class="built_in">arguments</span>); <span class="comment">// 输出 [function()&#123;&#125;]</span></div><div class="line">&#125;)(<span class="string">'ss'</span>);</div></pre></td></tr></table></figure>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://openwares.net/js/javascript_declaration_hoisting.html" target="_blank" rel="external">http://openwares.net/js/javascript_declaration_hoisting.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      javascript作用域与变量声明提升
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
-    
-    
-      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
-    
-      <category term="hoisting" scheme="http://mygit.me/tags/hoisting/"/>
-    
-      <category term="作用域" scheme="http://mygit.me/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
-    
-      <category term="变量声明" scheme="http://mygit.me/tags/%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/"/>
-    
-      <category term="提升" scheme="http://mygit.me/tags/%E6%8F%90%E5%8D%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义网站图标</title>
-    <link href="http://mygit.me/2016/08/02/favicon/"/>
-    <id>http://mygit.me/2016/08/02/favicon/</id>
-    <published>2016-08-01T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.450Z</updated>
-    
-    <content type="html"><![CDATA[<p>原文发表于：2014-08-06</p>
-<h1 id="如何自定义网站图标"><a href="#如何自定义网站图标" class="headerlink" title="如何自定义网站图标"></a>如何自定义网站图标</h1><p>所谓网站图标，就是每个标签上方网页的小图标，一般比较小，只有16*16像素左右。</p>
-<p>默认情况下浏览器会加载网页所在域名的根目录下的favicon.ico，举个例子，假如你访问的网页是：<a href="http://blog.liuxianan.com/test1/test2/index.html" target="_blank" rel="external">http://blog.liuxianan.com/test1/test2/index.html</a> ，在你不做特殊设置的前提下，浏览器会自动把如下图片当成网站的图标：<a href="http://blog.liuxianan.com/favicon.ico" target="_blank" rel="external">http://blog.liuxianan.com/favicon.ico</a> 。</p>
-<p>所 <a id="more"></a> 以，最简单的自定义图标的方式就是替换这张图片，用于网页图标的ico图标分辨率一般不需要太大，个人觉得32*32足够了。</p>
-<p>如果我想换个路径呢？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;shortcut icon&quot; href=&quot;images/lxa.ico&quot; type=&quot;image/x-icon&quot;&gt;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      自定义网站图标
-    
-    </summary>
-    
-      <category term="html" scheme="http://mygit.me/categories/html/"/>
-    
-    
-      <category term="网站" scheme="http://mygit.me/tags/%E7%BD%91%E7%AB%99/"/>
-    
-      <category term="自定义" scheme="http://mygit.me/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/"/>
-    
-      <category term="html" scheme="http://mygit.me/tags/html/"/>
-    
-      <category term="图标" scheme="http://mygit.me/tags/%E5%9B%BE%E6%A0%87/"/>
-    
-      <category term="favicon" scheme="http://mygit.me/tags/favicon/"/>
-    
-  </entry>
-  
-  <entry>
     <title>console.log报错：uncaught typeerror illegal invocation</title>
     <link href="http://mygit.me/2016/08/02/console-log-typeerror-illegal-invocation/"/>
     <id>http://mygit.me/2016/08/02/console-log-typeerror-illegal-invocation/</id>
@@ -952,33 +881,97 @@ eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析�
   </entry>
   
   <entry>
-    <title>flash跨域设置</title>
-    <link href="http://mygit.me/2016/08/01/flash-crossdomain/"/>
-    <id>http://mygit.me/2016/08/01/flash-crossdomain/</id>
-    <published>2016-07-31T16:00:00.000Z</published>
-    <updated>2016-08-23T12:55:59.446Z</updated>
+    <title>自定义网站图标</title>
+    <link href="http://mygit.me/2016/08/02/favicon/"/>
+    <id>http://mygit.me/2016/08/02/favicon/</id>
+    <published>2016-08-01T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.450Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="flash跨域设置"><a href="#flash跨域设置" class="headerlink" title="flash跨域设置"></a>flash跨域设置</h1><p>默认情况下不允许跨域，需要跨域的话，必须在域名根目录下放置一个名为<code>crossdomain.xml</code>的文件，作用是定义该域名下面的xml文件、json文件、m3u8文件是否允许其它网站的flashplayer来访问。这个文件是格式是由adobe公司制定的：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;cross-domain-policy&gt;</div><div class="line">	&lt;allow-access-from domain="*"/&gt;</div><div class="line">	&lt;a &lt;!-- more --&gt; llow-http-request-headers-from domain="*" headers="*"/&gt;</div><div class="line">&lt;/cross-domain-policy&gt;</div></pre></td></tr></table></figure>
-<p>只允许<code>liuxianan.com</code>和<code>liuxianan.cn</code>访问：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">cross-domain-policy</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">allow-access-from</span> <span class="attr">domain</span>=<span class="string">"*.liuxianan.com"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">allow-access-from</span> <span class="attr">domain</span>=<span class="string">"*.liuxianan.cn"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">cross-domain-policy</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>原文发表于：2014-08-06</p>
+<h1 id="如何自定义网站图标"><a href="#如何自定义网站图标" class="headerlink" title="如何自定义网站图标"></a>如何自定义网站图标</h1><p>所谓网站图标，就是每个标签上方网页的小图标，一般比较小，只有16*16像素左右。</p>
+<p>默认情况下浏览器会加载网页所在域名的根目录下的favicon.ico，举个例子，假如你访问的网页是：<a href="http://blog.liuxianan.com/test1/test2/index.html" target="_blank" rel="external">http://blog.liuxianan.com/test1/test2/index.html</a> ，在你不做特殊设置的前提下，浏览器会自动把如下图片当成网站的图标：<a href="http://blog.liuxianan.com/favicon.ico" target="_blank" rel="external">http://blog.liuxianan.com/favicon.ico</a> 。</p>
+<p>所 <a id="more"></a> 以，最简单的自定义图标的方式就是替换这张图片，用于网页图标的ico图标分辨率一般不需要太大，个人觉得32*32足够了。</p>
+<p>如果我想换个路径呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;shortcut icon&quot; href=&quot;images/lxa.ico&quot; type=&quot;image/x-icon&quot;&gt;</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
     
-      flash跨域设置
+      自定义网站图标
     
     </summary>
     
-      <category term="webmix" scheme="http://mygit.me/categories/webmix/"/>
+      <category term="html" scheme="http://mygit.me/categories/html/"/>
     
     
-      <category term="跨域" scheme="http://mygit.me/tags/%E8%B7%A8%E5%9F%9F/"/>
+      <category term="网站" scheme="http://mygit.me/tags/%E7%BD%91%E7%AB%99/"/>
     
-      <category term="设置" scheme="http://mygit.me/tags/%E8%AE%BE%E7%BD%AE/"/>
+      <category term="自定义" scheme="http://mygit.me/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/"/>
     
-      <category term="flash" scheme="http://mygit.me/tags/flash/"/>
+      <category term="html" scheme="http://mygit.me/tags/html/"/>
     
-      <category term="crossdomain" scheme="http://mygit.me/tags/crossdomain/"/>
+      <category term="图标" scheme="http://mygit.me/tags/%E5%9B%BE%E6%A0%87/"/>
+    
+      <category term="favicon" scheme="http://mygit.me/tags/favicon/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript作用域与变量声明提升</title>
+    <link href="http://mygit.me/2016/08/02/javascript-hoisting/"/>
+    <id>http://mygit.me/2016/08/02/javascript-hoisting/</id>
+    <published>2016-08-01T16:00:00.000Z</published>
+    <updated>2016-08-23T12:55:59.450Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文发表于：2014-08-21</p>
+<h1 id="js作用域"><a href="#js作用域" class="headerlink" title="js作用域"></a>js作用域</h1><p>为了更好的描述本文的核心：<code>变量声明提升</code>，我们先来复习一下js的作用域。</p>
+<p>js没有块级作用域，函数是js唯一拥有自身作用域的结构。</p>
+<h1 id="变量声明提升"><a href="#变量声明提升" class="headerlink" title="变量声明提升"></a>变量声明提升</h1><h2 id="什么是变量声明提升"><a href="#什么是变量声明提升" class="headerlink" title="什么是变量声明提升"></a>什么是变量声明提升</h2><p>这是一个比较老的话题，所谓变量声明提升（hoisting），是指JavaScript引擎在执行的时候，会把所有变量的声明都提升到当前作用域的最前面，包括普通变量和函数。</p>
+<h2 id="先看个经典例子"><a href="#先看个经典例子" class="headerlink" title="先看个经典例子"></a>先看个经典例子</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> st &lt;!-- more --&gt; r = <span class="string">'Hello Liuxianan!'</span>;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">console</span>.log(str); <span class="comment">// 输出 undefined</span></div><div class="line">	<span class="keyword">var</span> str = <span class="string">'Hello xmy!'</span>;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>运行结果是：<code>undefined</code></p>
+<p>为什么这样呢？前面说了，js引擎会把变量声明放到当前作用域的最前面，又由于函数是js唯一拥有自身作用域的结构，所以，提升的代码其实是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Hello Liuxianan!'</span>;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> str;</div><div class="line">	<span class="built_in">console</span>.log(str);</div><div class="line">	str = <span class="string">'Hello xmy!'</span>;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>假如换成这样呢？不用说，这种情况下变量声明不会提升：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Hello Liuxianan!'</span>;</div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">console</span>.log(str); <span class="comment">// 输出 'Hello Liuxianan!'</span></div><div class="line">	str = <span class="string">'Hello xmy!'</span>;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h2 id="函数的提升"><a href="#函数的提升" class="headerlink" title="函数的提升"></a>函数的提升</h2><p>还是看段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	f1(); <span class="comment">// 输出 我是f1</span></div><div class="line">	f2(); <span class="comment">// 提示：f2 is not a function</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'我是f1'</span>);&#125;</div><div class="line">	<span class="keyword">var</span> f2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>结论：<br>无论是普通变量，还是函数，声明都会被提升，但是，<code>函数声明式</code>（比如这里的f1）会把函数内容也一起提升，而<code>函数表达式</code>（比如这里的f2）只提升声明，不提升函数内容，这就是函数声明式和函数表达式的最大区别。</p>
+<p>以上代码相当于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'我是f1'</span>);&#125;</div><div class="line">	<span class="keyword">var</span> f2;</div><div class="line">	f1(); <span class="comment">// 输出 我是f1</span></div><div class="line">	f2(); <span class="comment">// 提示：f2 is not a function</span></div><div class="line">	f2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h2 id="函数声明表达式的提升"><a href="#函数声明表达式的提升" class="headerlink" title="函数声明表达式的提升"></a>函数声明表达式的提升</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	f(); <span class="comment">// TypeError: f is not a function</span></div><div class="line">	foo(); <span class="comment">// ReferenceError: foo is not defined</span></div><div class="line">	<span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="keyword">typeof</span> foo);&#125;;</div><div class="line">	f(); <span class="comment">// function</span></div><div class="line">	foo(); <span class="comment">// ReferenceError: foo is not defined</span></div><div class="line">&#125;)()；</div></pre></td></tr></table></figure>
+<p>以上代码相当于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> f;</div><div class="line">	f(); <span class="comment">// TypeError: f is not a function</span></div><div class="line">	foo(); <span class="comment">// ReferenceError: foo is not defined</span></div><div class="line">	f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">var</span> foo = f; <span class="built_in">console</span>.log(<span class="keyword">typeof</span> foo);&#125;;</div><div class="line">	f(); <span class="comment">// function</span></div><div class="line">	foo(); <span class="comment">// ReferenceError: foo is not defined</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h1 id="附：函数声明式和函数表达式"><a href="#附：函数声明式和函数表达式" class="headerlink" title="附：函数声明式和函数表达式"></a>附：函数声明式和函数表达式</h1><p>所谓函数声明式，就是类似这样的定义：</p>
+<pre><code>function foo(){}
+</code></pre><p>所谓函数表达式，就是类似这样的定义：</p>
+<pre><code>var foo = function(){}
+</code></pre><p>那如果一个function是这样定义的呢？</p>
+<pre><code>var f = function foo(){};
+</code></pre><p>这样的function好像有一个名字叫<code>函数声明表达式</code>，具体是不是专业名词俺没调查过，其实上面的代码相当于：</p>
+<pre><code>var f = function(){var foo = f;}
+</code></pre><p>另外，突发奇想一个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">foo</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">	<span class="built_in">console</span>.log(<span class="built_in">arguments</span>); <span class="comment">// 输出 [function()&#123;&#125;]</span></div><div class="line">&#125;)(<span class="string">'ss'</span>);</div></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://openwares.net/js/javascript_declaration_hoisting.html" target="_blank" rel="external">http://openwares.net/js/javascript_declaration_hoisting.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      javascript作用域与变量声明提升
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://mygit.me/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://mygit.me/tags/javascript/"/>
+    
+      <category term="hoisting" scheme="http://mygit.me/tags/hoisting/"/>
+    
+      <category term="作用域" scheme="http://mygit.me/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    
+      <category term="变量声明" scheme="http://mygit.me/tags/%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/"/>
+    
+      <category term="提升" scheme="http://mygit.me/tags/%E6%8F%90%E5%8D%87/"/>
     
   </entry>
   
