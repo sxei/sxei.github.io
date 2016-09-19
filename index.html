@@ -1,937 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 <head>
-  <meta charset="utf-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>刘显安的git博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本博客为测试博客，正式博客地址为： http://liuxianan.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="刘显安的git博客">
-<meta property="og:url" content="http://mygit.me/index.html">
-<meta property="og:site_name" content="刘显安的git博客">
-<meta property="og:description" content="本博客为测试博客，正式博客地址为： http://liuxianan.com">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="刘显安的git博客">
-<meta name="twitter:description" content="本博客为测试博客，正式博客地址为： http://liuxianan.com">
-  
-    <link rel="alternative" href="/atom.xml" title="刘显安的git博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.jpg">
-  
-  <link rel="stylesheet" href="/css/style.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8"/>
+	<!-- 指定360等国产浏览器使用webkit内核 -->
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="欢迎访问柳夏南的个人网站，同时这里也是柳夏南个人博客">
+	<meta name="keys" content="柳夏南,liuxianan,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<title>demo-柳夏南的个人网站</title>
+	<style type="text/css">
+
+
+html, body{width: 100%; height: 100%;}
+body {
+    font-family: 'Microsoft Yahei';
+    font-size: 16px;
+    background: #ebebeb;
+    margin: 0;
+    padding: 0;
+}
+header {
+    height: 50px;
+    line-height: 50px;
+    background-color: #41ABF7;
+    color: white;
+    padding: 0px 16px;
+    font-size: 16px;
+    box-shadow: 1px 1px 10px rgb(0, 0, 0);
+}
+header > ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin-left: 25px;
+}
+header > ul > li {
+    display: inline-block;
+    margin: 0 6px;
+}
+header a {
+    color: white;
+    text-decoration: none;
+}
+header a:hover {
+    text-decoration: underline;
+    color: #9EDFFF;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.67);
+    color: #FFF;
+    line-height: 40px;
+    font-size: 16px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+footer a{color: white; text-decoration: none;}
+footer a:hover{text-decoration: underline;}
+.center-btn-wrapper {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    font-size: 24px;
+    transform: translateY(-50%);
+}
+.center-btn-wrapper a {
+    color: white;
+    text-decoration: none;
+    text-shadow: none;
+    background-color: #287DA6;
+    padding: 12px 30px;
+    border-radius: 5px;
+}
+.center-btn-wrapper a:hover {
+    background-color: #14516F;
+}
+/* 暂时隐藏CNZZ统计按钮 */
+span.cnzz-wrapper {
+    display: none;
+}
+
+section.center-content {
+    max-width: 1200px;
+    min-height: 70%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+}
+.center-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.center-content a {
+    color: #337ab7;
+    text-decoration: none;
+}
+.center-content a:hover {
+    text-decoration: underline;
+}
+	</style>
 </head>
-
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="/avatar.jpg" class="js-avatar">
-			
-		</a>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">小茗同学</a></h1>
-		</hgroup>
-
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>Menu</li>
-						<li>Tags</li>
-						
-						<li>Links</li>
-						
-						
-						<li>About</li>
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/alert/" style="font-size: 10px;">alert</a> <a href="/tags/android/" style="font-size: 18.57px;">android</a> <a href="/tags/array/" style="font-size: 12.86px;">array</a> <a href="/tags/bind/" style="font-size: 10px;">bind</a> <a href="/tags/bug/" style="font-size: 11.43px;">bug</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/checkbox/" style="font-size: 10px;">checkbox</a> <a href="/tags/childnodes/" style="font-size: 10px;">childnodes</a> <a href="/tags/children/" style="font-size: 10px;">children</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/click/" style="font-size: 11.43px;">click</a> <a href="/tags/code/" style="font-size: 11.43px;">code</a> <a href="/tags/comet4j/" style="font-size: 10px;">comet4j</a> <a href="/tags/console/" style="font-size: 10px;">console</a> <a href="/tags/control/" style="font-size: 10px;">control</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/cordova/" style="font-size: 11.43px;">cordova</a> <a href="/tags/cross/" style="font-size: 10px;">cross</a> <a href="/tags/crossdomain/" style="font-size: 10px;">crossdomain</a> <a href="/tags/css/" style="font-size: 11.43px;">css</a> <a href="/tags/css3/" style="font-size: 11.43px;">css3</a> <a href="/tags/cursor/" style="font-size: 10px;">cursor</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/dns/" style="font-size: 10px;">dns</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/domain/" style="font-size: 10px;">domain</a> <a href="/tags/eclipse/" style="font-size: 12.86px;">eclipse</a> <a href="/tags/el表达式/" style="font-size: 10px;">el表达式</a> <a href="/tags/endswidth/" style="font-size: 10px;">endswidth</a> <a href="/tags/epg/" style="font-size: 10px;">epg</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/favicon/" style="font-size: 10px;">favicon</a> <a href="/tags/file/" style="font-size: 11.43px;">file</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/for/" style="font-size: 10px;">for</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hasOwnProperty/" style="font-size: 10px;">hasOwnProperty</a> <a href="/tags/hasownproperty/" style="font-size: 10px;">hasownproperty</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hoisting/" style="font-size: 10px;">hoisting</a> <a href="/tags/html/" style="font-size: 17.14px;">html</a> <a href="/tags/html5/" style="font-size: 11.43px;">html5</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/id/" style="font-size: 10px;">id</a> <a href="/tags/in/" style="font-size: 10px;">in</a> <a href="/tags/innerhtml/" style="font-size: 10px;">innerhtml</a> <a href="/tags/input/" style="font-size: 12.86px;">input</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/ip/" style="font-size: 10px;">ip</a> <a href="/tags/isprototypeof/" style="font-size: 10px;">isprototypeof</a> <a href="/tags/java/" style="font-size: 12.86px;">java</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/lan/" style="font-size: 11.43px;">lan</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/marquee/" style="font-size: 10px;">marquee</a> <a href="/tags/mime/" style="font-size: 10px;">mime</a> <a href="/tags/mui/" style="font-size: 11.43px;">mui</a> <a href="/tags/mysql/" style="font-size: 11.43px;">mysql</a> <a href="/tags/native/" style="font-size: 10px;">native</a> <a href="/tags/node-js/" style="font-size: 11.43px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oncreate/" style="font-size: 10px;">oncreate</a> <a href="/tags/phonegap/" style="font-size: 10px;">phonegap</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/pomelo/" style="font-size: 10px;">pomelo</a> <a href="/tags/prototype/" style="font-size: 12.86px;">prototype</a> <a href="/tags/pullRefresh/" style="font-size: 10px;">pullRefresh</a> <a href="/tags/shuffle/" style="font-size: 10px;">shuffle</a> <a href="/tags/simple/" style="font-size: 10px;">simple</a> <a href="/tags/socket-io/" style="font-size: 10px;">socket.io</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/startswith/" style="font-size: 10px;">startswith</a> <a href="/tags/status/" style="font-size: 10px;">status</a> <a href="/tags/string/" style="font-size: 10px;">string</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/switch/" style="font-size: 10px;">switch</a> <a href="/tags/textarea/" style="font-size: 10px;">textarea</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/tomcat6/" style="font-size: 10px;">tomcat6</a> <a href="/tags/tomcat7/" style="font-size: 10px;">tomcat7</a> <a href="/tags/transition/" style="font-size: 10px;">transition</a> <a href="/tags/trim/" style="font-size: 10px;">trim</a> <a href="/tags/type/" style="font-size: 10px;">type</a> <a href="/tags/typeerror/" style="font-size: 10px;">typeerror</a> <a href="/tags/uiwebview/" style="font-size: 10px;">uiwebview</a> <a href="/tags/undefined/" style="font-size: 10px;">undefined</a> <a href="/tags/unicode/" style="font-size: 10px;">unicode</a> <a href="/tags/value/" style="font-size: 10px;">value</a> <a href="/tags/version/" style="font-size: 10px;">version</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/wan/" style="font-size: 10px;">wan</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/webview/" style="font-size: 15.71px;">webview</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/windows/" style="font-size: 12.86px;">windows</a> <a href="/tags/winscp/" style="font-size: 10px;">winscp</a> <a href="/tags/wlan/" style="font-size: 10px;">wlan</a> <a href="/tags/xshell/" style="font-size: 10px;">xshell</a> <a href="/tags/zoom/" style="font-size: 10px;">zoom</a> <a href="/tags/上下文/" style="font-size: 10px;">上下文</a> <a href="/tags/下拉刷新/" style="font-size: 10px;">下拉刷新</a> <a href="/tags/下载/" style="font-size: 10px;">下载</a> <a href="/tags/不使用/" style="font-size: 10px;">不使用</a> <a href="/tags/不兼容/" style="font-size: 10px;">不兼容</a> <a href="/tags/不同/" style="font-size: 10px;">不同</a> <a href="/tags/不好/" style="font-size: 10px;">不好</a> <a href="/tags/个人/" style="font-size: 10px;">个人</a> <a href="/tags/临时/" style="font-size: 10px;">临时</a> <a href="/tags/乱序/" style="font-size: 10px;">乱序</a> <a href="/tags/云服务器/" style="font-size: 10px;">云服务器</a> <a href="/tags/互动/" style="font-size: 10px;">互动</a> <a href="/tags/交互/" style="font-size: 14.29px;">交互</a> <a href="/tags/交换/" style="font-size: 10px;">交换</a> <a href="/tags/传值/" style="font-size: 11.43px;">传值</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/修改/" style="font-size: 10px;">修改</a> <a href="/tags/公告/" style="font-size: 10px;">公告</a> <a href="/tags/关键字/" style="font-size: 10px;">关键字</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/内网/" style="font-size: 10px;">内网</a> <a href="/tags/切换/" style="font-size: 10px;">切换</a> <a href="/tags/列表/" style="font-size: 10px;">列表</a> <a href="/tags/加载/" style="font-size: 10px;">加载</a> <a href="/tags/匹配/" style="font-size: 10px;">匹配</a> <a href="/tags/区别/" style="font-size: 12.86px;">区别</a> <a href="/tags/单击/" style="font-size: 10px;">单击</a> <a href="/tags/单引号/" style="font-size: 10px;">单引号</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/占用/" style="font-size: 10px;">占用</a> <a href="/tags/原生/" style="font-size: 11.43px;">原生</a> <a href="/tags/变量/" style="font-size: 11.43px;">变量</a> <a href="/tags/变量声明/" style="font-size: 10px;">变量声明</a> <a href="/tags/右键/" style="font-size: 10px;">右键</a> <a href="/tags/后台/" style="font-size: 10px;">后台</a> <a href="/tags/吐槽/" style="font-size: 10px;">吐槽</a> <a href="/tags/命令/" style="font-size: 11.43px;">命令</a> <a href="/tags/图标/" style="font-size: 10px;">图标</a> <a href="/tags/地址/" style="font-size: 10px;">地址</a> <a href="/tags/域名/" style="font-size: 10px;">域名</a> <a href="/tags/基本/" style="font-size: 10px;">基本</a> <a href="/tags/处理/" style="font-size: 11.43px;">处理</a> <a href="/tags/复制/" style="font-size: 10px;">复制</a> <a href="/tags/复选框/" style="font-size: 10px;">复选框</a> <a href="/tags/失效/" style="font-size: 10px;">失效</a> <a href="/tags/失败/" style="font-size: 10px;">失败</a> <a href="/tags/字符/" style="font-size: 11.43px;">字符</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/安装/" style="font-size: 10px;">安装</a> <a href="/tags/实时/" style="font-size: 10px;">实时</a> <a href="/tags/局域网/" style="font-size: 10px;">局域网</a> <a href="/tags/展示/" style="font-size: 10px;">展示</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/常用/" style="font-size: 10px;">常用</a> <a href="/tags/常见/" style="font-size: 11.43px;">常见</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/总结/" style="font-size: 11.43px;">总结</a> <a href="/tags/手机/" style="font-size: 10px;">手机</a> <a href="/tags/打乱/" style="font-size: 10px;">打乱</a> <a href="/tags/执行中/" style="font-size: 10px;">执行中</a> <a href="/tags/抢注/" style="font-size: 10px;">抢注</a> <a href="/tags/报错/" style="font-size: 10px;">报错</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/按钮/" style="font-size: 10px;">按钮</a> <a href="/tags/控制/" style="font-size: 10px;">控制</a> <a href="/tags/推送/" style="font-size: 10px;">推送</a> <a href="/tags/提升/" style="font-size: 10px;">提升</a> <a href="/tags/插入/" style="font-size: 10px;">插入</a> <a href="/tags/搭建/" style="font-size: 10px;">搭建</a> <a href="/tags/数组/" style="font-size: 12.86px;">数组</a> <a href="/tags/文件上传/" style="font-size: 10px;">文件上传</a> <a href="/tags/方法/" style="font-size: 11.43px;">方法</a> <a href="/tags/最全/" style="font-size: 10px;">最全</a> <a href="/tags/未运行/" style="font-size: 10px;">未运行</a> <a href="/tags/本地/" style="font-size: 10px;">本地</a> <a href="/tags/查看/" style="font-size: 10px;">查看</a> <a href="/tags/样式/" style="font-size: 11.43px;">样式</a> <a href="/tags/横屏/" style="font-size: 10px;">横屏</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/注解/" style="font-size: 10px;">注解</a> <a href="/tags/清理/" style="font-size: 10px;">清理</a> <a href="/tags/清除/" style="font-size: 10px;">清除</a> <a href="/tags/版本号/" style="font-size: 10px;">版本号</a> <a href="/tags/特殊/" style="font-size: 10px;">特殊</a> <a href="/tags/状态码/" style="font-size: 10px;">状态码</a> <a href="/tags/生成/" style="font-size: 11.43px;">生成</a> <a href="/tags/目录/" style="font-size: 10px;">目录</a> <a href="/tags/破解/" style="font-size: 10px;">破解</a> <a href="/tags/禁止/" style="font-size: 10px;">禁止</a> <a href="/tags/移动端/" style="font-size: 11.43px;">移动端</a> <a href="/tags/竖屏/" style="font-size: 10px;">竖屏</a> <a href="/tags/端口/" style="font-size: 10px;">端口</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/粘贴/" style="font-size: 10px;">粘贴</a> <a href="/tags/缓存/" style="font-size: 11.43px;">缓存</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/网站/" style="font-size: 11.43px;">网站</a> <a href="/tags/网页/" style="font-size: 11.43px;">网页</a> <a href="/tags/脑残/" style="font-size: 10px;">脑残</a> <a href="/tags/自动/" style="font-size: 11.43px;">自动</a> <a href="/tags/自定义/" style="font-size: 11.43px;">自定义</a> <a href="/tags/获取/" style="font-size: 11.43px;">获取</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/解析/" style="font-size: 10px;">解析</a> <a href="/tags/触发/" style="font-size: 10px;">触发</a> <a href="/tags/计数器/" style="font-size: 10px;">计数器</a> <a href="/tags/设置/" style="font-size: 11.43px;">设置</a> <a href="/tags/详解/" style="font-size: 10px;">详解</a> <a href="/tags/调试/" style="font-size: 10px;">调试</a> <a href="/tags/购买/" style="font-size: 10px;">购买</a> <a href="/tags/跨域/" style="font-size: 11.43px;">跨域</a> <a href="/tags/转码/" style="font-size: 10px;">转码</a> <a href="/tags/运行/" style="font-size: 10px;">运行</a> <a href="/tags/运行中/" style="font-size: 10px;">运行中</a> <a href="/tags/连接/" style="font-size: 10px;">连接</a> <a href="/tags/遍历/" style="font-size: 10px;">遍历</a> <a href="/tags/阿里云/" style="font-size: 10px;">阿里云</a> <a href="/tags/非字符串/" style="font-size: 10px;">非字符串</a> <a href="/tags/音频服务/" style="font-size: 10px;">音频服务</a> <a href="/tags/默认/" style="font-size: 10px;">默认</a> <a href="/tags/鼠标/" style="font-size: 10px;">鼠标</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://liuxianan.com">我的个人网站</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/liuxianan/">我的博客园</a>
-			        
-			        </div>
-				</section>
-				
-
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">屌丝程序员一枚，个人网站：http://liuxianan.com</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
-</div>
-
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">小茗同学</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				
-					<img lazy-src="/avatar.jpg" class="js-avatar">
-				
-			</div>
-			<hgroup>
-			  <h1 class="header-author">小茗同学</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-				</div>
-			</nav>
-		</header>				
-	</div>
-</nav>
-
-      <div class="body-wrap">
-  
-    <article id="post-zhiding" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2066/07/29/zhiding/" class="article-date">
-  	<time datetime="2066-07-28T16:00:00.000Z" itemprop="datePublished">2066-07-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2066/07/29/zhiding/">本博客仅作测试用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本博客仅作测试用，正式博客：<a href="http://liuxianan.com" target="_blank" rel="external">http://liuxianan.com</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/公告/">公告</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/javascript/">javascript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hasownproperty-and-isprototypeof" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/22/hasownproperty-and-isprototypeof/" class="article-date">
-  	<time datetime="2016-08-21T16:00:00.000Z" itemprop="datePublished">2016-08-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/22/hasownproperty-and-isprototypeof/">JavaScript的hasOwnProperty和isPrototypeOf详解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p><code>hasOwnProperty</code>的作用是用来判断一个对象本身是否具有某个属性或对象，对象本身的意思是指不包括它的原型链，个人觉得这个方法应该叫<code>isOwnProperty</code>更合适。</p>
-<p><code>isPrototypeOf</code>是用来判断对象是否存在于另一个对象的原型链中，如：</p>
-<pre><code>Array.prototype.isPrototypeOf([1, 2, 3]);
-</code></pre><h1 id="几个例子"><a href="#几个例子" class="headerlink" title="几个例子"></a>几个例子</h1><p>下面几个例子应该很好理解：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.hasO &lt;!-- more --&gt; wnProperty(<span class="string">'split'</span>); <span class="comment">// 输出 true</span></div><div class="line"><span class="string">'http://liuxianan.com'</span>.hasOwnProperty(<span class="string">'split'</span>); <span class="comment">// 输出 false</span></div><div class="line">(&#123;testFn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;&#125;).hasOwnProperty(<span class="string">'testFn'</span>); <span class="comment">// 输出 true</span></div></pre></td></tr></table></figure>
-<h1 id="更复杂一点的例子"><a href="#更复杂一点的例子" class="headerlink" title="更复杂一点的例子"></a>更复杂一点的例子</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span>(<span class="params">name</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'showName：'</span>+<span class="keyword">this</span>.name);</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line">People.prototype.setGender = <span class="function"><span class="keyword">function</span>(<span class="params">gender</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">this</span>.gender = gender;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'setGender：'</span>+<span class="keyword">this</span>.gender);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> lxa = <span class="keyword">new</span> People(<span class="string">'刘显安'</span>);</div><div class="line">lxa.age = <span class="number">24</span>;</div><div class="line">lxa.setGender(<span class="string">'man'</span>);</div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'name'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'age'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'showName'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'gender'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(lxa.hasOwnProperty(<span class="string">'setGender'</span>)); <span class="comment">// false</span></div><div class="line"><span class="built_in">console</span>.log(People.prototype.hasOwnProperty(<span class="string">'setGender'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(People.prototype.hasOwnProperty(<span class="string">'gender'</span>)); <span class="comment">// false</span></div><div class="line"><span class="built_in">console</span>.log(People.prototype.isPrototypeOf(lxa)); <span class="comment">// true</span></div><div class="line"><span class="comment">//isPrototypeOf错误写法：lxa.isPrototypeOf(People)</span></div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hasownproperty/">hasownproperty</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/isprototypeof/">isprototypeof</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototype/">prototype</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/javascript/">javascript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js-array-shuffle" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/22/js-array-shuffle/" class="article-date">
-  	<time datetime="2016-08-21T16:00:00.000Z" itemprop="datePublished">2016-08-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/22/js-array-shuffle/">JavaScript中实现最高效的数组乱序</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文内容参考自网络。</p>
-<h1 id="常规做法"><a href="#常规做法" class="headerlink" title="常规做法"></a>常规做法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</div><div class="line">array.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123; <span class="keyword">return</span> <span class="built_in">Math</span>.random() &gt; <span class="number">0.5</span> ? <span class="number">-1</span> : <span class="number">1</span>;&#125;);</div></pre></td></tr></table></figure>
-<p>此方法虽直观，但效率并不高，经某网友测试，打乱10000个元素的数组，大概花了35ms左右。</p>
-<h1 id="高效做法"><a href="#高效做法" class="headerlink" title="高效做法"></a>高效做法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.prototype.shu &lt;!-- more --&gt; ffle)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">Array</span>.prototype.shuffle = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j, x, i = <span class="keyword">this</span>.length; i; j = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * i), x = <span class="keyword">this</span>[--i], <span class="keyword">this</span>[i] = <span class="keyword">this</span>[j], <span class="keyword">this</span>[j] = x);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</div><div class="line">array.shuffle();</div></pre></td></tr></table></figure>
-<p>此方法打乱一个10000个元素的数组时大约耗时7，8毫秒，把数组元素增加10倍到100000来测试，第一种方法费时500+ms左右，第二个方法耗时40ms左右，差别还是挺大的。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/array/">array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shuffle/">shuffle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/乱序/">乱序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/打乱/">打乱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/javascript/">javascript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-element-children-and-childnodes" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/19/element-children-and-childnodes/" class="article-date">
-  	<time datetime="2016-08-18T16:00:00.000Z" itemprop="datePublished">2016-08-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/19/element-children-and-childnodes/">element.children和element.childNodes的区别</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="如题"><a href="#如题" class="headerlink" title="如题"></a>如题</h1><p>假设有这样的代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 注意中间有空格 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hot_game"</span>&gt;</span>热门游戏<span class="tag">&lt;<span class="name">div</span>&gt;</span>我是子节点<span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>生成如下结构DOM：</p>
-<p><img src="http://image.liuxianan.com/201608/20160819_112053_680_9129.png" alt=""></p>
-<p>测试：</p>
-<p><img src="http://image.liuxianan.com/201608/20160819_112110_202_2490 &lt;!-- more --&gt; .png" alt=""></p>
-<p>最后一个#test是由于上面的空格引起的，一个空格也算是一个#text。</p>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ul>
-<li>element.children只输出普通的DOM元素；</li>
-<li>element.childNodes会输出所有的子元素，包括文本节点、文字；</li>
-<li>大多数情况下我们应该使用element.children；</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/childnodes/">childnodes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/children/">children</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区别/">区别</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/html/">html</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-build-blog-website-by-hexo-github" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/18/build-blog-website-by-hexo-github/" class="article-date">
-  	<time datetime="2016-08-17T16:00:00.000Z" itemprop="datePublished">2016-08-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/18/build-blog-website-by-hexo-github/">使用hexo+github搭建免费个人博客详细教程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用github pages服务搭建博客的好处有：</p>
-<ol>
-<li>全是静态文件，访问速度快；</li>
-<li>免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；</li>
-<li>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；</li>
-<li>数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；</li>
-<li>博客内容可以轻松打包、转移、发布到其它平台；</li>
-<li>等等；</li>
-</ol>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>在开始一切之前，你必须已经：</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/个人/">个人</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搭建/">搭建</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站/">网站</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/website/">website</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/18/build-blog-website-by-hexo-github/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-aliyun-ssh-connection-closed-by-foreign-host" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/18/aliyun-ssh-connection-closed-by-foreign-host/" class="article-date">
-  	<time datetime="2016-08-17T16:00:00.000Z" itemprop="datePublished">2016-08-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/18/aliyun-ssh-connection-closed-by-foreign-host/">阿里云服务器SSH无法连接：Connection closed by foreign host</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>之前一直好好的，今天突然连接不上了，报一个什么<code>Connection closed by foreign host</code>的错：</p>
-<p><img src="http://image.liuxianan.com/201608/20160818_132141_787_1258.png" alt=""></p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>登录阿里云后台，进入实例详情，连接管理终端，执行如下命令：</p>
-<p><img src="http://image.liuxianan.com/201608/20160818_132051_319_4178.png" alt=""><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/云服务器/">云服务器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/失败/">失败</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/连接/">连接</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/阿里云/">阿里云</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/website/">website</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/18/aliyun-ssh-connection-closed-by-foreign-host/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-disable-html-copy-and-paste" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/17/disable-html-copy-and-paste/" class="article-date">
-  	<time datetime="2016-08-16T16:00:00.000Z" itemprop="datePublished">2016-08-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/17/disable-html-copy-and-paste/">网页上如何实现禁止复制粘贴以及如何破解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们首先来介绍如何实现禁止复制，知道了禁止的方式，再破解就容易了。</p>
-<h1 id="实现禁止复制粘贴"><a href="#实现禁止复制粘贴" class="headerlink" title="实现禁止复制粘贴"></a>实现禁止复制粘贴</h1><p>比较简单，直接上代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">/* 最简单的实现禁止复制的方法，采用css方式禁止文字选择，当然这只兼容webkit内核浏览器 */</div><div class="line">* &#123; -webkit-user-select: none; &#125;</div><div class="line">p &#123;font-family: &apos;Microsoft Yahei&apos;;font-size: 28px;&#125;</div><div class="line">input &#123;width: &lt;!-- more --&gt;  80%; padding: 10px 20px;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;h1&gt;本代码在UC手机浏览器上不生效，其它手机浏览器暂未发现问题、PC全部没问题。&lt;/h1&gt;</div><div class="line">&lt;p&gt;这是一段示例文字，我无法被选中，也无法按下鼠标右键，即使被选中你也无法复制！&lt;/p&gt;</div><div class="line">&lt;input type=&quot;text&quot; value=&quot;文本框中的文字可以选中，但是无法复制粘贴&quot;/&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">// 禁止右键菜单</div><div class="line">document.oncontextmenu = function()&#123; return false; &#125;;</div><div class="line">// 禁止文字选择</div><div class="line">document.onselectstart = function()&#123; return false; &#125;;</div><div class="line">// 禁止复制</div><div class="line">document.oncopy = function()&#123; return false; &#125;;</div><div class="line">// 禁止剪切</div><div class="line">document.oncut = function()&#123; return false; &#125;;</div><div class="line">// 禁止粘贴</div><div class="line">document.onpaste = function()&#123; return false; &#125;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h1 id="破解禁止复制粘贴"><a href="#破解禁止复制粘贴" class="headerlink" title="破解禁止复制粘贴"></a>破解禁止复制粘贴</h1><p>知道如何禁止了，那破解这个限制就容易多了。</p>
-<p>首先，绝大部分限制都是采用js实现的，那我禁用js不久OK了么？突然发现我太聪明了！假如你使用的是<code>Chrome</code>或者其它国产webkit内核浏览器，按下<code>F12</code>弹出开发者工具，再按下<code>F1</code>弹出设置，勾选<code>Disable JavaScript</code>，再按下<code>ESC</code>键关闭设置（其它浏览器如何禁止JavaScript请自行研究），然后试试是不是可以复制了？</p>
-<p><img src="http://image.liuxianan.com/201608/20160817_085956_673_5222.png" alt=""></p>
-<p>如果此时仍无法选择文字，找到你要复制文字的地方，看看是不是添加了<code>-webkit-user-select: none</code>的样式，如果有，将其去掉即可：</p>
-<p><img src="http://image.liuxianan.com/201608/20160817_090202_264_2841.png" alt=""></p>
-<p>到了这里应该就可以自由复制粘贴了，复制完了记得把禁用JavaScript的地方还原回来哦。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/右键/">右键</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/复制/">复制</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/破解/">破解</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/禁止/">禁止</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/粘贴/">粘贴</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/javascript/">javascript</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-marquee" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/17/marquee/" class="article-date">
-  	<time datetime="2016-08-16T16:00:00.000Z" itemprop="datePublished">2016-08-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/17/marquee/">marquee标签</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="marquee"><a href="#marquee" class="headerlink" title="marquee"></a>marquee</h1><p>marquee是<strong>已经废弃、过时的标签</strong>，不推荐使用！在Chrome不同版本中有很多bug，如，Chrome45.0中动画执行完总是需要点一下页面才能继续，最新版的Chrome52.0则没有这个问题。</p>
-<p>虽然已经过时，有时候还是不得已用到，这里简单对几个属性做一下介绍。</p>
-<h2 id="behavior"><a href="#behavior" class="headerlink" title="behavior"></a>behavior</h2><p>可用的值为scroll(滚动)、slide(滑动)、alternate(改变，类似于光学的反射路径)，如果没有指定值，默认是scroll</p>
-<h2 id="direction"><a href="#direction" class="headerlink" title="direction "></a>direction
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/marquee/">marquee</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/webmix/">webmix</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/17/marquee/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-javascript-array-method" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/17/javascript-array-method/" class="article-date">
-  	<time datetime="2016-08-16T16:00:00.000Z" itemprop="datePublished">2016-08-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/17/javascript-array-method/">JavaScript数组常用方法详解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>为方便理解，这里统一假设有一个名为a的数组：<code>var a=[4,6,1,7,2,9,3,6]</code>，以下所有方法都是基于这个数组。</p>
-<h1 id="push-value"><a href="#push-value" class="headerlink" title="push(value)"></a>push(value)</h1><p>进栈，亦即从最后面追加元素：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">6</span>];</div><div class="line"><span class="built_in">console</span>.log(a.push(<span class="number">8</span>));<span class="comment">//返回数组的最新长度：9</span></div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//输出：[4, 6, 1, 7, 2, 9, 3, 6, 8]</span></div></pre></td></tr></table></figure>
-<h1 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/array/">array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常用/">常用</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/方法/">方法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/详解/">详解</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/javascript/">javascript</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/17/javascript-array-method/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-display-unicode-character-in-html-css-and-js" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/17/display-unicode-character-in-html-css-and-js/" class="article-date">
-  	<time datetime="2016-08-16T16:00:00.000Z" itemprop="datePublished">2016-08-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/17/display-unicode-character-in-html-css-and-js/">HTML、CSS、JS中unicode字符的处理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="unicode字符的不同表示法"><a href="#unicode字符的不同表示法" class="headerlink" title="unicode字符的不同表示法"></a>unicode字符的不同表示法</h1><h2 id="css表示法"><a href="#css表示法" class="headerlink" title="css表示法"></a>css表示法</h2><p>首先来一段很常见的bootstrap的字体图标代码：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.glyphicon-home</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">	<span class="attribute">content</span>: <span class="string">"\e021"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面代码中的<code>e021</code>就是这个字符的unicode码，是16进制，css表示方法：</p>
-<pre><code>&apos;\ + 16进制的unicode编码&apos;
-</code></pre><p>如：’\5b89’表示汉字“安”：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"> <span class="comment">&lt;!-- more --&gt;</span> <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line"><span class="selector-class">.test</span>: <span class="selector-tag">before</span> &#123;<span class="attribute">content</span>: <span class="string">"\e021"</span>;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="js表示方法"><a href="#js表示方法" class="headerlink" title="js表示方法"></a>js表示方法</h2><p>语法：</p>
-<pre><code>&apos;\u + 16进制的unicode编码&apos;
-</code></pre><p>示例：</p>
-<pre><code>// 如：&apos;\u5b89&apos;表示汉字“安”
-console.log(&apos;\u5b89&apos;); // 输出我的名字“安”
-</code></pre><h2 id="html表示方法"><a href="#html表示方法" class="headerlink" title="html表示方法"></a>html表示方法</h2><p>html特殊一点，使用的是<strong>10进制</strong>，一开始没注意这个搞的半天出不来郁闷很久。</p>
-<p>语法：</p>
-<pre><code>&apos;&amp;# + 10进制的unicode编码 + 英文分号;&apos;
-</code></pre><p>如<code>&#39;&amp;#23433;&#39;</code>表示汉字<code>安</code>，结尾的分号经测试不加也没问题，但是最好还是加一下。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">	这是unicode表示的字符：&amp;#23433;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>另外，一些特殊字符还有其它表示，也就是常说的<code>html转义字符</code>，如：</p>
-<pre><code>&amp;nbsp; == &amp;#160； == 空格
-</code></pre><h1 id="获取汉字的unicode编码"><a href="#获取汉字的unicode编码" class="headerlink" title="获取汉字的unicode编码"></a>获取汉字的unicode编码</h1><p>那么，如何知道一个汉字的unicode的编码呢？很简单：</p>
-<pre><code>&apos;安&apos;.charCodeAt()； // 输出的 23433 就是汉字 安 的unicode编码，不过注意是10进制的
-String.fromCharCode(23433); // 输出 &apos;安&apos;
-</code></pre><p>得到了10进制的unicode编码，再如果想在js和css里面用的话，就需要用<code>toString(16)</code>转16进制再做进一步处理了。</p>
-<pre><code>var unicode = &apos;\\u&apos;+&apos;茗&apos;.charCodeAt().toString(16); // 输出字符串：&quot;\u8317&quot;
-JSON.parse(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 输出汉字：&quot;茗&quot;
-eval(&apos;&quot;&apos;+unicode+&apos;&quot;&apos;); // 或者使用eval解析也可以
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unicode/">unicode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/处理/">处理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符/">字符</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/展示/">展示</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/webmix/">webmix</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 小茗同学
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
-  </div>
-</footer>
-    </div>
-    
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: true,
-		isPost: false,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false,
-		root: 'http://mygit.me'
-	}
-</script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
-
-
-
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-  </div>
+	<header>
+		<span><a href="http://liuxianan.com">柳夏南的个人网站</a></span>
+		<ul>
+			<li><a href="http://blog.liuxianan.com">博客</a></li>
+			<li><a href="http://weibo.com/liuxianan">微博</a></li>
+			<li><a href="https://github.com/liuxianan">github</a></li>
+			<li><a href="msgboard.html">留言</a></li>
+			<li><a href="http://about.liuxianan.com">关于</a></li>
+		</ul>
+	</header>
+	<section class="center-content">
+		<h1>demo列表</h1>
+		<ul>
+			<li>(2016-03-08)<a href="2016/03/08/css-counter/">CSS3计数器</a></li>
+			<li>(2016-08-14)<a href="#">测试</a></li>
+		</ul>
+	</section>
+	<footer>
+		<span>© 2016 <a href="http://liuxianan.com">liuxianan.com</a></span> 
+		<a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备16002604号-1</a> 
+		<a href="http://liuxianan.com/link.html">友情链接</a> 
+		<span class="cnzz-wrapper">
+			<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257135263'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257135263' type='text/javascript'%3E%3C/script%3E"));</script>
+		</span>
+	</footer>
 </body>
 </html>
