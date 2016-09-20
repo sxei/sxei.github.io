@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8"/>
+	<title>HTML5 video 拉伸比例</title>
+	<style type="text/css">
+	body{font-family: 'Microsoft Yahei'; font-size: 18px; background: white;}
+	video{width: 640px; height: 360px;}
+	#video_3{transform-origin: left;}
+	</style>
+</head>
+<body>
+	<h1>默认比例（640*360,16:9）</h1>
+	<video id="video_1" src="test.mp4" controls autoplay loop></video>
+	<h1>宽高比增大，高度变小（640*280,16:7）</h1>
+	<script type="text/javascript">
+	var rotate2 = (Math.acos( (280/640) / (360/640) )*180/Math.PI).toFixed(2); // 新的 高宽比 除以 旧的 高宽比
+	document.write('<div>宽高比增加时，以宽度为基准，调整rotateX='+rotate2+'deg</div>');
+	</script>
+	<video id="video_2" src="test.mp4" controls autoplay loop></video>
+	<h1>宽高比减小，高度增加（640*480,4:3）</h1>
+	<script type="text/javascript">
+	var rotate3 = (Math.acos( (360/640) / (360/480) )*180/Math.PI).toFixed(2);
+	document.write('<div>宽高比减小时，以高度为基准，调整rotateY='+rotate3+'deg</div>');
+	</script>
+	<video id="video_3" src="test.mp4" controls autoplay loop></video>
+	<script type="text/javascript">
+	document.getElementById('video_2').style.transform = 'rotateX('+rotate2+'deg)';
+	document.getElementById('video_3').style.transform = 'rotateY('+rotate3+'deg)';
+	</script>
+</body>
+</html>
