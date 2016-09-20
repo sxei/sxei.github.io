@@ -1,12 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>刘显安的git博客</title>
-</head>
+	<meta charset="utf-8"/>
+	<title>CSS计数器</title>
+	<link rel="stylesheet" type="text/css" href="../../../../demo.css">
 
+
+<style type="text/css">
+body{font-family: 'Microsoft Yahei'; font-size: 16px; background: white; }
+#temp1 {display: none;}
+#temp2 {display: none;}
+ol{ list-style-type: none; }
+
+#demo1 ol { counter-reset: section; }
+#demo1 ol li { counter-increment: section; }
+#demo1 ol li:before { content: counters(section, ".") ". "; }
+
+#demo2 ol { counter-reset: section; }
+#demo2 ol li { counter-increment: section; }
+#demo2 ol li:before { content: counter(section) ". "; }
+
+#demo3 > ol { counter-reset: section; }
+#demo3 ol li { counter-increment: section; }
+#demo3 ol li:before { content: counter(section) ". "; }
+
+#demo4 ol { counter-reset: section; }
+#demo4 ol li { counter-increment: section; }
+#demo4 ol li:before { content: counter(section, upper-roman) ". "; }
+
+#demo5 ol { counter-reset: section; }
+#demo5 ol li { counter-increment: section; }
+#demo5 ol li:before { content: counter(section, cjk-ideographic) "、"; }
+
+#demo6 ol { counter-reset: section 5; }
+#demo6 ol li { counter-increment: section; }
+#demo6 ol li:before { content: counter(section) ". "; }
+
+#demo7 ol { counter-reset: section 5; }
+#demo7 ol li { counter-increment: section 2; }
+#demo7 ol li:before { content: counter(section) ". "; }
+
+#demo8 ol { counter-reset: section 6; }
+#demo8 ol li { counter-increment: section -1; }
+#demo8 ol li:before { content: counter(section) ". "; }
+
+#demo9 ol { counter-reset: section; }
+#demo9 ol li { counter-increment: section; }
+#demo9 ol li:before { content: "==" counter(section, lower-alpha) counters(section, '-') "** "; }
+
+</style>
+
+
+
+</head>
 <body>
-发的发生的发生的
+	<a href="/">返回首页</a><br>
+
+	原文链接：<a href="http://blog.liuxianan.com/css-counters.html">http://blog.liuxianan.com/css-counters.html</a>
+
+	<h1>CSS计数器示例：</h1>
+
+	<h2>嵌套风格：</h2>
+	<div id="demo1"></div>
+
+	<h2>非嵌套风格1：</h2>
+	<div id="demo2"></div>
+
+	<h2>非嵌套风格2(从头到尾一直计数)：</h2>
+	<div id="demo3"></div>
+	
+	<h2>使用罗马数字计数</h2>
+	<div id="demo4"></div>
+
+	<h2>使用中文计数（IE可能不支持）</h2>
+	<div id="demo5"></div>
+
+	<h2>从5开始计数（不包括5）</h2>
+	<div id="demo6"></div>
+
+	<h2>从5开始计数，每次递增2</h2>
+	<div id="demo7"></div>
+
+	<h2>递减计数</h2>
+	<div id="demo8"></div>
+
+	<h2>多个计数器、字符串同时使用</h2>
+	<div id="demo9"></div>
+
+	<div id="temp1">
+		<ol>
+			<li>进风口的爽肤水
+				<ol>
+					<li>非进口商的</li>
+					<li>非进口商的</li>
+					<li>非进口商的</li>
+				</ol>
+			</li>
+			<li>进风口的爽肤水
+				<ol>
+					<li>非进口商的</li>
+					<li>
+						非进口商的
+						<ol>
+							<li>将咖啡色的开发商</li>
+							<li>将咖啡色的开发商</li>
+							<li>将咖啡色的开发商</li>
+							<li>将咖啡色的开发商</li>
+						</ol>
+					</li>
+					<li>非进口商的</li>
+				</ol>
+			</li>
+			<li>进风口的爽肤水</li>
+		</ol>
+	</div>
+	<div id="temp2">
+		<ol>
+			<li>将咖啡色的开发商</li>
+			<li>将咖啡色的开发商</li>
+			<li>将咖啡色的开发商</li>
+			<li>将咖啡色的开发商</li>
+			<li>将咖啡色的开发商</li>
+		</ol>
+	</div>
+	
+
+
+	<script type="text/javascript" src="../../../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../../../demo.js"></script>
+	<script type="text/javascript">
+	var t1 = $('#temp1').html();
+	var t2 = $('#temp2').html();
+	$('#demo1').html(t1);
+	$('#demo2').html(t1);
+	$('#demo3').html(t1);
+	$('#demo4').html(t2);
+	$('#demo5').html(t2);
+	$('#demo6').html(t2);
+	$('#demo7').html(t2);
+	$('#demo8').html(t2);
+	$('#demo9').html(t1);
+	</script>
 </body>
 </html>
