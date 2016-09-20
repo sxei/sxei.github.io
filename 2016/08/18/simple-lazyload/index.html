@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="欢迎访问柳夏南的个人网站，同时这里也是柳夏南个人博客">
+	<meta name="keys" content="柳夏南,liuxianan,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://liuxianan.com/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../../../../demo.css">
+	<title>简单图片懒加载示例</title>
+<style>
+body{font-size: 18px;}
+.sample {width: 100%;height:200px;margin: 20px 0;}
+div.sample {
+	background-size: cover;
+	background-position: center;
+	/* 配置一张图片尚未加载时的默认图片 */
+	background-image: url('images/thumbnail.jpg');
+}
+</style>
+</head>
+<body>
+	
+	<header class="header">
+		<a href="/">返回首页</a> 
+		<a href="#">返回相关博文</a>
+	</header>
+
+	<h1>简单图片懒加载示例，支持背景图和普通img：</h1>
+	<div class="panel">
+		<!-- 只要给div或者img添加data-lazy-src属性即可实现图片懒加载 -->
+		<div class="sample" data-lazy-src="images/00.jpg"></div>
+		<div class="sample" data-lazy-src="images/01.jpg"></div>
+		<img class="sample" data-lazy-src="images/02.jpg" src="images/thumbnail.jpg" />
+		<img class="sample" data-lazy-src="images/03.jpg" src="images/thumbnail.jpg" />
+		<div class="sample" data-lazy-src="images/04.jpg"></div>
+		<div class="sample" data-lazy-src="images/05.jpg"></div>
+	</div>
+	<script type="text/javascript" src="../../../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../../../demo.js"></script>
+	<script type="text/javascript" src="js/jquery-simple-lazyload.js" ></script>
+</body>
+</html>
