@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title>纯JS实现的电子琴（JS生成音频示例）</title>
+	<style type="text/css">
+	.piano-wrap
+	{
+		float: left;
+		background-color: rgb(31, 73, 121);
+		padding: 30px 10px;
+		border-radius: 10px;
+	}
+	.white-key-wrap
+	{
+		position: absolute;
+		left: 20px;
+		top: 80px;
+	}
+	.black-key-wrap
+	{
+		position: absolute;
+		left: 20px;
+		top: 80px;
+	}
+	.title
+	{
+		color: white;
+		text-align: center;
+		margin-top: -10px;
+		margin-bottom: 20px;
+		font-size: 24px;
+		text-shadow: 2px 2px 2px black;
+		font-family: 'Microsoft Yahei';
+	}
+	.key
+	{
+		width: 40px;
+		border-bottom-left-radius: 6px;
+		border-bottom-right-radius: 6px;
+	}
+	.white-key
+	{
+		height: 200px;
+		line-height: 250px;
+		background-color: #F1F1F1;
+		text-align: center;
+		cursor: pointer;
+		float: left;
+		margin: 4px;
+		font-size: 20px;
+		font-family: 'Microsoft Yahei';
+		text-shadow: 2px 2px 2px #ccc;
+	}
+	.white-key:hover
+	{
+		background-color:#bbb;
+	}
+	.black-key
+	{
+		height: 100px;
+		line-height: 100px;
+		background-color: #000;
+		text-align: center;
+		cursor: pointer;
+		float: left;
+		margin: 4px;
+	}
+	.black-key-1
+	{
+		margin-left: 20px;
+	}
+	.black-key-3
+	{
+		margin-left: 60px;
+	}
+	.black-key-5
+	{
+		margin-right: 20px;
+	}
+	</style>
+</head>
+
+<body>
+	<div class="piano-wrap" style="width:1030px; height:240px;">
+		<div class="title">piano demo</div>
+		<div class="white-key-wrap">
+		<script type="text/javascript">
+
+		for(var i=66; i<=68; i++)
+			for(var j=1; j<=7; j++)
+			{
+				var key = String.fromCharCode(i).toLowerCase()+j;
+				document.write('<div id="key_'+key+'" class="key white-key" style="text-decoration:'+(i==66?'underline':(i==68?'overline':'none'))+';" data-src="'+key+'">'+j+'</div>');
+			}
+		</script>
+		</div>
+		<div class="black-key-wrap">
+		<script type="text/javascript">
+
+		for(var i=66; i<=68; i++)
+			for(var j=1; j<=5; j++)
+			{
+				var key = String.fromCharCode(i).toLowerCase()+j;
+				document.write('<div id="key_'+key+'" class="key black-key black-key-'+j+'" style="text-decoration:'+(i==66?'underline':(i==68?'overline':'none'))+';" data-src="'+key+'"></div>');
+			}
+		</script>
+		</div>
+	</div>
+	<input type="button" value="录音" onclick="H5Piano.record(this)"/>
+	<input type="button" value="播放录音" onclick="H5Piano.playRecord()"/>
+	<script type="text/javascript">
+		(function()
+		{
+			var keycodes =
+			{
+				8: "backspace",
+				9: "tab",
+				10: "return",
+				13: "enter",
+				16: "shift",
+				17: "ctrl",
+				18: "alt",
+				19: "pause",
+				20: "capslock",
+				27: "esc",
+				32: "space",
+				33: "pageup",
+				34: "pagedown",
+				35: "end",
+				36: "home",
+				37: "left",
+				38: "up",
+				39: "right",
+				40: "down",
+				45: "insert",
+				46: "del",
+				59: ";",
+				61: "=",
+				106: "num_times",//数字键盘*
+				107: "num_plus",//数字键盘+
+				109: "num_minus",//数字键盘-
+				110: "num_dot",//数字键盘.
+				111: "num_divide",//数字键盘/
+				144: "numlock",
+				145: "scroll",
+				173: "-",
+				186: ";",
+				187: "=",
+				188: ",",
+				189: "-",
+				190: ".",
+				191: "/",
+				192: "`",
+				219: "[",
+				220: "\\",
+				221: "]",
+				222: "'"
+			};
+			for(var i=48; i<=57; i++)//0-9
+				keycodes[i] = String.fromCharCode(i);
+			for(var i=65; i<=90; i++)//A-Z
+				keycodes[i] = String.fromCharCode(i);
+			for(var i=96; i<=105; i++)//数字键盘0-9
+				keycodes[i] = 'num_'+(i-96);
+			for(var i=112; i<=123; i++)//f1-f12
+				keycodes[i] = 'f'+(i-111);
+			window.KEYCODES = keycodes;
+		})();
+		(function()
+		{
+			var H5Piano = 
+			{
+				_audios: {},//存放所有生成好的音频audio对象
+				//通过代码方式初始化音频
+				initByCode: function()
+				{
+					for(var i=50; i<95; i++)
+					{
+						var str = '\0\0';
+						for(var j=0, c=12; j<1e4; j++)
+						{
+							var v = Math.max(-1e4, Math.min(1e4, 1e6*Math.sin(j*Math.pow(2, i/c)/695))) / Math.exp(j/5e3);
+							str += String.fromCharCode(v&255, v>>8&255);
+						}
+						//生成的音频文件长度为0.416667秒
+						this._audios[i] = new Audio('data:audio/wav;base64,UklGRgAAAABXQVZFZm10IBAAAAABAAEAwF0AAIC7AAACABAAZGF0YSBO'+btoa(str));
+					}
+				},
+				getByCode: function(key)
+				{
+					var map = {b3:59, b4:60, b5:62, b6:64, b7:66, c1: 67, c2:69, c3:71, c4:72, c5:74, c6:76, c7:78, d1:79, d2:81, d3:83, d4:85, d5:87};
+					if(!map[key])
+						return;
+					return this._audios[map[(key)]];
+				},
+				initByFile: function()
+				{
+					var arrays = ['c','d','e','f','g','a','b'];
+					var badus = ['', '', 'a', 'b', 'c', 'd'];
+					for(var i=3; i<=5; i++)//i表示第几个8度
+					{
+						for(var j=0; j<arrays.length; j++)//j表示音阶
+							this._audios[badus[i] + (j+1)] = new Audio('http://s8.qhimg.com/share/audio/piano1/' + arrays[j] + i + '.ogg');
+					}
+				},
+				getByFile: function(key)
+				{
+					if(!key)
+						return;
+					return this._audios[key];
+				},
+				init: function(type)
+				{
+					type = type || 1;
+					if(type === 1)
+						this.initByCode();
+					else if(type === 2)
+						this.initByFile();
+					this._initType = type;
+				},
+				get: function(key)
+				{
+					if(this._initType === 1)
+						return this.getByCode(key);
+					else if(this._initType === 2)
+						return this.getByFile(key);
+				},
+				//播放单个音频文件
+				play: function(key)
+				{
+					var audio = this.get(key);
+					if(!audio.ended)
+						audio.currentTime = 0;
+					audio.play();
+				},
+				/**
+				 * 播放一段音乐，格式形如：c6:80,c5:40,c3:80,c5:60
+				 */
+				playMusic: function(audio)
+				{
+					audio = audio || 'c6:80,c5:40,c3:80,c5:60';
+					var temp = audio.split(',');
+					var idx = 0;
+					function playKey()
+					{
+						var str = temp[idx].split(':');
+						var key = str[0], time = parseInt((str[1]||50))*10;
+						H5Piano.play(key);
+						idx++;
+						if(idx < temp.length)
+							setTimeout(playKey, time);
+					}
+					playKey();
+				},
+				stopMusic: function()
+				{
+
+				},
+				initKeyEvent: function()
+				{
+					var keydowns = [];//记录哪些键被按下了
+					document.addEventListener('keydown', function (e)
+					{
+						if(keydowns[e.keyCode])
+							return;
+						var keymap = 
+						{
+							left:'b1', down:'b2', right:'b3', up:'b4', 
+							num_0:'b5', num_dot:'b6', enter:'b7', num_1:'c1', 
+							num_2:'c2', num_3:'c3', num_4:'c4', num_5:'c5', 
+							num_6:'c6', num_7:'c7', num_8:'d1', num_9:'d2', 
+							num_plus:'d3', numlock:'d4', num_divide:'d5', num_times:'d6'
+						};
+						var key = keymap[KEYCODES[e.keyCode]];
+						if(key)
+						{
+							e.preventDefault();
+							if(H5Piano._recordFlag)
+							{
+								if(H5Piano._recordData !== '')
+								{
+									H5Piano._recordData += ':'+Math.round((new Date().getTime()-H5Piano._recordLastTimestamp)/10)+',';
+								}
+								H5Piano._recordData += key;
+								H5Piano._recordLastTimestamp = new Date().getTime();
+							}
+							H5Piano.play(key);
+							keydowns[e.keyCode] = true;
+						}
+					});
+					document.addEventListener('keyup', function (e)
+					{
+						keydowns[e.keyCode] = false;
+					});
+				},
+				_recordFlag: false,
+				_recordData: '',
+				_recordLastTimestamp: 0,
+				record: function(obj)
+				{
+					if(!this._recordFlag)
+					{
+						obj.value = '停止录音';
+						this._recordFlag = true;
+						this._recordData = '';
+						this._recordLastTimestamp = 0;
+					}
+					else
+					{
+						obj.value = '录音';
+						this._recordFlag = false;
+					}
+				},
+				playRecord: function()
+				{
+					this.playMusic(this._recordData);
+				}
+			};
+			H5Piano.init();
+			H5Piano.initKeyEvent();
+			window.H5Piano = H5Piano;
+		})();
+		var audio = 'b3:111,b5:52,b6:54,c1:67,c2:23,b6:24,c1:28,b5:54,c5:70,d1:25,c6:23,c5:23,c3:26,c5:28,c2:128,c2:48,c2:22,c3:26,b7:50,b6:51,b5:70,b6:24,c1:48,c2:50,b3:49,c1:50,b6:24,b5:26,b6:25,c1:27,b5:120,c3:62,c5:26,b7:47,c2:47,b6:23,c1:29,b5:86,b3:24,b5:27,b3:47,b5:24,b6:25,b7:24,c2:27,b6:98,b5:21,b6:29,c1:68,c2:23,c5:50,c3:50,c2:45,c3:25,c2:25,c1:44,b6:24,b5:27,b3:99,c1:93,b6:30,c1:15,b6:21,b5:26,b3:24,b5:22,b6:24,c1:26,b5';
+		//H5Piano.playMusic(audio);
+
+	</script>
+
+	<script type="text/javascript">
+	function demo1()
+	{
+		M=Math;
+		C=12;
+		f=[];
+		R=[];
+		A='charCodeAt';
+		S='slice';
+		for(P=0;P<96;)
+		{
+			//这个注释掉的K的赋值是原乐曲，我改成了下边的乐曲，貌似也不错……
+			//k="/SN;__/NK;OL/QN;__/OL;NK4L@@_C4_G@OL4SO@__4QN@OL3NB?_G3_K?OL/QN;__/SK;__4OL@__4LC@_G4LC@_G4_C@_G"[A](P);
+			k="ABCDEFGHIJKLMNOPQRSTUVWXYZZYXWVUTSRQPONMLKJIHGFEDCBA"[A](P);
+			D="\0\0";
+			for(j=0;k<95&&j<1e4;){
+				v=M.max(-1e4,M.min(1e4,1e6*M.sin(j*M.pow(2,k/C)/695)))/M.exp(j++/5e3);
+				D+=String.fromCharCode(v&255,v>>8&255)
+			}
+			R[P++]=new Audio("data:audio/wav;base64,UklGRgAAAABXQVZFZm10IBAAAAABAAEAwF0AAIC7AAACABAAZGF0YSBO"+btoa(D))
+		}
+		var t=0;
+		setTimeout(sound,500);
+		function sound(){
+			R[t++].play();
+			if(t<52)setTimeout(sound,500);
+		}
+	}
+	</script>
+</body>
+</html>

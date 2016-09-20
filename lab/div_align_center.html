@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title>div各种居中</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+	body
+	{
+		font-family: 'Microsoft Yahei';
+		font-size: 16px;
+	}
+	/*设置盒模型*/
+	*
+	{
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box
+	}
+	:before,:after
+	{
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box
+	}
+	.demo_1
+	{
+		width: 450px;
+		height: 150px;
+		background: rgb(88, 123, 255);
+		/* div内文字水平居中主要是text-align: center和line-height与height一致即可 */
+		text-align: center;
+		line-height: 150px;
+		border-radius: 5px;
+		color: white;
+		text-shadow: 1px 1px 1px black;
+		font-size: 24px;
+	}
+	.demo_2
+	{
+		background: rgb(88, 123, 255);
+		width: 150px;
+		height: 450px;
+		display: table-cell;
+		vertical-align: middle;
+		/*由于这里把position设置为了relative，可能会影响原始布局，此时只需要把这个div再嵌入一个原始div即可*/
+		position: relative;
+		border-radius: 5px;
+	}
+	.demo_2 > div
+	{
+		position: static;
+		/*主要是这个达到水平居中*/
+		margin: 0 auto;
+		width: 40px;
+		line-height: 28px;
+		font-size: 24px;
+		/*起水平居中作用的主要不是这个*/
+		text-align: center;
+		color: white;
+		text-shadow: 1px 1px 1px black;
+	}
+	.demo_3
+	{
+		width: 490px;
+		height: 280px;
+		background-color: #587BFF;
+		border-radius: 5px;
+		position: absolute;
+		left: 500px;
+		top: 20px;
+	}
+	.demo_3 > div
+	{
+		width: 200px;
+		height: 75px;
+		background-color: red;
+		border-radius: 5px;
+		font-size: 18px;
+		text-align: center;
+		color: white;
+		margin: auto;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+	}
+	</style>
+</head>
+<body>
+	<p>div内部单行文字水平垂直居中：</p>
+	<div class="demo_1">单行文字水平垂直居中示例</div>
+	<p>宽高度都不固定的div相对于父div水平垂直居中：</p>
+	<div class="demo_2">
+		<div>竖直文字垂直水平居中示例</div>
+	</div>
+	<div class="demo_3">
+		<div>div相对父元素垂直水平居中，缺点是要求父元素必须absolute定位</div>
+	</div>
+	<script type="text/javascript">
+	</script>
+</body>
+</html>

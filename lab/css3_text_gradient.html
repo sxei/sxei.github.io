@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title>CSS3文字渐变</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+	body
+	{
+		font-family: 'Microsoft Yahei';
+		font-size: 16px;
+	}
+	/*设置盒模型*/
+	*
+	{
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box
+	}
+	:before,:after
+	{
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box
+	}
+	.text-gradient
+	{
+		display: inline-block;
+		color: green;
+		font-size: 10em;
+		font-family: 'Microsoft Yahei';
+		background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(2, 210, 2, 1)), to(rgba(255, 2, 2, 1)));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		margin: 0;
+		padding: 0;
+	}
+	</style>
+</head>
+<body>
+	CSS3文字渐变(仅支持webkit内核浏览器)：<br>
+	<h2 class="text-gradient">你好，刘显安！！！</h2>
+	<script type="text/javascript">
+	</script>
+</body>
+</html>

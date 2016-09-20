@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>JS任意进制转换</title>
+	<style type="text/css">
+	body
+	{
+		margin: 0;
+		padding: 0;
+		color: black;
+		font-size: 18px;
+	}
+	.content
+	{
+		width: 300px;
+		margin: 150px auto;
+	}
+	select
+	{
+		width: 300px;
+		font-size: 24px;
+		height: 40px;
+		border-radius: 5px;
+		font-family: 'Microsoft Yahei';
+		padding: 0px 10px;
+		color: #373737;
+		text-shadow: 1px 1px 1px #B9B9B9;
+		transition: all 0.2s;
+	}
+	input
+	{
+		width: 280px;
+		height: 40px;
+		margin: 10px 0px;
+		border-radius: 5px;
+		border: solid 1px #bbb;
+		padding: 0 10px;
+		font-size: 18px;
+		font-family: 'Microsoft Yahei';
+		transition: all 0.2s;
+	}
+	input:focus, select:focus
+	{
+		outline: none;
+		border: solid 1px #039DD8;
+		box-shadow: 0px 0px 10px #2BBDF5;
+	}
+	input[type="button"]
+	{
+		width: 300px;
+		color: rgb(77, 77, 77);
+		text-shadow: 1px 1px 1px white;
+		font-size: 24px;
+		height: 50px;
+		line-height: 45px;
+		background-color: #EFEFEF;
+		cursor: pointer;
+	}
+	input[type="button"]:hover
+	{
+		background-color: #D7D7D7;
+	}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<select id="type">
+			<option value="2_8">二进制转八进制</option>
+			<option value="2_10">二进制转十进制</option>
+			<option value="2_16">二进制转十六进制</option>
+			<option value="8_2">八进制转二进制</option>
+			<option value="8_10">八进制转十进制</option>
+			<option value="8_16">八进制转十六进制</option>
+			<option value="10_2">十进制转二进制</option>
+			<option value="10_8">十进制转八进制</option>
+			<option value="10_16" selected>十进制转十六进制</option>
+			<option value="16_2">十六进制转二进制</option>
+			<option value="16_8">十六进制转八进制</option>
+			<option value="16_10">十六进制转十进制</option>
+		</select><br />
+		<input type="text" id="num" placeholder="输入数字"/><br>
+		<input type="text" id="result" placeholder="输出结果"/><br/>
+		<input type="button" onclick="start()" value="转换"/>
+	</div>
+	<script type="text/javascript">
+	var num = document.getElementById('num');
+	var type = document.getElementById('type');
+	var result = document.getElementById('result');
+	
+	/**
+	 * JS任意进制转换，输入一个数字，返回的是字符串形式的结果，如果输入不合法，会警告并返回NaN
+	 * @param num 输入的数字
+	 * @param input 输入的进制，如10
+	 * @param out 输出的进制， 如16
+	 */
+	function jinzhiConvert(num, input, out)
+	{
+		if(isNaN(num))
+		{
+			console.error('输入不合法！');
+			return NaN;
+		}
+		return parseInt(num, input).toString(out);
+	}
+	function start()
+	{
+		var types = type.value.split('_');
+		result.value = jinzhiConvert(num.value, parseInt(types[0]), parseInt(types[1]));
+	}
+	</script>
+</body>
+</html>

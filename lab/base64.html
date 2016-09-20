@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title>base64生成</title>
+	<style type="text/css">
+	body
+	{
+		margin: 0;
+		padding: 0;
+		font-family: 'Microsoft Yahei';
+		font-size: 18px;
+	}
+	.content
+	{
+		width:400px;
+		margin: 0 auto;
+	}
+	.top_tip
+	{
+		font-size: 28px;
+		margin-top: 30px;
+	}
+	#btn
+	{
+		width: 400px;
+		height: 400px;
+		border: dashed 2px rgba(226, 89, 247, 0.87);
+		margin: 20px 0px;
+		background-color: rgba(174, 255, 187, 0.64);
+		text-align: center;
+		line-height: 400px;
+	}
+	#result
+	{
+		width: 400px;
+		height: 250px;
+		resize: none;
+		border-radius: 5px;
+		box-shadow: 0 0 11px #15A8FA;
+		border: solid 1px #15A8FA;
+		margin-top: 15px;
+	}
+	.allow_drop
+	{
+		border: solid 1px green !important;
+	}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="top_tip">base64生成工具：</div>
+		<div id="btn">拖拽文件到这里或者点击浏览文件生成base64</div>
+		base64结果(请按下Ctrl+C复制)：<br>
+		<textarea id="result"></textarea>
+		<input type="file" id="hide_file" style="display:none;"/>
+	</div>
+	
+	<script type="text/javascript">
+
+	var btn = document.getElementById('btn');
+	var hide_file = document.getElementById('hide_file');
+	var result = document.getElementById('result');
+	btn.addEventListener('click', function()
+	{
+		hide_file.click();
+	});
+	hide_file.addEventListener('change', function(e)
+	{
+		console.log(e);
+		readFiles(this.files);
+	});
+	//MIME type类型映射
+	var MIME =
+	{
+		ttf: 'font/truetype',
+		woff: 'font/woff'
+	}
+	function readFiles(files)
+	{
+		console.log(files);
+		if(files.length <= 0) return;//这里只处理第一个文件
+		var file = files[0];
+		var type = file.type;
+		if(!type)//未知格式时type会为空
+		{
+			var suffix = file.name.substring(file.name.lastIndexOf('.')+1);
+			type = MIME[suffix];
+		}
+		var reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onload = function(e)
+		{
+			var base64 = this.result;
+			base64 = base64.replace(/data:.*?;/g, 'data:'+type+';');
+			result.value = base64;
+			result.select();
+			result.focus();
+		}
+	}
+
+	btn.addEventListener('dragover', function(e)
+	{
+		e.preventDefault();
+	});
+	btn.addEventListener('dragenter', function(e)
+	{
+		btn.className = 'allow_drop';
+	});
+	btn.addEventListener('dragend', function(e)
+	{
+		btn.className = '';
+	});
+	btn.addEventListener('dragleave', function(e)
+	{
+		btn.className = '';
+	});
+	btn.addEventListener('drop', function(e)
+	{
+		btn.className = '';
+		e.preventDefault();
+		console.log(e);
+		readFiles(e.dataTransfer.files);
+	});
+
+	</script>
+</body>
+</html>
