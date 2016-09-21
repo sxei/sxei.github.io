@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta charset="utf-8"/>
-	<title>HTML5 video 拉伸比例</title>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="欢迎访问柳夏南的个人网站，同时这里也是柳夏南个人博客">
+	<meta name="keys" content="柳夏南,liuxianan,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://liuxianan.com/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../../../../demo.css">
+	<title>HTML5 video比例拉伸示例</title>
 	<style type="text/css">
 	body{font-family: 'Microsoft Yahei'; font-size: 18px; background: white;}
 	video{width: 640px; height: 360px;}
@@ -10,23 +17,32 @@
 	</style>
 </head>
 <body>
+
+	<header class="header">
+		<a href="/">返回首页</a> 
+		<a href="#">返回相关博文</a>
+	</header>
+
+	<h2>HTML5 video比例拉伸示例</h2>
 	<h1>默认比例（640*360,16:9）</h1>
-	<video id="video_1" src="test.mp4" controls autoplay loop></video>
+	<video id="video_1" src="http://7xnzpx.com1.z0.glb.clouddn.com/miaoxingren_360p.mp4" controls autoplay loop></video>
 	<h1>宽高比增大，高度变小（640*280,16:7）</h1>
 	<script type="text/javascript">
-	var rotate2 = (Math.acos( (280/640) / (360/640) )*180/Math.PI).toFixed(2); // 新的 高宽比 除以 旧的 高宽比
+	var rotate2 = (Math.acos(280/360)*180/Math.PI).toFixed(2); // 新高度 / 旧高度
 	document.write('<div>宽高比增加时，以宽度为基准，调整rotateX='+rotate2+'deg</div>');
 	</script>
-	<video id="video_2" src="test.mp4" controls autoplay loop></video>
-	<h1>宽高比减小，高度增加（640*480,4:3）</h1>
+	<video id="video_2" src="http://7xnzpx.com1.z0.glb.clouddn.com/miaoxingren_360p.mp4" controls autoplay loop></video>
+	<h1>宽高比减小，高度增加（480*360,4:3）</h1>
 	<script type="text/javascript">
-	var rotate3 = (Math.acos( (360/640) / (360/480) )*180/Math.PI).toFixed(2);
+	var rotate3 = (Math.acos(480/640)*180/Math.PI).toFixed(2); // 新宽度 / 旧宽度
 	document.write('<div>宽高比减小时，以高度为基准，调整rotateY='+rotate3+'deg</div>');
 	</script>
-	<video id="video_3" src="test.mp4" controls autoplay loop></video>
+	<video id="video_3" src="http://7xnzpx.com1.z0.glb.clouddn.com/miaoxingren_360p.mp4" controls autoplay loop></video>
+	<h3>查看更清晰喵星人视频请将地址中的360p换成720p</h3>
 	<script type="text/javascript">
 	document.getElementById('video_2').style.transform = 'rotateX('+rotate2+'deg)';
 	document.getElementById('video_3').style.transform = 'rotateY('+rotate3+'deg)';
 	</script>
+	<script type="text/javascript" src="../../../../demo.js"></script>
 </body>
 </html>
