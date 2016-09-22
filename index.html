@@ -119,13 +119,17 @@ section.center-content {
 			<li><a href="http://about.liuxianan.com">关于</a></li>
 		</ul>
 	</header>
+	<script type="text/javascript" src="index.js"></script>
 	<section class="center-content">
 		<h1>demo列表</h1>
 		<ul>
-			<li>(2016-01-07)<a href="2016/01/07/demo-sample/">DEMO页面模板</a></li>
-			<li>(2016-01-09)<a href="2016/01/09/html5-video-resize/">巧用transform实现HTML5 video标签视频比例拉伸</a></li>
-			<li>(2016-03-08)<a href="2016/03/08/css-counter/">CSS3计数器使用示例</a></li>
-			<li>(2016-08-18)<a href="2016/08/18/simple-lazyload/">简单图片以及背景图懒加载示例</a></li>
+			<script type="text/javascript">
+			for(var i=0; i<pages.length; i++)
+			{
+				var p = pages[i];
+				document.write('<li>('+p.date+')<a href="'+p.url+'">'+p.title+'</a></li>');
+			}
+			</script>
 		</ul>
 	</section>
 	<footer>
