@@ -28,5 +28,11 @@ var pages = [
 		"title": "object-fit测试",
 		"description": "欢迎访问柳夏南的个人网站，同时这里也是柳夏南个人博客",
 		"url": "2016/09/21-test-object-fit/"
+	},
+	{
+		"date": "2016-09-26",
+		"title": "jBox",
+		"description": null,
+		"url": "2016/09/26-jbox/"
 	}
 ]

@@ -1,0 +1,174 @@
+/* ModalBorder.css */
+
+
+
+/* Wrapper */
+
+.jBox-ModalBorder {
+	border-radius: 8px;
+	background: rgba(0, 0, 0, .4);
+	padding: 8px;
+	box-shadow: 0 0 6px rgba(0, 0, 0, .2);
+}
+
+/* Container */
+
+.jBox-ModalBorder .jBox-container {
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Close button */
+
+.jBox-ModalBorder.jBox-closeButton-box {
+	border-top-right-radius: 0;
+}
+
+.jBox-ModalBorder.jBox-closeButton-box:before {
+	display: none;
+}
+
+.jBox-ModalBorder.jBox-hasTitle.jBox-closeButton-box .jBox-closeButton,
+.jBox-ModalBorder.jBox-closeButton-box .jBox-closeButton {
+	background: rgba(0, 0, 0, .4);
+	border-radius: 0 50% 50% 0;
+	right: -32px;
+	top: -8px;
+}
+
+.jBox-ModalBorder.jBox-closeButton-box .jBox-closeButton path {
+	fill: #d2d4d6;
+}
+
+.jBox-ModalBorder.jBox-closeButton-box .jBox-closeButton:hover path {
+	fill: #fff;
+}
+
+.jBox-ModalBorder.jBox-closeButton-box .jBox-closeButton:active path {
+	fill: #b2b4b6;
+}
+
+
+
+/* NoticeBorder.css */
+
+/* jBox: Notice */
+
+.jBox-NoticeBorder .jBox-container {
+	border-radius: 6px;
+}
+
+.jBox-NoticeBorder .jBox-content,
+.jBox-NoticeBorder .jBox-title {
+	padding-left: 26px;
+}
+
+.jBox-NoticeBorder.jBox-Notice-color .jBox-container {
+	color: #fff;
+	text-shadow: 0 -1px 0 #000;
+	background: rgba(0, 0, 0, .92);
+}
+
+.jBox-NoticeBorder.jBox-Notice-color .jBox-container:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 8px;
+	border-radius: 5px 0 0 5px;
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, .5) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .5) 75%, transparent 75%, transparent);
+	background-size: 18px 18px;
+}
+
+.jBox-NoticeBorder.jBox-Notice-red .jBox-container:after {
+	background-color: #ee0000;
+}
+
+.jBox-NoticeBorder.jBox-Notice-green .jBox-container:after {
+	background-color: #95cc2a;
+}
+
+.jBox-NoticeBorder.jBox-Notice-blue .jBox-container:after {
+	background-color: #4cb4ff;
+}
+
+.jBox-NoticeBorder.jBox-Notice-yellow .jBox-container:after {
+	background-color: #ffba00;
+}
+
+
+/* TooltipBorder.css */
+
+/* Container */
+
+.jBox-TooltipBorder .jBox-container {
+	border-radius: 5px;
+	border: 2px solid #52a2cb;
+}
+
+/* Pointer */
+
+.jBox-TooltipBorder .jBox-pointer:after {
+	border: 2px solid #52a2cb;
+}
+
+.jBox-TooltipBorder .jBox-pointer-top,
+.jBox-TooltipBorder .jBox-pointer-bottom {
+	width: 34px;
+	height: 12px;
+}
+
+.jBox-TooltipBorder .jBox-pointer-left,
+.jBox-TooltipBorder .jBox-pointer-right {
+	width: 12px;
+	height: 34px;
+}
+
+/* Close button */
+
+.jBox-TooltipBorder.jBox-closeButton-box:before {
+	width: 28px;
+	height: 28px;
+	background: #52a2cb;
+}
+
+
+/* TooltipDark.css */
+
+/* Container */
+
+.jBox-TooltipDark .jBox-container {
+	border-radius: 3px;
+	background: #222;
+	color: #fff;
+	box-shadow: 0 0 6px rgba(0, 0, 0, .4);
+}
+
+/* Pointer */
+
+.jBox-TooltipDark .jBox-pointer:after {
+	background: #222;
+}
+
+/* Close button */
+
+.jBox-TooltipDark .jBox-closeButton {
+	background: #222;
+}
+
+.jBox-TooltipDark.jBox-closeButton-box:before {
+	box-shadow: 0 0 6px rgba(0, 0, 0, .4);
+}
+
+.jBox-TooltipDark.jBox-closeButton-box .jBox-closeButton path {
+	fill: #d2d4d6;
+}
+
+.jBox-TooltipDark.jBox-closeButton-box .jBox-closeButton:hover path {
+	fill: #fff;
+}
+
+.jBox-TooltipDark.jBox-closeButton-box .jBox-closeButton:active path {
+	fill: #b2b4b6;
+}

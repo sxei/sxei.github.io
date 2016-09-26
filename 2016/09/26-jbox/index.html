@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title>jBox</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="jBox/0.3.2/jBox.css">
+	<link rel="stylesheet" href="jBox/0.3.2/jBox-theme.css">
+
+<style type="text/css">
+body {
+	font-family: 'Microsoft Yahei';
+}
+button {
+	margin: 40px 0px;
+}
+.demo-img {
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    width: 113px;
+    height: 54px;
+    overflow: hidden;
+    background: no-repeat center center;
+    background-size: 113px 54px;
+    float: left;
+    margin: 0 5px 0 0
+}
+
+.demo-img > img {
+    border-radius: 5px;
+    width: 113px;
+    height: 54px;
+}
+.demo-img:last-child {
+    margin-right: 0
+}
+
+	</style>
+
+</head>
+
+<body class="container-fluid">
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3>jBox<small>&nbsp;v0.3.2(最新版，截止日期：20150104)</small></h3>
+			<h4>
+				jBox是一款功能强大、使用方便、外观漂亮的弹框插件
+			</h4>
+			<h4>
+				官网：<a href="http://stephanwagner.me/jBox">http://stephanwagner.me/jBox</a>
+			</h4>
+			<div class="alert alert-success" role="alert">
+				<h4>注意事项：</h4>
+				<ol>
+					<li>只兼容现代浏览器；</li>
+					<li>插件还比较年轻，14年4月19日才发布v0.1版；</li>
+					<li>iframe下效果欠佳，最好不要用在iframe里面；</li>
+					<li>要求jQuery版本必须>=1.11，已经测试在jquery-1.7.2下图片预览插件无法显示（尼玛这个问题找了我好久！）</li>
+				</ol>
+			</div>
+		</div>
+		<!-- .col-md-12 结束 -->
+	</div>
+	<!-- .row 结束 -->
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="page-header">提示框：</h3>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoT1" title="这是最简单的tooltip！">最简单的提示</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoT2">改变位置和动画</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoT3">改变外观</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoT4">延迟提示</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoT5">跟随鼠标</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoT6">不会消失</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoT7">单击我</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoT8">单击我</button>
+					</div>
+				</div>
+			</div>
+			<!-- .row 结束 -->
+
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="page-header">图片放大</h3>
+					<div class="clearfix">
+						<div>
+							<a title="这是第1张图片" href="images/00.jpg" data-jbox-image="gallery1" class="demo-img">
+								<img src="images/00_small.jpg">
+							</a>
+							<a title="这是第2张图片" href="images/01.jpg" data-jbox-image="gallery1" class="demo-img">
+								<img src="images/01_small.jpg">
+							</a>
+							<a title="这是第3张图片" href="images/02.jpg" data-jbox-image="gallery1" class="demo-img">
+								<img src="images/02_small.jpg">
+							</a>
+						</div>
+						<div style="float: right">
+							<a title="吃饭睡觉打豆豆111" href="images/03.jpg" data-jbox-image-white="gallery2" class="demo-img">
+								<img src="images/03_small.jpg">
+							</a>
+							<a title="吃饭睡觉打豆豆222" href="images/04.jpg" data-jbox-image-white="gallery2" class="demo-img">
+								<img src="images/04_small.jpg">
+							</a>
+							<a title="吃饭睡觉打豆豆333" href="images/05.jpg" data-jbox-image-white="gallery2" class="demo-img">
+								<img src="images/05_small.jpg">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- .row 结束 -->
+
+		</div>
+		<!-- .col-md-6 结束 -->
+
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="page-header">模态窗体</h3>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoM1">最简单</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoM2">加载本页内容</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoM3">ajax加载</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoM4">对话框</button>
+					</div>
+					<div id="demoM2_content" style="display:none;">如果内容太多，可以把它单独放到一个dom里面去，记得要设置隐藏！<br><button class="btn btn-default" onclick="modal2.close();">关闭对话框</button></div>
+				</div>
+			</div>
+			<!-- .row 结束 -->
+			
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="page-header">通知</h3>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoN1">单击我</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoN2">单击我</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoN3">单击我</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoN4">单击我</button>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<button class="btn btn-default btn-lg btn-block" id="demoN5">单击我</button>
+					</div>
+				</div>
+			</div>
+			<!-- .row 结束 -->
+
+		</div>
+		<!-- .col-md-6 结束 -->
+
+	</div>
+	<!-- .row 结束 -->
+	
+	
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="jBox/0.3.2/jBox.js"></script>
+
+	<script type="text/javascript">
+
+	$(function()
+	{
+		/*************************** tooltip *****************************/
+		$('#demoT1').jBox('Tooltip');
+
+		$('#demoT2').jBox('Tooltip', 
+		{
+			theme: 'TooltipBorder',
+			width: 200,
+			position: {x: 'left',y: 'center'},
+			outside: 'x',
+			pointer: 'top:15',
+			zIndex: 8000,
+			content: '有很多选项可以改变提示框的位置和动画以及其它参数',
+			animation: 'move'
+		});
+
+		$('#demoT3').jBox('Tooltip', 
+		{
+			theme: 'TooltipDark',
+			animation: 'zoomOut',
+			zIndex: 8000,
+			content: '您可以使用不同的themes来改变外观'
+		});
+		$('#demoT4').mouseenter(function()
+		{
+			$('#demoT4').addClass('active').html('稍等1秒...');
+		})
+		.mouseleave(function() 
+		{
+			$('#demoT4').addClass('active').html('2秒后消失...');
+		})
+		.jBox('Tooltip', 
+		{
+			width: 300,
+			pointer: 'right:80',
+			animation: 'move',
+			delayOpen: 1000,
+			delayClose: 2000,
+			zIndex: 8000,
+			content: '这个提示框延迟1秒显示并且鼠标离开后2秒才消失',
+			onOpen: function() 
+			{
+				$('#demoT4').removeClass('active').html('延迟提示');
+			},
+			onClose: function()
+			{
+				$('#demoT4').removeClass('active').html('延迟提示');
+			}
+		});
+
+		$('#demoT5').jBox('Mouse', 
+		{
+			theme: 'TooltipBorder',
+			content: '我将会跟随您的鼠标移动而移动'
+		});
+
+		$('#demoT6').jBox('Tooltip', 
+		{
+			theme: 'TooltipBorder',
+			width: 280,
+			closeOnMouseleave: true,
+			animation: 'zoomIn',
+			zIndex: 8000,
+			content: '当你的鼠标移动到提示框上面去时，提示框不会消失'
+		});
+		$('#demoT7').jBox('Tooltip', 
+		{
+			target: $('#demoT1'),
+			theme: 'TooltipBorder',
+			trigger: 'click',
+			adjustDistance: {top: 55,right: 5,bottom: 5,left: 5},
+			adjustTracker: true,
+			closeOnClick: 'body',
+			closeButton: 'box',
+			animation: 'move',
+			zIndex: 8000,
+			position: {x: 'left',y: 'top'},
+			outside: 'y',
+			pointer: 'left:20',
+			offset: {x: 25},
+			content: '提示框可以放在任意元素上，<br>尝试滚动页面，提示框的位置将会自适应！',
+			onOpen: function() 
+			{
+				$('#demoT7').addClass('active').html('滚动试试看');
+			},
+			onClose: function()
+			{
+				$('#demoT7').removeClass('active').html('单击我');
+			}
+		});
+		$('#demoT8').jBox('Tooltip', 
+		{
+			theme: 'TooltipBorder',
+			trigger: 'click',
+			width: 200,
+			height: 600,
+			adjustTracker: true,
+			adjustDistance: {top: 55,right: 5,bottom: 5,left: 5},
+			closeOnClick: 'body',
+			closeOnEsc: true,
+			animation: 'move',
+			zIndex: 8000,
+			position: {x: 'right',y: 'center'},
+			outside: 'x',
+			content: '尝试滚动或者改变浏览器大小，我将会自动调整我的位置！<br><br>按 [ESC] 或者单击任何其它地方来关闭我！',
+			onInit: function() 
+			{
+				this.options.height = ($(window).height() - 200);
+			},
+			onOpen: function() 
+			{
+				$('#demoT8').addClass('active').html('滚动试试看');
+			},
+			onClose: function() 
+			{
+				$('#demoT8').removeClass('active').html('单击我');
+			}
+		});
+
+
+
+		/*************************** Modal *****************************/
+		$('#demoM1').jBox('Modal',
+		{
+			height: 200,
+			title: '最简单的模态框',
+			content: '<div style="line-height: 30px;">尝试滚动页面，它会固定在某个位置。<br>按 [ESC] 或者单击任何其它地方来关闭我！</div>'
+		});
+
+		window.modal2 = new jBox('Modal',
+		{
+			attach: $('#demoM2'),
+			theme: 'ModalBorder',
+			width: 350,
+			height: 200,
+			blockScroll: false,
+			animation: 'zoomIn',
+			draggable: 'title',
+			closeButton: true,
+			title: '可拖动窗体',
+			content: $('#demoM2_content'),//如果内容太多可以单独放在一个dom里面隐藏起来
+			overlay: false
+		});
+
+		$('#demoM3').jBox('Modal', 
+		{
+			width: 450,
+			height: 250,
+			closeButton: 'title',
+			animation: false,
+			ajax:
+			{
+				url: '../example/blank1.jsp',
+				reload: true,
+				beforeSend: function() 
+				{
+					this.setTitle('正在加载');
+				},
+				complete: function()
+				{
+					this.setTitle('加载完毕');
+				}
+			}
+		});
+
+		$('#demoM4').jBox('Confirm',
+		{
+			closeButton: 'box',
+			content: '刘显安是不是很帅?',
+			confirmButton: '帅',
+			cancelButton: '不帅',
+			//默认没有配置confirm的话，首先尝试使用onclick，其次再考虑href
+			confirm: function()
+			{
+				new jBox('Notice', {content: '哈哈，算你识相，赏你一个辣条！', color: 'green', attributes: {y: 'bottom'}})
+			},
+			cancel: function()
+			{
+				new jBox('Notice', {content: '不想活了吧你？', color: 'green', attributes: {y: 'bottom'}})
+			}
+		});
+		
+		
+
+		/*************************** Notice *****************************/
+
+		$('#demoN1,#demoN2,#demoN3,#demoN4').click(function()
+		{
+			$(this).addClass('active').html('请再次单击我');
+		}).mouseleave(function()
+		{
+			$(this).removeClass('active').html('单击我');
+		});
+
+		$('#demoN1').click(function()
+		{
+			new jBox('Notice',
+			{
+				content: '嗨，我是通知框！',
+				position: {x: 15,y: 65},
+				autoClose: 5000//5秒自动关闭
+			});
+		});
+
+		var colorsN2 = ['red', 'green', 'blue', 'yellow'];
+		var currentColorN2 = 0;
+		$('#demoN2').click(function()
+		{
+			new jBox('Notice',
+			{
+				animation: 'flip',
+				position: {x: 15,y: 65},
+				content: '多次单击我将会变换颜色',
+				onInit: function()
+				{
+					this.options.color = colorsN2[currentColorN2];
+					currentColorN2++;
+					(currentColorN2 >= colorsN2.length) && (currentColorN2 = 0);
+				},
+				zIndex: 12000
+			});
+		});
+
+		var colorsN3 = ['red', 'green', 'blue', 'yellow'];
+		var titlesN3 = ['系统提示', '不错', '提醒', '注意'];
+		var contentsN3 = ['对不起，您的智商余额不足！请及时续费！', '家伙，干的漂亮！', '不要忘了多点击几次这个按钮哦！', '注意，注意，明天发工资，发工资啦！'];
+		var currentColorN3 = 0;
+		$('#demoN3').click(function()
+		{
+			new jBox('Notice', 
+			{
+				attributes: {x: 'left',y: 'bottom'},
+				theme: 'NoticeBorder',
+				color: 'black',
+				audio: 'http://localhost:8080/base/resources/js/jBox/0.3.2/audio/bling2',//指定声音，无需后缀，会自动选择ogg或者mp3格式的音频文件
+				volume: 100,
+				animation: {open: 'slide:bottom',close: 'slide:left'},
+				onInit: function()
+				{
+					this.options.color = colorsN3[currentColorN3];
+					this.options.title = titlesN3[currentColorN3];
+					this.options.content = contentsN3[currentColorN3];
+					currentColorN3++;
+					(currentColorN3 >= colorsN3.length) && (currentColorN3 = 0);
+				}
+			});
+		});
+
+		var colorsN4 = ['black', 'red', 'green', 'blue', 'yellow'];
+		var currentColorN4 = 0;
+		$('#demoN4').click(function()
+		{
+			new jBox('Notice', 
+			{
+				autoClose: 5000,//5秒自动关闭
+				attributes: {x: 'right',y: 'bottom'},
+				stack: false,//是否允许多个提示并存
+				animation: {open: 'tada',close: 'zoomIn'},
+				title: '单个notice',
+				content: '多个提示不会并存！',
+				onInit: function()
+				{
+					this.options.color = colorsN4[currentColorN4];
+					currentColorN4++;
+					(currentColorN4 >= colorsN4.length) && (currentColorN4 = 0);
+				}
+			});
+		});
+
+
+		$('#demoN5').click(function()
+		{
+			new jBox('Notice', 
+			{
+				autoClose: 2000,//2秒自动关闭
+				color: 'red',
+				attributes: {x: 'center',y: 'top'},
+				stack: false,//是否允许多个提示并存
+				animation: {open: 'slide:top', close: 'slide:top'},
+				title: '错误',
+				content: '操作失败，请稍后再试！'
+			});
+		});
+
+		new jBox('Image');//默认会初始化有data-jbox-image的图片
+		new jBox('Image',
+		{
+			attach: $('[data-jbox-image-white]'),
+			gallery: 'data-jbox-image-white',
+			theme: 'ImageWhite',
+			imageFade: 0//渐变的时间
+		});
+		
+	});
+
+
+	</script>
+
+</body>
+
+</html>
