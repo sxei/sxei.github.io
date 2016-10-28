@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="介绍文字水平、垂直排列设置">
+	<meta name="keys" content="柳夏南,liuxianan,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://liuxianan.com/favicon.ico" type="image/x-icon">
+
+	<title>writing-mode使用示例</title>
+	<meta name="author" content="lxa" />
+	<style>
+	body{font-family: 'Microsoft Yahei'; font-size: 20px;}
+	.wrapper{width: 1024px;margin: 0 auto;}
+	.test
+	{
+		width: 200px;
+		height: 300px;
+		margin: 10px;
+		border: 1px solid #aaa;
+		background-color: #DB9507;
+		color: #FFF;
+		text-shadow: 1px 1px 1px #000;
+		padding: 10px;
+	}
+	.test2
+	{
+		width: 100px;
+		height: 300px;
+		margin: 10px;
+		border: 1px solid #aaa;
+		background-color: #7C46B2;
+		color: #FFF;
+		text-shadow: 1px 1px 1px #000;
+		padding: 10px;
+	}
+	.float{float: left;}
+	ul.float{border: dashed 2px #F00;padding: 0;}
+	.lr-tb{-webkit-writing-mode:horizontal-tb;writing-mode:lr-tb;writing-mode:horizontal-tb;}
+	.lr-bt{-webkit-writing-mode:horizontal-bt;}
+	.tb-rl{-webkit-writing-mode:vertical-rl;writing-mode:tb-rl;writing-mode:vertical-rl;}
+	.tb-lr{-webkit-writing-mode:vertical-lr;writing-mode:tb-rl;writing-mode:vertical-lr;}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<h2>writing-mode使用示例（20160121）</h2>
+		<div>特别说明，Chrome28以后才开始支持，虽然writing-mode不报错但不生效，所以可以认为只支持-webkit-writing-mode，火狐全系列不支持。margin和padding的百分比默认都是按照宽度计算的，如果改成垂直显示，则是按高度计算。</div>
+		<div class="test float lr-tb">本段文字将按照水平从左到右、从上到下的书写方向进行流动。</div>
+		<div class="test float lr-bt">本段文字将按照水平从左到右、从下到上的书写方向进行流动。</div>
+		<div class="test float tb-rl">本段文字将按照垂直从右到左、从上到下的书写方向进行流动。</div>
+		<div class="test float tb-lr">本段文字将按照垂直从左到右、从上到下的书写方向进行流动。</div>
+		<div style="clear:both;"></div>
+		<ul class="float tb-rl">
+			<li class="test2">本段文字将按照垂直从右到左的书写方向进行流动。</li>
+			<li class="test2">本段文字将按照垂直从右到左的书写方向进行流动。</li>
+		</ul>
+		<ul class="float tb-lr">
+			<li class="test2">本段文字将按照垂直从左到右的书写方向进行流动。</li>
+			<li class="test2">本段文字将按照垂直从左到右的书写方向进行流动。</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="white-space、word-break、word-wrap的区别">
+	<meta name="keys" content="柳夏南,liuxianan,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://liuxianan.com/favicon.ico" type="image/x-icon">
+	<title>white-space、word-break、word-wrap的区别</title>
+	<style type="text/css">
+	body{font-family: 'Microsoft Yahei'; font-size: 16px; background: white; margin: 0; padding: 0;}
+	#wrapper{width: 1200px;margin: 0 auto;}
+	#wrapper >div {
+    width: 240px;
+    background-color: #ccc;
+    margin: 10px;
+    padding: 10px;
+}
+#demo1{}
+#demo2{word-wrap: break-word;}
+#demo3{word-break: break-word;}
+#demo4{word-break: break-all;}
+#demo5{white-space: nowrap;}
+#demo6{white-space: pre;}
+#demo7{white-space: pre-wrap;}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<h3>看网上的介绍说，word-wrap是是否允许单词内进行断句，word-break是表明怎么样进行单词内的断句，前者只有一个break-word属性，后者有break-word何break-all这2个属性，但是在我测试的时候感觉二者的break-word没啥区别</h3>
+		<h3>white-space则是指定是否允许换行以及是否保留空格等，它有normal、nowrap、pre、pre-wrap、pre-line这5个属性。</h3>
+		<h2>默认：</h2>
+		<div id="demo1">大家好，我是   中国人，我用人民币，my name is buzhidao, what is your name aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa?</div>
+		<h2>word-wrap: break-word;(只有同一个单词太长了一行都显示不了才拆分单词)</h2>
+		<div id="demo2">大家好，我是   中国人，我用人民币，my name is buzhidao, what is your name aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa?</div>
+		<h2>word-break: break-word;(感觉和word-wrap: break-word差不多)</h2>
+		<div id="demo3">大家好，我是   中国人，我用人民币，my name is buzhidao, what is your name aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa?</div>
+		<h2>word-break: break-all;(暴力换行)</h2>
+		<div id="demo4">大家好，我是   中国人，我用人民币，my name is buzhidao, what is your name aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa?</div>
+		<h2>white-space: nowrap;(强制不换行)</h2>
+		<div id="demo5">大家好，我是   中国人，我用人民币，my name is buzhidao, what is your name aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa?</div>
+		<h2>white-space: pre;(强制不换行并且保留空白字符)</h2>
+		<div id="demo6">大家好，我是   中国人，我用人民币，my name is buzhidao, what is your name aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa?</div>
+		<h2>white-space: pre-wrap;(换行，但是保留空白字符)</h2>
+		<div id="demo7">大家好，我是   中国人，我用人民币，my name is buzhidao, what is your name aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa?</div>
+	</div>
+</body>
+</html>
