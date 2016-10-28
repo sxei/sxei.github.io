@@ -96,7 +96,7 @@ section.center-content {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	color: #888;
+	color: #FF2B09;
 }
 .center-content a {
 	color: #337ab7;
@@ -105,6 +105,10 @@ section.center-content {
 }
 .center-content a:hover {
 	text-decoration: underline;
+}
+.center-content ul li span {
+    color: #939393;
+    margin-left: 10px;
 }
 	</style>
 </head>
@@ -121,13 +125,19 @@ section.center-content {
 	</header>
 	<script type="text/javascript" src="index.js"></script>
 	<section class="center-content">
-		<h1>demo列表</h1>
+		<h1>demo列表1</h1>
+		<ul>
+			<li>(2016-09-19)<a href="http://demo.liuxianan.com/notebook/" target="_blank">从网友@iRuxu 复制的非常全的web笔记</a></li>
+			<li>(2016-09-27)<a href="http://demo.liuxianan.com/pinyinjs/" target="_blank">JS在线汉字与拼音互转示例，JS实现简单的仿搜狗拼音输入法(不支持多音字自动识别)</a></li>
+			<li>(2016-09-27)<a href="http://demo.liuxianan.com/pinyinjs/polyphone.html" target="_blank">JS在线汉字与拼音互转示例(支持多音字自动识别)</a></li>
+		</ul>
+		<h1>demo列表2</h1>
 		<ul>
 			<script type="text/javascript">
 			for(var i=0; i<pages.length; i++)
 			{
 				var p = pages[i];
-				document.write('<li>('+p.date+')<a href="'+p.url+'" target="_blank">'+p.title+'</a></li>');
+				document.write('<li>('+p.date+')<a href="'+p.url+'" target="_blank">'+p.title+'</a><span>('+p.description+')</span></li>');
 			}
 			</script>
 		</ul>

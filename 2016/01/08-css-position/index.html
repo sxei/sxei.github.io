@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="欢迎访问柳夏南的个人网站，同时这里也是柳夏南个人博客">
+	<meta name="keys" content="柳夏南,liuxianan,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://liuxianan.com/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../../../demo.css">
+	
+	<title>css定位:absolute和relative</title>
+	<style type="text/css">
+	html,body{width: 100%; height: 100%;}
+	body{font-family: 'Microsoft Yahei'; font-size: 18px; background: white; margin: 0; padding: 0; color: white;}
+	.panel{width: 50%; height: 100%; position: absolute; top: 0;}
+	.panel > div {padding: 10px; text-shadow: 1px 1px 1px #686868;}
+	.panel1{left: 0; background-color: #BEFAFF;}
+	.panel2{left: 50%; background-color: #FFD1DD;}
+	.panel1 .block1{width: 300px; height: 150px; background: red; position: relative; left: 100px; top: 100px;}
+	.panel1 .block2{width: 300px; height: 150px; background: blue;}
+	.panel2 .block1{width: 300px; height: 150px; background: red; position: absolute; left: 100px; top: 100px;}
+	.panel2 .block2{width: 300px; height: 150px; background: blue;}
+	</style>
+</head>
+<body>
+
+	<div class="panel panel1">
+		<div class="block1">relative块虽然位置发生偏移，但是其在文本流中的位置依然存在，后面的static块依然是相对于它未偏移时位置来定位的</div>
+		<div class="block2">默认的static</div>
+	</div>
+	<div class="panel panel2">
+		<div class="block1">absolute块会脱离正常文本流，导致后面的static块“从头开始”</div>
+		<div class="block2">默认的static</div>
+	</div>
+
+</body>
+</html>
