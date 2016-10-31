@@ -1,8 +1,8 @@
 var pages = [
 	{
 		"date": "2015-11-10",
-		"title": "吴阳阳吃屎",
-		"description": "吴阳阳吃屎",
+		"title": "wyy-eat-shit",
+		"description": "wyy-eat-shit",
 		"url": "2015/11/10-wyy-eat-shit/"
 	},
 	{
