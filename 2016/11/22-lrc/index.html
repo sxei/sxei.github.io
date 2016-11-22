@@ -6,7 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="resources/lrc.css">
 	<style type="text/css">
 	body{font-family: 'Microsoft Yahei'; font-size: 16px; background: white; margin: 0; padding: 0;}
-	.title{color:white;}
+	.title{color:white; margin-left: 100px;}
+	.title span {font-size: 20px;}
 	.body-wrapper{width:1280px;height:720px;background: url(resources/bg.jpg) no-repeat; position: absolute; left: 0; top: 0;}
 	audio{width: 1100px;}
 	#lrc-wrapper {position: absolute; left: 360px; top: 170px;}
@@ -15,7 +16,7 @@
 <body>
 
 	<div class="body-wrapper">
-		<h1 class="title">LRC歌词演示</h1>
+		<h1 class="title">LRC歌词演示<span>（请不要双击打开本页面）</span></h1>
 		<audio id="mp" src="resources/test.mp3" controls autoplay></audio>
 		<div id="lrc-wrapper" class="lrc-wrapper"></div>
 	</div>
