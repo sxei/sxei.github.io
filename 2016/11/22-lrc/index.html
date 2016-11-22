@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8"/>
+	<title>LRC歌词演示</title>
+	<link rel="stylesheet" type="text/css" href="resources/lrc.css">
+	<style type="text/css">
+	body{font-family: 'Microsoft Yahei'; font-size: 16px; background: white; margin: 0; padding: 0;}
+	.title{color:white;}
+	.body-wrapper{width:1280px;height:720px;background: url(resources/bg.jpg) no-repeat; position: absolute; left: 0; top: 0;}
+	audio{width: 1100px;}
+	#lrc-wrapper {position: absolute; left: 360px; top: 170px;}
+	</style>
+</head>
+<body>
+
+	<div class="body-wrapper">
+		<h1 class="title">LRC歌词演示</h1>
+		<audio id="mp" src="resources/test.mp3" controls autoplay></audio>
+		<div id="lrc-wrapper" class="lrc-wrapper"></div>
+	</div>
+
+	<script type="text/javascript" src="resources/lrc.js"></script>
+
+	<script type="text/javascript">
+
+	// 实例化一个LRC歌词插件
+	var mylrc = new Lrc(
+	{
+		wrapperId: 'lrc-wrapper', // 目标容器ID
+		lrcUrl: 'resources/test.lrc', // 歌词文件地址
+		row: 7, // 歌词行数
+		lineHeight: 40, // 每行歌词的高度，修改高度需要同步修改【.lrc-wrapper ul li】的样式
+		delay: 0, // 延迟秒数，如果歌词文件不同步可以启用这个参数
+		// 获取当前播放时间，针对不同播放器需要自己实现本方法，对于EPG可以是：Epg.Mp.getCurrentPlayTime()
+		getCurrentPlayTime: function(){ return mp.currentTime || 0; }
+		//getCurrentPlayTime: function(){ return Epg.Mp.getCurrentPlayTime(); }
+	});
+	</script>
+</body>
+</html>

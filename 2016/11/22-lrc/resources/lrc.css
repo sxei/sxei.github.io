@@ -1,0 +1,31 @@
+﻿.lrc-wrapper {
+    background: rgba(0, 0, 0, 0.47);
+    border-radius: 5px;
+    padding: 20px;
+}
+.lrc-wrapper > div {
+    height: 300px;
+    overflow: hidden;
+    width: 500px;
+    color: #FFF;
+    font-size: 20px;
+    text-align: center;
+}
+.lrc-wrapper ul {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    list-style: none;
+}
+.lrc-wrapper ul li {
+    height: 40px;
+    line-height: 40px;
+    /* 歌词换行会导致计算不准确，暂时忽略之 */
+    white-space: nowrap;
+}
+.lrc-wrapper ul li.current {
+    color: #FF8939;
+}

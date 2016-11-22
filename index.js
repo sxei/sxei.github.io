@@ -106,5 +106,11 @@ var pages = [
 		"title": "jBox示例",
 		"description": "一款非常优秀的jQuery提示框、模态框插件",
 		"url": "2016/09/26-jbox/"
+	},
+	{
+		"date": "2016-11-22",
+		"title": "LRC歌词演示",
+		"description": null,
+		"url": "2016/11/22-lrc/"
 	}
 ]
