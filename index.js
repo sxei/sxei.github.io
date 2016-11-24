@@ -26,7 +26,7 @@ var pages = [
 	{
 		"date": "2016-01-09",
 		"title": "HTML5 video比例拉伸示例",
-		"description": "欢迎访问柳夏南的个人网站，同时这里也是柳夏南个人博客",
+		"description": "HTML5 video比例拉伸示例",
 		"url": "2016/01/09-html5-video-resize/"
 	},
 	{
@@ -98,7 +98,7 @@ var pages = [
 	{
 		"date": "2016-09-21",
 		"title": "object-fit测试",
-		"description": "欢迎访问柳夏南的个人网站，同时这里也是柳夏南个人博客",
+		"description": "CSS3新属性 object-fit 测试",
 		"url": "2016/09/21-test-object-fit/"
 	},
 	{
@@ -110,7 +110,7 @@ var pages = [
 	{
 		"date": "2016-11-22",
 		"title": "LRC歌词演示",
-		"description": null,
+		"description": "简单的显示LRC同步歌词插件演示",
 		"url": "2016/11/22-lrc/"
 	}
 ]

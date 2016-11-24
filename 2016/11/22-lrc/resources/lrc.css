@@ -25,6 +25,8 @@
     line-height: 40px;
     /* 歌词换行会导致计算不准确，暂时忽略之 */
     white-space: nowrap;
+    -webkit-transition: color .3s;
+    transition: color .3s;
 }
 .lrc-wrapper ul li.current {
     color: #FF8939;
