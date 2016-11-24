@@ -112,5 +112,17 @@ var pages = [
 		"title": "LRC歌词演示",
 		"description": "简单的显示LRC同步歌词插件演示",
 		"url": "2016/11/22-lrc/"
+	},
+	{
+		"date": "2016-11-24",
+		"title": "几种CSS经典布局",
+		"description": "展示几种常见的web布局方式",
+		"url": "2016/11/24-css-layout/"
+	},
+	{
+		"date": "2016-11-24",
+		"title": "经典新闻列表页面",
+		"description": "经典新闻列表页面",
+		"url": "2016/11/24-news-list/"
 	}
 ]
