@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="CSS3实现几种3D旋转效果演示">
+	<meta name="keys" content="柳夏南,liuxianan,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://liuxianan.com/favicon.ico" type="image/x-icon">
+	<title>3D旋转演示</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+body {
+	font-family: 'Microsoft Yahei';
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+.container {
+	width: 1024px;
+	margin: 0 auto;
+}
+
+.transform-img {
+    width: 400px;
+    height: 224px;
+}
+.transform-img > img{
+	width: 100%;
+	height: 100%;
+}
+.transform-img-2 > img, .transform-img-3 > img{
+    -webkit-transform: rotateY(-30deg);
+    transform: rotateY(-30deg);
+}
+.transform-img-3 {
+    -webkit-perspective: 400px;
+    perspective: 400px;
+}
+
+
+.zhengfangti {
+	position: relative;
+    width: 200px;
+    height: 200px;
+    margin-left: 200px;
+    margin-top: 100px;
+    -webkit-perspective: 2000px;
+    perspective: 2000px;
+    -webkit-transform: rotateX(20deg) rotateY(30deg);
+    transform: rotateX(20deg) rotateY(30deg);
+    /* 这个属性必须紧挨着子元素写 */
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.zhengfangti > div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    line-height: 200px;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px #000;
+    color: #FFF;
+}
+/* 前 */
+.zhengfangti > div:nth-child(1) {
+	background-color: green;
+	-webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 100px) ;
+}
+/* 后 */
+.zhengfangti > div:nth-child(2) {
+	background-color: yellow;
+	-webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, -100px) ;
+}
+/* 左 */
+.zhengfangti > div:nth-child(3) {
+	background-color: red;
+	-webkit-transform: rotateX(0deg) rotateY(270deg) rotateZ(0deg) translate3d(0px, 0px, 100px) ;
+}
+/* 右 */
+.zhengfangti > div:nth-child(4) {
+	background-color: blue;
+	-webkit-transform: rotateX(0deg) rotateY(90deg) rotateZ(0deg) translate3d(0px, 0px, 100px);
+}
+/* 上 */
+.zhengfangti > div:nth-child(5) {
+	background-color: #f0c;
+	-webkit-transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 100px);
+}
+/* 下 */
+.zhengfangti > div:nth-child(6) {
+	background-color: #0fc;
+	-webkit-transform: rotateX(270deg) rotateY(0deg) rotateZ(0deg) translate3d(0px, 0px, 100px);
+}
+
+/* 长方体 */
+.changfangti {
+	position: relative;
+	width: 200px;
+	height: 400px;
+	-webkit-perspective: 1000px;
+	perspective: 1000px;
+	-webkit-transform: rotateX(0deg) rotateY(50deg);
+	transform: rotateX(0deg) rotateY(50deg);
+	/*这个属性必须紧挨着子元素写*/
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+.changfangti > div {
+	text-align:center;font-weight:bold;color:#fff;font-size:20px;
+	position: absolute;
+}
+.changfangti > div:nth-child(1){width:200px;height:400px;line-height:400px;background:rgba(0,0,255,1);-webkit-transform: translateZ(20px) ;} /* 前 */
+.changfangti > div:nth-child(2){width:200px;height:400px;line-height:400px;background:rgba(200,200,0,1);-webkit-transform:translateZ(-20px);} /* 后 */
+.changfangti > div:nth-child(3){width:40px;height:400px;line-height:400px;background:rgba(0,255,0,1);-webkit-transform:rotateY(270deg) translateZ(20px);} /* 左 */
+.changfangti > div:nth-child(4){width:40px;height:400px;line-height:400px;background:rgba(255,0,255,1);-webkit-transform:rotateY(90deg) translateZ(180px);} /* 右 */
+.changfangti > div:nth-child(5){width:200px;height:40px;line-height:40px;background:rgba(255,0,0,1);-webkit-transform:rotateX(90deg) translateZ(20px);} /* 上 */
+.changfangti > div:nth-child(6){width:200px;height:40px;line-height:40px;background:rgba(0,255,255,1);-webkit-transform:rotateX(270deg) translateZ(380px);} /* 下 */
+
+</style>
+</head>
+<body>
+	
+	<div class="container">
+		<h1>3D旋转一张图片</h1>
+		<p>要使得旋转看起来更有立体感，必须配合景深(perspective)一起使用</p>
+		<h2>原始图片：</h2>
+		<div class="transform-img transform-img-1">
+			<img src="dog.jpg"/>
+		</div>
+		<h2>仅添加rotateY(-30deg)时：</h2>
+		<div class="transform-img transform-img-2">
+			<img src="dog.jpg"/>
+		</div>
+		<h2>添加rotateY(-30deg)并同时配合perspective时：</h2>
+		<div class="transform-img transform-img-3">
+			<img src="dog.jpg"/>
+		</div>
+
+		<h1>3D立方体</h1>
+		<div class="zhengfangti">
+			<div>前</div>
+			<div>后</div>
+			<div>左</div>
+			<div>右</div>
+			<div>上</div>
+			<div>下</div>
+		</div>
+
+		<h1>3D长方体</h1>
+		<div class="changfangti">
+			<div>前</div>
+			<div>后</div>
+			<div>左</div>
+			<div>右</div>
+			<div>上</div>
+			<div>下</div>
+		</div>
+	</div>
+
+</body>
+</html>

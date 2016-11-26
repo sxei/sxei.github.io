@@ -124,5 +124,17 @@ var pages = [
 		"title": "经典新闻列表页面",
 		"description": "经典新闻列表页面",
 		"url": "2016/11/24-news-list/"
+	},
+	{
+		"date": "2016-11-25",
+		"title": "3D旋转演示",
+		"description": "CSS3实现几种3D旋转效果演示",
+		"url": "2016/11/25-3d-transform/"
+	},
+	{
+		"date": "2016-11-26",
+		"title": "CSS垂直居中",
+		"description": "详细介绍CSS垂直居中的8种实现方式",
+		"url": "2016/11/26-vertical-align-center/"
 	}
 ]

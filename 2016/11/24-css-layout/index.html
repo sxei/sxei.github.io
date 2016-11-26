@@ -194,7 +194,7 @@ body{font-family: 'Microsoft Yahei'; font-size: 16px; }
 	<div class="body-container">
 
 		<h1>经典布局一</h1>
-		<p>上面header，下面footer，然后中间的container分为右侧固定一个宽度，左侧100%宽度（或者左侧固定宽度，右侧100%宽度，类似）</p>
+		<p>上面header，下面footer，然后中间的container分为右侧固定一个宽度，左侧100%宽度</p>
 		<div class="body-wrapper layout-1">
 			<header class="header">header</header>
 			<nav class="nav">nav</nav>
@@ -217,11 +217,12 @@ body{font-family: 'Microsoft Yahei'; font-size: 16px; }
 				</div>
 			</section>
 		</div>
-		<p>另外一种实现方式（采用overflow: hidden;）</p>
+		<p>另外一种实现方式，这种实现方式更加简单，只需要左边浮动，右边overflow: hidden; 即可</p>
 		<div class="body-wrapper layout-2-2">
 			<section class="container clear-float">
 				<aside class="aside">aside</aside>
 				<article class="content">content</article>
+                <aside class="aside1">aside</aside>
 			</section>
 		</div>
 

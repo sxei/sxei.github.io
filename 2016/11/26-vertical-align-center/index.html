@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="详细介绍CSS垂直居中的8种实现方式">
+	<meta name="keys" content="CSS垂直居中,柳夏南,liuxianan,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://liuxianan.com/favicon.ico" type="image/x-icon">
+	<title>CSS垂直居中</title>
+	<style>
+	a{text-decoration: none;}
+	*{padding:0;margin:0;box-sizing:border-box;}
+	body,input{font-family:'Microsoft Yahei';}
+	#top-tip {margin-top: 15px;}
+	hr{margin:0 auto 10px;}
+	h1{font-size:30px;line-height: 2}
+	h4{font-size:18px;color:#333;line-height:2;font-weight:normal;clear:both;}
+	h4>span{display:inline;padding:3px 10px;margin:0 5px;overflow:auto;background:#333;color:#eee}
+	h4>i{font-size:1.4em;font-weight:bold;margin-right:5px;}
+	.next{cursor:pointer;position: fixed;width:70px;height:52px;right:40px;bottom:40px;background-image:url(images/next.png);background-size:100% 100%;transition:all .5s ease;-webkit-transition:all .5s ease;opacity:0;}
+	.next:hover,.next:active{opacity: 1}
+	pre,code{font:16px/20px Consolas, "Liberation Mono", Courier, monospace;color:#333;height:auto !important;display: block}
+	pre{background-color: #f8f8f8;border: 1px solid #ccc; overflow: auto; padding:0 10px 18px;}
+	code{white-space: pre;border: none;background: transparent;margin:0;padding:0;}
+	dl{width:50%;float:left;padding:15px 20px;margin:15px 0 30px}
+	.right{background:rgb(236, 219, 188)}
+	.error{background:rgb(233, 192, 192)}
+	dl>dt{font-weight:bold;line-height: 2}
+	dl>dd{margin-left:20px;}
+	.wrapper{width:960px;margin:auto;}
+	.wrapper>p{margin:5px 0 10px;}
+	.parent,.son{position:relative;}
+    .parent{background:#2e5f3e;width:100%;height:300px;margin:5px auto 15px;}
+	.son{background-color: #4fa46b;width:50%;height:150px;}
+	.parent:before,.son:before,.cont:before{color:#fff;font-size:20px;line-height:24px;position: absolute;z-index:9999;top:2px;left:5px;}
+	.parent:before{content:'.parent';}
+	.son:before{content:'.son';}
+	.cont:before{content:'.cont';}
+
+	#p1>.son{position: absolute;left:50%;top:50%;background-color: transparent;border:2px dashed #ccc;}
+	#p1>.son>.cont{margin-top:-75px;margin-left:-50%;height:150px;width:100%;background-color: rgba(0,0,0,.5);z-index:-1;}
+	#p1>.son>.cont:before{margin-left:-50%;margin-top:-75px;}
+
+	#p2>.son{width:50%;height:50%;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
+
+	#p3{display: table}
+	#p3>.son{display:table-cell; vertical-align: middle;width:100%;height:100%;background-color: transparent;}
+	#p3>.son:before{top:2em;}
+	#p3>.son>.cont{width:50%;height:50%;margin:0 auto;background-color: rgba(0,0,0,.5);position: relative;}
+
+	#p4{overflow: auto;text-align: center;}
+	#p4:after,#p4>.son{display: inline-block;vertical-align: middle;}
+	#p4:after{content:'';width:0;height:100%;}
+	#p4>.son{width:50%;height:50%;}
+
+	#p5{display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+     -moz-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+     -moz-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;}
+
+    #p6{}
+    #p6>.son{width:50%;height:50%;margin:auto;position: absolute;top:0;right:0;left:0;bottom:0;}
+	
+	.parentO{background:#2e5f3e;height:300px;}
+	.parentO:after{content:".parent";}
+	#floater{background-color:#ccc;float:left; margin-bottom:-100px;height:50%;}
+	#floater:before{content:'#floater';}
+	#p7{background-color: #4fa46b;clear:both;height:200px;position:relative;width:60%;margin:auto;}
+	#p7:before{content:'.content';}
+
+	#p8{height: 10em;line-height:10em;background-color:#2e5f3e;}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<p id="top-tip">本页面由网友<a href="http://www.cnblogs.com/jadeboy">@云轩奕鹤</a>首发于<a href="http://www.jeffjade.com/special/vertical_center_methods.html">这里</a>，这里只是转载备份，在此表示感谢！</p>
+		<h1>绝对居中六法</h1>
+		<h4><i>01.</i>负外边距(Negative Margins)</h4>
+		<p><b>基本思路:</b> 首先，将设置了绝对定位的子元素水平和垂直偏移50%；然后，在水平和垂直方向分别偏移负自身宽高的一半</p>
+		<div class="parent" id="p1">
+			<div class="son">
+				<div class="cont"></div>
+			</div>
+		</div>
+		<pre><code>
+  .parent{position:relative}
+  .son{position: absolute;left: 50%;top: 50%}
+  .cont{width: 100%;height: 150px;margin-left: -50%; margin-top: -75px}
+</code></pre>
+		<dl class="right" style="height:130px">
+			<dt>优点：</dt>
+			<dd>
+				<ul>
+					<li>兼容性好，IE6都能完美兼容，移动端更是不在画下.</li>
+					<li>代码量少.</li>
+				</ul>
+			</dd>
+		</dl>
+		<dl class="error" style="height:130px">
+			<dt>不足：</dt>
+			<dd>
+				<ul>
+					<li>子元素的宽高值需要确定，这对于高度自适应容器是个问题.</li>
+					<li>最好将盒子设置box-sizing:border-box，因为偏移值是依据content+padding值来确定.</li>
+				</ul>
+			</dd>
+		</dl>
+		<hr>
+		<h4><i>02.</i>负位移(Transforms/Translate)</h4>
+		<p><b>基本思路:</b> 首先，将设置了绝对定位的子元素水平和垂直偏移50%；然后，通过CSS3 transform属性值将子元素偏移负自身宽高的一半</p>
+		<div class="parent" id="p2">
+			<div class="son"></div>
+		</div>
+		<pre><code>
+  .parent{position:relative}
+  .son{position: absolute;left: 50%;top: 50%;transform:translate(-50%,-50%);}
+</code></pre>
+		<dl class="right" style="height:156px">
+			<dt>优点：</dt>
+			<dd>
+				<ul>
+					<li>支持子容器高度自适应；适用于响应式布局环境.</li>
+					<li>移动浏览器支持较好</li>
+					<li>代码量少.</li>
+				</ul>
+			</dd>
+		</dl>
+		<dl class="error" style="height:156px">
+			<dt>不足：</dt>
+			<dd>
+				<ul>
+					<li>不支持IE8及以下IE浏览器.</li>
+					<li>需要添加浏览器私有前缀.</li>
+					<li>translate可能受transform其他子属性值影响.</li>
+					<li>要注意添加<b>transform-style: preserve-3d</b>优化渲染性能.</li>
+				</ul>
+			</dd>
+		</dl>
+		<hr>
+		<h4><i>03.</i>表格块(Table-Cell)</h4>
+		<p><b>基本思路:</b> 通过设置display:table/table-cell相关属性，模拟表格布局.</p>
+		<div class="parent" id="p3">
+			<div class="son">
+				<div class="cont"></div>
+			</div>
+		</div>
+		<pre><code>
+  .parent{display:table}
+  .son{display:table-cell;vertical-align:middle}
+  .cont{width:50%;height:50%;margin:auto}
+</code></pre>
+		<dl class="right" style="height:156px">
+			<dt>优点：</dt>
+			<dd>
+				<ul>
+					<li>支持高度自适应，可适用于响应式环境.</li>
+					<li>适用于多个子元素水平垂直居中环境.</li>
+					<li>兼容性良好，移动浏览器基本都兼容display:table/table-cell及相关属性.</li>
+				</ul>
+			</dd>
+		</dl>
+		<dl class="error" style="height:156px">
+			<dt>不足：</dt>
+			<dd>
+				<ul>
+					<li>需要额外标签.</li>
+				</ul>
+			</dd>
+		</dl>
+		<hr>
+		<h4><i>04.</i>行内块(Inline-Block)</h4>
+		<p><b>基本思路:</b> 首先，将子容器设置行内块和任一伪元素也设置为行内块及水平居中；然后对父容器设置文本居中即可</p>
+		<div class="parent" id="p4">
+			<div class="son"></div>
+		</div>
+		<pre><code>
+  .parent{text-align:center;overflow:auto}
+  .parent:after{content:'';display:inline-block;vertical-align:middle;height:100%;width:0}
+  .son{display:inline-block;vertical-align:middle}
+</code></pre>
+		<dl class="right" style="height:136px">
+			<dt>优点：</dt>
+			<dd>
+				<ul>
+					<li>支持子元素高度自适应.</li>
+					<li>适用于多个子元素水平垂直居中环境.</li>
+					<li>兼容性良好，IE7+支持.</li>
+				</ul>
+			</dd>
+		</dl>
+		<dl class="error" style="height:136px">
+			<dt>不足：</dt>
+			<dd>
+				<ul>
+					<li>当存在多个子容器时，注意盒子之间的间隙.</li>
+				</ul>
+			</dd>
+		</dl>
+		<hr>
+		<h4><i>05.</i>伸缩盒模型(Flexbox)</h4>
+		<p><b>基本思路:</b> 使用CSS3新添加的flexbox弹性盒模型相关属性，分分钟设置一个、多个子盒子的水平/垂直居中、对齐、等高</p>
+		<div class="parent" id="p5">
+			<div class="son"></div>
+		</div>
+		<pre><code>
+  .parent{display: flex; align-items: center; justify-content: center;}
+</code></pre>
+		<dl class="right" style="height:136px">
+			<dt>优点：</dt>
+			<dd>
+				<ul>
+					<li>不需要设置子元素的高度、宽度.</li>
+					<li>适用于任意子元素水平垂直居中环境.</li>
+					<li>提供更加开阔和便捷的布局思想；代码量少.</li>
+				</ul>
+			</dd>
+		</dl>
+		<dl class="error" style="height:136px">
+			<dt>不足：</dt>
+			<dd>
+				<ul>
+					<li>IE10+才兼容，高级浏览器也部分存在兼容问题.</li>
+					<li>需要添加浏览器私有前缀.</li>
+					<li>可能存在性能问题(不确定).</li>
+				</ul>
+			</dd>
+		</dl>
+		<hr>
+
+	<h4><i>06.</i>绝对居中块(Absolute Centering)</h4>
+	<p><b>基本思路:</b> 结合设置子元素外边距auto及四个方向的偏移值为0达到水平垂直居中的目的</p>
+	<div class="parent" id="p6">
+		<div class="son"></div>
+	</div>
+	<pre><code>
+	  .parent{position:relative}
+	  .son{width:50%;height:50%;margin:auto;position: absolute;top:0;right:0;left:0;bottom:0;}
+	</code></pre>
+	<dl class="right" style="height:136px">
+		<dt>优点：</dt>
+		<dd>
+			<ul>
+				<li>支持IE8+，兼容性良好.</li>
+				<li>代码量少，标签结构简单.</li>
+				<li>宽高值通过设置为%，适用于响应式环境.</li>
+			</ul>
+		</dd>
+	</dl>
+	<dl class="error" style="height:136px">
+		<dt>不足：</dt>
+		<dd>
+			<ul>
+				<li>高度必须定义.</li>
+			</ul>
+		</dd>
+	</dl>
+	<p>对于此种布局方式，此文
+		<a href="http://blog.csdn.net/freshlover/article/details/11579669" target="_blank" rel="external">盘点8种CSS实现垂直居中水平居中的绝对定位居中技术</a>讲的很是透彻。
+	</p>
+	
+	<h4><i>07.</i>外插入一个空元素&利用浮动</h4>
+	<div class="parentO">
+		<div id="floater"></div>
+		<div id="p7"></div>
+	</div>
+	<pre><code>
+#floater{background-color:#ccc;float:left; margin-bottom:-100px;height:50%;}
+.content{clear:both;height:200px;position:relative;width:60%;margin:auto;}
+	</code></pre>
+	<dl class="right" style="height:136px">
+		<dt>优点：</dt>
+		<dd>
+			<ul>
+				<li>适用于大多浏览器(包括IE8+)</li>
+				<li>没有足够的空间时(Eg:窗口缩小)Content不会被截断，滚动条出现</li>
+			</ul>
+		</dd>
+	</dl>
+	<dl class="error" style="height:136px">
+		<dt>不足：</dt>
+		<dd>
+			<ul>
+				<li>需要额外的空元素</li>
+				<li>用到了浮动(如果对于不好此属性者，也算不足)</li>
+			</ul>
+		</dd>
+	</dl>
+
+	<h4><i>08.</i>line-height与height齐飞</h4>
+	<div id="p8">
+		欲把西湖比西子，淡妆浓抹总相宜。
+	</div>
+	<hr>
+	<div id="p8">
+		莫道不消魂，独弄键盘，人比黄花瘦。
+		深夜把码黎明后，有咸香盈袖。
+		真可谓：天堂有路你不走，学海无涯苦作舟。
+		饶上个：一入'哀啼'深似海，从此'逍遥'没长'苏'。
+	</div>
+	<pre><code>
+.content{height: 10em;line-height:10em;}
+	</code></pre>
+	<dl class="right" style="height:136px">
+		<dt>优点：</dt>
+		<dd>
+			<ul>
+				<li>适用于大多浏览器(包括IE8+)</li>
+				<li>无足够空间时不会被截断</li>
+			</ul>
+		</dd>
+	</dl>
+	<dl class="error" style="height:136px">
+		<dt>不足：</dt>
+		<dd>
+			<ul>
+				<li>只对文本有效(块级元素无效)</li>
+				<li>多行时,断词比较糟糕~如上效果，额</li>
+			</ul>
+		</dd>
+	</dl>
+</div>
+</body>
+</html>
+  
