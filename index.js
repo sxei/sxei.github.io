@@ -136,5 +136,11 @@ var pages = [
 		"title": "CSS垂直居中",
 		"description": "详细介绍CSS垂直居中的8种实现方式",
 		"url": "2016/11/26-vertical-align-center/"
+	},
+	{
+		"date": "2016-11-28",
+		"title": "flex布局示例",
+		"description": "CSS3 flex布局演示",
+		"url": "2016/11/28-flex/"
 	}
 ]

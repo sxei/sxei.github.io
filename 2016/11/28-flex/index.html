@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="CSS3 flex布局演示">
+	<meta name="keys" content="柳夏南,liuxianan,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://liuxianan.com/favicon.ico" type="image/x-icon">
+	<title>flex布局示例</title>
+
+	<style type="text/css">
+body{font-family: 'Microsoft Yahei'; font-size: 16px; }
+.body-container {
+    width: 1024px;
+    margin: 0 auto;
+    padding: 10px;
+}
+.sample {
+	width: 100%;
+	height: 300px;
+	border: solid 1px #ccc;
+	display: flex;
+	counter-reset: mycount;
+	overflow: hidden;
+}
+.sample > div {
+	width: 200px;
+	height: 120px;
+	background: red;
+	margin: 10px;
+	counter-increment: mycount;
+	color: #FFF;
+	text-align: center;
+	font-size: 36px;
+}
+.sample > div:after {
+	content: counter(mycount); 
+}
+.sample > div:nth-child(2n) {
+	width: 400px;
+}
+.sample-2 {flex-wrap: wrap;}
+.sample-3 {flex-wrap: wrap;justify-content: flex-end;}
+.sample-4 { align-items: stretch;}
+.sample-5 {align-items: center; justify-content: center;}
+.sample-5 > div {width: auto !important; height: auto;}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="body-container">
+
+		<h1>Flex布局</h1>
+		<p>给父元素添加display: flex;之后就形成了一个flex布局，flex默认按水平方向排列，一行排不下时会自动按比例压缩宽度（下面例子中本来红块的宽度为200px和400px，由于宽度不够，最后整体压缩到了100px和200px）。</p>
+		<div class="sample sample-1">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<p>添加flex-wrap: wrap之后：</p>
+		<div class="sample sample-2">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<p>justify-content: flex-end;</p>
+		<div class="sample sample-3">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<p>如果子元素未设置高度，align-content默认值为stretch（也就是高度自动充满），当设置了高度时默认值为flex-start</p>
+		<div class="sample sample-4">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<p>水平垂直居中：{display: flex;align-items: center; justify-content: center;}</p>
+		<div class="sample sample-5">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+
+</body>
+
+</html>
