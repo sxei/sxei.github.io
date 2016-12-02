@@ -40,15 +40,15 @@
 	.cont:before{content:'.cont';}
 
 	#p1>.son{position: absolute;left:50%;top:50%;background-color: transparent;border:2px dashed #ccc;}
-	#p1>.son>.cont{margin-top:-75px;margin-left:-50%;height:150px;width:100%;background-color: rgba(0,0,0,.5);z-index:-1;}
+	#p1>.son>.cont{margin-top:-75px;margin-left:-50%;height:150px;width:100%;background-color: #988E2E;z-index:-1;}
 	#p1>.son>.cont:before{margin-left:-50%;margin-top:-75px;}
 
 	#p2>.son{width:50%;height:50%;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
 
-	#p3{display: table}
-	#p3>.son{display:table-cell; vertical-align: middle;width:100%;height:100%;background-color: transparent;}
+	#p3{display: table;*position: relative;}
+	#p3>.son{display:table-cell; vertical-align: middle;width: auto;height: auto;background-color: transparent;*position: absolute;*top:50%;}
 	#p3>.son:before{top:2em;}
-	#p3>.son>.cont{width:50%;height:50%;margin:0 auto;background-color: rgba(0,0,0,.5);position: relative;}
+	#p3>.son>.cont{width:400px;margin:0 auto;background-color: #4fa46b;position: relative;*position: relative; *top: -50%; }
 
 	#p4{overflow: auto;text-align: center;}
 	#p4:after,#p4>.son{display: inline-block;vertical-align: middle;}
@@ -83,7 +83,7 @@
 </head>
 <body>
 	<div class="wrapper">
-		<p id="top-tip">本页面由网友<a href="http://www.cnblogs.com/jadeboy">@云轩奕鹤</a>首发于<a href="http://www.jeffjade.com/special/vertical_center_methods.html">这里</a>，这里只是转载备份，在此表示感谢！</p>
+		<p id="top-tip">本页面由网友<a href="http://www.cnblogs.com/jadeboy">@云轩奕鹤</a>首发于<a href="http://www.jeffjade.com/special/vertical_center_methods.html">这里</a>，这里只是转载备份（有少部分修改），在此表示感谢！</p>
 		<h1>绝对居中六法</h1>
 		<h4><i>01.</i>负外边距(Negative Margins)</h4>
 		<p><b>基本思路:</b> 首先，将设置了绝对定位的子元素水平和垂直偏移50%；然后，在水平和垂直方向分别偏移负自身宽高的一半</p>
@@ -151,13 +151,13 @@
 		<p><b>基本思路:</b> 通过设置display:table/table-cell相关属性，模拟表格布局.</p>
 		<div class="parent" id="p3">
 			<div class="son">
-				<div class="cont"></div>
+				<div class="cont">表格法兼容性好，支持IE6+，支持动态高度，表格法兼容性好，支持IE6+，支持动态高度，表格法兼容性好，支持IE6+，支持动态高度，表格法兼容性好，支持IE6+，支持动态高度表格法兼容性好，支持IE6+，支持动态高度。</div>
 			</div>
 		</div>
 		<pre><code>
-  .parent{display:table}
-  .son{display:table-cell;vertical-align:middle}
-  .cont{width:50%;height:50%;margin:auto}
+  .parent{display:table;*position: relative;/*IE hake*/}
+  .son{display:table-cell;vertical-align:middle;*position: absolute;*top:50%; /*IE hake*/}
+  .cont{width:50%;height:50%;margin:auto;*position: relative;*top:-50%; /*IE hake*/}
 </code></pre>
 		<dl class="right" style="height:156px">
 			<dt>优点：</dt>
@@ -165,7 +165,7 @@
 				<ul>
 					<li>支持高度自适应，可适用于响应式环境.</li>
 					<li>适用于多个子元素水平垂直居中环境.</li>
-					<li>兼容性良好，移动浏览器基本都兼容display:table/table-cell及相关属性.</li>
+					<li>兼容性良好，唯一一个兼容IE6+且高度自适应的方案，移动浏览器基本都兼容display:table/table-cell及相关属性；</li>
 				</ul>
 			</dd>
 		</dl>
