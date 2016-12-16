@@ -142,5 +142,11 @@ var pages = [
 		"title": "flex布局示例",
 		"description": "CSS3 flex布局演示",
 		"url": "2016/11/28-flex/"
+	},
+	{
+		"date": "2016-12-12",
+		"title": "首页",
+		"description": null,
+		"url": "2016/12/12-blog/"
 	}
 ]

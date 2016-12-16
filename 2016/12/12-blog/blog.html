@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8"/>
+	<title>博客内页</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize_v3.0.3.css">
+	<link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/blog.css">
+	<style type="text/css">
+	
+	</style>
+</head>
+<body>
+	<header class="top_header">
+		<nav class="top_nav">
+			<div class="top_nav_left">
+				<a href="#"><img src="images/lutongnet.png"/></a>
+				<span class="website_name">XXX的博客</span>
+			</div>
+			<div class="top_nav_left"><input type="text" placeholder="搜索" class="search"/></div>
+			<div class="top_nav_left">
+				<ul>
+					<li class="current"><a href="javascript:;">文章</a></li>
+					<li><a href="#">收藏</a></li>
+					<li><a href="#">札记</a></li>
+					<li><a href="#">草稿</a></li>
+					<li><a href="#">留言</a></li>
+					<li><a href="#">关于</a></li>
+					<li><a href="#">首页</a></li>
+				</ul>
+			</div>
+			<div class="top_nav_right">
+				<div class="login">
+					<a href="#"><i class="fa fa-sign-in"></i>写博客</a>
+					<a href="#"><i class="fa fa-sign-in"></i>登录</a>
+					<a href="#"><i class="fa fa-user-plus"></i>注册</a>
+				</div>
+			</div>
+		</nav>
+
+	</header>
+	<nav class="top_category">
+		<ul>
+			<li>文章分类：</li>
+			<li><a href="#">不限</a></li>
+			<li><a href="#">前端(142)</a></li>
+			<li><a href="#">Java(28)</a></li>
+			<li><a href="#">C#(35)</a></li>
+			<li><a href="#">数据库(25)</a></li>
+			<li><a href="#">Linux(141)</a></li>
+			<li><a href="#">安卓(89)</a></li>
+			<li><a href="#">IT(42)</a></li>
+		</ul>
+	</nav>
+	
+	<section class="center_content">
+		<div class="content_wrap">
+			<div class="content">
+				<nav class="center_nav">
+					您的位置：<a href="#">网站首页</a> &gt; <a href="#">博客首页</a> &gt; <a href="#">文章</a> &gt; <a href="#">前端</a> &gt; <a href="#">HTML5</a>
+				</nav>
+
+
+				<article class="article_detail">
+					<div class="article_title">
+						这是文章标题
+					</div>
+					<div class="article_desc">
+						liuxianan 发表于 2015-12-28 17:23 浏览(25) 评论(32) 赞(3)
+					</div>
+					<hr>
+					<div class="article_content">
+					
+
+
+<h1>pomelo安装</h1>
+<p>这里以Linux系统安装为例。</p>
+<h2>准备工作</h2>
+<ul>
+<li>node</li>
+<li>python(2.5 &lt; version &lt; 3.0)</li>
+<li>c++编译器（如gcc）</li>
+</ul>
+<p>以上3个条件，除了node之外，Linux系统上一般都会预装。</p>
+<p>先来检查各个软件的版本：</p>
+<pre><code># node -v （4.2.4）
+# python （2.6.6）
+# gcc -v （4.4.7）
+</code></pre>
+
+<h2>开始安装</h2>
+<p>安装执行命令（我这里懒得全局安装）：</p>
+<pre><code>npm install pomelo
+</code></pre>
+
+<p>发现报错如下：</p>
+<pre><code>#error This version of node/NAN/v8 requires a C++11 compiler
+</code></pre>
+
+<p>搜索一下发现：由于node4.0升级了v8引擎，编译时需要gcc4.8以上版本，Centos6自带的gcc为gcc-4.4.7, 不支持编译所需的c++11标准，所以只好升级gcc。</p>
+<h2>centos6.5 安装 gcc4.8</h2>
+<p>自己安装编译很麻烦，直接使用yum安装更简单。这里使用devtoolset来安装gcc，相关版本对应如下：</p>
+<ul>
+<li>devtoolset-1是gcc 4.7</li>
+<li>devtoolset-2是gcc 4.8</li>
+<li>devtoolset-3是gcc 4.9</li>
+</ul>
+<p>命令：</p>
+<pre><code># cd /etc/yum.repos.d（定位到yum目录）
+# wget http://people.centos.org/tru/devtools-2/devtools-2.repo（下载repository）
+# yum --enablerepo=testing-devtools-2-centos-6 install devtoolset-2-gcc devtoolset-2-gcc-c++（安装gcc）
+</code></pre>
+
+
+
+
+
+
+
+
+					</div>
+					<hr>
+					<div class="article_desc">
+						liuxianan 发表于 2015-12-28 17:23 浏览(25) 评论(32) 赞(3)
+					</div>
+				</article>
+
+
+			</div>
+		</div>
+		<aside class="sidebar">
+
+			<div class="side_panel">
+				<div class="panel_title">
+					<h3>标签</h3>
+				</div>
+				<div class="panel_body tag_panel">
+					<div class="tag">java(34)</div>
+					<div class="tag">html5(16)</div>
+					<div class="tag">css3(17)</div>
+					<div class="tag">sql(26)</div>
+					<div class="tag">c#(34)</div>
+					<div class="tag">更多</div>
+				</div>
+			</div>
+
+
+			<div class="side_panel">
+				<div class="panel_title">
+					<h3>热门文章</h3>
+				</div>
+				<div class="panel_body">
+					<ol>
+						<li><a href="#">如何优雅地使用Sublime Text(4577)</a></li>
+						<li><a href="#">CSS实现水平|垂直居中漫谈(399)</a></li>
+						<li><a href="#">如何优雅地使用Sublime Text(25)</a></li>
+						<li><a href="#">lua表排序(498)</a></li>
+						<li><a href="#">Win下必备利器之Cmder(614)</a></li>
+						<li><a href="#">写于2015年末的总结(1524)</a></li>
+					</ol>
+				</div>
+			</div>
+			<div class="side_panel">
+				<div class="panel_title">
+					<h3>最新评论</h3>
+				</div>
+				<div class="panel_body">
+					<ol>
+						<li><a href="#">计费的了沙发扣篮大赛范德萨发送到丰盛的是否</a></li>
+						<li><a href="#">计费的了沙发扣篮大赛</a></li>
+						<li><a href="#">计费的了沙发扣篮大赛</a></li>
+						<li><a href="#">计费的了沙发扣篮大赛</a></li>
+						<li><a href="#">计费的了沙发扣篮大赛</a></li>
+						<li><a href="#">计费的了沙发扣篮大赛</a></li>
+					</ol>
+				</div>
+			</div>
+			<div class="side_panel">
+				<div class="panel_title">
+					<h3>最新留言</h3>
+				</div>
+				<div class="panel_body">
+					<ol>
+						<li><a href="#">计费的了沙发扣篮大赛范德萨发送到丰盛的是否</a></li>
+						<li><a href="#">计费的了沙发扣篮大赛</a></li>
+						<li><a href="#">计费的了沙发扣篮大赛</a></li>
+						<li><a href="#">计费的了沙发扣篮大赛</a></li>
+						<li><a href="#">计费的了沙发扣篮大赛</a></li>
+						<li><a href="#">计费的了沙发扣篮大赛</a></li>
+					</ol>
+				</div>
+			</div>
+
+			<div class="side_panel">
+				<div class="panel_title">
+					<h3>统计信息</h3>
+				</div>
+				<div class="panel_body panel_tongji">
+					<div>文章(241)</div>
+					<div>评论(6216)</div>
+					<div>访问(589156)</div>
+					<div>留言(621)</div>
+				</div>
+			</div>
+		</aside>
+	</section>
+
+	<footer class="footer">
+		 © 2016 liuxianan.com <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16002604-1</a> <a href="http://link.liuxianan.com">友情链接</a> <a href="http://about.liuxianan.com">关于</a>
+	</footer>
+
+	<script type="text/javascript" src="js/blog.js"></script>
+	<script type="text/javascript">
+
+	</script>
+</body>
+</html>
