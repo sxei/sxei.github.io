@@ -14,7 +14,7 @@ var pages = [
 	{
 		"date": "2016-01-07",
 		"title": "DEMO模板",
-		"description": "欢迎访问柳夏南的个人网站，同时这里也是柳夏南个人博客",
+		"description": "这里填写页面简单介绍",
 		"url": "2016/01/07-demo-sample/"
 	},
 	{
@@ -46,6 +46,12 @@ var pages = [
 		"title": "white-space、word-break、word-wrap的区别",
 		"description": "white-space、word-break、word-wrap的区别",
 		"url": "2016/03/11-white-space/"
+	},
+	{
+		"date": "2016-06-25",
+		"title": "simple-switch演示",
+		"description": "自己简单实现一个jQuery开关插件",
+		"url": "2016/06/25-simple-switch-plugin/"
 	},
 	{
 		"date": "2016-08-17",
@@ -148,5 +154,11 @@ var pages = [
 		"title": "首页",
 		"description": null,
 		"url": "2016/12/12-blog/"
+	},
+	{
+		"date": "2017-02-08",
+		"title": "js读取和导出excel示例",
+		"description": null,
+		"url": "2017/02/08-js-xlsx/"
 	}
 ]

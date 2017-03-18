@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="自己简单实现一个jQuery开关插件">
+	<meta name="keys" content="柳夏南,liuxianan,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://liuxianan.com/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../../../demo.css">
+
+	<title>simple-switch演示</title>
+	<link rel="stylesheet" type="text/css" href="simple-switch/jquery.simple-switch.css">
+	<style type="text/css">
+	/*设置盒模型*/
+	*
+	{
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box
+	}
+	:before,:after
+	{
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box
+	}
+	body{font-family: 'Microsoft Yahei'; font-size: 16px; background: white; margin: 10px; padding: 0;}
+	input[type="button"] {
+		background-color: #FFF;
+		border: solid 1px #8E8E8E;
+		padding: 10px 15px;
+		border-radius: 5px;
+		margin: 5px;
+		font-size: 14px;
+	}
+	</style>
+</head>
+<body>
+
+	<header class="header">
+		<a href="/">返回首页</a> 
+		<a href="http://blog.liuxianan.com/jquery-simple-switch-plugin.html" target="_blank">返回相关博文</a>
+	</header>
+
+	<h1>simple-switch示例：</h1>
+	<h2>开关1：</h2>
+
+	<div id="switch1" class="simple-switch">
+		<input type="checkbox" />
+		<span class="switch-handler"></span>
+	</div>
+
+	
+	<h2>开关2：</h2>
+
+	<div id="switch2" class="simple-switch active">
+		<input type="checkbox" checked/>
+		<span class="switch-handler"></span>
+	</div>
+
+	<input type="button" value="切换所有开关状态" onclick="$('.simple-switch').simpleSwitch('toggle');"/>
+	<input type="button" value="打开开关一" onclick="$('#switch1').simpleSwitch('toggle', true);"/>
+	<input type="button" value="关闭开关一" onclick="$('#switch1').simpleSwitch('toggle', false);"/>
+	<input type="button" value="获取开关一状态" onclick="alert('是否打开：'+$('#switch1').simpleSwitch('state'));"/>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../../demo.js"></script>
+	<script type="text/javascript" src="simple-switch/jquery.simple-switch.js"></script>
+	<script type="text/javascript">
+
+	// 监听开关2的状态
+	$('#switch2').on('switch-change', function(e)
+	{
+		console.log('开关2的状态：'+e.detail);
+	});
+	</script>
+</body>
+</html>

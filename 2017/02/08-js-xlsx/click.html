@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>JS触发单击事件以及弹出下载对话框</title>
+    <style type="text/css">
+	body{font-family: 微软雅黑;}
+    </style>
+</head>
+<body>
+	<h1>JS触发单击事件的3种方法</h1>
+
+	<a href="avatar.jpg" download="测试下载.jpg" id="alink" style="display:none;">下载</a>
+	<input type="button" value="click触发单击事件" onclick="fireClickEvent(1)"/>
+	<input type="button" value="MouseEvent触发单击事件" onclick="fireClickEvent(2)"/>
+	<input type="button" value="createEvent触发单击事件" onclick="fireClickEvent(3)"/>
+
+	<h1>JS弹出下载对话框</h1>
+	
+	<p>同理，要实现主动弹出下载对话框，只需要动态生成一个A标签，将href指向下载地址，然后触发A标签的单击事件即可。</p>
+	<input type="button" value="弹出下载对话框" onclick="openDownloadDialog('avatar.jpg', '头像.jpg')"/>
+	<script type="text/javascript">
+	
+	/**
+	 * JS主动触发单击事件
+	 */
+	function fireClickEvent(type)
+	{
+		var alink = document.getElementById('alink');
+		if(type == 1)
+		{
+			alink.click(); // 直接使用click方法，没测试过兼容性，一般应该都没问题
+		}
+		else if(type == 2)
+		{
+			// 使用MouseEvent，这个方法较新，兼容性不乐观
+			// 具体参见：https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent/MouseEvent
+			var event = new MouseEvent('click');
+			alink.dispatchEvent(event);
+		}
+		else if(type == 3)
+		{
+			// 这个方法比较旧，已从w3c标准移除，但目前大部分浏览器都还支持
+            var event = document.createEvent('MouseEvents');
+            event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            alink.dispatchEvent(event);
+		}
+	}
+
+	/**
+	 * 通用的打开下载对话框方法，没有测试过具体兼容性
+	 * @param url 下载地址，也可以是一个blob对象，必选
+	 * @param saveName 保存文件名，可选
+	 */
+	function openDownloadDialog(url, saveName)
+	{
+		if(typeof url == 'object' && url instanceof Blob)
+		{
+			url = URL.createObjectURL(url); // 创建blob地址
+		}
+		var aLink = document.createElement('a');
+		aLink.href = url;
+		aLink.download = saveName || ''; // HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效
+		var event;
+		if(window.MouseEvent) event = new MouseEvent('click');
+		else
+		{
+			event = document.createEvent('MouseEvents');
+			event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+		}
+		aLink.dispatchEvent(event);
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>js读取和导出excel示例</title>
+    <style type="text/css">
+	table {
+	    border-collapse: collapse;
+	}
+	th, td {
+	    border: solid 1px #6D6D6D;
+	    padding: 5px 10px;
+	}
+    </style>
+</head>
+<body>
+	<h1>js读取和导出excel示例</h1>
+	<div>
+		<a href="http://oss.sheetjs.com/js-xlsx/">官网演示</a>
+		<a href="https://github.com/SheetJS/js-xlsx/">github</a>
+	</div>
+	
+	<input type="file" id="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+	<input type="button" value="保存" onclick="saveWorkbook()"/>
+	<div id="result" contenteditable>
+		
+	</div>
+	<script type="text/javascript" src="js/xlsx.core.min.js"></script>
+	<script type="text/javascript">
+	var file = document.getElementById('file');
+	var workbook;
+	file.addEventListener('change', function(e)
+	{
+		var files = e.target.files;
+		if(files.length == 0) return;
+		var f = files[0];
+		if(!/\.xlsx$/g.test(f.name))
+		{
+			alert('仅支持读取xlsx格式！');
+			return;
+		}
+		var reader = new FileReader();
+		reader.onload = function(e)
+		{
+			var data = e.target.result;
+			workbook = XLSX.read(data, {type: 'binary'});
+			console.log('读取成功！');
+			foreachWorkbook(workbook);
+		};
+		reader.readAsBinaryString(f);
+	});
+
+	// 遍历 excel文件
+	function foreachWorkbook(workbook)
+	{
+		var sheetNames = workbook.SheetNames; // 工作表名称集合
+		var html = '';
+		console.log(sheetNames);
+		sheetNames.forEach(function(name)
+		{
+			var worksheet = workbook.Sheets[name]; // 只能通过工作表名称来获取指定工作表
+			// 普通的遍历方式
+			for (var key in worksheet)
+			{
+				// 只要不是“!”开通，都可以认为是单元格的地址，如“!ref”就不是
+				if(key[0] === '!') continue;
+				console.log(`${name}->${key}：`+worksheet[key].v); // v是读取单元格的原始值
+			}
+			// 我们这里直接采用现成的工具类来展示成表格
+			var csv = XLSX.utils.sheet_to_csv(worksheet);
+			html += '<h2>'+name+'：</h2>' + csv2table(csv);
+		});
+		document.getElementById('result').innerHTML = html;
+	}
+
+	// 将csv转换成表格形式
+	function csv2table(csv)
+	{
+		console.log(csv);
+		var html = '<table>';
+		var rows = csv.split('\n');
+		rows.pop(); // 最后一行没用的
+		rows.forEach(function(row, idx)
+		{
+			var columns = row.split(',');
+			columns.unshift(idx); // 添加行索引
+			if(idx == 0) // 添加列索引
+			{
+				html += '<tr>';
+				for(var i=0; i<columns.length; i++)
+				{
+					html += '<th>' + (i==0?'':String.fromCharCode(65+i-1)) + '</th>';
+				}
+				html += '</tr>';
+			}
+			html += '<tr>';
+			columns.forEach(function(column)
+			{
+				html += '<td>'+column+'</td>';
+			});
+			html += '</tr>';
+		});
+		html += '</table>';
+		return html;
+	}
+
+	function readWorkbookFromHtml()
+	{
+		var tables = document.querySelectorAll('#result table');
+		
+	}
+
+	function saveWorkbook()
+	{
+
+		var wopts = { bookType:'xlsx', bookSST:false, type:'binary' };
+
+		var wbout = XLSX.write(workbook, wopts);
+
+		function s2ab(s) {
+			var buf = new ArrayBuffer(s.length);
+			var view = new Uint8Array(buf);
+			for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
+			return buf;
+		}
+
+		/* the saveAs call downloads a file on the local machine */
+		openDownloadDialog(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), "test.xlsx");
+	}
+	function saveAs(blob)
+	{
+		var url = URL.createObjectURL(blob);
+		console.log(url);
+	}
+
+	/**
+	 * 通用的打开下载对话框方法，没有测试过具体兼容性
+	 * @param url 下载地址，也可以是一个blob对象，必选
+	 * @param saveName 保存文件名，可选
+	 */
+	function openDownloadDialog(url, saveName)
+	{
+		if(typeof url == 'object' && url instanceof Blob)
+		{
+			url = URL.createObjectURL(url); // 创建blob地址
+		}
+		var aLink = document.createElement('a');
+		aLink.href = url;
+		aLink.download = saveName || ''; // HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效
+		var event;
+		if(window.MouseEvent) event = new MouseEvent('click');
+		else
+		{
+			event = document.createEvent('MouseEvents');
+			event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+		}
+		aLink.dispatchEvent(event);
+	}
+	</script>
+</body>
+</html>
