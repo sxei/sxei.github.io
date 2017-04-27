@@ -1,0 +1,3 @@
+{{each $data}}
+		{{$index}}: {{$value}}<br>
+{{/each}}

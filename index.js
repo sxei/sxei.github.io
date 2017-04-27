@@ -160,5 +160,11 @@ var pages = [
 		"title": "js读取和导出excel示例",
 		"description": null,
 		"url": "2017/02/08-js-xlsx/"
+	},
+	{
+		"date": "2017-04-24",
+		"title": "artTemplate演示",
+		"description": "JS模板引擎artTemplate简单演示",
+		"url": "2017/04/24-art-template/"
 	}
 ]
