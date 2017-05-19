@@ -166,5 +166,17 @@ var pages = [
 		"title": "artTemplate演示",
 		"description": "JS模板引擎artTemplate简单演示",
 		"url": "2017/04/24-art-template/"
+	},
+	{
+		"date": "2017-04-28",
+		"title": "爱心魔方方块",
+		"description": "爱心魔方方块",
+		"url": "2017/04/28-love-block/"
+	},
+	{
+		"date": "2017-05-19",
+		"title": "WebWorker示例",
+		"description": "简单的WebWorker示例",
+		"url": "2017/05/19-web-worker-demo/"
 	}
 ]

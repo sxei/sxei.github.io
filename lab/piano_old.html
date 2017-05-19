@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>网页电子琴</title>
+	<style type="text/css">
+	.piano-wrap
+	{
+		float: left;
+		background-color: rgb(31, 73, 121);
+		padding: 30px 10px;
+		border-radius: 10px;
+	}
+	.title
+	{
+		color: white;
+		text-align: center;
+		margin-top: -10px;
+		margin-bottom: 20px;
+		font-size: 24px;
+		text-shadow: 2px 2px 2px black;
+		font-family: 'Microsoft Yahei';
+	}
+	.key
+	{
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		background-color: #F1F1F1;
+		border-radius: 10px;
+		text-align: center;
+		cursor: pointer;
+		float: left;
+		margin: 4px;
+		font-size: 20px;
+		font-family: 'Microsoft Yahei';
+		text-shadow: 2px 2px 2px #ccc;
+	}
+	.key:hover
+	{
+		background-color:#bbb;
+	}
+	</style>
+</head>
+<body>
+	
+	<div class="piano-wrap">
+		<div class="title">piano demo</div>
+		<script type="text/javascript">
+		var arr = ['c','d','e','f','g','a','b'];
+		for(var j=3; j<=5; j++)
+		{
+			for(var i=0; i<arr.length; i++)
+			{
+				if(j==3 && i<2)
+					continue;
+				if(j==5 && i>=5)
+					continue;
+				document.write((i==-1?'<div style="clear:left;"></div>':'')+'<div class="key" style="text-decoration:'+(j==3?'underline':(j==5?'overline':'none'))+';" data-src="'+arr[i]+j+'">'+(i+1)+'</div>');
+			}
+		}
+		var items = document.getElementsByClassName('key');
+		var audio = new Audio();
+		for(var i=0; i<items.length; i++)
+			items[i].addEventListener('mouseenter', function(e)
+			{
+				var item = e.target;
+				var src = 'http://s8.qhimg.com/share/audio/piano1/' + item.dataset.src + '.ogg';
+				audio.src = src;
+				audio.play();
+			});
+		</script>
+	</div>
+</body>
+</html>

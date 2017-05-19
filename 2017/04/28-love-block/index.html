@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="renderer" content="webkit">
+	<meta name="keys" content="柳夏南,liuxianan,小茗同学,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://liuxianan.com/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../../../res/lib/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../res/lib/font-awesome/4.2.0/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="../../../res/css/demo.css">
+	
+	<title>爱心魔方方块</title>
+	<meta name="description" content="爱心魔方方块">
+	<style type="text/css">
+	#block {width: 700px;height:700px;}
+	#block > .r:after {content: '';display: block;clear:both;}
+	#block .block {width:100px;height:100px;float:left;background: white;border:solid 1px #ccc;}
+	#block .block.red {background: red;}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top_navbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="http://liuxianan.com">DEMO-柳夏南的个人网站</a>
+			</div>
+			<div class="collapse navbar-collapse" id="top_navbar">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="http://demo.liuxianan.com">首页</a>
+					</li>
+					<li class="dropdown">
+						<a href="http://blog.liuxianan.com">博客</a>
+					</li>
+					<li class="dropdown">
+						<a href="http://tool.liuxianan.com">工具</a>
+					</li>
+					<li class="dropdown">
+						<a href="https://github.com/liuxianan/liuxianan.github.io" target="_blank">本站源码</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">返回相关博文</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<h2 id="page_title">爱心魔方方块</h2>
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="block"><div>
+			</div>
+		</div>
+	</div>
+方法一：
+下，右，上，左
+右，下，左，上
+
+方法二：
+上，左，下，右
+左，上，右，下
+	<script type="text/javascript" src="../../../res/lib/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../res/js/demo.js"></script>
+	<script type="text/javascript">
+	(function()
+	{
+		var html = '';
+		var loves = 
+		[
+			[0, 1, 0, 0, 0, 1, 0],
+			[1, 1, 1, 0, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1],
+			[0, 1, 1, 1, 1, 1, 0],
+			[0, 1, 1, 1, 1, 1, 0],
+			[0, 0, 1, 1, 1, 0, 0],
+			[0, 0, 0, 1, 0, 0, 0]
+		]
+		for(var i=0; i<7; i++)
+		{
+			html += '<div class="r">'
+			for(var j=0; j<7; j++)
+			{
+				html += '<div class="block '+(loves[i][j]?'red':'')+'"></div>';
+			}
+			html += '</div>';
+		}
+		document.getElementById('block').innerHTML = html;
+	})();
+	</script>
+
+
+</body></html>
