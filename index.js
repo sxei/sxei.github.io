@@ -178,5 +178,17 @@ var pages = [
 		"title": "WebWorker示例",
 		"description": "简单的WebWorker示例",
 		"url": "2017/05/19-web-worker-demo/"
+	},
+	{
+		"date": "2017-05-22",
+		"title": "echarts-demo",
+		"description": "echarts-demo",
+		"url": "2017/05/22-echarts-demo/"
+	},
+	{
+		"date": "2017-05-22",
+		"title": "mockjs示例",
+		"description": "mockjs示例",
+		"url": "2017/05/22-mockjs/"
 	}
 ]
