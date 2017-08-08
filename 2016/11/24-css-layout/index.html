@@ -101,6 +101,24 @@ body{font-family: 'Microsoft Yahei'; font-size: 16px; }
 }
 
 
+.layout-2-1 .container {
+    height: 100%;
+    line-height: 400px;
+    padding-left: 130px;
+}
+.layout-2-1 .aside {
+    float: left;
+    width: 120px;
+    background: #F6D3FF;
+    height: 100%;
+    text-align: center;
+}
+.layout-2-1 .content {
+    background: #FFD5B1;
+    text-align: center;
+}
+
+
 .layout-2-2 .container {
 	height: 100%;
 	line-height: 400px;
@@ -209,6 +227,8 @@ body{font-family: 'Microsoft Yahei'; font-size: 16px; }
 
 		<h1>经典布局二</h1>
 		<p>左侧固定宽度，右侧宽度100%</p>
+        <h2>方法一</h2>
+        <p>margin-left=-130px;</p>
 		<div class="body-wrapper layout-2">
 			<section class="container clear-float">
 				<aside class="aside">aside</aside>
@@ -217,12 +237,22 @@ body{font-family: 'Microsoft Yahei'; font-size: 16px; }
 				</div>
 			</section>
 		</div>
+        <h2>方法二</h2>
+        <p>padding-left=130px;</p>
+        <div class="body-wrapper layout-2-1">
+            <section class="container clear-float">
+                <aside class="aside">aside</aside>
+                <div class="content-wrapper">
+                    <article class="content">content</article>
+                </div>
+            </section>
+        </div>
+        <h2>方法三</h2>
 		<p>另外一种实现方式，这种实现方式更加简单，只需要左边浮动，右边overflow: hidden; 即可</p>
 		<div class="body-wrapper layout-2-2">
 			<section class="container clear-float">
 				<aside class="aside">aside</aside>
 				<article class="content">content</article>
-                <aside class="aside1">aside</aside>
 			</section>
 		</div>
 
