@@ -190,5 +190,11 @@ var pages = [
 		"title": "mockjs示例",
 		"description": "mockjs示例",
 		"url": "2017/05/22-mockjs/"
+	},
+	{
+		"date": "2017-09-14",
+		"title": "JS复制到剪贴板",
+		"description": "介绍JS复制到剪贴板的2种常见实现",
+		"url": "2017/09/14-clipboard/"
 	}
 ]
