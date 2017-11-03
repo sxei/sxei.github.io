@@ -156,6 +156,12 @@ var pages = [
 		"url": "2016/12/12-blog/"
 	},
 	{
+		"date": "2017-02-07",
+		"title": "JS触发单击事件以及弹出下载对话框",
+		"description": null,
+		"url": "2017/02/07-js-fire-click/"
+	},
+	{
 		"date": "2017-02-08",
 		"title": "js读取和导出excel示例",
 		"description": null,
