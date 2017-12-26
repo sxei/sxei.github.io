@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="renderer" content="webkit">
-	<meta name="keys" content="柳夏南,liuxianan,小茗同学,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<meta name="keys" content="柳夏南,小茗同学,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
 	<link rel="shortcut icon" href="http://liuxianan.com/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="../../../res/lib/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../../../res/lib/font-awesome/4.2.0/css/font-awesome.css">
@@ -25,7 +25,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="http://liuxianan.com">DEMO-柳夏南的个人网站</a>
+				<a class="navbar-brand" href="http://liuxianan.com">DEMO</a>
 			</div>
 			<div class="collapse navbar-collapse" id="top_navbar">
 				<ul class="nav navbar-nav">
@@ -49,10 +49,13 @@
 		</div>
 	</nav>
 	<div class="container">
-		<h2 id="page_title">echarts-demo</h2>
+		<h2>echarts-demo</h2>
 		<div class="row">
 			<div class="col-sm-12">
-				<div id="echarts_panel" style="width: 800px;height:500px;"></div>
+				<div id="echarts_demo_1" style="width: 800px; height:500px;"></div>
+			</div>
+            <div class="col-sm-12">
+				<div id="echarts_demo_2" style="width: 800px; height:500px;"></div>
 			</div>
 		</div>
 	</div>
@@ -62,118 +65,7 @@
 	<script type="text/javascript" src="../../../res/js/demo.js"></script>
 	<script type="text/javascript" src="echarts-3.4.0.min.js"></script>
     <script type="text/javascript" src="xei.js"></script>
-	<script type="text/javascript">
-	var base = +new Date(2016, 5, 23);
-    var oneDay = 24 * 3600 * 1000;
-    var _date = [];
-    var date = [];
-    var data = [Math.random() * 300];
+    <script type="text/javascript" src="index.js"></script>
 
-    for (var i = 1; i < 365; i++) {
-        var now = new Date(base += oneDay+xei.getRandom(100000));
-        _date.push(now);
-        date.push(xei.formatDate(now, 'yyyy/MM/dd'));
-        data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
-    }
-
-    var option = {
-        tooltip: {
-            trigger: 'axis',
-            position: function (pt) {
-                return [pt[0], '10%'];
-            }
-        },
-        title: {
-            left: 'center',
-            text: '大数据量面积图',
-        },
-        toolbox: {
-            feature: {
-                dataZoom: {
-                    yAxisIndex: 'none'
-                },
-                restore: {},
-                saveAsImage: {}
-            }
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: date
-        },
-        yAxis: {
-            type: 'value',
-            boundaryGap: [0, '100%']
-        },
-        dataZoom: [{
-            type: 'inside',
-            start: 10,
-            end: 30
-        }, {
-            start: 0,
-            end: 10,
-            handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
-            handleSize: '80%',
-            handleStyle: {
-                color: '#fff',
-                shadowBlur: 3,
-                shadowColor: 'rgba(0, 0, 0, 0.6)',
-                shadowOffsetX: 2,
-                shadowOffsetY: 2
-            }
-        }],
-        series: [
-            {
-                name:'模拟数据',
-                type:'line',
-                smooth:true,
-                symbol: 'none',
-                sampling: 'average',
-                itemStyle: {
-                    normal: {
-                        color: 'rgb(255, 70, 131)'
-                    }
-                },
-                areaStyle: {
-                    normal: {
-                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0,
-                            color: 'rgb(255, 158, 68)'
-                        }, {
-                            offset: 1,
-                            color: 'rgb(255, 70, 131)'
-                        }])
-                    }
-                },
-                data: data
-            }
-        ]
-    };
-    var myChart = echarts.init(document.getElementById('echarts_panel'));
-    myChart.setOption(option);
-    myChart.on('dataZoom', function(params)
-    {
-        console.log(params);
-        if(params.end - params.start < 20)
-        {
-            _date.forEach((item, idx) => {
-                date[idx] = xei.formatDate(item, 'HH:mm');
-              // date[idx] += ',';
-            });
-        }
-        else
-        {
-            _date.forEach((item, idx) => {
-                date[idx] = xei.formatDate(item, 'yyyy/MM/dd');
-            });
-        }
-        /*myChart.setOption({xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: date
-        }});*/
-    });
-    </script>
-
-
-</body></html>
+</body>
+</html>
