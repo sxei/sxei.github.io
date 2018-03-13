@@ -13,7 +13,10 @@
 	<title>echarts-demo</title>
 	<meta name="description" content="echarts-demo">
 	<style type="text/css">
-
+	.echarts-panel {
+		width: 1000px;
+		height: 500px;
+	}
 	</style>
 </head>
 <body>
@@ -52,10 +55,20 @@
 		<h2>echarts-demo</h2>
 		<div class="row">
 			<div class="col-sm-12">
-				<div id="echarts_demo_1" style="width: 800px; height:500px;"></div>
+				<h3>最简单折线图</h3>
+				<div id="echarts_demo_1" class="echarts-panel"></div>
 			</div>
-            <div class="col-sm-12">
-				<div id="echarts_demo_2" style="width: 800px; height:500px;"></div>
+			<div class="col-sm-12">
+				<h3>最简单柱状图</h3>
+				<div id="echarts_demo_2" class="echarts-panel"></div>
+			</div>
+			<div class="col-sm-12">
+				<h3>双Y轴</h3>
+				<div id="echarts_demo_3" class="echarts-panel"></div>
+			</div>
+			<div class="col-sm-12">
+				<h3>时间轴</h3>
+				<div id="echarts_demo_5" class="echarts-panel"></div>
 			</div>
 		</div>
 	</div>
