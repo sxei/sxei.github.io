@@ -202,5 +202,11 @@ var pages = [
 		"title": "JS复制到剪贴板",
 		"description": "介绍JS复制到剪贴板的2种常见实现",
 		"url": "2017/09/14-clipboard/"
+	},
+	{
+		"date": "2018-04-28",
+		"title": "WebWorker 测试",
+		"description": "简单的WebWorker例子",
+		"url": "2018/04/28-webworker/"
 	}
 ]
