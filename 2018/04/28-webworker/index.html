@@ -56,6 +56,11 @@
 				<span id="status" style="margin-left: 10px;">状态：未启动</span>
 			</div>
 		</div>
+		<div class="row" style="margin-top: 12px;">
+			<div class="col-sm-12">
+				<a id="btn" class="btn btn-primary" href="javascript:startSharedWorker()">启动SharedWorker</a>
+			</div>
+		</div>
 	</div>
 	
 
@@ -80,6 +85,14 @@
 			$('#status').html('已主动停止！');
 			$('#btn').html('启动WebWorker');
 		}
+	}
+	function startSharedWorker() {
+		var sharedWorker = new SharedWorker('./sharedworker.js')
+		sharedWorker.port.start()
+		sharedWorker.port.postMessage('你好，我是主线程！');
+		sharedWorker.port.onmessage = (e) => {
+			console.log(e.data);
+		};
 	}
 	</script>
 
