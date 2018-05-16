@@ -10,8 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="../../../res/lib/font-awesome/4.2.0/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="../../../res/css/demo.css">
 	
-	<title>WebWorker 测试</title>
-	<meta name="description" content="简单的WebWorker例子">
+	<title>前端跨域总结</title>
+	<meta name="description" content="前端常见的跨域示例">
 	<style type="text/css">
 
 	</style>
@@ -49,53 +49,36 @@
 		</div>
 	</nav>
 	<div class="container">
-		<h2 id="page_title">WebWorker 测试</h2>
+		<h2 id="page_title">前端跨域总结</h2>
+		<h3>window.name + iframe 跨域演示</h3>
 		<div class="row">
 			<div class="col-sm-12">
-				<a id="btn" class="btn btn-primary" href="javascript:startWorker()">启动WebWorker</a>
-				<span id="status" style="margin-left: 10px;">状态：未启动</span>
-			</div>
-		</div>
-		<div class="row" style="margin-top: 12px;">
-			<div class="col-sm-12">
-				<a id="btn" class="btn btn-primary" href="javascript:startSharedWorker()">启动SharedWorker</a>
+				<a href="javascript:crossDomainByWindowName()" class="btn btn-primary">跨域请求</a>
 			</div>
 		</div>
 	</div>
 	
 
 	<script type="text/javascript" src="../../../res/lib/jquery/2.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src="../../../res/js/demo.js">
-	console.log(11)
-	</script>
+	<script type="text/javascript" src="../../../res/js/demo.js"></script>
 	<script type="text/javascript">
-	var worker;
-	function startWorker() {
-		if($('#btn').html() == '启动WebWorker') {
-			$('#btn').html('停止WebWorker');
-			$('#status').html('正在运行');
-			worker = new Worker('./webworker.js');
-			worker.onmessage = function(e) {
-				if(e.data && e.data.cmd == 'end') {
-					$('#btn').html('启动WebWorker');
-					$('#status').html('已结束！');
+		function crossDomainByWindowName() {
+			var iframe = document.createElement('iframe');
+			iframe.src = 'http://test.haoji.me/window-name-cross-domain-proxy.html';
+			iframe.style.display = 'none'; // 隐藏
+			document.body.appendChild(iframe);
+			var count = 0;
+			iframe.onload = function() {
+				if(count == 0) {
+					iframe.src = 'http://demo.haoji.me/2018/05/14-cross-domain/empty.html';
+				} else {
+					console.log(iframe.contentWindow.name);
+					alert('跨域拿到数据：' + iframe.contentWindow.name)
+					document.body.removeChild(iframe);
 				}
+				count++;
 			};
-		} else {
-			// 主线程中终止子线程
-			worker.terminate();
-			$('#status').html('已主动停止！');
-			$('#btn').html('启动WebWorker');
 		}
-	}
-	function startSharedWorker() {
-		var sharedWorker = new SharedWorker('./sharedworker.js')
-		sharedWorker.port.start()
-		sharedWorker.port.postMessage('你好，我是主线程！');
-		sharedWorker.port.onmessage = (e) => {
-			console.log(e.data);
-		};
-	}
 	</script>
 
 

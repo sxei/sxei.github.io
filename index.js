@@ -208,5 +208,11 @@ var pages = [
 		"title": "WebWorker 测试",
 		"description": "简单的WebWorker例子",
 		"url": "2018/04/28-webworker/"
+	},
+	{
+		"date": "2018-05-14",
+		"title": "前端跨域总结",
+		"description": "前端常见的跨域示例",
+		"url": "2018/05/14-cross-domain/"
 	}
 ]
