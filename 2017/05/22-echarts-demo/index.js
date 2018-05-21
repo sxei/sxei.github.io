@@ -362,6 +362,7 @@ var colors = ['#2599e4', '#FF4949', '#03C300', '#f90', '#FF00BC', '#FFD800'];
 	function getOptions(data) {
 		var legends = data.y_name;
 		var series = [];
+		data.x[10] += ' 12:15:371';
 		data.y.forEach((item, idx) => {
 			var serie = {
 				name: legends[idx],
@@ -442,7 +443,7 @@ var colors = ['#2599e4', '#FF4949', '#03C300', '#f90', '#FF00BC', '#FFD800'];
 			},
 			grid: {
 				left: 40, // 控制左右边距，默认为10%
-				right: 40
+				bottom: 120, // x轴文字旋转时经常由于文字太长显示不下，这是因为默认的下边距太短
 			},
 			color: colors,
 			series: series
