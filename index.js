@@ -214,5 +214,11 @@ var pages = [
 		"title": "前端跨域总结",
 		"description": "前端常见的跨域示例",
 		"url": "2018/05/14-cross-domain/"
+	},
+	{
+		"date": "2018-05-17",
+		"title": "GeoHash",
+		"description": "高德地图演示",
+		"url": "2018/05/17-geohash/"
 	}
 ]
