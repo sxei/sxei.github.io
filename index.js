@@ -152,19 +152,19 @@ var pages = [
 	{
 		"date": "2016-12-12",
 		"title": "首页",
-		"description": null,
+		"description": "个人博客最早的静态页面",
 		"url": "2016/12/12-blog/"
 	},
 	{
 		"date": "2017-02-07",
 		"title": "JS触发单击事件以及弹出下载对话框",
-		"description": null,
+		"description": "JS触发单击事件以及弹出下载对话框示例",
 		"url": "2017/02/07-js-fire-click/"
 	},
 	{
 		"date": "2017-02-08",
 		"title": "js读取和导出excel示例",
-		"description": null,
+		"description": "使用sheetjs读取和导出excel示例",
 		"url": "2017/02/08-js-xlsx/"
 	},
 	{
@@ -220,5 +220,11 @@ var pages = [
 		"title": "GeoHash",
 		"description": "高德地图演示",
 		"url": "2018/05/17-geohash/"
+	},
+	{
+		"date": "2018-07-02",
+		"title": "菊花文",
+		"description": "热得字都出汗了",
+		"url": "2018/07/02-chrysanthemum-word/"
 	}
 ]
