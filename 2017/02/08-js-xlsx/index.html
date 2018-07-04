@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-	<title>js读取和导出excel示例</title>
+	<title>JS读取和导出excel示例</title>
 	<meta name="description" content="使用sheetjs读取和导出excel示例">
     <style type="text/css">
 	table {
@@ -12,91 +12,115 @@
 	    border: solid 1px #6D6D6D;
 	    padding: 5px 10px;
 	}
+	.mt-sm {margin-top: 8px;}
+	body {
+		background: #f4f4f4;
+		padding: 0;
+		margin: 0;
+	}
+	.container {
+		width: 1024px;
+		margin: 0 auto;
+		background: #fff;
+		padding: 20px;
+		min-height: 100vh;
+	}
     </style>
 </head>
 <body>
-	<h1>js读取和导出excel示例</h1>
-	<div>
-		<a href="http://oss.sheetjs.com/js-xlsx/">官网演示</a>
-		<a href="https://github.com/SheetJS/js-xlsx/">github</a>
-	</div>
-	
-	<input type="file" id="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
-	<input type="button" value="保存" onclick="saveWorkbook()"/>
-	<div id="result" contenteditable>
+	<div class="container">
+		<h1>JavaScript读取和导出excel示例（基于js-xlsx）</h1>
+		<div>
+			<a href="http://blog.haoji.me/js-excel.html" _target="_blank">如何使用JavaScript实现纯前端读取和导出excel文件</a><br>
+			<a href="http://oss.sheetjs.com/js-xlsx/">官网演示</a><br>
+			<a href="https://github.com/SheetJS/js-xlsx/">Github</a>
+		</div>
+		<h2>读取excel（仅读取第一个sheet）</h2>
+		<div class="mt-sm">
+			<input type="file" id="file" style="display:none;" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+			<a href="javascript:selectFile()">加载本地excel文件</a>
+			<a href="javascript:loadRemoteFile('./sample/sample.xlsx')">加载远程excel文件</a>
+		</div>
 		
-	</div>
-	<script type="text/javascript" src="js/xlsx.core.min.js"></script>
-	<script type="text/javascript">
-	var file = document.getElementById('file');
-	var workbook;
-	file.addEventListener('change', function(e)
-	{
-		var files = e.target.files;
-		if(files.length == 0) return;
-		var f = files[0];
-		if(!/\.xlsx$/g.test(f.name))
-		{
-			alert('仅支持读取xlsx格式！');
-			return;
-		}
-		var reader = new FileReader();
-		reader.onload = function(e)
-		{
-			var data = e.target.result;
-			workbook = XLSX.read(data, {type: 'binary'});
-			console.log('读取成功！');
-			foreachWorkbook(workbook);
-		};
-		reader.readAsBinaryString(f);
-	});
+		<p>结果输出：（下面表格可直接编辑导出）</p>
+		<div id="result" contenteditable></div>
 
-	// 遍历 excel文件
-	function foreachWorkbook(workbook)
-	{
-		var sheetNames = workbook.SheetNames; // 工作表名称集合
-		var html = '';
-		console.log(sheetNames);
-		sheetNames.forEach(function(name)
-		{
-			var worksheet = workbook.Sheets[name]; // 只能通过工作表名称来获取指定工作表
-			// 普通的遍历方式
-			for (var key in worksheet)
-			{
-				// 只要不是“!”开通，都可以认为是单元格的地址，如“!ref”就不是
-				if(key[0] === '!') continue;
-				console.log(`${name}->${key}：`+worksheet[key].v); // v是读取单元格的原始值
-			}
-			// 我们这里直接采用现成的工具类来展示成表格
-			var csv = XLSX.utils.sheet_to_csv(worksheet);
-			html += '<h2>'+name+'：</h2>' + csv2table(csv);
-		});
-		document.getElementById('result').innerHTML = html;
+		<h2>导出excel</h2>
+		<div class="mt-sm" style="padding-bottom:40px;">
+			<input type="button" onclick="exportExcel()" value="保存"/> 上面读取的表格您可以直接编辑，编辑后点击保存即可导出excel文件。
+		</div>
+	</div>
+	<script type="text/javascript" src="../../../res/lib/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/xlsx.core.min.js"></script>
+	<script type="text/javascript">
+
+	function selectFile() {
+		document.getElementById('file').click();
 	}
 
-	// 将csv转换成表格形式
+	// 读取本地excel文件
+	function readWorkbookFromLocalFile(file, callback) {
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			var data = e.target.result;
+			var workbook = XLSX.read(data, {type: 'binary'});
+			if(callback) callback(workbook);
+		};
+		reader.readAsBinaryString(file);
+	}
+
+	// 从网络上读取某个excel文件，url必须同域，否则报错
+	function readWorkbookFromRemoteFile(url, callback) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('get', url, true);
+		xhr.responseType = 'arraybuffer';
+		xhr.onload = function(e) {
+			if(xhr.status == 200) {
+				var data = new Uint8Array(xhr.response)
+				var workbook = XLSX.read(data, {type: 'array'});
+				if(callback) callback(workbook);
+			}
+		};
+		xhr.send();
+	}
+
+	// 读取 excel文件
+	function outputWorkbook(workbook) {
+		var sheetNames = workbook.SheetNames; // 工作表名称集合
+		sheetNames.forEach(name => {
+			var worksheet = workbook.Sheets[name]; // 只能通过工作表名称来获取指定工作表
+			for(var key in worksheet) {
+				// v是读取单元格的原始值
+				console.log(key, key[0] === '!' ? worksheet[key] : worksheet[key].v);
+			}
+		});
+	}
+
+	function readWorkbook(workbook) {
+		var sheetNames = workbook.SheetNames; // 工作表名称集合
+		var worksheet = workbook.Sheets[sheetNames[0]]; // 这里我们只读取第一张sheet
+		var csv = XLSX.utils.sheet_to_csv(worksheet);
+		document.getElementById('result').innerHTML = csv2table(csv);
+	}
+
+	// 将csv转换成表格
 	function csv2table(csv)
 	{
-		console.log(csv);
 		var html = '<table>';
 		var rows = csv.split('\n');
 		rows.pop(); // 最后一行没用的
-		rows.forEach(function(row, idx)
-		{
+		rows.forEach(function(row, idx) {
 			var columns = row.split(',');
-			columns.unshift(idx); // 添加行索引
-			if(idx == 0) // 添加列索引
-			{
+			columns.unshift(idx+1); // 添加行索引
+			if(idx == 0) { // 添加列索引
 				html += '<tr>';
-				for(var i=0; i<columns.length; i++)
-				{
+				for(var i=0; i<columns.length; i++) {
 					html += '<th>' + (i==0?'':String.fromCharCode(65+i-1)) + '</th>';
 				}
 				html += '</tr>';
 			}
 			html += '<tr>';
-			columns.forEach(function(column)
-			{
+			columns.forEach(function(column) {
 				html += '<td>'+column+'</td>';
 			});
 			html += '</tr>';
@@ -105,33 +129,58 @@
 		return html;
 	}
 
-	function readWorkbookFromHtml()
-	{
-		var tables = document.querySelectorAll('#result table');
-		
+	function table2csv(table) {
+		var csv = [];
+		$(table).find('tr').each(function() {
+			var temp = [];	
+			$(this).find('td').each(function() {
+				temp.push($(this).html());
+			})
+			temp.shift(); // 移除第一个
+			csv.push(temp.join(','));
+		});
+		csv.shift();
+		return csv.join('\n');
 	}
 
-	function saveWorkbook()
-	{
+	// csv转sheet对象
+	function csv2sheet(csv) {
+		var sheet = {}; // 将要生成的sheet
+		csv = csv.split('\n');
+		csv.forEach(function(row, i) {
+			row = row.split(',');
+			if(i == 0) sheet['!ref'] = 'A1:'+String.fromCharCode(65+row.length-1)+(csv.length-1);
+			row.forEach(function(col, j) {
+				sheet[String.fromCharCode(65+j)+(i+1)] = {v: col};
+			});
+		});
+		return sheet;
+	}
 
-		var wopts = { bookType:'xlsx', bookSST:false, type:'binary' };
-
+	// 将一个sheet转成最终的excel文件的blob对象，然后利用URL.createObjectURL下载
+	function sheet2blob(sheet, sheetName) {
+		sheetName = sheetName || 'sheet1';
+		var workbook = {
+			SheetNames: [sheetName],
+			Sheets: {}
+		};
+		workbook.Sheets[sheetName] = sheet;
+		// 生成excel的配置项
+		var wopts = {
+			bookType: 'xlsx', // 要生成的文件类型
+			bookSST: false, // 是否生成Shared String Table，官方解释是，如果开启生成速度会下降，但在低版本IOS设备上有更好的兼容性
+			type: 'binary'
+		};
 		var wbout = XLSX.write(workbook, wopts);
-
+		var blob = new Blob([s2ab(wbout)], {type:"application/octet-stream"});
+		// 字符串转ArrayBuffer
 		function s2ab(s) {
 			var buf = new ArrayBuffer(s.length);
 			var view = new Uint8Array(buf);
 			for (var i=0; i!=s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
 			return buf;
 		}
-
-		/* the saveAs call downloads a file on the local machine */
-		openDownloadDialog(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), "test.xlsx");
-	}
-	function saveAs(blob)
-	{
-		var url = URL.createObjectURL(blob);
-		console.log(url);
+		return blob;
 	}
 
 	/**
@@ -139,7 +188,7 @@
 	 * @param url 下载地址，也可以是一个blob对象，必选
 	 * @param saveName 保存文件名，可选
 	 */
-	function openDownloadDialog(url, saveName)
+	 function openDownloadDialog(url, saveName)
 	{
 		if(typeof url == 'object' && url instanceof Blob)
 		{
@@ -157,6 +206,36 @@
 		}
 		aLink.dispatchEvent(event);
 	}
+
+	$(function() {
+		document.getElementById('file').addEventListener('change', function(e) {
+			var files = e.target.files;
+			if(files.length == 0) return;
+			var f = files[0];
+			if(!/\.xlsx$/g.test(f.name)) {
+				alert('仅支持读取xlsx格式！');
+				return;
+			}
+			readWorkbookFromLocalFile(f, function(workbook) {
+				readWorkbook(workbook);
+			});
+		});
+		loadRemoteFile('./sample/test.xlsx');
+	});
+	
+	function loadRemoteFile(url) {
+		readWorkbookFromRemoteFile(url, function(workbook) {
+			readWorkbook(workbook);
+		});
+	}
+
+	function exportExcel() {
+		var csv = table2csv($('#result table')[0]);
+		var sheet = csv2sheet(csv);
+		var blob = sheet2blob(sheet);
+		openDownloadDialog(blob, '导出.xlsx');
+	}
+
 	</script>
 </body>
 </html>
