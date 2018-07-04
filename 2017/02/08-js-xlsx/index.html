@@ -49,6 +49,9 @@
 		<div class="mt-sm" style="padding-bottom:40px;">
 			<input type="button" onclick="exportExcel()" value="保存"/> 上面读取的表格您可以直接编辑，编辑后点击保存即可导出excel文件。
 		</div>
+
+		<h2>导出带单元格合并的excel</h2>
+		<input type="button" value="导出" onclick="exportSpecialExcel()"/>
 	</div>
 	<script type="text/javascript" src="../../../res/lib/jquery/2.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./js/xlsx.core.min.js"></script>
@@ -236,6 +239,20 @@
 		openDownloadDialog(blob, '导出.xlsx');
 	}
 
+	function exportSpecialExcel() {
+		var aoa = [
+			['主要信息', null, null, '其它信息'], // 特别注意合并的地方后面预留2个null
+			['姓名', '性别', '年龄', '注册时间'],
+			['张三', '男', 18, new Date()],
+			['李四', '女', 22, new Date()]
+		];
+		var sheet = XLSX.utils.aoa_to_sheet(aoa);
+		sheet['!merges'] = [
+			// 设置A1-C1的单元格合并
+			{s: {r: 0, c: 0}, e: {r: 0, c: 2}}
+		];
+		openDownloadDialog(sheet2blob(sheet), '单元格合并示例.xlsx');
+	}
 	</script>
 </body>
 </html>
