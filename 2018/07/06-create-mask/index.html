@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="renderer" content="webkit">
+	<meta name="keys" content="好记么,好记,好记的DEMO,小茗同学,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://res.haoji.me/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../../../res/lib/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../res/lib/font-awesome/4.2.0/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="../../../res/css/demo.css">
+	
+	<title>万能遮罩</title>
+	<meta name="description" content="给任意元素添加遮罩">
+	<style type="text/css">
+	.outer {
+    width: 500px;
+    height: 400px;
+    background: #ececec;
+    overflow-y: auto;
+}
+.inner p {
+	font-size: 36px;
+}
+	</style>
+	<script type="text/javascript">
+	
+	</script>
+</head>
+<body>
+
+	<div class="container">
+		<h2 id="page_title">万能遮罩</h2>
+		<div class="row">
+			<div class="col-sm-12">
+				<div>
+					<a href="javascript:createMask($('#dom1')[0])" class="btn btn-primary">添加遮罩</a>
+				</div>
+				<div class="outer">
+					<div class="inner">
+						<p>我是文字11</p>
+						<p>我是文字22</p>
+						<p id="dom1">我是文字33</p>
+						<p>我是文字44</p>
+						<input type="button" value="我是按钮"/><br>
+						<p>我是文字55</p>
+						<p>我是文字66</p>
+						<p>我是文字77</p>
+						<p>我是文字88</p>
+						<p>我是文字99</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript" src="../../../res/lib/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../res/js/demo.js"></script>
+	<script type="text/javascript">
+	function createMask(dom, opacity) {
+		var mask = document.createElement('div');
+		var width = dom.offsetWidth, height = dom.offsetHeight;
+		mask.style.cssText = 
+		`
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: ${width}px;
+			height: ${height}px;
+			background: red;
+			opacity: ${opacity == undefined ? 0.5 : opacity};
+		`;
+		dom.style.position = 'relative';
+		dom.appendChild(mask);
+	} 
+	</script>
+
+
+</body></html>

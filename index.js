@@ -163,7 +163,7 @@ var pages = [
 	},
 	{
 		"date": "2017-02-08",
-		"title": "js读取和导出excel示例",
+		"title": "JS读取和导出excel示例",
 		"description": "使用sheetjs读取和导出excel示例",
 		"url": "2017/02/08-js-xlsx/"
 	},
@@ -226,5 +226,11 @@ var pages = [
 		"title": "菊花文",
 		"description": "热得字都出汗了",
 		"url": "2018/07/02-chrysanthemum-word/"
+	},
+	{
+		"date": "2018-07-06",
+		"title": "万能遮罩",
+		"description": "给任意元素添加遮罩",
+		"url": "2018/07/06-create-mask/"
 	}
 ]
