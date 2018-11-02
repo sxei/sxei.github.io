@@ -1,7 +1,6 @@
 {
     "code": 0,
     "data": {
-        "update": true,
         "version": "1.0.1",
         "url": "http://demo.haoji.me/hsf/download.html",
         "desc": "更新部分功能！"

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="renderer" content="webkit">
+	<meta name="keys" content="好记么,好记,好记的DEMO,小茗同学,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://res.haoji.me/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../../../res/lib/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../res/lib/font-awesome/4.2.0/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="../../../res/css/demo.css">
+	
+	<title>vue测试</title>
+	<meta name="description" content="vue测试页面">
+	<style type="text/css">
+
+	</style>
+	<script type="text/javascript">
+	
+	</script>
+</head>
+<body>
+
+	<div class="container">
+		<h2 id="page_title">vue测试</h2>
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="app">
+					<div style="background: red;height: 200px;" @mouseenter="name='enter'" @mouseleave="name=''">
+						{{status=='enter'?'进入':'离开'}} {{name}}
+					</div>
+					<div style="background: green; height: 200px;">
+						当前时间：{{test()}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript" src="../../../res/lib/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../res/lib/vue/2.5.17/vue.js"></script>
+	<script type="text/javascript" src="../../../res/js/demo.js"></script>
+	<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		data: {
+			name: '小茗同学',
+			status: '',
+		},
+		mounted() {
+
+		},
+		methods: {
+			test() {
+				console.log(111111);
+				return 2222;
+			}
+		}
+	});
+	</script>
+
+
+</body>
+</html>
