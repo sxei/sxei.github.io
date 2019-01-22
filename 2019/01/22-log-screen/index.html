@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>10086日志大屏</title>
+    <meta name="description" content="10086日志大屏">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #222222;
+        }
+        h3 {
+            font-size: 48px;
+            font-weight: normal;
+            color: #07c6ff;
+            text-shadow: 1px 1px 0px #ffffff;
+            margin: 20px 0;
+        }
+        .content-wrapper * {
+            transition: all .3s;
+        }
+        .content-wrapper {
+            width: 1024px;
+            margin: 0 auto;
+            color: #fc0;
+            font-size: 30px;
+        }
+        /* .content-wrapper p:last-child {
+            font-size: 36px;
+        } */
+        #log {
+            height: 800px;
+            overflow: hidden;
+            margin-top: -10px;
+        }
+        #content {
+            transform: translateY(0px);
+        }
+        .message-wrapper {
+            position: relative;
+            margin-top: 28px;
+        }
+        .message-wrapper::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .message-body {
+            background: #f0f0f0;
+            color: black;
+            padding: 14px 10px;
+            border-radius: 5px;
+            position: relative;
+            overflow: visible;
+            margin-left: 110px;
+            max-width: 640px;
+            float: left;
+        }
+        .message-body::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -17px;
+            top: 9px;
+            width: 0;
+            height: 0;
+            border-right: solid 18px #f0f0f0;
+            border-top: solid 6px rgba(0, 0, 0, 0);
+            border-bottom: solid 10px rgba(0, 0, 0, 0);
+        }
+        .right-message .message-body {
+            float: right;
+            margin-right: 110px;
+            background: #B2E866;
+        }
+        .right-message .message-body::before {
+            right: -17px;
+            left: initial;
+            border-left: solid 18px #B2E866;
+            border-right: none;
+        }
+        .avatar {
+            position: absolute;
+            background: #32b3ff;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            width: 70px;
+            height: 70px;
+            border: solid 1px #ddd;
+            text-align: center;
+            line-height: 70px;
+            font-size: 28px;
+            color: white;
+        }
+        .right-message .avatar {
+            left: initial;
+            right: 0;
+            background: #ff7a12;
+        }
+        .tip {
+            color: #ff2727;
+            text-align: center;
+            margin: 20px 0 10px 0;
+        }
+        #point {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        #point.success {
+            background: #08d508;
+        }
+        #point.error {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <h3 style="text-align: center;">10086日志大屏 <span id="point"></span></h3>
+        <div id="log">
+            <div id="content"></div>
+        </div>
+    </div>
+    <script>
+        const testMode = true;
+        // 拍档文字速度控制
+        let logHeight = window.innerHeight - 160;
+        document.getElementById('log').style.height = logHeight + 'px';
+        window.onresize = function() {
+            logHeight = window.innerHeight - 160;
+            document.getElementById('log').style.height = logHeight + 'px';
+            refreshScroll();
+        }
+
+        const retrySecond = 2; // 连接失败时多久再次重试，单位秒
+        const nameMap = {
+            13155554444: '张三',
+            13599998888: '李四',
+        };
+        const log = document.getElementById('content');
+        const point = document.getElementById('point');
+        let websocket;
+        let lastMessage;
+        let ip = location.host.split(':')[0] || 'localhost';
+        if (location.search && /[?&]ip=(.+?)(&|$)/g.test(location.search)) {
+            ip = RegExp.$1;
+        }
+        
+        function initWebSocket() {
+            websocket = new WebSocket(`ws://${ip}:8889/ws`);
+
+            websocket.onopen = function(e) {
+                console.log('onopen', e);
+                point.className = 'success';
+            }
+
+            websocket.onmessage = function(e) {
+                console.log('onmessage', e.data);
+                handleMassage(e.data);
+            }
+            
+            websocket.onclose = function(e) {
+                console.log('onclose', e);
+                point.className = 'error';
+                setTimeout(() => {
+                    initWebSocket();
+                }, retrySecond * 1000);
+            }
+        }
+
+        function handleMassage(message) {
+            const resp = (message && typeof message === 'object') ? message : JSON.parse(message || '{}');
+            console.log(resp);
+            if (!resp.message) return;
+            console.log(lastMessage);
+            
+            // 如果收到的是语音消息，并且是上一条的纠正消息
+            if (resp.index && lastMessage && resp.index === lastMessage.index) {
+                lastMessage.dom.children[1].innerHTML = `${resp.message}`;
+            } else {
+                const p = document.createElement('div');
+                let html = '', from = resp.from;
+                if (resp.type === 'tip') {
+                    if (from === 'income') {
+                        resp.message = resp.message.split(' ')[0].replace(/"/g, '');
+                    }
+                    if (from === 'income' || from === 'call') {
+                        const name = nameMap[resp.message];
+                        html = `${from === 'income' ? '收到来电' : '正在呼叫'} ${resp.message}` + 
+                            (name ? `（${name}）` : '');
+                    } else {
+                        html = resp.message;
+                    }
+                } else {
+                    html = `<span class="avatar">${from === 'client' ? '客户' : '远程'}</span><div class="message-body">${resp.message.replace('一一九一八六-二八三七八', '119186-28378')}</div>`;
+                }
+                if (resp.type === 'tip') {
+                    p.classList.add('tip');
+                } else {
+                    p.classList.add(`message-wrapper`);
+                    p.classList.add(`${from === 'client' ? 'right' : 'left'}-message`);
+                }
+                if (from === 'server' && !testMode) {
+                    setTimeout(() => {
+                        p.innerHTML = html;
+                        log.appendChild(p);
+                        refreshScroll();
+                    }, html.indexOf('我是您的助理')>=0 ? 1500 : 4800);
+                    return;
+                } else {
+                    p.innerHTML = html;
+                    log.appendChild(p);
+                    resp.dom = p;
+                    lastMessage = resp;
+                }
+            }
+            refreshScroll();
+        }
+
+        var delay = 1;
+        function handleMassageDelay(msg) {
+            setTimeout(() => {
+                handleMassage(msg);
+            }, (delay++) * 500);
+        }
+
+        if (testMode) {
+            handleMassageDelay({"from":"income","message":"\"13155554444\" <sip:13155554444@172.11.111.111>","type":"tip"});
+            handleMassageDelay({"from":"server","message":"您好，欢迎拨打10086，请问有什么可以帮到您？"});
+            handleMassageDelay({"index":"1","from":"client","message":"帮我查一下话费"});
+            handleMassageDelay({"from":"server","message":"请您报一下您的手机号，本机直接说“本机”"});
+            handleMassageDelay({"index":"3","from":"client","message":"13144441111"});
+            handleMassageDelay({"from":"server","message":"手机号13144441111，话费余额0元"});
+            handleMassageDelay({"index":"4","from":"client","message":"好的，谢谢，另外你能帮我修改一下密码吗"});
+            handleMassageDelay({"from":"server","message":"抱歉，这属于敏感操作，是否需要转接至人工服务为您处理？"});
+            handleMassageDelay({"index":"5","from":"client","message":"好的，帮我转接"});
+            handleMassageDelay({message: "正在转接，请稍后...", type: 'tip'});
+        } else {
+            initWebSocket();
+        }
+        
+        function sendMsg(msg) {
+            if(websocket.readyState == WebSocket.OPEN) {
+                websocket.send(msg);
+            }
+        }
+
+        // 刷新页面滚动
+        function refreshScroll() {
+            const height = log.offsetHeight;
+            log.style.transform = `translateY(${height > (logHeight - 40) ? (logHeight - 40 - height) : 0}px)`;
+        }
+
+        window.onkeydown = function(e) {
+            if (e.key === '5') {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.webkitRequestFullScreen) {
+                    document.documentElement.webkitRequestFullScreen();
+                }
+                e.preventDefault();
+            } else if (e.key === '6') {
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>

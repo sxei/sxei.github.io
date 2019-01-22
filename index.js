@@ -232,5 +232,17 @@ var pages = [
 		"title": "万能遮罩",
 		"description": "给任意元素添加遮罩",
 		"url": "2018/07/06-create-mask/"
+	},
+	{
+		"date": "2018-11-02",
+		"title": "vue测试",
+		"description": "vue测试页面",
+		"url": "2018/11/02-vue-test/"
+	},
+	{
+		"date": "2019-01-22",
+		"title": "10086日志大屏",
+		"description": "10086日志大屏",
+		"url": "2019/01/22-log-screen/"
 	}
 ]

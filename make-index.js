@@ -11,9 +11,11 @@ years.forEach(function(year)
 	var months = fs.readdirSync(root+'/'+year);
 	months.forEach(function(month)
 	{
+		if(fs.statSync(root+'/'+year+'/'+month).isFile()) return;
 		var days = fs.readdirSync(root+'/'+year+'/'+month);
 		days.forEach(function(dayAndName)
 		{
+			if(fs.statSync(root+'/'+year+'/'+month+'/'+dayAndName).isFile()) return;
 			var temp = /^(.+?)-(.*)$/g.exec(dayAndName);
 			var htmlPath = root+'/'+year+'/'+month+'/'+dayAndName+'/index.html';
 			var html = fs.readFileSync(htmlPath, {encoding: 'utf8'});
