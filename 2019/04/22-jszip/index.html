@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="renderer" content="webkit">
+	<meta name="keys" content="好记么,好记,好记的DEMO,小茗同学,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://res.haoji.me/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../../../res/lib/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../res/lib/font-awesome/4.2.0/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="../../../res/css/demo.css">
+	
+	<title>JS解压压缩zip示例</title>
+	<meta name="description" content="JS解压压缩zip">
+	<style type="text/css">
+
+	</style>
+	<script type="text/javascript">
+	
+	</script>
+</head>
+<body>
+
+	<div class="container">
+		<h2 id="page_title">JS解压压缩zip示例</h2>
+		<div class="row">
+			<div class="col-sm-12">
+				<p>JS解压缩zip主要有以下2个较出名的库：</p>
+				<p>1. zip.js：<a href="http://gildas-lormeau.github.io/zip.js/" target="_blank">http://gildas-lormeau.github.io/zip.js/</a></p>
+				<p>2. jszip：<a href="https://stuk.github.io/jszip/" target="_blank">https://stuk.github.io/jszip/</a></p>
+				<p>我没有仔细对比二者的优缺点，第二个star较多，我们这里采用第二个jszip框架。</p>
+			</div>
+			<h4>演示：</h4>
+			<div>
+				<input type="file" id="file" style="display:none;" accept="application/zip"/>
+				<a href="javascript:selectFile()">加载本地zip文件</a>
+				<a href="javascript:readZipFromRemoteFile('./test/test.zip')">加载远程test.zip文件</a>
+				<a href="javascript:createZipFile()">生成zip文件</a>
+			</div>
+			<h4>zip文件内容：</h4>
+			<div id="result">
+
+			</div>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript" src="../../../res/lib/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../res/js/demo.js"></script>
+	<script type="text/javascript" src="./jszip-3.2.1/jszip.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			document.getElementById('file').addEventListener('change', function(e) {
+				var files = e.target.files;
+				if(files.length == 0) return;
+				var file = files[0];
+				if(!/\.zip$/g.test(file.name)) {
+					alert('仅支持读取zip格式！');
+					return;
+				}
+				readZip(file);
+			});
+		});
+
+		function selectFile() {
+			document.getElementById('file').click();
+		}
+
+		// 读取本地zip文件
+		function readZip(file) {
+			const start = Date.now();
+			JSZip.loadAsync(file)
+			.then(function(zip) {
+				var end = Date.now();
+				console.log('读取完毕，耗时：' + (end - start) + ' ms');
+				showZipContent(zip);
+			}, function (e) {
+				console.error('读取zip错误：', e.message);
+			});
+		}
+
+		// 从网络上读取某个excel文件，url必须同域，否则报错
+		function readZipFromRemoteFile(url) {
+			var xhr = new XMLHttpRequest();
+			xhr.open('get', url, true);
+			xhr.responseType = 'arraybuffer';
+			xhr.onload = function(e) {
+				if(xhr.status == 200) {
+					var data = new Uint8Array(xhr.response);
+					readZip(data);
+				}
+			};
+			xhr.send();
+		}
+
+		function showZipContent(zip) {
+			console.log(zip);
+			window.zipResult = zip;
+			// zip 并不是一个数组，这里的forEach是框架内部封装的方法
+			let html = '<ul>';
+			zip.forEach(function (relativePath, zipEntry) {
+				if (zipEntry.dir) {
+					html += `<li>${zipEntry.name}</li>`;
+				} else {
+					html += `<li><a href="javascript:getZipEntry('${zipEntry.name}');">${zipEntry.name}</a></li>`;
+				}
+			});
+			html += '</ul>';
+			$('#result').html(html);
+		}
+
+		function getZipEntry(key) {
+			if (/\.(txt|java)$/g.test(key)) {
+				// async 支持多种类型，例如对于文本类型可以选择 string
+				zipResult.file(key).async('string').then(txt => {
+					var myWindow = window.open('about:blank');
+					myWindow.document.write('<pre>' + txt + '</pre>');
+					myWindow.focus();
+				});
+			} else {
+				zipResult.file(key).async('blob').then(blob => {
+					openDownloadDialog(blob, key);
+				});
+			}
+		}
+
+		function createZipFile() {
+			var zip = new JSZip();
+			zip.file('示例文本.txt', '大家好，我是码怪！\n测试换行');
+			zip.file('test.java',`import java.util.Date;
+/**
+ * 测试类
+ *
+ * @author mg
+ * @since 当前时间：${Date.now()}
+ */
+@Data
+public class TestDTO implements Serializable {
+	private String name;
+}`);
+			var myFolder = zip.folder('示例文件夹');
+			const imgData = 'R0lGODdhBQAFAIACAAAAAP/eACwAAAAABQAFAAACCIwPkWerClIBADs=';
+			myFolder.file('smile.gif', imgData, {base64: true});
+			zip.generateAsync({ type: 'blob' })
+			.then(function(content) {
+				openDownloadDialog(content, 'example.zip');
+			});
+		}
+
+		/**
+		 * 通用的打开下载对话框方法，没有测试过具体兼容性
+		 * @param url 下载地址，也可以是一个blob对象，必选
+		 * @param saveName 保存文件名，可选
+		 */
+		function openDownloadDialog(url, saveName)
+		{
+			if(typeof url == 'object' && url instanceof Blob)
+			{
+				url = URL.createObjectURL(url); // 创建blob地址
+			}
+			var aLink = document.createElement('a');
+			aLink.href = url;
+			aLink.download = saveName || ''; // HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效
+			var event;
+			if(window.MouseEvent) event = new MouseEvent('click');
+			else
+			{
+				event = document.createEvent('MouseEvents');
+				event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+			}
+			aLink.dispatchEvent(event);
+		}
+	</script>
+
+
+</body></html>

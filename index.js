@@ -244,5 +244,11 @@ var pages = [
 		"title": "10086日志大屏",
 		"description": "10086日志大屏",
 		"url": "2019/01/22-log-screen/"
+	},
+	{
+		"date": "2019-04-22",
+		"title": "JS解压压缩zip示例",
+		"description": "JS解压压缩zip",
+		"url": "2019/04/22-jszip/"
 	}
 ]
