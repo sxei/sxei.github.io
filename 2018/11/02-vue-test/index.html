@@ -27,8 +27,14 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div id="app">
-					<div style="background: red;height: 200px;" @mouseenter="name='enter'" @mouseleave="name=''">
-						{{status=='enter'?'进入':'离开'}} {{name}}
+					<div>
+						<input type="text" @keydown="window.console.log($event.keyCode)" placeholder="测试键盘事件"/>
+					</div>
+					<div>
+						<input type="text" placeholder="测试键盘事件" v-model="value"/>
+					</div>{{value}}
+					<div style="background: red;height: 200px;" @mouseenter="status='enter'" @mouseleave="status=''">
+						{{status=='enter'?'进入':'离开'}}
 					</div>
 					<div style="background: green; height: 200px;">
 						当前时间：{{test()}}
@@ -48,14 +54,17 @@
 		data: {
 			name: '小茗同学',
 			status: '',
+			value: 'xxx',
 		},
 		mounted() {
-
+			this.window = window;
 		},
 		methods: {
 			test() {
-				console.log(111111);
 				return 2222;
+			},
+			ss(s) {
+				console.log(s)
 			}
 		}
 	});

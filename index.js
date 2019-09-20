@@ -250,5 +250,11 @@ var pages = [
 		"title": "JS解压压缩zip示例",
 		"description": "JS解压压缩zip",
 		"url": "2019/04/22-jszip/"
+	},
+	{
+		"date": "2019-09-20",
+		"title": "visibility=hidden与浮动结合测试",
+		"description": "visibility=hidden与浮动结合测试",
+		"url": "2019/09/20-visibility-hidden-with-float/"
 	}
 ]
