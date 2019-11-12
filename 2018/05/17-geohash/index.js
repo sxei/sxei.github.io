@@ -5,8 +5,8 @@ function LabeledMarker(latlng,opt_opts){
 ;(function() {
     /**
      * 获取高德地图的经纬度格式
-     * @param {*} lat 经度
-     * @param {*} lng 维度
+     * @param {*} lng 经度
+     * @param {*} lat 维度
      */
     function getAmapLngLat(lng, lat) {
         return new AMap.LngLat(lng, lat);
@@ -73,6 +73,7 @@ function LabeledMarker(latlng,opt_opts){
         
         //var marker = new LabeledMarker(getAmapLngLat(this.box.longitude[2], this.box.latitude[2]), this.options);
         this.marks.push(textMarker);
+        this.marks.push(marker);
 
 
         
@@ -242,7 +243,7 @@ var geocoder = null;
                             //设置节点属性
                             iconLabel: {
                                 //普通文本
-                                innerHTML: '刘显安',
+                                innerHTML: '码怪',
                                 //设置样式
                                 style: {
                                     color: '#fff',
@@ -256,7 +257,12 @@ var geocoder = null;
                         });
                     }); */
                     // location是一个高德的经纬度对象
-                    plotGeoHash(data.geocodes[0].location);
+                    var lngLat = data.geocodes[0].location;
+                    var geohash = encodeGeoHash(lngLat.lng, lngLat.lat);
+                    console.log('中心区geohash：' + geohash + '经度：' + lngLat.lng + '，纬度：' + lngLat.lat);
+                    var resolution = 6; // geohash层级
+                    geohash = geohash.substr(0, resolution);
+                    plotGeoHash(geohash);
                 } else {
                     console.error('检索位置失败');
                 }
@@ -264,11 +270,8 @@ var geocoder = null;
         });
     }
 
-    function plotGeoHash(lngLat) {
-        var geohash = encodeGeoHash(lngLat.lng, lngLat.lat);
-        console.log('中心区geohash：' + geohash);
-        var resolution = 6; // geohash层级
-        geohash = geohash.substr(0, resolution);
+    function plotGeoHash(geohash) {
+        document.getElementById('geohash_input').value = geohash;
         var geoHashBox = new GeoHashBox(geohash, map, marks, layer);
         geoHashBox.centerMap();
         geoHashBox.showNeighbors();
@@ -296,21 +299,23 @@ var geocoder = null;
             ydistance = parseInt(ydistance + 0.5);
             units = "m";
         }
-        var lat = parseInt(lngLat.lat * 1000) / 1000;
-        var lng = parseInt(lngLat.lng * 1000) / 1000;
-        console.log(lat + ", " + lng + " 矩形[宽:" + xdistance + units + ", 高:" + ydistance + units + "] 查询平面面积(" + searcharea + "平方公里)");
-    }    
+        console.log("矩形[宽:" + xdistance + units + ", 高:" + ydistance + units + "] 查询平面面积(" + searcharea + "平方公里)");
+    }
 
     // 清除地图上所有标记
     function cleanUp() {
         for(i in marks) {
-            mks[i].setMap(null);
+            marks[i].setMap(null);
         }
         marks = [];
     }
 
     $(function() {
         initMap();
+        $('#btn_ok').click(function() {
+            cleanUp();
+            plotGeoHash(document.getElementById('geohash_input').value);
+        });
     });
     $(window).on('resize', function() {
         //sizeMap();

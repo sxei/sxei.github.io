@@ -13,7 +13,11 @@
 	<title>GeoHash</title>
 	<meta name="description" content="高德地图演示">
 	<style type="text/css">
-
+	.btn-wrapper {
+		position: fixed;
+		top: 0;
+		left: 50%;
+	}
 	</style>
 </head>
 <body>
@@ -51,6 +55,10 @@
 
 
 	<div id="map"></div>
+	<div class="btn-wrapper">
+		<input id="geohash_input"/>
+		<input id="btn_ok" type="button" value="确定"/>
+	</div>
 	<!-- <div class="container">
 		<h2 id="page_title">GeoHash</h2>
 		<div class="row">
