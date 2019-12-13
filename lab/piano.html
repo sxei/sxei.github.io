@@ -158,11 +158,11 @@
 				222: "'"
 			};
 			for(var i=48; i<=57; i++)//0-9
-				keycodes[i] = String.fromCharCode(i);
+				keycodes[i] = 'num_' + String.fromCharCode(i);
 			for(var i=65; i<=90; i++)//A-Z
 				keycodes[i] = String.fromCharCode(i);
 			for(var i=96; i<=105; i++)//数字键盘0-9
-				keycodes[i] = 'num_'+(i-96);
+				keycodes[i] = (i-96);
 			for(var i=112; i<=123; i++)//f1-f12
 				keycodes[i] = 'f'+(i-111);
 			window.KEYCODES = keycodes;
@@ -196,12 +196,31 @@
 				},
 				initByFile: function()
 				{
-					var arrays = ['c','d','e','f','g','a','b'];
-					var badus = ['', '', 'a', 'b', 'c', 'd'];
-					for(var i=3; i<=5; i++)//i表示第几个8度
-					{
-						for(var j=0; j<arrays.length; j++)//j表示音阶
-							this._audios[badus[i] + (j+1)] = new Audio('http://s8.qhimg.com/share/audio/piano1/' + arrays[j] + i + '.ogg');
+					// var arrays = ['c','d','e','f','g','a','b'];
+					// var badus = ['', '', 'a', 'b', 'c', 'd'];
+					// for(var i=3; i<=5; i++)//i表示第几个8度
+					// {
+					// 	for(var j=0; j<arrays.length; j++) { //j表示音阶
+					// 		var a = new Audio('http://s8.qhimg.com/share/audio/piano1/' + arrays[j] + i + '.ogg');
+					// 		a.preload = true;
+					// 		this._audios[badus[i] + (j+1)] = a;
+					// 	}
+					// }
+					var badus = ['a', 'b', 'c', 'd'];
+					var n = 7;
+					var ns = [
+						47, 50, 51, 52, 53, 54, 55,
+						56, 57, 48, 81, 87, 69, 82,
+						84, 89, 85, 73, 79, 80, 65,
+						83, 68, 70, 71, 72, 74, 75,
+						76, 90, 88, 67, 86, 66, 78, 77
+					];
+					for (var i = 0; i < badus.length; i++) {
+						for (var j = 0; j < 7; j++) {
+							var audio = new Audio(`https://virtualpiano.net/wp-content/themes/twentyfourteen-child/newnotes/a${ns[n++]}.mp3`);
+							audio.prepend = true;
+							this._audios[badus[i] + (j+1)] = audio;
+						}
 					}
 				},
 				getByFile: function(key)
@@ -273,6 +292,7 @@
 							num_plus:'d3', numlock:'d4', num_divide:'d5', num_times:'d6'
 						};
 						var key = keymap[KEYCODES[e.keyCode]];
+						console.log(key);
 						if(key)
 						{
 							e.preventDefault();
@@ -317,12 +337,12 @@
 					this.playMusic(this._recordData);
 				}
 			};
-			H5Piano.init();
+			H5Piano.init(2);
 			H5Piano.initKeyEvent();
 			window.H5Piano = H5Piano;
 		})();
 		var audio = 'b3:111,b5:52,b6:54,c1:67,c2:23,b6:24,c1:28,b5:54,c5:70,d1:25,c6:23,c5:23,c3:26,c5:28,c2:128,c2:48,c2:22,c3:26,b7:50,b6:51,b5:70,b6:24,c1:48,c2:50,b3:49,c1:50,b6:24,b5:26,b6:25,c1:27,b5:120,c3:62,c5:26,b7:47,c2:47,b6:23,c1:29,b5:86,b3:24,b5:27,b3:47,b5:24,b6:25,b7:24,c2:27,b6:98,b5:21,b6:29,c1:68,c2:23,c5:50,c3:50,c2:45,c3:25,c2:25,c1:44,b6:24,b5:27,b3:99,c1:93,b6:30,c1:15,b6:21,b5:26,b3:24,b5:22,b6:24,c1:26,b5';
-		//H5Piano.playMusic(audio);
+		// H5Piano.playMusic(audio);
 
 	</script>
 
@@ -338,7 +358,7 @@
 		for(P=0;P<96;)
 		{
 			//这个注释掉的K的赋值是原乐曲，我改成了下边的乐曲，貌似也不错……
-			//k="/SN;__/NK;OL/QN;__/OL;NK4L@@_C4_G@OL4SO@__4QN@OL3NB?_G3_K?OL/QN;__/SK;__4OL@__4LC@_G4LC@_G4_C@_G"[A](P);
+			// k="/SN;__/NK;OL/QN;__/OL;NK4L@@_C4_G@OL4SO@__4QN@OL3NB?_G3_K?OL/QN;__/SK;__4OL@__4LC@_G4LC@_G4_C@_G"[A](P);
 			k="ABCDEFGHIJKLMNOPQRSTUVWXYZZYXWVUTSRQPONMLKJIHGFEDCBA"[A](P);
 			D="\0\0";
 			for(j=0;k<95&&j<1e4;){

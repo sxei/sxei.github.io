@@ -256,5 +256,11 @@ var pages = [
 		"title": "visibility=hidden与浮动结合测试",
 		"description": "visibility=hidden与浮动结合测试",
 		"url": "2019/09/20-visibility-hidden-with-float/"
+	},
+	{
+		"date": "2019-12-13",
+		"title": "H5唤起原生地图APP",
+		"description": "H5唤起原生高德百度腾讯等地图",
+		"url": "2019/12/13-open-native-map-app/"
 	}
 ]
