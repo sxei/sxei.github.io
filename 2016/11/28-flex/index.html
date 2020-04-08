@@ -6,8 +6,8 @@
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="renderer" content="webkit">
 	<meta name="description" content="CSS3 flex布局演示">
-	<meta name="keys" content="柳夏南,liuxianan,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
-	<link rel="shortcut icon" href="http://liuxianan.com/favicon.ico" type="image/x-icon">
+	<meta name="keys" content="柳夏南,个人网站,官网,官方网站,博客,个人博客,it,web,前端,码农,程序员,js,css3,html5,java,android">
+	<link rel="shortcut icon" href="http://res.haoji.me/favicon.ico" type="image/x-icon">
 	<title>flex布局示例</title>
 
 	<style type="text/css">
@@ -27,8 +27,8 @@ body{font-family: 'Microsoft Yahei'; font-size: 16px; }
 }
 .sample > div {
 	width: 200px;
-	height: 120px;
-	background: red;
+	background: #0660c3;
+	background: linear-gradient(90deg,#034c9e,#0660c3);
 	margin: 10px;
 	counter-increment: mycount;
 	color: #FFF;
@@ -41,9 +41,12 @@ body{font-family: 'Microsoft Yahei'; font-size: 16px; }
 .sample > div:nth-child(2n) {
 	width: 400px;
 }
+.sample-4 > div:nth-child(2n) {
+	height: 30px;
+}
 .sample-2 {flex-wrap: wrap;}
-.sample-3 {flex-wrap: wrap;justify-content: flex-end;}
-.sample-4 { align-items: stretch;}
+.sample-3 {flex-wrap: wrap;justify-content: center;}
+.sample-4 {align-items: center;flex-wrap: wrap;align-content: flex-end;}
 .sample-5 {align-items: center; justify-content: center;}
 .sample-5 > div {width: auto !important; height: auto;}
 	</style>
@@ -53,9 +56,14 @@ body{font-family: 'Microsoft Yahei'; font-size: 16px; }
 <body>
 
 	<div class="body-container">
-
 		<h1>Flex布局</h1>
-		<p>给父元素添加display: flex;之后就形成了一个flex布局，flex默认按水平方向排列，一行排不下时会自动按比例压缩宽度（下面例子中本来红块的宽度为200px和400px，由于宽度不够，最后整体压缩到了100px和200px）。</p>
+		<p>
+			给父元素添加`display: flex;`之后就形成了一个flex布局：
+			<ul>
+				<li>所有子元素默认按水平方向从左往右排列，高度如果不写默认100%；</li>
+				<li>一行放不下时默认会自动按比例压缩宽度（下面例子中本来红块的宽度为200px和400px，由于宽度不够，最后整体压缩到了100px和200px）。</li>
+			</ul>
+		</p>
 		<div class="sample sample-1">
 			<div></div>
 			<div></div>
@@ -64,7 +72,7 @@ body{font-family: 'Microsoft Yahei'; font-size: 16px; }
 			<div></div>
 			<div></div>
 		</div>
-		<p>添加flex-wrap: wrap之后：</p>
+		<p>给容器添加flex-wrap: wrap之后会按实际宽度展示，一行展示不下会换行，如果子项没设置高度，显示几行就按几行平分高度，比如下面示例中总高度300，展示3行，故每行100px：</p>
 		<div class="sample sample-2">
 			<div></div>
 			<div></div>
@@ -73,7 +81,7 @@ body{font-family: 'Microsoft Yahei'; font-size: 16px; }
 			<div></div>
 			<div></div>
 		</div>
-		<p>justify-content: flex-end;</p>
+		<p>给父元素设置 justify-content: center;</p>
 		<div class="sample sample-3">
 			<div></div>
 			<div></div>
@@ -82,7 +90,7 @@ body{font-family: 'Microsoft Yahei'; font-size: 16px; }
 			<div></div>
 			<div></div>
 		</div>
-		<p>如果子元素未设置高度，align-content默认值为stretch（也就是高度自动充满），当设置了高度时默认值为flex-start</p>
+		<p>align-items 控制单个主轴轴线上的垂直布局，align-content控制多个主轴轴线之间的垂直布局，如果子元素未设置高度，align-items 默认值为stretch（也就是高度自动充满）:</p>
 		<div class="sample sample-4">
 			<div></div>
 			<div></div>
